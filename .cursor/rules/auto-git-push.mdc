@@ -1,0 +1,26 @@
+---
+description: After every code change, automatically stage, commit, and push to git
+alwaysApply: true
+---
+
+# Auto Git Push After Every Change
+
+After completing **any** file edit or set of edits in this project, always run the following steps automatically without waiting to be asked:
+
+1. `git add` the changed files
+2. `git commit -m` with a short descriptive message (feat/fix/chore prefix)
+3. `git push`
+
+## Rules
+
+- Use PowerShell syntax (semicolons, not `&&`)
+- Run all three commands in a single Shell call: `git add <files>; git commit -m "..."; git push`
+- Commit message format: `type(scope): short description` (e.g. `feat(slide-14): add soft skills`)
+- Do this at the end of every task, even small edits
+- Never skip the push step
+
+## Example
+
+```powershell
+cd "c:\CursorProjects\DOCA BLueField"; git add index.html doca-v2.html; git commit -m "feat(slide-14): add soft skills section"; git push
+```
