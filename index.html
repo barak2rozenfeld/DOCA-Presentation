@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>DOCA Solution Blueprints ó Barak Rozenfeld</title>
+<title>DOCA Solution Blueprints ù Barak Rozenfeld</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -43,10 +43,26 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 #n-title{font-size:11px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
 .n-right{display:flex;align-items:center;gap:7px}
 .nb{background:transparent;border:1px solid var(--border2);color:var(--text2);
-    padding:3px 12px;border-radius:4px;cursor:pointer;font-size:11px;font-family:var(--font);
-    transition:all .15s}
+    padding:5px 18px;border-radius:6px;cursor:pointer;font-size:18px;font-family:var(--font);
+    line-height:1;transition:all .2s;min-width:44px}
 .nb:hover:not(:disabled){border-color:var(--green);color:var(--green);background:var(--green-faint)}
 .nb:disabled{opacity:.18;cursor:default}
+
+/* --- SIDE NAV ARROWS (desktop only) --- */
+.nav-side{
+  position:fixed;top:50%;transform:translateY(-50%);
+  z-index:20;background:rgba(11,18,32,.72);backdrop-filter:blur(14px);
+  border:1px solid var(--border2);border-radius:12px;
+  width:52px;height:88px;cursor:pointer;color:var(--text2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;transition:all .22s var(--ease);
+  font-family:var(--font);padding:0;
+}
+.nav-side:hover:not(:disabled){border-color:var(--green);color:var(--green);background:rgba(11,18,32,.92);box-shadow:0 0 18px rgba(118,185,0,.12)}
+.nav-side:disabled{opacity:.1;cursor:default;pointer-events:none}
+#ns-prev{left:10px}
+#ns-next{right:10px}
+@media(max-width:900px){.nav-side{display:none}}
 #sn{font-size:11px;color:var(--text3);min-width:30px;text-align:center}
 
 #prog{height:1px;background:rgba(255,255,255,.04);flex-shrink:0}
@@ -66,7 +82,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .slide::-webkit-scrollbar{width:3px}
 .slide::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
-/* Content column ó presentation width */
+/* Content column ù presentation width */
 .sc{
   width:100%;max-width:900px;
   padding:22px 32px 14px;
@@ -115,7 +131,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
 /* ----------------------------------
-   SLIDE 01 ó TITLE + EXAMPLE
+   SLIDE 01 ù TITLE + EXAMPLE
 ---------------------------------- */
 
 /* Thesis */
@@ -337,14 +353,19 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 }
 
 @media(max-width:700px){
-  .flow-diagram{flex-direction:column;align-items:stretch;gap:8px;padding:12px}
-  .fn-seg{width:100%;height:20px;min-width:auto}
-  .fn-line{top:50%;left:25%;right:25%;height:1px;width:auto}
+  .flow-diagram{flex-direction:column;align-items:stretch;gap:6px;padding:10px}
+  .fn-node{width:100%;min-width:auto;padding:9px 14px}
+  .fn-seg{width:100%;height:18px;min-width:auto}
+  .fn-line{top:50%;left:35%;right:35%;height:1px;width:auto}
   .fn-pkt{display:none}
-  .fn-arrow{right:25%;top:50%}
+  .fn-arrow,.fn-arrow-g,.fn-arrow-dim{
+    position:absolute;right:auto;left:50%;top:auto;bottom:2px;
+    transform:translateX(-50%) rotate(90deg);
+  }
+  .fn-load-bar,.fn-util-bar{width:80px}
 }
 
-/* -- Market Landscape ó Donut -- */
+/* -- Market Landscape ù Donut -- */
 .donut-wrap{display:flex;align-items:center;gap:24px}
 .donut-chart-box{flex-shrink:0}
 .donut-seg{transition:stroke-dasharray .9s cubic-bezier(0.16,1,0.3,1)}
@@ -733,11 +754,18 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .why-bring-dot{width:6px;height:6px;border-radius:50%;background:rgba(118,185,0,.6);margin-top:5px;flex-shrink:0}
 .why-quote{font-size:13px;color:var(--text);line-height:1.6;background:rgba(118,185,0,.04);
   border:1px solid rgba(118,185,0,.18);border-radius:9px;padding:13px 16px;text-align:center}
-@media(max-width:700px){.why-pillars,.why-layout{grid-template-columns:1fr}}
+/* Soft-skills + Tools tags */
+.why-extras{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.why-tags-box{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:12px 14px}
+.why-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.why-tag{font-size:10.5px;font-weight:600;padding:3px 10px;border-radius:20px;letter-spacing:.03em;white-space:nowrap}
+.why-tag-soft{background:rgba(42,128,200,.12);color:rgba(130,195,255,.92);border:1px solid rgba(42,128,200,.25)}
+.why-tag-tool{background:rgba(118,185,0,.09);color:rgba(148,212,42,.95);border:1px solid rgba(118,185,0,.22)}
+@media(max-width:700px){.why-pillars,.why-layout,.why-extras{grid-template-columns:1fr}}
 
 
 /* ----------------------------------
-   SLIDE 02 ó WHAT IS DOCA (LAYERS)
+   SLIDE 02 ù WHAT IS DOCA (LAYERS)
 ---------------------------------- */
 /* s2 uses .sc flex column */
 .s2-stack{display:flex;flex-direction:column;gap:0;width:100%;margin-bottom:14px}
@@ -759,7 +787,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr.hi,.lyr.hi-teal,.lyr.hi-blue{
   transition:border-color .2s,background .2s,box-shadow .2s;
 }
-/* DOCA ó green */
+/* DOCA ù green */
 .lyr.hi{background:rgba(118,185,0,.04);border-color:rgba(118,185,0,.38)}
 .lyr.hi::before{content:'';position:absolute;left:-3px;top:0;bottom:0;width:3px;
   background:var(--green);box-shadow:0 0 14px var(--green-glow);border-radius:3px 0 0 3px;}
@@ -768,7 +796,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr.hi .lyr-icon svg{color:var(--green)}
 .lyr.hi .lyr-title{color:var(--green);font-size:15px}
 .lyr.hi .lyr-sub{color:var(--text2)}
-/* BlueField ó teal */
+/* BlueField ù teal */
 .lyr.hi-teal{background:rgba(24,168,120,.03);border-color:rgba(24,168,120,.35)}
 .lyr.hi-teal::before{content:'';position:absolute;left:-3px;top:0;bottom:0;width:3px;
   background:#18a878;box-shadow:0 0 12px rgba(24,168,120,.2);border-radius:3px 0 0 3px;}
@@ -777,7 +805,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr.hi-teal .lyr-icon svg{color:#18a878}
 .lyr.hi-teal .lyr-title{color:#18a878}
 .lyr.hi-teal .lyr-sub{color:var(--text2)}
-/* ConnectX ó blue */
+/* ConnectX ù blue */
 .lyr.hi-blue{background:rgba(52,144,224,.03);border-color:rgba(52,144,224,.35)}
 .lyr.hi-blue::before{content:'';position:absolute;left:-3px;top:0;bottom:0;width:3px;
   background:var(--blue);box-shadow:0 0 12px rgba(52,144,224,.2);border-radius:3px 0 0 3px;}
@@ -819,11 +847,47 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 /* --- MOBILE --- */
 @media(max-width:700px){
-  .sc{padding:14px 18px 12px}
-  .headline{font-size:22px}
+  /* Layout */
+  .sc{padding:12px 14px 10px;gap:10px!important}
+  .headline{font-size:20px}
+  .subline{font-size:13px}
+  .eyebrow{font-size:10px}
+
+  /* Navbar */
+  #navbar{height:38px}
+  .n-brand{font-size:10px}
+  #n-title{display:none}
+  .nb{padding:4px 12px;font-size:15px;min-width:36px}
+  #sn{font-size:10px;min-width:24px}
+
+  /* Slide 01 intro */
+  .intro-title{font-size:24px}
+  .intro-sub{font-size:13px}
+  .intro-hint{display:none}
+
+  /* Slide 03 problem/solution */
+  .s1-hook .hook-q{font-size:13px}
+  .s1-foot{flex-direction:column;gap:4px;align-items:flex-start;font-size:10px}
+
+  /* Product cards */
   .p-cards{grid-template-columns:1fr}
+  .p-name{font-size:13px}
+  .p-desc{font-size:11.5px}
+
+  /* Example box */
   .ex-cols{grid-template-columns:1fr}
+
+  /* Layers slide */
   .lyr-chips{gap:4px}
+  .lyr{padding:8px 12px;gap:8px}
+
+  /* Dots nav */
+  #dots{padding:5px;gap:4px}
+  .dot.active{width:16px}
+
+  /* Misc */
+  .thesis{padding:8px 12px;font-size:12px}
+  .ex-box{padding:10px 12px}
 }
 </style>
 </head>
@@ -831,6 +895,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 <canvas id="bg-canvas"></canvas>
 
 <div id="app">
+  <button class="nav-side" id="ns-prev" aria-label="Previous slide">&#8592;</button>
+  <button class="nav-side" id="ns-next" aria-label="Next slide">&#8594;</button>
   <div id="navbar">
     <div id="navbar-inner">
       <div class="n-logo">
@@ -855,7 +921,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div id="vp">
 
   <!-- ----------------------------------
-       SLIDE 01 ó INTRO
+       SLIDE 01 ù INTRO
   ---------------------------------- -->
   <div class="slide" id="s0" data-title="Intro">
   <div class="sc" style="gap:0;justify-content:center;align-items:center;text-align:center;min-height:100%">
@@ -875,7 +941,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
 
       <!-- Eyebrow -->
-      <div class="eyebrow a2" style="margin-bottom:0">NVIDIA ∑ DOCA Product Group ∑ 2026</div>
+      <div class="eyebrow a2" style="margin-bottom:0">NVIDIA ù DOCA Product Group ù 2026</div>
 
       <!-- Title -->
       <div class="intro-title a3"><span class="grad">DOCA Solution Blueprints</span></div>
@@ -889,7 +955,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <!-- Presenter -->
       <div class="intro-presenter a5">
         <div class="intro-name">Barak Rozenfeld</div>
-        <div class="intro-role">Candidate ∑ VP Product / Senior PM ∑ DOCA Platform</div>
+        <div class="intro-role">Candidate ù VP Product / Senior PM ù DOCA Platform</div>
       </div>
 
       <!-- Scroll hint -->
@@ -901,13 +967,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 02 ó AGENDA
+       SLIDE 02 ù AGENDA
   ---------------------------------- -->
   <div class="slide" id="s_agenda" data-title="Agenda">
   <div class="sc" style="gap:16px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 2 of 14 &nbsp;∑&nbsp; What we will cover</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 2 of 14 &nbsp;ù&nbsp; What we will cover</div>
       <div class="headline"><span class="grad">The Agenda</span></div>
     </div>
 
@@ -930,7 +996,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <span class="ag-num">03</span>
         <div class="ag-body">
           <div class="ag-title">Market Landscape</div>
-          <div class="ag-sub">Competitors ∑ segments ∑ ecosystem</div>
+          <div class="ag-sub">Competitors ù segments ù ecosystem</div>
         </div>
       </div>
       <div class="ag-item">
@@ -958,14 +1024,14 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <span class="ag-num">07</span>
         <div class="ag-body">
           <div class="ag-title ag-green">Chosen Strategy</div>
-          <div class="ag-sub">Blueprint model ∑ 5 use cases</div>
+          <div class="ag-sub">Blueprint model ù 5 use cases</div>
         </div>
       </div>
       <div class="ag-item">
         <span class="ag-num">08</span>
         <div class="ag-body">
           <div class="ag-title">Execution Plan</div>
-          <div class="ag-sub">ConnectX ∑ BlueField ∑ DOCA in parallel</div>
+          <div class="ag-sub">ConnectX ù BlueField ù DOCA in parallel</div>
         </div>
       </div>
       <div class="ag-item">
@@ -979,21 +1045,21 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <span class="ag-num">10</span>
         <div class="ag-body">
           <div class="ag-title">ROI &amp; KPIs</div>
-          <div class="ag-sub">Technical ∑ operational ∑ business</div>
+          <div class="ag-sub">Technical ù operational ù business</div>
         </div>
       </div>
       <div class="ag-item">
         <span class="ag-num">11</span>
         <div class="ag-body">
           <div class="ag-title">How I Built This</div>
-          <div class="ag-sub">Sources ∑ methodology ∑ tools used</div>
+          <div class="ag-sub">Sources ù methodology ù tools used</div>
         </div>
       </div>
       <div class="ag-item">
         <span class="ag-num">12</span>
         <div class="ag-body">
           <div class="ag-title">Why Barak Rozenfeld</div>
-          <div class="ag-sub">3 fit pillars ∑ direct JD match</div>
+          <div class="ag-sub">3 fit pillars ù direct JD match</div>
         </div>
       </div>
     </div>
@@ -1003,14 +1069,14 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 03 ó PROBLEM & SOLUTION
+       SLIDE 03 ù PROBLEM & SOLUTION
   ---------------------------------- -->
   <div class="slide" id="s1" data-title="Problem &amp; Solution">
   <div class="sc" style="gap:14px">
 
     <!-- Header -->
     <div class="s1-ph" id="s1p0">
-      <div class="eyebrow" style="margin-bottom:5px">Product Strategy &nbsp;∑&nbsp; ConnectX &amp; BlueField &nbsp;∑&nbsp; 2026</div>
+      <div class="eyebrow" style="margin-bottom:5px">Product Strategy &nbsp;ù&nbsp; ConnectX &amp; BlueField &nbsp;ù&nbsp; 2026</div>
       <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
     </div>
 
@@ -1162,9 +1228,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="s1-foot s1-ph" id="s1p5">
       <div>
         <span style="font-weight:700;color:var(--text)">Barak Rozenfeld</span>
-        <span style="color:var(--text2);margin-left:8px">Product Strategy ∑ VP Product / Senior PM Candidate</span>
+        <span style="color:var(--text2);margin-left:8px">Product Strategy ù VP Product / Senior PM Candidate</span>
       </div>
-      <div style="color:var(--text2)">Prepared for NVIDIA ∑ DOCA Product Group ∑ 2026</div>
+      <div style="color:var(--text2)">Prepared for NVIDIA ù DOCA Product Group ù 2026</div>
     </div>
 
   </div><!-- /sc -->
@@ -1172,13 +1238,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 02 ó WHAT IS DOCA (LAYERS)
+       SLIDE 02 ù WHAT IS DOCA (LAYERS)
   ---------------------------------- -->
   <div class="slide" id="s2" data-title="What is DOCA">
   <div class="sc" style="gap:12px">
 
     <div>
-      <div class="eyebrow a1" style="margin-bottom:6px">Slide 4 of 14 &nbsp;∑&nbsp; What is DOCA</div>
+      <div class="eyebrow a1" style="margin-bottom:6px">Slide 4 of 14 &nbsp;ù&nbsp; What is DOCA</div>
       <div class="headline a2"><span class="grad">DOCA: The Programmability Layer</span></div>
       <div class="subline a2" style="margin-top:5px">Not just an SDK. The adoption layer between hardware capability and production deployment.</div>
     </div>
@@ -1198,13 +1264,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="lyr-main">
           <div class="lyr-title">Customer Solutions</div>
-          <div class="lyr-sub">AI Networking &nbsp;∑&nbsp; Security &nbsp;∑&nbsp; Storage &nbsp;∑&nbsp; Cloud-Native Services</div>
+          <div class="lyr-sub">AI Networking &nbsp;ù&nbsp; Security &nbsp;ù&nbsp; Storage &nbsp;ù&nbsp; Cloud-Native Services</div>
         </div>
       </div>
 
       <div class="lyr-arrow la2"></div>
 
-      <!-- Layer 2: DOCA ó HIGHLIGHTED -->
+      <!-- Layer 2: DOCA ù HIGHLIGHTED -->
       <div class="lyr hi la3">
         <div class="lyr-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -1215,7 +1281,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="lyr-main">
           <div class="lyr-title">DOCA: The Software Platform</div>
-          <div class="lyr-sub">Microservices &nbsp;∑&nbsp; APIs &nbsp;∑&nbsp; Libraries &nbsp;∑&nbsp; Drivers &nbsp;∑&nbsp; Orchestration</div>
+          <div class="lyr-sub">Microservices &nbsp;ù&nbsp; APIs &nbsp;ù&nbsp; Libraries &nbsp;ù&nbsp; Drivers &nbsp;ù&nbsp; Orchestration</div>
           <div class="lyr-chips">
             <span class="lyr-chip">Firefly</span>
             <span class="lyr-chip">GPUNetIO</span>
@@ -1230,7 +1296,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
       <div class="lyr-arrow la4"></div>
 
-      <!-- Layer 3: BlueField DPU ó teal -->
+      <!-- Layer 3: BlueField DPU ù teal -->
       <div class="lyr hi-teal la5">
         <div class="lyr-icon">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -1244,13 +1310,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="lyr-main">
           <div class="lyr-title">BlueField DPU</div>
-          <div class="lyr-sub">Programmable ARM cores &nbsp;∑&nbsp; Infrastructure offload &nbsp;∑&nbsp; Security &nbsp;∑&nbsp; Isolation</div>
+          <div class="lyr-sub">Programmable ARM cores &nbsp;ù&nbsp; Infrastructure offload &nbsp;ù&nbsp; Security &nbsp;ù&nbsp; Isolation</div>
         </div>
       </div>
 
       <div class="lyr-arrow la6"></div>
 
-      <!-- Layer 4: ConnectX SuperNIC ó blue -->
+      <!-- Layer 4: ConnectX SuperNIC ù blue -->
       <div class="lyr hi-blue la7">
         <div class="lyr-icon">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -1266,7 +1332,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="lyr-main">
           <div class="lyr-title">ConnectX SuperNIC</div>
-          <div class="lyr-sub">400Gb wire-speed &nbsp;∑&nbsp; RDMA/RoCE &nbsp;∑&nbsp; Hardware offload engines &nbsp;∑&nbsp; GPUNetIO</div>
+          <div class="lyr-sub">400Gb wire-speed &nbsp;ù&nbsp; RDMA/RoCE &nbsp;ù&nbsp; Hardware offload engines &nbsp;ù&nbsp; GPUNetIO</div>
         </div>
       </div>
 
@@ -1284,7 +1350,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="lyr-main">
           <div class="lyr-title">AI Factory / Data Center Infrastructure</div>
-          <div class="lyr-sub">Compute &nbsp;∑&nbsp; Storage fabric &nbsp;∑&nbsp; Network &nbsp;∑&nbsp; Security perimeter</div>
+          <div class="lyr-sub">Compute &nbsp;ù&nbsp; Storage fabric &nbsp;ù&nbsp; Network &nbsp;ù&nbsp; Security perimeter</div>
         </div>
       </div>
 
@@ -1302,13 +1368,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 05 ó MARKET LANDSCAPE
+       SLIDE 05 ù MARKET LANDSCAPE
   ---------------------------------- -->
   <div class="slide" id="s_market" data-title="Market Landscape">
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 5 of 14 &nbsp;∑&nbsp; Understanding the market</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 5 of 14 &nbsp;ù&nbsp; Understanding the market</div>
       <div class="headline"><span class="grad">Competitive Landscape</span></div>
     </div>
 
@@ -1334,33 +1400,33 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="dl-dot" style="background:#76b900"></div>
           <div class="dl-name" style="color:var(--green)">NVIDIA</div>
           <div class="dl-pct" style="color:var(--green)">55%</div>
-          <div class="dl-note">ConnectX SuperNIC ∑ BlueField ∑ DOCA ∑ Full AI moat</div>
+          <div class="dl-note">ConnectX SuperNIC ù BlueField ù DOCA ù Full AI moat</div>
         </div>
         <div class="dl-row">
           <div class="dl-dot" style="background:rgba(130,145,165,.75)"></div>
           <div class="dl-name">Broadcom</div>
           <div class="dl-pct">22%</div>
-          <div class="dl-note">Stingray DPU ∑ No SW platform equivalent</div>
+          <div class="dl-note">Stingray DPU ù No SW platform equivalent</div>
         </div>
         <div class="dl-row">
           <div class="dl-dot" style="background:rgba(110,125,145,.55)"></div>
           <div class="dl-name">Intel / Marvell</div>
           <div class="dl-pct">15%</div>
-          <div class="dl-note">Mount Evans IPU ∑ Weaker AI factory positioning</div>
+          <div class="dl-note">Mount Evans IPU ù Weaker AI factory positioning</div>
         </div>
         <div class="dl-row">
           <div class="dl-dot" style="background:rgba(90,105,125,.4)"></div>
           <div class="dl-name">AMD / Pensando</div>
           <div class="dl-pct">5%</div>
-          <div class="dl-note">Narrower ecosystem ∑ Limited GPU integration</div>
+          <div class="dl-note">Narrower ecosystem ù Limited GPU integration</div>
         </div>
         <div class="dl-row">
           <div class="dl-dot" style="background:rgba(70,85,105,.3)"></div>
           <div class="dl-name" style="color:var(--text3)">Custom ASICs</div>
           <div class="dl-pct" style="color:var(--text3)">3%+</div>
-          <div class="dl-note" style="color:rgba(100,115,135,.65)">AWS Nitro ∑ Azure MAIA ∑ Validates the category</div>
+          <div class="dl-note" style="color:rgba(100,115,135,.65)">AWS Nitro ù Azure MAIA ù Validates the category</div>
         </div>
-        <div style="font-size:9.5px;color:var(--text3);margin-top:4px;padding-left:18px">IDC ∑ Forrester ∑ Dell'Oro 2025. Excludes captive deployments.</div>
+        <div style="font-size:9.5px;color:var(--text3);margin-top:4px;padding-left:18px">IDC ù Forrester ù Dell'Oro 2025. Excludes captive deployments.</div>
       </div>
     </div>
 
@@ -1378,11 +1444,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="mkt-col">
         <div class="mkt-col-hd">Ecosystem DOCA Must Integrate With</div>
         <div class="eco-list">
-          <div class="eco-item"><span class="eco-cat">Orchestration</span><span class="eco-val">Kubernetes ∑ OpenShift ∑ VMware</span></div>
-          <div class="eco-item"><span class="eco-cat">Storage</span><span class="eco-val">Ceph ∑ VAST ∑ WekaIO ∑ Pure</span></div>
-          <div class="eco-item"><span class="eco-cat">Security</span><span class="eco-val">Zero-trust ∑ micro-segmentation ∑ line-rate crypto</span></div>
-          <div class="eco-item"><span class="eco-cat">Observability</span><span class="eco-val">Prometheus ∑ Grafana ∑ OpenTelemetry</span></div>
-          <div class="eco-item"><span class="eco-cat">Cloud</span><span class="eco-val">AWS ∑ Azure ∑ GCP coexistence</span></div>
+          <div class="eco-item"><span class="eco-cat">Orchestration</span><span class="eco-val">Kubernetes ù OpenShift ù VMware</span></div>
+          <div class="eco-item"><span class="eco-cat">Storage</span><span class="eco-val">Ceph ù VAST ù WekaIO ù Pure</span></div>
+          <div class="eco-item"><span class="eco-cat">Security</span><span class="eco-val">Zero-trust ù micro-segmentation ù line-rate crypto</span></div>
+          <div class="eco-item"><span class="eco-cat">Observability</span><span class="eco-val">Prometheus ù Grafana ù OpenTelemetry</span></div>
+          <div class="eco-item"><span class="eco-cat">Cloud</span><span class="eco-val">AWS ù Azure ù GCP coexistence</span></div>
         </div>
       </div>
     </div>
@@ -1402,13 +1468,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 06 ó KEY CUSTOMERS
+       SLIDE 06 ù KEY CUSTOMERS
   ---------------------------------- -->
   <div class="slide" id="s_customers" data-title="Key Customers">
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 6 of 14 &nbsp;∑&nbsp; Who is buying and why</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 6 of 14 &nbsp;ù&nbsp; Who is buying and why</div>
       <div class="headline"><span class="grad">Key Customers</span></div>
     </div>
 
@@ -1419,19 +1485,19 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="cust-donut-panel">
         <svg viewBox="0 0 160 160" width="150" height="150">
           <circle cx="80" cy="80" r="62" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="18"/>
-          <!-- Hyperscalers 40% ó blue, starts at -90 -->
+          <!-- Hyperscalers 40% ù blue, starts at -90 -->
           <circle class="cust-seg" id="cs-hyper" cx="80" cy="80" r="62" fill="none"
             stroke="rgba(42,128,200,.75)" stroke-width="18"
             transform="rotate(-90 80 80)" stroke-dasharray="0 389.56"/>
-          <!-- GPU Cloud 28% ó green, starts at -90+144=54 -->
+          <!-- GPU Cloud 28% ù green, starts at -90+144=54 -->
           <circle class="cust-seg" id="cs-gpu" cx="80" cy="80" r="62" fill="none"
             stroke="rgba(118,185,0,.75)" stroke-width="18"
             transform="rotate(54 80 80)" stroke-dasharray="0 389.56"/>
-          <!-- Enterprise 20% ó orange, starts at -90+144+100.8=154.8 -->
+          <!-- Enterprise 20% ù orange, starts at -90+144+100.8=154.8 -->
           <circle class="cust-seg" id="cs-ent" cx="80" cy="80" r="62" fill="none"
             stroke="rgba(212,130,10,.7)" stroke-width="18"
             transform="rotate(154.8 80 80)" stroke-dasharray="0 389.56"/>
-          <!-- Telco 12% ó teal, starts at -90+144+100.8+72=226.8 -->
+          <!-- Telco 12% ù teal, starts at -90+144+100.8+72=226.8 -->
           <circle class="cust-seg" id="cs-telco" cx="80" cy="80" r="62" fill="none"
             stroke="rgba(0,185,155,.6)" stroke-width="18"
             transform="rotate(226.8 80 80)" stroke-dasharray="0 389.56"/>
@@ -1453,13 +1519,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <!-- Hyperscalers -->
         <div class="cg-section">
           <div class="cg-hd" style="border-color:rgba(42,128,200,.35);color:rgba(82,168,255,.8)">
-            <span class="cg-dot" style="background:rgba(42,128,200,.75)"></span>Hyperscalers &nbsp;∑&nbsp; 40% revenue
+            <span class="cg-dot" style="background:rgba(42,128,200,.75)"></span>Hyperscalers &nbsp;ù&nbsp; 40% revenue
           </div>
           <div class="cg-rows">
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Microsoft Azure</div>
-                <div class="cgr-product">BlueField DPU ∑ Azure Boost</div>
+                <div class="cgr-product">BlueField DPU ù Azure Boost</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Millions of servers offloaded</span>
                   <span class="cgr-impact cgi-crit">??? Critical</span>
@@ -1470,7 +1536,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Meta</div>
-                <div class="cgr-product">ConnectX-7 400Gb ∑ AI Training Fabric</div>
+                <div class="cgr-product">ConnectX-7 400Gb ù AI Training Fabric</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">100k+ GPUs on ConnectX</span>
                   <span class="cgr-impact cgi-crit">??? Critical</span>
@@ -1481,7 +1547,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Google Cloud</div>
-                <div class="cgr-product">ConnectX ∑ GKE &amp; TPU Networking</div>
+                <div class="cgr-product">ConnectX ù GKE &amp; TPU Networking</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat cgr-stat-watch">Evaluating BlueField DPU</span>
                   <span class="cgr-impact cgi-strat">?? Strategic</span>
@@ -1495,15 +1561,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <!-- GPU Cloud -->
         <div class="cg-section">
           <div class="cg-hd" style="border-color:rgba(118,185,0,.3);color:rgba(118,185,0,.8)">
-            <span class="cg-dot" style="background:rgba(118,185,0,.75)"></span>GPU Cloud &nbsp;∑&nbsp; 28% revenue &nbsp;∑&nbsp; fastest growing
+            <span class="cg-dot" style="background:rgba(118,185,0,.75)"></span>GPU Cloud &nbsp;ù&nbsp; 28% revenue &nbsp;ù&nbsp; fastest growing
           </div>
           <div class="cg-rows">
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">CoreWeave</div>
-                <div class="cgr-product">ConnectX-7 400Gb ∑ GPU Cloud Fabric</div>
+                <div class="cgr-product">ConnectX-7 400Gb ù GPU Cloud Fabric</div>
                 <div class="cgr-badges">
-                  <span class="cgr-stat">$23B IPO ∑ 10◊ growth 2023-25</span>
+                  <span class="cgr-stat">$23B IPO ù 10ù growth 2023-25</span>
                   <span class="cgr-impact cgi-high">??? High</span>
                 </div>
               </div>
@@ -1512,9 +1578,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Lambda / Together AI</div>
-                <div class="cgr-product">ConnectX-7 ∑ AI Training-as-a-Service</div>
+                <div class="cgr-product">ConnectX-7 ù AI Training-as-a-Service</div>
                 <div class="cgr-badges">
-                  <span class="cgr-stat">2-3◊ YoY GPU cluster growth</span>
+                  <span class="cgr-stat">2-3ù YoY GPU cluster growth</span>
                   <span class="cgr-impact cgi-emerg">? Emerging</span>
                 </div>
               </div>
@@ -1526,13 +1592,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <!-- Enterprise -->
         <div class="cg-section">
           <div class="cg-hd" style="border-color:rgba(212,130,10,.3);color:rgba(212,130,10,.8)">
-            <span class="cg-dot" style="background:rgba(212,130,10,.7)"></span>Enterprise &nbsp;∑&nbsp; 20% revenue
+            <span class="cg-dot" style="background:rgba(212,130,10,.7)"></span>Enterprise &nbsp;ù&nbsp; 20% revenue
           </div>
           <div class="cg-rows">
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Oracle Cloud</div>
-                <div class="cgr-product">BlueField DPU ∑ RDMA &amp; Tenant Isolation</div>
+                <div class="cgr-product">BlueField DPU ù RDMA &amp; Tenant Isolation</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Bare metal perf + full isolation</span>
                   <span class="cgr-impact cgi-strat">?? Strategic</span>
@@ -1549,7 +1615,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="insight a4">
       <div class="insight-hd">The Key Insight</div>
       Every major AI infrastructure buyer needs <strong style="color:rgba(42,128,200,.9)">ConnectX for speed</strong> and <strong style="color:rgba(0,185,155,.9)">BlueField for programmability</strong>.
-      DOCA is the layer that determines how fast they deploy, scale, and stay current ó and how fast NVIDIA sells the next cluster.
+      DOCA is the layer that determines how fast they deploy, scale, and stay current ù and how fast NVIDIA sells the next cluster.
     </div>
 
   </div><!-- /sc -->
@@ -1557,13 +1623,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 07 ó MARKET URGENCY
+       SLIDE 07 ù MARKET URGENCY
   ---------------------------------- -->
   <div class="slide" id="s_urgency" data-title="Market Urgency">
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 7 of 14 &nbsp;∑&nbsp; Why this matters now</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 7 of 14 &nbsp;ù&nbsp; Why this matters now</div>
       <div class="headline"><span class="grad">Why DOCA Drives NVIDIA Revenue</span></div>
     </div>
 
@@ -1578,7 +1644,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="urg-lbl">Idle value in a $1B GPU cluster running at 65% util</div>
       </div>
       <div class="urg-stat">
-        <div class="urg-val urg-val-blue">2-3◊</div>
+        <div class="urg-val urg-val-blue">2-3ù</div>
         <div class="urg-lbl">Faster cluster expansion when GPUs run at full utilization</div>
       </div>
     </div>
@@ -1588,7 +1654,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="urg-ctx-bad">
         <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="rgba(224,80,80,.6)" stroke-width="1" fill="rgba(224,80,80,.06)"/><line x1="7" y1="4" x2="7" y2="8" stroke="rgba(224,80,80,.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="rgba(224,80,80,.9)"/></svg>
         <strong style="color:rgba(224,80,80,.85)">The Bottleneck:</strong>
-        Every network packet in an AI cluster is processed by the host CPU. At 400Gb/s, the CPU is overwhelmed ó GPUs sit idle at 65% utilization. Left unsolved, customers will solve it themselves.
+        Every network packet in an AI cluster is processed by the host CPU. At 400Gb/s, the CPU is overwhelmed ù GPUs sit idle at 65% utilization. Left unsolved, customers will solve it themselves.
       </div>
       <div class="urg-ctx-arrow">
         <svg width="18" height="10" viewBox="0 0 18 10"><path d="M0 5h14M10 1l4 4-4 4" stroke="rgba(118,185,0,.5)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1679,28 +1745,28 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 10 ó PRODUCT STRATEGY ALIGNMENT
+       SLIDE 10 ù PRODUCT STRATEGY ALIGNMENT
   ---------------------------------- -->
   <div class="slide" id="s_strategy_align" data-title="Product Strategy">
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 14 &nbsp;∑&nbsp; The execution plan</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 14 &nbsp;ù&nbsp; The execution plan</div>
       <div class="headline"><span class="grad">Product Strategy Alignment</span></div>
-      <div class="subline a2" style="margin-top:5px">ConnectX, BlueField, and DOCA each have a distinct role ó and all three must advance in parallel, not in sequence.</div>
+      <div class="subline a2" style="margin-top:5px">ConnectX, BlueField, and DOCA each have a distinct role ù and all three must advance in parallel, not in sequence.</div>
     </div>
 
     <!-- Strategy options ? tracks mapping bridge -->
     <div class="psa-bridge a2" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 12px;background:rgba(118,185,0,.06);border:1px solid rgba(118,185,0,.18);border-radius:9px;font-size:11px">
       <span style="font-weight:700;color:var(--green);letter-spacing:.04em;margin-right:4px">OPTIONS ? TRACKS</span>
       <span style="color:var(--text2)">A (APIs)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">∑</span>
+      <span style="color:var(--text3);margin:0 4px">ù</span>
       <span style="color:var(--text2)">B (Blueprints)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">Blueprint track</span>
-      <span style="color:var(--text3);margin:0 4px">∑</span>
+      <span style="color:var(--text3);margin:0 4px">ù</span>
       <span style="color:var(--text2)">C (Kubernetes)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">∑</span>
+      <span style="color:var(--text3);margin:0 4px">ù</span>
       <span style="color:var(--text2)">D (Observability)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">∑</span>
+      <span style="color:var(--text3);margin:0 4px">ù</span>
       <span style="color:var(--text2)">E (Partners)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">GTM track</span>
       <span style="flex:1;text-align:right;color:var(--text3);font-style:italic">All five strategies are embedded in this plan</span>
     </div>
@@ -1727,15 +1793,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="psa-track-label">Parallel Work Tracks</div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-hw">HW</span>
-            <span>400Gb ? 800Gb roadmap ∑ InfiniBand + Ethernet convergence</span>
+            <span>400Gb ? 800Gb roadmap ù InfiniBand + Ethernet convergence</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-sw">SW</span>
-            <span>DOCA Flow APIs ∑ RDMA optimization ∑ telemetry hooks</span>
+            <span>DOCA Flow APIs ù RDMA optimization ù telemetry hooks</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-go">GTM</span>
-            <span>AI fabric reference architecture ∑ benchmark publications</span>
+            <span>AI fabric reference architecture ù benchmark publications</span>
           </div>
         </div>
         <div class="psa-dep">
@@ -1762,19 +1828,19 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="psa-track-label">Parallel Work Tracks</div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-hw">HW</span>
-            <span>ARM core count ∑ memory bandwidth ∑ next-gen DPU silicon</span>
+            <span>ARM core count ù memory bandwidth ù next-gen DPU silicon</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-sw">SW</span>
-            <span>DOCA microservices ∑ OVS offload ∑ storage NVMe-oF ∑ zero-trust</span>
+            <span>DOCA microservices ù OVS offload ù storage NVMe-oF ù zero-trust</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-go">GTM</span>
-            <span>Expand beyond Azure Boost ∑ enterprise isolation blueprints</span>
+            <span>Expand beyond Azure Boost ù enterprise isolation blueprints</span>
           </div>
         </div>
         <div class="psa-dep">
-          <span class="psa-dep-label">Ships with:</span> ConnectX ∑ programmed by DOCA
+          <span class="psa-dep-label">Ships with:</span> ConnectX ù programmed by DOCA
         </div>
       </div>
 
@@ -1797,15 +1863,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="psa-track-label">Parallel Work Tracks</div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-bp">BP</span>
-            <span>Solution Blueprints ∑ 5 priority use cases ∑ reference apps</span>
+            <span>Solution Blueprints ù 5 priority use cases ù reference apps</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-sw">SW</span>
-            <span>APIs ∑ Kubernetes-native deployment ∑ observability layer</span>
+            <span>APIs ù Kubernetes-native deployment ù observability layer</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-go">GTM</span>
-            <span>Developer portal ∑ ISV partnerships ∑ customer success programs</span>
+            <span>Developer portal ù ISV partnerships ù customer success programs</span>
           </div>
         </div>
         <div class="psa-dep">
@@ -1817,22 +1883,22 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Parallel execution roadmap -->
     <div class="psa-roadmap a4">
-      <div class="psa-rm-hd">What must run in parallel ó not in sequence</div>
+      <div class="psa-rm-hd">What must run in parallel ù not in sequence</div>
 
       <!-- Phase headers -->
       <div class="psa-rm-grid">
         <div class="psa-rm-track-label"></div>
         <div class="psa-rm-phase">
-          <span class="psa-rm-phase-dot psa-dot-now"></span>Now ∑ Q3 2026
+          <span class="psa-rm-phase-dot psa-dot-now"></span>Now ù Q3 2026
         </div>
         <div class="psa-rm-phase">
-          <span class="psa-rm-phase-dot psa-dot-near"></span>Near ∑ Q4 2026
+          <span class="psa-rm-phase-dot psa-dot-near"></span>Near ù Q4 2026
         </div>
         <div class="psa-rm-phase">
-          <span class="psa-rm-phase-dot psa-dot-mid"></span>Mid ∑ H1 2027
+          <span class="psa-rm-phase-dot psa-dot-mid"></span>Mid ù H1 2027
         </div>
         <div class="psa-rm-phase">
-          <span class="psa-rm-phase-dot psa-dot-scale"></span>Scale ∑ 2027+
+          <span class="psa-rm-phase-dot psa-dot-scale"></span>Scale ù 2027+
         </div>
 
         <!-- Track 1: Hardware -->
@@ -1849,8 +1915,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <span class="psa-t-tag psa-t-sw">SW</span>DOCA Platform
         </div>
         <div class="psa-rm-cell rm-green"><b>DOCA APIs v2</b><i>microservices GA</i></div>
-        <div class="psa-rm-cell rm-green"><b>Kubernetes operator</b><i>Helm charts ∑ OpenShift</i></div>
-        <div class="psa-rm-cell rm-green"><b>Observability suite</b><i>telemetry ∑ health CLI</i></div>
+        <div class="psa-rm-cell rm-green"><b>Kubernetes operator</b><i>Helm charts ù OpenShift</i></div>
+        <div class="psa-rm-cell rm-green"><b>Observability suite</b><i>telemetry ù health CLI</i></div>
         <div class="psa-rm-cell rm-green rm-dim"><b>Self-service portal</b><i>auto-tuning</i></div>
 
         <!-- Track 3: Blueprints -->
@@ -1875,10 +1941,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <!-- Milestone gates -->
       <div class="psa-rm-gates">
         <div class="psa-rm-gate-label">Milestone gates</div>
-        <div class="psa-rm-gate"><span class="psa-gate-dia">?</span>M1 ∑ First blueprint live in production</div>
-        <div class="psa-rm-gate"><span class="psa-gate-dia">?</span>M2 ∑ 5 use cases validated with customers</div>
-        <div class="psa-rm-gate"><span class="psa-gate-dia">?</span>M3 ∑ DOCA platform GA + observability</div>
-        <div class="psa-rm-gate"><span class="psa-gate-dia">?</span>M4 ∑ Self-serve marketplace</div>
+        <div class="psa-rm-gate"><span class="psa-gate-dia">?</span>M1 ù First blueprint live in production</div>
+        <div class="psa-rm-gate"><span class="psa-gate-dia">?</span>M2 ù 5 use cases validated with customers</div>
+        <div class="psa-rm-gate"><span class="psa-gate-dia">?</span>M3 ù DOCA platform GA + observability</div>
+        <div class="psa-rm-gate"><span class="psa-gate-dia">?</span>M4 ù Self-serve marketplace</div>
       </div>
 
       <div class="psa-rm-note">All four tracks run simultaneously. A delay in any single track creates an adoption gap that stalls the others.</div>
@@ -1889,13 +1955,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 08 ó STRATEGIC ALTERNATIVES
+       SLIDE 08 ù STRATEGIC ALTERNATIVES
   ---------------------------------- -->
   <div class="slide" id="s_alternatives" data-title="Strategic Alternatives">
   <div class="sc" style="gap:12px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 14 &nbsp;∑&nbsp; The reasoning behind the plan</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 14 &nbsp;ù&nbsp; The reasoning behind the plan</div>
       <div class="headline"><span class="grad">How the Strategy Was Chosen</span></div>
       <div class="subline a2" style="margin-top:5px">Before committing to the blueprint-led roadmap, I evaluated five options against four criteria. Click any option to see the analysis.</div>
     </div>
@@ -1962,7 +2028,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <div class="alt9-forcing a4">
       <strong style="color:rgba(118,185,0,.9)">Why B, and why it does not compete with the plan:</strong>
-      Blueprints are the forcing function. A good blueprint <strong style="color:var(--text)">requires</strong> solid APIs (A), deploys via Kubernetes (C), ships with observability (D), and gets co-marketed with partners (E). Choosing B pulls all five into one roadmap ó see the full execution plan on the next slide.
+      Blueprints are the forcing function. A good blueprint <strong style="color:var(--text)">requires</strong> solid APIs (A), deploys via Kubernetes (C), ships with observability (D), and gets co-marketed with partners (E). Choosing B pulls all five into one roadmap ù see the full execution plan on the next slide.
     </div>
 
   </div><!-- /sc -->
@@ -1970,13 +2036,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 09 ó CHOSEN STRATEGY
+       SLIDE 09 ù CHOSEN STRATEGY
   ---------------------------------- -->
   <div class="slide" id="s_chosen" data-title="Chosen Strategy">
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 14 &nbsp;∑&nbsp; The chosen path</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 14 &nbsp;ù&nbsp; The chosen path</div>
       <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
       <div class="subline a2" style="margin-top:5px">Customers do not adopt platforms. They adopt solutions to painful problems.</div>
     </div>
@@ -2039,13 +2105,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 11 ó EXAMPLE BLUEPRINT
+       SLIDE 11 ù EXAMPLE BLUEPRINT
   ---------------------------------- -->
   <div class="slide" id="s_blueprint" data-title="Example Blueprint">
   <div class="sc" style="gap:13px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 14 &nbsp;∑&nbsp; From pain to production</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 14 &nbsp;ù&nbsp; From pain to production</div>
       <div class="headline"><span class="grad">Blueprint: AI Cluster Networking Offload</span></div>
     </div>
 
@@ -2060,7 +2126,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="bp-spec">
         <div class="bp-spec-row"><span class="bp-k">Target customer</span><span class="bp-v">AI platform team, cloud architect, hyperscaler infra eng</span></div>
         <div class="bp-spec-row"><span class="bp-k">Hardware</span><span class="bp-v">ConnectX SuperNIC + BlueField DPU</span></div>
-        <div class="bp-spec-row"><span class="bp-k">DOCA services</span><span class="bp-v">Flow ∑ GPUNetIO ∑ Telemetry ∑ Firefly</span></div>
+        <div class="bp-spec-row"><span class="bp-k">DOCA services</span><span class="bp-v">Flow ù GPUNetIO ù Telemetry ù Firefly</span></div>
         <div class="bp-spec-row"><span class="bp-k">Deliverables</span><span class="bp-v">Reference arch + app + deploy guide + checklist</span></div>
         <div class="bp-spec-row"><span class="bp-k">Key KPIs</span><span class="bp-v">CPU offload %, latency, throughput, GPU util, time-to-deploy</span></div>
         <div class="bp-spec-row"><span class="bp-k">Success</span><span class="bp-v">POC to production in defined window, documented ROI</span></div>
@@ -2092,13 +2158,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 12 ó ROI & KPIs
+       SLIDE 12 ù ROI & KPIs
   ---------------------------------- -->
   <div class="slide" id="s_roi" data-title="ROI & KPIs">
   <div class="sc" style="gap:13px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 14 &nbsp;∑&nbsp; Measuring what matters</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 14 &nbsp;ù&nbsp; Measuring what matters</div>
       <div class="headline"><span class="grad">ROI &amp; Success Metrics</span></div>
       <div class="subline a2" style="margin-top:5px">A product manager's scorecard: from technical capability to business outcome.</div>
     </div>
@@ -2107,22 +2173,22 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="roi-kpis a3">
       <div class="roi-kpi roi-kpi-star">
         <div class="roi-kpi-tag">North Star</div>
-        <div class="roi-kpi-val" id="kpi-1">ó</div>
+        <div class="roi-kpi-val" id="kpi-1">ù</div>
         <div class="roi-kpi-lbl">Active blueprints running in production</div>
       </div>
       <div class="roi-kpi">
         <div class="roi-kpi-tag">Technical</div>
-        <div class="roi-kpi-val" id="kpi-2">ó</div>
+        <div class="roi-kpi-val" id="kpi-2">ù</div>
         <div class="roi-kpi-lbl">GPU utilization after offload</div>
       </div>
       <div class="roi-kpi">
         <div class="roi-kpi-tag">Operational</div>
-        <div class="roi-kpi-val" id="kpi-3">ó</div>
+        <div class="roi-kpi-val" id="kpi-3">ù</div>
         <div class="roi-kpi-lbl">Faster POC to production</div>
       </div>
       <div class="roi-kpi">
         <div class="roi-kpi-tag">Business</div>
-        <div class="roi-kpi-val" id="kpi-4">ó</div>
+        <div class="roi-kpi-val" id="kpi-4">ù</div>
         <div class="roi-kpi-lbl">Higher ConnectX + BlueField attach rate</div>
       </div>
     </div>
@@ -2177,15 +2243,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 13 ó HOW I BUILT THIS
+       SLIDE 13 ù HOW I BUILT THIS
   ---------------------------------- -->
   <div class="slide" id="s_method" data-title="How I Built This">
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 14 &nbsp;∑&nbsp; Behind the work</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 14 &nbsp;ù&nbsp; Behind the work</div>
       <div class="headline"><span class="grad">How I Built This</span></div>
-      <div class="subline a2" style="margin-top:5px">Sources, methodology, and tools ó because transparency is part of good product thinking.</div>
+      <div class="subline a2" style="margin-top:5px">Sources, methodology, and tools ù because transparency is part of good product thinking.</div>
     </div>
 
     <div class="method-grid a3">
@@ -2222,7 +2288,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="method-card-items">
           <div class="method-card-item"><span class="method-card-dot"></span>Started from the JD: what does this role actually need to deliver to NVIDIA?</div>
           <div class="method-card-item"><span class="method-card-dot"></span>Mapped the customer pain chain: hardware capability ? adoption friction ? missing software layer</div>
-          <div class="method-card-item"><span class="method-card-dot"></span>Evaluated 5 strategic paths against 4 criteria: pain severity ∑ revenue potential ∑ differentiation ∑ repeatability</div>
+          <div class="method-card-item"><span class="method-card-dot"></span>Evaluated 5 strategic paths against 4 criteria: pain severity ù revenue potential ù differentiation ù repeatability</div>
           <div class="method-card-item"><span class="method-card-dot"></span>Chose Blueprints because it acts as a forcing function that pulls every other strategy into one motion</div>
         </div>
         <div class="method-tool-row">
@@ -2241,8 +2307,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="method-card-title">Tools used to produce this</div>
         </div>
         <div class="method-card-items">
-          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">Cursor AI (Agent mode)</strong> ó built the interactive HTML presentation: layout, animations, navigation</div>
-          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">The strategic thinking is mine</strong> ó the research, framework, choice of Blueprint model, and every argument</div>
+          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">Cursor AI (Agent mode)</strong> ù built the interactive HTML presentation: layout, animations, navigation</div>
+          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">The strategic thinking is mine</strong> ù the research, framework, choice of Blueprint model, and every argument</div>
           <div class="method-card-item"><span class="method-card-dot"></span>AI was the production tool. The product thinking was the actual work.</div>
         </div>
         <div class="method-tool-row">
@@ -2255,7 +2321,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     </div><!-- /method-grid -->
 
     <div class="method-statement a4">
-      A product manager who knows how to leverage AI tools to produce high-quality artifacts faster is not cutting corners ó it is the job.<br>
+      A product manager who knows how to leverage AI tools to produce high-quality artifacts faster is not cutting corners ù it is the job.<br>
       <span style="color:rgba(118,185,0,.85);font-weight:600">This presentation was built in one day. The thinking behind it took several weeks of domain immersion.</span>
     </div>
 
@@ -2264,13 +2330,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 14 ó WHY BARAK
+       SLIDE 14 ù WHY BARAK
   ---------------------------------- -->
   <div class="slide" id="s_why" data-title="Why Barak Rozenfeld">
   <div class="sc" style="gap:13px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 14 of 14 &nbsp;∑&nbsp; The fit</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 14 of 14 &nbsp;ù&nbsp; The fit</div>
       <div class="headline"><span class="grad">Why Barak Rozenfeld</span></div>
     </div>
 
@@ -2320,14 +2386,44 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
 
-    <div class="why-quote a4">
+    <!-- Soft Skills + PM Tools -->
+    <div class="why-extras a4">
+      <div class="why-tags-box">
+        <div class="why-jd-hd">Soft Skills</div>
+        <div class="why-tags">
+          <span class="why-tag why-tag-soft">Motivated &amp; Result-Driven</span>
+          <span class="why-tag why-tag-soft">Thinks Outside the Box</span>
+          <span class="why-tag why-tag-soft">Clear Communicator</span>
+          <span class="why-tag why-tag-soft">Empathetic Leader</span>
+          <span class="why-tag why-tag-soft">Collaborative by Default</span>
+          <span class="why-tag why-tag-soft">Structured Problem Solver</span>
+          <span class="why-tag why-tag-soft">Bias to Action</span>
+        </div>
+      </div>
+      <div class="why-tags-box">
+        <div class="why-jd-hd">Product Management Tools</div>
+        <div class="why-tags">
+          <span class="why-tag why-tag-tool">Jira &amp; Confluence</span>
+          <span class="why-tag why-tag-tool">Productboard</span>
+          <span class="why-tag why-tag-tool">Linear</span>
+          <span class="why-tag why-tag-tool">Figma / FigJam</span>
+          <span class="why-tag why-tag-tool">Miro</span>
+          <span class="why-tag why-tag-tool">Notion</span>
+          <span class="why-tag why-tag-tool">Amplitude</span>
+          <span class="why-tag why-tag-tool">Looker / Tableau</span>
+          <span class="why-tag why-tag-tool">Cursor AI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="why-quote a5">
       My strongest contribution is the bridge between <strong style="color:var(--text)">deep infrastructure technology</strong>, <strong style="color:var(--text)">product execution</strong>, and <strong style="color:rgba(118,185,0,.9)">repeatable customer value</strong>. I do not just understand DOCA's potential. I know how to build the strategy that makes it land.
     </div>
 
-    <div class="s1-foot a5">
+    <div class="s1-foot a6">
       <div>
         <span style="font-weight:700;color:var(--text)">Barak Rozenfeld</span>
-        <span style="color:var(--text2);margin-left:8px">Product Strategy ∑ ConnectX &amp; BlueField ∑ DOCA</span>
+        <span style="color:var(--text2);margin-left:8px">Product Strategy ù ConnectX &amp; BlueField ù DOCA</span>
       </div>
       <div style="color:var(--text2)">LinkedIn: Barak Rozenfeld</div>
     </div>
@@ -2386,9 +2482,12 @@ function goTo(i){
   if(slides[cur].id==='s_blueprint') setTimeout(animBlueprint,200);
   if(slides[cur].id==='s_roi') setTimeout(animROI,200);
 }
-function upd(){const s=slides[cur];nTitle.textContent=s.dataset.title||'';snEl.textContent=(cur+1)+' / '+TOTAL;pfEl.style.width=((cur+1)/TOTAL*100)+'%';bpEl.disabled=cur===0;bnEl.disabled=cur===TOTAL-1;dotsEl.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur))}
+function upd(){const s=slides[cur];nTitle.textContent=s.dataset.title||'';snEl.textContent=(cur+1)+' / '+TOTAL;pfEl.style.width=((cur+1)/TOTAL*100)+'%';bpEl.disabled=cur===0;bnEl.disabled=cur===TOTAL-1;if(nsPrev)nsPrev.disabled=cur===0;if(nsNext)nsNext.disabled=cur===TOTAL-1;dotsEl.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur))}
 bpEl.addEventListener('click',()=>goTo(cur-1));
 bnEl.addEventListener('click',()=>goTo(cur+1));
+const nsPrev=document.getElementById('ns-prev'),nsNext=document.getElementById('ns-next');
+if(nsPrev) nsPrev.addEventListener('click',()=>goTo(cur-1));
+if(nsNext) nsNext.addEventListener('click',()=>goTo(cur+1));
 document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown'].includes(e.key))goTo(cur+1);if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key))goTo(cur-1)});
 let tx=0;
 document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
@@ -2526,7 +2625,7 @@ function animROI(){
   const kpis=[
     ['kpi-1', 0, 20, '', '+'],
     ['kpi-2', 0, 92, '', '%'],
-    ['kpi-3', 0, 10, '', '◊'],
+    ['kpi-3', 0, 10, '', 'ù'],
     ['kpi-4', 0, 30, '+', '%'],
   ];
   kpis.forEach(([id,from,to,pre,suf])=>{
