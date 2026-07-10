@@ -3533,44 +3533,66 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:13px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 16 &nbsp;&middot;&nbsp; From pain to production</div>
-      <div class="headline"><span class="grad">Blueprint: AI Cluster Networking Offload</span></div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 16 &nbsp;&middot;&nbsp; Strategy made concrete</div>
+      <div class="headline"><span class="grad">Blueprint #1: AI Cluster Networking Offload</span></div>
+      <div class="subline a2" style="margin-top:4px">
+        A Blueprint is not documentation &mdash; it is a <strong style="color:var(--text)">repeatable, tested, production path</strong>.
+        This slide exists to prove the strategy is executable, not just directionally correct.
+        One Blueprint like this, running in production, validates the entire model.
+      </div>
     </div>
 
     <!-- Pain -->
     <div class="bp-pain a2">
       <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="rgba(224,80,80,.6)" stroke-width="1" fill="rgba(224,80,80,.06)"/><line x1="7" y1="4" x2="7" y2="8" stroke="rgba(224,80,80,.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="rgba(224,80,80,.9)"/></svg>
-      <span><strong style="color:rgba(224,80,80,.85)">The Pain:</strong> As GPU clusters scale, host CPU cycles spent on networking, telemetry, and policy grow proportionally. The CPU becomes the bottleneck in the most expensive infrastructure in the world.</span>
+      <span><strong style="color:rgba(224,80,80,.85)">The Pain:</strong> As GPU clusters scale, host CPU cycles spent on networking, telemetry, and policy grow proportionally &mdash; CPU becomes the bottleneck in the most expensive infrastructure in the world. Slide 9 quantifies this: 65% GPU utilization, $350M idle in a $1B cluster.</span>
     </div>
 
     <div class="bp-layout a3">
       <!-- Spec table -->
       <div class="bp-spec">
-        <div class="bp-spec-row"><span class="bp-k">Target customer</span><span class="bp-v">AI platform team, cloud architect, hyperscaler infra eng</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Target customer</span><span class="bp-v">AI platform team, cloud architect, hyperscaler infra engineer</span></div>
         <div class="bp-spec-row"><span class="bp-k">Hardware</span><span class="bp-v">ConnectX SuperNIC + BlueField DPU</span></div>
-        <div class="bp-spec-row"><span class="bp-k">DOCA services</span><span class="bp-v">Flow &middot; GPUNetIO &middot; Telemetry &middot; Firefly</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Deliverables</span><span class="bp-v">Reference arch + app + deploy guide + checklist</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Key KPIs</span><span class="bp-v">CPU offload %, latency, throughput, GPU util, time-to-deploy</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Success</span><span class="bp-v">POC to production in defined window, documented ROI</span></div>
+        <div class="bp-spec-row"><span class="bp-k">DOCA services used</span><span class="bp-v">DOCA Flow &middot; GPUNetIO &middot; Telemetry &middot; Firefly</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Deliverables</span><span class="bp-v">Reference arch &middot; sample app &middot; deploy guide &middot; validation checklist</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Success definition</span><span class="bp-v">GPU util &gt;90% · CPU I/O load &lt;25% · new cluster live within 1 day of setup</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Why this Blueprint first</span><span class="bp-v">Largest TAM · directly tied to GPU sales · addresses the #1 customer pain from slide 9</span></div>
       </div>
 
       <!-- Before/after -->
       <div class="bp-results">
-        <div class="bp-res-hd">Measured impact</div>
+        <div class="bp-res-hd">Expected impact &mdash; sources noted</div>
+
         <div class="bp-metric">
-          <div class="bp-metric-top"><span class="bp-metric-name">GPU Utilization</span><span class="bp-metric-val bpm-good" id="bp-gpu-v">65% &middot; 92%</span></div>
+          <div class="bp-metric-top">
+            <span class="bp-metric-name">GPU Utilization</span>
+            <span class="bp-metric-val bpm-good" id="bp-gpu-v">65% &rarr; 90%+</span>
+          </div>
           <div class="bp-track"><div class="bp-fill-bad" style="width:65%"></div><div class="bp-fill-good" id="bp-gpu-f"></div></div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Consistent with slide 14 derivation &middot; DOCA GPUNetIO eliminates CPU I/O bottleneck</div>
         </div>
+
         <div class="bp-metric">
-          <div class="bp-metric-top"><span class="bp-metric-name">Host CPU load from I/O</span><span class="bp-metric-val bpm-good" id="bp-cpu-v">94% &middot; 20%</span></div>
+          <div class="bp-metric-top">
+            <span class="bp-metric-name">Host CPU load from networking I/O</span>
+            <span class="bp-metric-val bpm-good" id="bp-cpu-v">~90% &rarr; &lt;20%</span>
+          </div>
           <div class="bp-track"><div class="bp-fill-good2" id="bp-cpu-f"></div></div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Source: NVIDIA DOCA GPUNetIO reference architecture &middot; packets move GPU-to-GPU, zero CPU involvement</div>
         </div>
+
         <div class="bp-metric">
-          <div class="bp-metric-top"><span class="bp-metric-name">Time to deploy</span><span class="bp-metric-val bpm-good">Weeks &middot; 1 day</span></div>
+          <div class="bp-metric-top">
+            <span class="bp-metric-name">Per-cluster setup time <em style="font-weight:400;color:var(--text3)">(using Blueprint, not POC-to-production)</em></span>
+            <span class="bp-metric-val bpm-good">2&ndash;3 wk &rarr; &lt;1 day</span>
+          </div>
           <div class="bp-track"><div class="bp-fill-good3" id="bp-dep-f"></div></div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Blueprint = validated template · infra team runs it in hours · <em>distinct from slide 14&rsquo;s 9 mo &rarr; 6 wk (full POC-to-production journey)</em></div>
         </div>
+
         <div class="bp-principle">
-          <strong style="color:var(--text)">Validate once, replicate at scale.</strong> One validated blueprint becomes the template for every AI networking deployment that follows.
+          <strong style="color:var(--text)">Validate once, replicate at scale.</strong>
+          One Blueprint in production becomes the template for every AI networking deployment that follows &mdash; across the entire installed base of 55K+ BlueField DPUs.
         </div>
       </div>
     </div>
