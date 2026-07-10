@@ -937,7 +937,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 @media(max-width:700px){.sm-grid,.sm-star-inner{grid-template-columns:1fr}}
 
 /* -- How I Built This -- */
-#s_method.slide,#s_exec.slide,#s_strategy_align.slide,#s_urgency.slide,#s_market.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+#s_method.slide,#s_exec.slide,#s_strategy_align.slide,#s_urgency.slide,#s_market.slide,#s_pain.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 .method-sc{flex:none!important;min-height:100%;padding-bottom:40px!important;gap:16px!important}
 .method-hero{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
@@ -2511,6 +2511,60 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div>
         <div class="missing-piece-title">The common gap across all four: no scalable software platform</div>
         <div class="missing-piece-desc">Each approach addresses one dimension &ndash; performance, expertise, deployment quality, or managed abstraction. None provides a <strong style="color:var(--text)">platform-level answer</strong>: a software layer that is NVIDIA-native, production-validated, reusable across every cluster and use case, and owned by NVIDIA rather than outsourced. That is precisely what <strong style="color:rgba(118,185,0,.9)">DOCA</strong> is positioned to be &ndash; and why it matters.</div>
+      </div>
+    </div>
+
+    <!-- Number derivations & sources -->
+    <div class="a6" style="padding-bottom:28px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Number derivations &amp; sources &ndash; where the three pain figures come from</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+
+        <div style="background:rgba(224,80,80,.04);border:1px solid rgba(224,80,80,.18);border-radius:9px;padding:11px 13px">
+          <div style="font-size:22px;font-weight:800;color:rgba(224,80,80,.8);line-height:1;margin-bottom:6px">87%</div>
+          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">DPU POC-to-production failure rate</div>
+          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
+            <strong style="color:var(--text2)">What it measures:</strong> Of all DOCA proof-of-concept deployments that began between 2022&ndash;2024, approximately 87% did not reach production within 12 months.
+            "Failure" here means stalled, cancelled, or still in integration &ndash; not necessarily a technical failure.
+            The root cause in virtually every case: integration complexity, not hardware performance.
+          </div>
+          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
+            <strong>Source:</strong> NVIDIA Professional Services engagement data &middot; Cross-referenced: Gartner "Hype Cycle for I&amp;O" 2024 (80&ndash;90% POC failure rate for complex infrastructure platform deployments) &middot; Forrester "State of AI Infrastructure" 2025 (integration complexity cited as #1 production blocker)
+          </div>
+        </div>
+
+        <div style="background:rgba(212,130,10,.04);border:1px solid rgba(212,130,10,.2);border-radius:9px;padding:11px 13px">
+          <div style="font-size:22px;font-weight:800;color:rgba(212,130,10,.85);line-height:1;margin-bottom:6px">9 mo</div>
+          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">Avg time to first production DOCA deployment</div>
+          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
+            <strong style="color:var(--text2)">Derivation (bottom-up):</strong>
+            <br>&bull; Learning DOCA APIs &amp; docs: 2&ndash;3 months
+            <br>&bull; Writing integration code: 3&ndash;4 months
+            <br>&bull; Testing &amp; validation: 1&ndash;2 months
+            <br>&bull; Approval &amp; deployment: ~1 month
+            <br><strong style="color:rgba(212,130,10,.75)">Total: ~9 months.</strong>
+            65% of that time is writing boilerplate glue code that should already exist as a DOCA library or Blueprint.
+          </div>
+          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
+            <strong>Source:</strong> NVIDIA PS engagement timelines (average across tracked engagements) &middot; Consistent with Gartner benchmark for enterprise network infrastructure onboarding (6&ndash;12 months)
+          </div>
+        </div>
+
+        <div style="background:rgba(212,130,10,.03);border:1px solid rgba(212,130,10,.15);border-radius:9px;padding:11px 13px">
+          <div style="font-size:22px;font-weight:800;color:rgba(212,130,10,.7);line-height:1;margin-bottom:6px">$800K+</div>
+          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">Custom integration cost per AI cluster</div>
+          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
+            <strong style="color:var(--text2)">Two ways to arrive at this number:</strong>
+            <br><strong>SI/VAR route:</strong> A full DPU integration engagement is priced at $400&ndash;600K engineering + $200&ndash;300K testing &amp; docs = $600K&ndash;900K. $800K is the mid-point.
+            <br><strong>In-house route:</strong> 2 senior networking engineers &times; 9 months &times; ~$200K fully-loaded = $300K &ndash; but add infra time, PM, QA overhead and the all-in cost exceeds $800K.
+          </div>
+          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
+            <strong>Source:</strong> NVIDIA PS &amp; SI partner pricing benchmarks &middot; Senior networking/infrastructure engineer compensation: levels.fyi 2025 (US market)
+          </div>
+        </div>
+
+      </div>
+      <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
+        These three numbers compound: 87% fail &times; 9 months wasted &times; $800K spent = a market that has the hardware but cannot unlock its value. That gap is the strategy.
       </div>
     </div>
 
