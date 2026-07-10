@@ -1883,6 +1883,98 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   .pain-quotes{grid-template-columns:1fr}
   .approach-grid{grid-template-columns:1fr}
 }
+
+/* ══════════════════════════════════════════════════════════
+   INTERACTIVE LAYER — hover reveals, tooltips, collapse
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Hover-reveal on approach cards ─────────────────────── */
+.approach-partial-box,.approach-fail-box,.approach-threat-box{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s cubic-bezier(.16,1,.3,1),opacity .32s ease;
+  padding-top:0!important;margin-top:0!important;
+}
+.approach-card{cursor:default;transition:border-color .2s,box-shadow .2s,transform .2s}
+.approach-card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.35)}
+.approach-card:hover .approach-partial-box,
+.approach-card:hover .approach-fail-box,
+.approach-card:hover .approach-threat-box{
+  max-height:220px;opacity:1;padding-top:8px!important;
+}
+.approach-hover-hint{font-size:8.5px;color:var(--text3);opacity:.5;margin-top:6px;text-align:right;letter-spacing:.04em;transition:opacity .2s}
+.approach-card:hover .approach-hover-hint{opacity:0}
+
+/* ── Hover-reveal on force cards (slide 6) ──────────────── */
+.force-card .force-desc{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s cubic-bezier(.16,1,.3,1),opacity .32s ease;
+  margin-top:0!important;
+}
+.force-card{cursor:default;transition:border-color .2s,box-shadow .2s,transform .2s}
+.force-card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.35)}
+.force-card:hover .force-desc{max-height:220px;opacity:1;margin-top:9px!important}
+
+/* ── Hover-reveal on eliminated cards (slide 11) ────────── */
+.elim-card .elim-short{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .4s cubic-bezier(.16,1,.3,1),opacity .32s ease;
+  margin-top:0!important;
+}
+.elim-card{cursor:default;transition:border-color .2s,transform .15s}
+.elim-card:hover{transform:translateY(-1px);border-color:rgba(224,80,80,.35)!important}
+.elim-card:hover .elim-short{max-height:140px;opacity:1;margin-top:6px!important}
+
+/* ── Rich number tooltip ─────────────────────────────────── */
+.ntip{cursor:help;position:relative;display:inline}
+.ntip::after{
+  content:attr(data-tip);
+  position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);
+  background:rgba(5,10,18,.98);border:1px solid rgba(118,185,0,.38);
+  border-radius:8px;color:#cdd9e5;font-size:10.5px;font-weight:400;
+  line-height:1.6;padding:9px 13px;
+  min-width:230px;max-width:320px;width:max-content;
+  white-space:normal;pointer-events:none;opacity:0;z-index:9999;
+  transition:opacity .2s ease;box-shadow:0 8px 28px rgba(0,0,0,.65);
+}
+.ntip::before{
+  content:'';position:absolute;bottom:calc(100% + 4px);left:50%;transform:translateX(-50%);
+  border:5px solid transparent;border-top-color:rgba(118,185,0,.38);
+  pointer-events:none;opacity:0;transition:opacity .2s ease;
+}
+.ntip:hover::after,.ntip:hover::before{opacity:1}
+
+/* ── Collapsible section ─────────────────────────────────── */
+.coll-body{overflow:hidden;transition:max-height .45s cubic-bezier(.16,1,.3,1),opacity .35s ease}
+.coll-body.coll-closed{max-height:0!important;opacity:0;pointer-events:none}
+.coll-body.coll-open{opacity:1}
+.coll-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text3);background:transparent;
+  border:1px solid var(--border);border-radius:5px;padding:3px 11px;
+  cursor:pointer;transition:all .15s;margin:4px 0 0;
+}
+.coll-btn:hover{border-color:rgba(118,185,0,.4);color:rgba(118,185,0,.8)}
+.coll-btn .cba{transition:transform .3s ease;display:inline-block;font-size:11px}
+.coll-btn.open .cba{transform:rotate(180deg)}
+
+/* ── Risk register row expand ────────────────────────────── */
+.rm-reg-item{cursor:pointer;transition:background .15s,border-color .15s}
+.rm-reg-item:hover{background:rgba(118,185,0,.025);border-color:rgba(118,185,0,.22)!important}
+.rm-reg-item .rm-reg-mit,
+.rm-reg-item .rm-reg-why,
+.rm-reg-item .rm-expand-hint{
+  grid-column:1/-1;
+}
+.rm-reg-item .rm-reg-mit,
+.rm-reg-item .rm-reg-why{
+  max-height:0;overflow:hidden;opacity:0;
+  transition:max-height .35s cubic-bezier(.16,1,.3,1),opacity .28s ease;
+}
+.rm-reg-item.open .rm-reg-mit{max-height:80px;opacity:1}
+.rm-reg-item.open .rm-reg-why{max-height:60px;opacity:1}
+.rm-expand-hint{font-size:8.5px;color:rgba(118,185,0,.45);letter-spacing:.04em;transition:opacity .2s}
+.rm-reg-item.open .rm-expand-hint{opacity:0;max-height:0;overflow:hidden}
 </style>
 </head>
 <body>
@@ -2288,47 +2380,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
 
-    <!-- Glossary row -->
-    <div class="kc-glossary a4" style="padding-bottom:8px">
-      <div class="kc-term">
-        <div class="kc-term-name">DPU</div>
-        <div class="kc-term-full">Data Processing Unit</div>
-        <div class="kc-term-def">NIC + server-grade CPU cores + OS. Offloads networking, storage, security from the host CPU.</div>
-      </div>
-      <div class="kc-term">
-        <div class="kc-term-name">SmartNIC</div>
-        <div class="kc-term-full">Intelligent NIC</div>
-        <div class="kc-term-def">NIC with basic programmability. Lighter than a DPU &ndash; no full OS, limited offload capability.</div>
-      </div>
-      <div class="kc-term">
-        <div class="kc-term-name">RDMA</div>
-        <div class="kc-term-full">Remote Direct Memory Access</div>
-        <div class="kc-term-def">Transfers data between server memory over the network, bypassing the CPU entirely. Critical for AI training.</div>
-      </div>
-      <div class="kc-term">
-        <div class="kc-term-name">GPUNetIO</div>
-        <div class="kc-term-full">DOCA GPU Networking I/O</div>
-        <div class="kc-term-def">DOCA service routing data GPU-to-GPU with zero CPU involvement &ndash; eliminates the AI training bottleneck.</div>
-      </div>
-      <div class="kc-term">
-        <div class="kc-term-name">POC</div>
-        <div class="kc-term-full">Proof of Concept</div>
-        <div class="kc-term-def">A pilot deployment to validate a solution before committing to full production rollout.</div>
-      </div>
-      <div class="kc-term">
-        <div class="kc-term-name">ISV</div>
-        <div class="kc-term-full">Independent Software Vendor</div>
-        <div class="kc-term-def">Third-party companies (e.g. VMware, Splunk) that build products on top of NVIDIA's platform.</div>
-      </div>
-      <div class="kc-term">
-        <div class="kc-term-name">GTM</div>
-        <div class="kc-term-full">Go-to-Market</div>
-        <div class="kc-term-def">Commercial strategy for reaching and converting customers &ndash; pricing, channels, partnerships.</div>
-      </div>
-      <div class="kc-term">
-        <div class="kc-term-name">OVS</div>
-        <div class="kc-term-full">Open vSwitch</div>
-        <div class="kc-term-def">Virtual networking layer in cloud environments. Can be offloaded from host CPU to run on BlueField.</div>
+    <div class="a4" style="padding-bottom:8px">
+      <div style="font-size:10px;color:var(--text3);font-style:italic;text-align:center">
+        Hover any underlined term throughout the deck for a definition.
       </div>
     </div>
 
@@ -2521,17 +2575,17 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- 3 big pain numbers -->
     <div class="pain-metrics-row a2" style="grid-template-columns:repeat(3,1fr)">
       <div class="pain-metric">
-        <div class="pain-metric-val">87%</div>
+        <div class="pain-metric-val"><span class="ntip" data-tip="87% of DOCA POCs (2022–2024) did not reach production within 12 months. Root cause: integration complexity, not hardware. Source: NVIDIA PS data · Gartner Hype Cycle I&O 2024 · Forrester 2025.">87%</span></div>
         <div class="pain-metric-label"><span class="tip" data-tip="Data Processing Unit — BlueField is NVIDIA's DPU. A NIC with ARM cores that offloads networking, storage, and security.">DPU</span> <span class="tip" data-tip="Proof of Concept — a pilot deployment to validate a solution before committing to full production.">POC</span>-to-production failure rate</div>
         <div class="pain-metric-sub">Integration complexity is the #1 blocker &middot; NVIDIA field data</div>
       </div>
       <div class="pain-metric">
-        <div class="pain-metric-val">9 mo</div>
+        <div class="pain-metric-val"><span class="ntip" data-tip="Bottom-up: 2–3 mo learning APIs + 3–4 mo integration code + 1–2 mo testing + 1 mo approval = ~9 months. 65% of that time is boilerplate that should already exist. Source: NVIDIA PS engagement averages · Gartner infrastructure onboarding benchmark.">9 mo</span></div>
         <div class="pain-metric-label">Avg time to first production DOCA deployment</div>
         <div class="pain-metric-sub">65% of that time = writing code that should already exist</div>
       </div>
       <div class="pain-metric pm-orange">
-        <div class="pain-metric-val">$800K+</div>
+        <div class="pain-metric-val"><span class="ntip" data-tip="SI/VAR route: $400–600K engineering + $200–300K testing = ~$800K mid-point. In-house: 2 senior engineers × 9 months × $200K = $300K base, but full overhead exceeds $800K. Source: NVIDIA PS pricing benchmarks · levels.fyi 2025.">$800K+</span></div>
         <div class="pain-metric-label">Custom integration cost per AI cluster</div>
         <div class="pain-metric-sub">Spent reinventing what every customer builds independently</div>
       </div>
@@ -2557,6 +2611,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-fail-label">Still missing</div>
           <div class="approach-fail-text">No NVIDIA-native optimization, no AI-scale security, no production glue. Every team writes the same 200K lines of boilerplate. Works for one team, not 1,000.</div>
         </div>
+        <div class="approach-hover-hint">hover for detail ▾</div>
       </div>
 
       <!-- 2: Specialist engineers ? partial -->
@@ -2576,6 +2631,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-fail-label">Still missing</div>
           <div class="approach-fail-text">$800K+ per engagement. Knowledge stays with the SI, not the customer. Creates a bottleneck: NVIDIA&rsquo;s growth is now gated by partner headcount, not product quality.</div>
         </div>
+        <div class="approach-hover-hint">hover for detail ▾</div>
       </div>
 
       <!-- 3: Cloud-managed NICs ? strategic threat -->
@@ -2595,6 +2651,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-fail-label">Still missing</div>
           <div class="approach-fail-text">Only works in managed cloud. On-prem, private AI, and regulated industries (finance, defense, health) cannot outsource their data plane to AWS. The majority of BlueField TAM remains exposed.</div>
         </div>
+        <div class="approach-hover-hint">hover for detail ▾</div>
       </div>
 
       <!-- 4: NVIDIA PS ? partial -->
@@ -2614,6 +2671,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-fail-label">Still missing</div>
           <div class="approach-fail-text">Cannot scale to 1,000+ DOCA accounts. Every PS engagement is a bottleneck on NVIDIA headcount. This model gates DOCA adoption to the size of NVIDIA&rsquo;s field organization.</div>
         </div>
+        <div class="approach-hover-hint">hover for detail ▾</div>
       </div>
 
     </div><!-- /approach-grid -->
@@ -2629,57 +2687,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
 
-    <!-- Number derivations & sources -->
-    <div class="a6" style="padding-bottom:28px">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Number derivations &amp; sources &ndash; where the three pain figures come from</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
-
-        <div style="background:rgba(224,80,80,.04);border:1px solid rgba(224,80,80,.18);border-radius:9px;padding:11px 13px">
-          <div style="font-size:22px;font-weight:800;color:rgba(224,80,80,.8);line-height:1;margin-bottom:6px">87%</div>
-          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">DPU POC-to-production failure rate</div>
-          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
-            <strong style="color:var(--text2)">What it measures:</strong> Of all DOCA proof-of-concept deployments that began between 2022&ndash;2024, approximately 87% did not reach production within 12 months.
-            "Failure" here means stalled, cancelled, or still in integration &ndash; not necessarily a technical failure.
-            The root cause in virtually every case: integration complexity, not hardware performance.
-          </div>
-          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
-            <strong>Source:</strong> NVIDIA Professional Services engagement data &middot; Cross-referenced: Gartner "Hype Cycle for I&amp;O" 2024 (80&ndash;90% POC failure rate for complex infrastructure platform deployments) &middot; Forrester "State of AI Infrastructure" 2025 (integration complexity cited as #1 production blocker)
-          </div>
-        </div>
-
-        <div style="background:rgba(212,130,10,.04);border:1px solid rgba(212,130,10,.2);border-radius:9px;padding:11px 13px">
-          <div style="font-size:22px;font-weight:800;color:rgba(212,130,10,.85);line-height:1;margin-bottom:6px">9 mo</div>
-          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">Avg time to first production DOCA deployment</div>
-          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
-            <strong style="color:var(--text2)">Derivation (bottom-up):</strong>
-            <br>&bull; Learning DOCA APIs &amp; docs: 2&ndash;3 months
-            <br>&bull; Writing integration code: 3&ndash;4 months
-            <br>&bull; Testing &amp; validation: 1&ndash;2 months
-            <br>&bull; Approval &amp; deployment: ~1 month
-            <br><strong style="color:rgba(212,130,10,.75)">Total: ~9 months.</strong>
-            65% of that time is writing boilerplate glue code that should already exist as a DOCA library or Blueprint.
-          </div>
-          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
-            <strong>Source:</strong> NVIDIA PS engagement timelines (average across tracked engagements) &middot; Consistent with Gartner benchmark for enterprise network infrastructure onboarding (6&ndash;12 months)
-          </div>
-        </div>
-
-        <div style="background:rgba(212,130,10,.03);border:1px solid rgba(212,130,10,.15);border-radius:9px;padding:11px 13px">
-          <div style="font-size:22px;font-weight:800;color:rgba(212,130,10,.7);line-height:1;margin-bottom:6px">$800K+</div>
-          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">Custom integration cost per AI cluster</div>
-          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
-            <strong style="color:var(--text2)">Two ways to arrive at this number:</strong>
-            <br><strong>SI/VAR route:</strong> A full DPU integration engagement is priced at $400&ndash;600K engineering + $200&ndash;300K testing &amp; docs = $600K&ndash;900K. $800K is the mid-point.
-            <br><strong>In-house route:</strong> 2 senior networking engineers &times; 9 months &times; ~$200K fully-loaded = $300K &ndash; but add infra time, PM, QA overhead and the all-in cost exceeds $800K.
-          </div>
-          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
-            <strong>Source:</strong> NVIDIA PS &amp; SI partner pricing benchmarks &middot; Senior networking/infrastructure engineer compensation: levels.fyi 2025 (US market)
-          </div>
-        </div>
-
-      </div>
-      <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
-        These three numbers compound: 87% fail &times; 9 months wasted &times; $800K spent = a market that has the hardware but cannot unlock its value. That gap is the strategy.
+    <div class="a6" style="padding-bottom:14px">
+      <div style="font-size:10px;color:var(--text3);font-style:italic;text-align:center;margin-bottom:6px">
+        87% fail &times; 9 months wasted &times; $800K spent = a market with the hardware but no path to value. <span style="color:rgba(118,185,0,.6)">Hover the numbers above for full derivation.</span>
       </div>
     </div>
 
@@ -2703,17 +2713,17 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- 3 forcing-function arguments ? DOCA platform, not just Blueprints -->
     <div class="force-grid">
       <div class="force-card">
-        <div class="force-num">6<span class="force-unit">&times;</span></div>
+        <div class="force-num"><span class="ntip" data-tip="9 months → 6 weeks. Derived from slide 5: 65% of the 9-month cycle is boilerplate code Blueprints eliminate entirely. 9mo ÷ 6wk ≈ 6×. Source: NVIDIA PS data · Docker simplification analogy.">6<span class="force-unit">×</span></span></div>
         <div class="force-title">Deployment Speed Multiplier</div>
         <div class="force-desc">DOCA&rsquo;s APIs, microservices, and Solution Blueprints collapse deployment from <strong style="color:#e05050">9 months</strong> to <strong style="color:rgba(118,185,0,.9)">6 weeks</strong>. Not by making engineers better &ndash; by eliminating 65% of the work that should never have existed in the first place.</div>
       </div>
       <div class="force-card">
-        <div class="force-num">55<span class="force-unit">%</span></div>
+        <div class="force-num"><span class="ntip" data-tip="NVIDIA holds 55% of the global AI DPU/SmartNIC market (revenue share). Source: Dell'Oro Group · IDC Q4 2025. Excludes captive ASICs (AWS Nitro, Azure MAIA). 55K BlueField DPUs in production = DOCA's activated TAM.">55<span class="force-unit">%</span></span></div>
         <div class="force-title">Hardware Lead Becomes Software Moat</div>
         <div class="force-desc">NVIDIA owns 55% of the AI DPU market. Without DOCA, that&rsquo;s 55% of hardware sitting on racks waiting for someone to write integration code. With DOCA, it becomes an active, programmable ecosystem that compounds with every new deployment.</div>
       </div>
       <div class="force-card">
-        <div class="force-num">$600B</div>
+        <div class="force-num"><span class="ntip" data-tip="Goldman Sachs 'AI Infrastructure Spending' report, April 2024: cumulative global AI infrastructure CapEx reaches $600B+ by 2028. Today captured as one-time hardware revenue. DOCA converts this to recurring software attach — estimated $0.20–$0.40 per $1 CapEx annually.">$600B</span></div>
         <div class="force-title">One-Time Hardware &rarr; Recurring Platform Revenue</div>
         <div class="force-desc">The $600B AI CapEx wave (Goldman Sachs, 2028) is currently captured as one-time hardware sales. DOCA is the mechanism that converts BlueField hardware spend into recurring software, services, and ecosystem revenue for NVIDIA.</div>
       </div>
@@ -2787,56 +2797,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
 
-    <!-- Number derivations & sources -->
-    <div class="a6" style="padding-bottom:28px">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Number derivations &amp; sources &ndash; how the three forcing-function figures were arrived at</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
-
-        <div style="background:rgba(118,185,0,.04);border:1px solid rgba(118,185,0,.2);border-radius:9px;padding:11px 13px">
-          <div style="font-size:22px;font-weight:800;color:rgba(118,185,0,.85);line-height:1;margin-bottom:6px">6&times;</div>
-          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">Deployment speed multiplier</div>
-          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
-            <strong style="color:var(--text2)">Derivation:</strong> Baseline = 9 months to first production DOCA deployment (slide 5).
-            With DOCA Solution Blueprints &ndash; pre-integrated, validated, and documented &ndash; the same deployment is reduced to approximately <strong style="color:rgba(118,185,0,.75)">6 weeks</strong>.
-            <br>9 months &divide; 6 weeks = <strong style="color:rgba(118,185,0,.75)">~6&times; faster</strong>.
-            <br><br>Why 6 weeks? From slide 5: 65% of the 9-month timeline is writing code that should already exist. Remove that and you get to ~3 months. Add Blueprint-guided validation and it drops further to ~6 weeks for a standard use case.
-          </div>
-          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
-            <strong>Source:</strong> Derived from slide 5 baseline (9 months) &middot; NVIDIA Blueprint early customer feedback on time-to-deploy reduction &middot; Consistent with comparable platform simplification patterns (Docker: days vs. weeks for environment setup)
-          </div>
-        </div>
-
-        <div style="background:rgba(82,168,255,.04);border:1px solid rgba(82,168,255,.18);border-radius:9px;padding:11px 13px">
-          <div style="font-size:22px;font-weight:800;color:rgba(82,168,255,.8);line-height:1;margin-bottom:6px">55%</div>
-          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">NVIDIA AI DPU market share</div>
-          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
-            <strong style="color:var(--text2)">Same figure as slide 9</strong> &ndash; brought forward here because it changes meaning in this context.
-            On slide 9 it describes a competitive position.
-            Here it describes an <em>activation opportunity</em>: 55% of all AI DPU hardware in the market is BlueField &ndash; and therefore DOCA-programmable.
-            <br><br>Without DOCA, that 55% is hardware waiting to be programmed (87% of it still is).
-            With DOCA Blueprints, the same 55% becomes a compounding software ecosystem.
-            The number doesn&rsquo;t change &ndash; what DOCA does to it does.
-          </div>
-          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
-            <strong>Source:</strong> Dell&rsquo;Oro Group &middot; IDC Q4 2025 &middot; Full derivation on slide 9
-          </div>
-        </div>
-
-        <div style="background:rgba(212,130,10,.04);border:1px solid rgba(212,130,10,.2);border-radius:9px;padding:11px 13px">
-          <div style="font-size:22px;font-weight:800;color:rgba(212,130,10,.85);line-height:1;margin-bottom:6px">$600B</div>
-          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">AI infrastructure CapEx wave by 2028</div>
-          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
-            <strong style="color:var(--text2)">Source:</strong> Goldman Sachs "AI Infrastructure Spending" report, April 2024 &ndash; projects cumulative global AI infrastructure CapEx to reach $600B+ by 2028, driven by hyperscaler buildouts, enterprise AI factories, and sovereign AI initiatives.
-            <br><br><strong style="color:var(--text2)">Why it matters here:</strong> Today this wave is captured almost entirely as one-time hardware revenue (GPU + NIC sales). DOCA is NVIDIA&rsquo;s mechanism to attach recurring software, licensing, and services revenue to each cluster. $1 of hardware CapEx could generate $0.20&ndash;$0.40 of annual software attach &ndash; a model that mirrors what AWS did with EC2 vs. managed services.
-          </div>
-          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
-            <strong>Source:</strong> Goldman Sachs "Generative AI: Too Much Spend, Too Little Benefit?" Apr 2024 &middot; Reinforced by Microsoft, Google, Amazon 2024 CapEx guidance &middot; NVIDIA CEO Jensen Huang GTC 2025 keynote on "AI factories"
-          </div>
-        </div>
-
-      </div>
-      <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
-        The three numbers reinforce each other: 6&times; faster deployment &times; 55% installed base &times; $600B wave = the compounding opportunity that makes DOCA the most significant strategic answer.
+    <div class="a6" style="padding-bottom:14px">
+      <div style="font-size:10px;color:var(--text3);font-style:italic;text-align:center">
+        6× faster &times; 55% installed base &times; $600B wave = the compounding opportunity. <span style="color:rgba(118,185,0,.6)">Hover the numbers above for full derivation.</span>
       </div>
     </div>
 
@@ -2988,15 +2951,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- 3 big stats -->
     <div class="urg-stats a2">
       <div class="urg-stat">
-        <div class="urg-val urg-val-red">65%</div>
+        <div class="urg-val urg-val-red"><span class="ntip" data-tip="At 400Gb/s, all I/O routes through the host CPU. CPU saturates — GPUs idle ~35% of time. Source: NVIDIA GTC 2024 field data · Forrester 2025 · NVIDIA earnings calls (60–70% pre-offload baseline).">65%</span></div>
         <div class="urg-lbl">Average GPU utilization in AI clusters without offload</div>
       </div>
       <div class="urg-stat">
-        <div class="urg-val urg-val-orange">$350M</div>
+        <div class="urg-val urg-val-orange"><span class="ntip" data-tip="$1B cluster × 35% idle = $350M. $1B = ~8,000 H100 GPUs + chassis + InfiniBand + cooling. Conservative — hyperscaler clusters exceed $5B. Source: NVIDIA list pricing · DGX H100 ~$400K · hyperscaler capex disclosures.">$350M</span></div>
         <div class="urg-lbl">Idle value in a $1B GPU cluster running at 65% util</div>
       </div>
       <div class="urg-stat">
-        <div class="urg-val urg-val-blue">2-3&times;</div>
+        <div class="urg-val urg-val-blue"><span class="ntip" data-tip="Organizations proving >85% GPU ROI get next-cluster budget in ~6 months. Without proof: 12–18 months. Ratio: 18/6 = 3×, floor 2×. Source: NVIDIA Q4 2024 earnings · elastic demand principle (faster internet → more usage).">2-3&times;</span></div>
         <div class="urg-lbl">Faster cluster expansion when GPUs run at full utilization</div>
       </div>
     </div>
@@ -3028,7 +2991,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="ufw-n">1</div>
             <div class="ufw-body">
               <div class="ufw-title">DOCA offloads the CPU bottleneck</div>
-              <div class="ufw-sub">GPU utilization: 65% &rarr; 90%+</div>
             </div>
           </div>
           <div class="ufw-arr">&rarr;</div>
@@ -3036,7 +2998,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="ufw-n">2</div>
             <div class="ufw-body">
               <div class="ufw-title">AI teams run more experiments</div>
-              <div class="ufw-sub">More capacity available = more models, faster iteration, more value created</div>
             </div>
           </div>
           <div class="ufw-arr">&rarr;</div>
@@ -3044,7 +3005,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="ufw-n">3</div>
             <div class="ufw-body">
               <div class="ufw-title">Organization invests more in AI</div>
-              <div class="ufw-sub">ROI is proven &rarr; budget grows &rarr; cluster expansion approved faster</div>
             </div>
           </div>
           <div class="ufw-arr">&rarr;</div>
@@ -3052,7 +3012,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="ufw-n">4</div>
             <div class="ufw-body">
               <div class="ufw-title">NVIDIA sells bigger clusters, sooner</div>
-              <div class="ufw-sub">Each new rack: H100 + ConnectX SuperNIC + BlueField DPU + DOCA license</div>
             </div>
           </div>
         </div>
@@ -3092,52 +3051,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     </div>
 
-    <!-- Number Derivations & Sources -->
-    <div class="a5" style="padding-bottom:28px">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Number derivations &amp; sources &ndash; where each figure comes from</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
-
-        <div style="background:rgba(224,80,80,.04);border:1px solid rgba(224,80,80,.18);border-radius:9px;padding:11px 13px">
-          <div style="font-size:22px;font-weight:800;color:rgba(224,80,80,.8);line-height:1;margin-bottom:6px">65%</div>
-          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">GPU utilization without DPU offload</div>
-          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
-            At 400Gb/s network speed, all packet I/O routes through the host CPU. The CPU was not designed for I/O at this scale &ndash; it saturates and cannot feed the GPU fast enough.
-            GPUs idle while waiting for data = ~35% of time wasted.
-          </div>
-          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
-            <strong>Source:</strong> NVIDIA GTC 2024 field data &middot; Forrester "AI Infrastructure Gaps" report 2025 &middot; NVIDIA publicly cited 60&ndash;70% as the pre-offload baseline in multiple earnings calls
-          </div>
-        </div>
-
-        <div style="background:rgba(212,130,10,.04);border:1px solid rgba(212,130,10,.2);border-radius:9px;padding:11px 13px">
-          <div style="font-size:22px;font-weight:800;color:rgba(212,130,10,.85);line-height:1;margin-bottom:6px">$350M</div>
-          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">Idle GPU value in a $1B cluster</div>
-          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
-            <strong style="color:var(--text2)">Derivation:</strong> $1B &times; 35% idle = $350M.
-            The $1B represents a large AI factory: ~8,000 H100 GPUs at ~$30K each ($240M for GPUs) + server chassis, InfiniBand networking, power &amp; cooling infrastructure &rarr; ~$1B total capital cost.
-            This is conservative &ndash; hyperscaler clusters exceed $5B.
-          </div>
-          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
-            <strong>Source:</strong> H100 GPU pricing from NVIDIA list price &middot; DGX H100 server list price ~$400K &middot; Infrastructure overhead ratio from hyperscaler capex disclosures
-          </div>
-        </div>
-
-        <div style="background:rgba(82,168,255,.04);border:1px solid rgba(82,168,255,.18);border-radius:9px;padding:11px 13px">
-          <div style="font-size:22px;font-weight:800;color:rgba(82,168,255,.8);line-height:1;margin-bottom:6px">2&ndash;3&times;</div>
-          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">Faster cluster expansion with full utilization</div>
-          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
-            <strong style="color:var(--text2)">Derivation:</strong> Organizations that demonstrate &gt;85% GPU ROI typically receive budget approval for the next cluster in ~6 months.
-            Without utilization proof, the same approval takes 12&ndash;18 months.
-            Ratio: 18/6 = 3&times;, conservative floor 2&times;.
-          </div>
-          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
-            <strong>Source:</strong> NVIDIA earnings call Q4 2024 commentary on customer upgrade cycles &middot; Elastic demand principle (faster internet &rarr; more usage, not less &middot; same logic applies here)
-          </div>
-        </div>
-
-      </div>
-      <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
-        The $350M idle figure is the mechanism that makes DOCA a revenue argument, not just a technical one. Every percentage point of GPU utilization gained = $10M recovered per $1B cluster.
+    <div class="a5" style="padding-bottom:14px">
+      <div style="font-size:10px;color:var(--text3);font-style:italic;text-align:center">
+        Every 1% GPU utilization gained = $10M recovered per $1B cluster. <span style="color:rgba(118,185,0,.6)">Hover the numbers above for full derivation.</span>
       </div>
     </div>
 
@@ -3288,54 +3204,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
 
-    <!-- Number derivations -->
-    <div class="a6" style="padding-bottom:28px">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Number derivations &amp; sources &ndash; how the market share figures were established</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-
-        <div style="background:rgba(118,185,0,.04);border:1px solid rgba(118,185,0,.2);border-radius:9px;padding:11px 14px">
-          <div style="font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(118,185,0,.7);margin-bottom:6px">How I got to NVIDIA = 55%</div>
-          <div style="font-size:10.5px;color:var(--text2);line-height:1.6;margin-bottom:7px">
-            <strong style="color:var(--text)">Source:</strong> Dell&rsquo;Oro Group &amp; IDC Q4 2025 global AI DPU and SmartNIC market report.
-            The metric is <em>revenue market share</em> of commercially sold DPU/SmartNIC units &ndash; not total silicon shipped, not GPU units, not hyperscaler captive ASICs.
-          </div>
-          <div style="font-size:10.5px;color:var(--text2);line-height:1.6;margin-bottom:7px">
-            <strong style="color:var(--text)">Scope boundary:</strong> Excludes AWS Nitro and Azure MAIA (captive / not sold to third parties). If included, NVIDIA&rsquo;s share would appear lower. Excluding them is the right frame because DOCA targets the <em>open market</em> &ndash; organizations that <em>buy</em> DPUs rather than build them.
-          </div>
-          <div style="font-size:10.5px;color:var(--text2);line-height:1.6">
-            <strong style="color:var(--text)">What 55% means for DOCA:</strong> Approximately 55,000 BlueField DPUs are in production environments today. That is DOCA&rsquo;s installed-base opportunity. Every one of those DPUs is a DOCA activation waiting to happen.
-          </div>
-        </div>
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:11px 14px">
-          <div style="font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Assumptions behind every competitor share</div>
-          <div style="display:flex;flex-direction:column;gap:6px">
-            <div style="display:grid;grid-template-columns:80px 36px 1fr;gap:6px;align-items:start;font-size:10px;border-bottom:1px solid var(--border);padding-bottom:5px">
-              <span style="font-weight:700;color:var(--green)">NVIDIA 55%</span>
-              <span style="color:var(--text3)">Why?</span>
-              <span style="color:var(--text2)">Dominant in AI factory deployments. ConnectX ships with every H100 server. BlueField is the only DPU with a full software platform (DOCA). Dell&rsquo;Oro revenue data.</span>
-            </div>
-            <div style="display:grid;grid-template-columns:80px 36px 1fr;gap:6px;align-items:start;font-size:10px;border-bottom:1px solid var(--border);padding-bottom:5px">
-              <span style="font-weight:700;color:rgba(130,145,165,.8)">Broadcom 22%</span>
-              <span style="color:var(--text3)">Why?</span>
-              <span style="color:var(--text2)">Stingray DPU strong in cloud storage offload (hyperscalers). No AI-specific SDK. Share confirmed by IDC segment data &amp; public Broadcom earnings.</span>
-            </div>
-            <div style="display:grid;grid-template-columns:80px 36px 1fr;gap:6px;align-items:start;font-size:10px;border-bottom:1px solid var(--border);padding-bottom:5px">
-              <span style="font-weight:700;color:rgba(110,125,145,.65)">Intel/Marvell 15%</span>
-              <span style="color:var(--text3)">Why?</span>
-              <span style="color:var(--text2)">Combined estimate. Intel Mount Evans IPU + Marvell OCTEON. Neither has GPU-native integration. Share derived from IDC network ASIC report.</span>
-            </div>
-            <div style="display:grid;grid-template-columns:80px 36px 1fr;gap:6px;align-items:start;font-size:10px">
-              <span style="font-weight:700;color:rgba(90,105,125,.6)">AMD/Custom 8%</span>
-              <span style="color:var(--text3)">Why?</span>
-              <span style="color:var(--text2)">AMD Pensando (acquired 2022) has limited DPU presence. Custom ASICs (3%+) validated by hyperscaler capex disclosures. Not addressable by DOCA.</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
-        These are publicly reported figures. As with any market research, exact percentages vary by methodology &ndash; the directional conclusion (NVIDIA leads, competitors have no software story) holds across all sources reviewed.
+    <div class="a6" style="padding-bottom:14px">
+      <div style="font-size:10px;color:var(--text3);font-style:italic;text-align:center">
+        Revenue share of commercially sold DPU/SmartNIC units · excludes captive ASICs (AWS Nitro, Azure MAIA). <span style="color:rgba(118,185,0,.6)">Source: Dell&rsquo;Oro Group · IDC Q4 2025.</span>
       </div>
     </div>
 
@@ -3494,51 +3365,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       DOCA is the layer that determines how fast they deploy, scale, and stay current &ndash; and how fast NVIDIA sells the next cluster.
     </div>
 
-    <!-- Number derivations & sources -->
-    <div class="a5" style="padding-bottom:28px">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Number derivations &amp; sources &ndash; where each figure on this slide comes from</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:11px 14px">
-          <div style="font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(82,168,255,.7);margin-bottom:7px">Segment revenue split &ndash; 40% / 28% / 20% / 12%</div>
-          <div style="display:flex;flex-direction:column;gap:5px">
-            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
-              <strong style="color:var(--text)">Hyperscalers 40%:</strong> Azure, AWS, Google, Meta account for the majority of NVIDIA DPU deployments by volume and revenue. Azure Boost alone represents millions of BlueField units. Source: NVIDIA earnings call Q4 2024 &middot; Morgan Stanley AI infrastructure report 2025.
-            </div>
-            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
-              <strong style="color:var(--text)">GPU Cloud 28% &#8679;:</strong> Fastest-growing segment. CoreWeave, Lambda, Together AI, Crusoe Energy all built entirely on NVIDIA. Growth rate 2&ndash;3× YoY based on CoreWeave revenue disclosures ($3.8B 2024, up from $500M 2023) and public GPU cloud market sizing. Source: CoreWeave S-1 filing, March 2025.
-            </div>
-            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
-              <strong style="color:var(--text)">Enterprise 20%:</strong> On-prem AI, private cloud, regulated industries. Slower adoption but highest DOCA value per deployment (no hyperscaler to handle integration). Source: IDC "Enterprise AI Infra" 2025.
-            </div>
-            <div style="font-size:10.5px;color:var(--text2);line-height:1.55">
-              <strong style="color:var(--text)">Telco 12%:</strong> 5G DU/CU offload + edge AI. BlueField used for latency-sensitive packet processing. Telco is a growing segment but slower procurement cycles. Source: Dell&rsquo;Oro Telco DPU report 2024.
-            </div>
-          </div>
-          <div style="font-size:9px;color:var(--text3);margin-top:6px;font-style:italic">Note: percentages are estimated revenue mix, not unit shipments. Exact breakdown varies by quarter.</div>
-        </div>
-
-        <div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:11px 14px">
-          <div style="font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(118,185,0,.7);margin-bottom:7px">Per-customer stats derivation</div>
-          <div style="display:flex;flex-direction:column;gap:5px">
-            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
-              <strong style="color:var(--text)">Azure &ndash; "Millions of servers offloaded":</strong> Azure has ~3M+ physical servers globally (public estimate from multiple analyst reports). Azure Boost (BlueField-based) was announced as shipping in 2023 and is being rolled into all new Azure VM series. Exact number not public &ndash; directionally millions of units. Source: Microsoft Azure Boost announcement Nov 2023 &middot; GigaOm Analyst Report.
-            </div>
-            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
-              <strong style="color:var(--text)">Meta &ndash; "100k+ GPUs on ConnectX":</strong> Meta disclosed 350,000 H100 GPUs in their 2024 AI infrastructure buildout, connected via ConnectX-7 RDMA fabric. 100k+ is a conservative floor. Source: Meta Q4 2024 earnings call &middot; Meta AI infrastructure blog posts.
-            </div>
-            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
-              <strong style="color:var(--text)">CoreWeave &ndash; "$23B IPO &middot; 10&times; growth":</strong> CoreWeave IPO March 2025. Revenue grew from ~$230M in 2022 to $3.8B in 2024 &ndash; that&rsquo;s more than 10&times; in 2 years. $23B IPO valuation at listing. Source: CoreWeave S-1, March 2025 &middot; Reuters IPO coverage.
-            </div>
-            <div style="font-size:10.5px;color:var(--text2);line-height:1.55">
-              <strong style="color:var(--text)">Lambda / Together AI &ndash; "2-3&times; YoY GPU cluster growth":</strong> Both companies have publicly discussed multi-hundred-percent YoY capacity growth. Lambda announced 32,000 H100 deployments in 2024 (up from ~5,000 in 2023). Together AI raised $305M at $3B valuation citing 3&times; compute growth. Source: Lambda company blog &middot; Together AI Series B announcement.
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
-        All customer figures are based on public disclosures, S-1 filings, earnings calls, or widely cited analyst reports. No NDA-protected information is used.
+    <div class="a5" style="padding-bottom:14px">
+      <div style="font-size:10px;color:var(--text3);font-style:italic;text-align:center">
+        All figures from public disclosures, S-1 filings &amp; earnings calls. <span style="color:rgba(118,185,0,.6)">Hover any customer stat for source detail.</span>
       </div>
     </div>
 
@@ -4656,6 +4485,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <div class="rm-reg-name">Adoption Stall &ndash; last-mile integration still fails</div>
               <div class="rm-levels"><span class="rm-reg-lv rm-lv-high">High</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-serious">Serious</span></div>
             </div>
+            <div class="rm-expand-hint">&#8964; click for mitigation</div>
             <div class="rm-reg-mit">Customer Success program + 90-day deployment SLA. Blueprint pre-flight checklist catches 80% of integration failures before they happen.</div>
             <div class="rm-reg-why">Reduces probability High &rarr; Medium: customers no longer alone in the last mile.</div>
           </div>
@@ -4666,6 +4496,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <div class="rm-reg-name">Hyperscaler In-house &ndash; AWS / Azure / GCP build their own</div>
               <div class="rm-levels"><span class="rm-reg-lv rm-lv-high">High</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-med">Medium</span></div>
             </div>
+            <div class="rm-expand-hint">&#8964; click for mitigation</div>
             <div class="rm-reg-mit">Own the open standard before they do. SI certification + partner ecosystem creates switching cost a captive solution can't replicate.</div>
             <div class="rm-reg-why">Reduces probability Medium &rarr; Low: ecosystem moat makes in-house less attractive as market matures.</div>
           </div>
@@ -4676,6 +4507,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <div class="rm-reg-name">Blueprint Mis-prioritization &ndash; wrong use case chosen first</div>
               <div class="rm-levels"><span class="rm-reg-lv rm-lv-serious">Serious</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-low">Low</span></div>
             </div>
+            <div class="rm-expand-hint">&#8964; click for mitigation</div>
             <div class="rm-reg-mit">Quarterly customer advisory board validates priority. Year 1 Blueprint tied to #1 customer pain with measurable TAM and active customer co-development.</div>
             <div class="rm-reg-why">Reduces probability High &rarr; Low: customer signal is the selection mechanism, not internal gut feel.</div>
           </div>
@@ -4686,6 +4518,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <div class="rm-reg-name">API Fragmentation &ndash; DOCA SDK breaks Blueprint versions</div>
               <div class="rm-levels"><span class="rm-reg-lv rm-lv-serious">Serious</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-med">Medium</span></div>
             </div>
+            <div class="rm-expand-hint">&#8964; click for mitigation</div>
             <div class="rm-reg-mit">Blueprint versioning system + backward compatibility SLA. SDK breaking changes require Blueprint-team sign-off before any release.</div>
             <div class="rm-reg-why">Reduces probability Medium &rarr; Low: contractual gate prevents the breakage from reaching customers.</div>
           </div>
@@ -4696,6 +4529,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <div class="rm-reg-name">Partner Execution &ndash; SI quality varies in the field</div>
               <div class="rm-levels"><span class="rm-reg-lv rm-lv-med">Medium</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-low">Low</span></div>
             </div>
+            <div class="rm-expand-hint">&#8964; click for mitigation</div>
             <div class="rm-reg-mit">Partner certification program with mandatory Blueprint validation lab. Certified SIs get co-marketing + deal support. Non-certified don't.</div>
             <div class="rm-reg-why">Reduces impact Critical &rarr; Marginal: only validated partners touch customer deployments &ndash; bad execution no longer reaches production.</div>
           </div>
@@ -4859,9 +4693,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
 
-    <!-- Full derivations section -->
+    <!-- Full derivations section (collapsible) -->
     <div class="a6" style="padding-bottom:28px">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Complete derivation table &ndash; every number, every assumption, every source</div>
+      <button class="coll-btn" onclick="collToggle(this)">Show derivation <span class="cba">▾</span></button>
+      <div class="coll-body coll-closed" style="max-height:800px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;margin-top:8px">Complete derivation table &ndash; every number, every assumption, every source</div>
       <div style="border:1px solid var(--border);border-radius:9px;overflow:hidden">
         <table style="width:100%;border-collapse:collapse;font-size:10.5px">
           <thead>
@@ -4904,6 +4740,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           </tbody>
         </table>
       </div>
+      </div><!-- /coll-body -->
     </div>
 
   </div><!-- /sc -->
@@ -5397,6 +5234,31 @@ function g3Toggle(row){
   if(wrap) wrap.querySelectorAll('.gantt3-row.g3-open').forEach(r => r.classList.remove('g3-open'));
   if(!isOpen) row.classList.add('g3-open');
 }
+
+// --- COLLAPSIBLE SECTIONS ---
+function collToggle(btn){
+  const body = btn.nextElementSibling;
+  const isOpen = btn.classList.contains('open');
+  btn.classList.toggle('open',!isOpen);
+  body.classList.toggle('coll-closed',isOpen);
+  body.classList.toggle('coll-open',!isOpen);
+  btn.querySelector('.cba').textContent = isOpen ? '▾' : '▴';
+  btn.childNodes[0].textContent = isOpen ? 'Show derivation ' : 'Hide derivation ';
+}
+// Init all collapse buttons
+document.querySelectorAll('.coll-btn').forEach(btn=>{
+  const body = btn.nextElementSibling;
+  if(body){ body.classList.add('coll-closed'); body.style.maxHeight='0'; }
+});
+
+// --- RISK REGISTER ROW TOGGLE ---
+document.querySelectorAll('.rm-reg-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.rm-register .rm-reg-item.open').forEach(r=>r.classList.remove('open'));
+    if(!isOpen) item.classList.add('open');
+  });
+});
 
 // Run on first load
 slides[0].classList.add('active');upd();
