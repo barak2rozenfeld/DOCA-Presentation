@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -534,147 +534,148 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .psa-dep{font-size:10.5px;color:var(--text2);border-top:1px solid var(--border);padding-top:8px;line-height:1.4}
 .psa-dep-label{font-weight:700;color:var(--text)}
 
-/* ?? Gantt Roadmap ??????????????????????????????????????????????? */
-.gantt-wrap{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:13px 16px}
-.gantt-hd{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:10px;display:flex;align-items:center;gap:10px}
-.gantt-hd::after{content:'';flex:1;height:1px;background:var(--border)}
-/* Main grid — phases header + track rows (display:contents trick) */
-.gantt-grid{display:grid;grid-template-columns:72px repeat(4,1fr);gap:3px;align-items:stretch}
-.gantt-phase-spacer{/* col 1 spacer for phase header row */}
-.gantt-ph{
-  display:flex;flex-direction:column;align-items:center;gap:2px;
-  padding:5px 6px;border-radius:5px 5px 0 0;text-align:center;
+/* === MS-Project Gantt Roadmap =============================== */
+.msgantt-outer{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;padding:15px 18px;
 }
-.gantt-ph-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-bottom:1px}
-.gantt-ph-label{font-size:9.5px;font-weight:700;color:var(--text2);letter-spacing:.03em}
-.gantt-ph-period{font-size:8px;font-weight:600;color:var(--text3)}
-.ph-now{background:rgba(224,80,80,.07);border:1px solid rgba(224,80,80,.18)}
-.ph-near{background:rgba(212,130,10,.07);border:1px solid rgba(212,130,10,.18)}
-.ph-mid{background:rgba(42,128,200,.07);border:1px solid rgba(42,128,200,.18)}
-.ph-scale{background:rgba(118,185,0,.05);border:1px solid rgba(118,185,0,.14)}
-.ph-now .gantt-ph-dot{background:rgba(224,80,80,.8)}
-.ph-near .gantt-ph-dot{background:rgba(212,130,10,.8)}
-.ph-mid .gantt-ph-dot{background:rgba(42,128,200,.8)}
-.ph-scale .gantt-ph-dot{background:rgba(118,185,0,.75)}
-/* Track group — transparent container on desktop, card on mobile */
-.gantt-tg{display:contents}
-.gantt-trk-cells{display:contents}
-.gantt-trk-hd{
-  display:flex;flex-direction:column;justify-content:center;gap:3px;
-  padding:7px 8px 7px 0;border-right:1px solid var(--border2);
-  align-items:flex-start;grid-column:1;
+.msgantt-hd{
+  font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text3);
+  margin-bottom:12px;display:flex;align-items:center;gap:10px;
 }
-.gantt-trk-name{font-size:9.5px;color:var(--text3);margin-top:1px}
-.gantt-trk-chevron{display:none}
-/* Gantt cell */
-.gantt-cell{
-  border-radius:5px;padding:7px 9px;cursor:pointer;
-  display:flex;flex-direction:column;gap:0;line-height:1.3;
-  transition:transform .12s,box-shadow .12s,opacity .15s;
+.msgantt-hd::after{content:'';flex:1;height:1px;background:var(--border)}
+.msgantt-scroll{
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  margin:0 -2px;padding:0 2px 3px;
+}
+.msgantt-scroll::-webkit-scrollbar{height:3px}
+.msgantt-scroll::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+.msgantt-grid{
+  display:grid;
+  grid-template-columns:108px repeat(4,1fr);
+  min-width:490px;
+  row-gap:0;position:relative;
+}
+/* Phase header */
+.msg-track-spacer{padding:5px 0 6px;border-bottom:2px solid var(--border2)}
+.msg-qhd{
   position:relative;overflow:hidden;
+  padding:7px 8px 9px;border-radius:6px 6px 0 0;
+  border-bottom:2px solid transparent;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:2px;margin:0 2px;
 }
-.gantt-cell::before{
-  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
-  border-radius:2px 0 0 2px;
+.msg-q-now  {background:rgba(224,80,80,.08);border-color:rgba(224,80,80,.55)!important}
+.msg-q-near {background:rgba(212,130,10,.07);border-color:rgba(212,130,10,.45)!important}
+.msg-q-mid  {background:rgba(42,128,200,.07);border-color:rgba(42,128,200,.45)!important}
+.msg-q-scale{background:rgba(118,185,0,.05);border-color:rgba(118,185,0,.35)!important}
+.msg-q-name{font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--text2)}
+.msg-q-period{font-size:7.5px;font-weight:600;color:var(--text3);margin-top:1px}
+.msg-today-wrap{display:flex;align-items:center;gap:4px;margin-top:4px}
+.msg-today-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(224,80,80,.95);flex-shrink:0;
+  animation:todayPulse 1.8s ease-in-out infinite;
 }
-.gantt-cell:hover{transform:translateY(-1px);box-shadow:0 4px 14px rgba(0,0,0,.4)}
-.gantt-cell.dim{opacity:.38}
-.gantt-cell b{font-size:10px;font-weight:700;color:#fff;display:block;margin-bottom:2px}
-.gantt-cell i{font-size:8.5px;font-style:normal;color:rgba(220,232,255,.55);display:block}
-/* Cell expand */
-.gantt-cell-detail{
-  display:none;max-height:0;overflow:hidden;
-  margin-top:7px;padding-top:7px;
+@keyframes todayPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(224,80,80,.5)}
+  50%{box-shadow:0 0 0 5px rgba(224,80,80,.0)}
+}
+.msg-today-label{font-size:7px;font-weight:800;letter-spacing:.09em;color:rgba(255,105,105,.9);text-transform:uppercase}
+/* Track label */
+.msg-tlabel{
+  display:flex;flex-direction:column;justify-content:center;gap:5px;
+  padding:6px 10px 6px 2px;border-right:1px solid var(--border2);
+}
+.msg-tname{font-size:8.5px;font-weight:600;color:var(--text3);letter-spacing:.01em}
+/* Task bars */
+.msg-bar{
+  position:relative;overflow:hidden;
+  border-radius:6px;padding:7px 10px 7px 13px;
+  margin:3px 2px;cursor:pointer;
+  display:flex;flex-direction:column;gap:1px;
+  border:1px solid transparent;
+  transition:transform .15s ease,box-shadow .15s ease;
+}
+.msg-bar::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+  border-radius:3px 0 0 3px;
+}
+.msg-bar-fill{
+  position:absolute;left:3px;top:0;bottom:0;width:0;
+  opacity:0;pointer-events:none;
+  transition:width 1s cubic-bezier(.25,.8,.25,1) .45s,opacity .5s ease .35s;
+}
+.slide.active .msg-bar-fill{width:var(--bp,0%);opacity:.22}
+.msg-bar:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.5)}
+.msg-bar.open{z-index:2;box-shadow:0 0 0 1px rgba(255,255,255,.14),0 8px 28px rgba(0,0,0,.6)}
+.msg-bar b{font-size:10px;font-weight:700;color:#fff;position:relative;z-index:1;line-height:1.3;display:block}
+.msg-bar i{font-size:8.5px;font-style:normal;color:rgba(220,232,255,.5);position:relative;z-index:1;display:block}
+.msg-bar.dim{opacity:.32}
+.msg-bar-xp{position:absolute;top:6px;right:7px;font-size:9px;color:rgba(255,255,255,.25);transition:transform .2s,color .15s;z-index:2}
+.msg-bar:hover .msg-bar-xp{color:rgba(255,255,255,.5)}
+.msg-bar.open .msg-bar-xp{transform:rotate(45deg);color:rgba(255,255,255,.6)}
+.msg-bar-detail{
+  display:none;margin-top:7px;padding-top:7px;
   border-top:1px solid rgba(255,255,255,.1);
-  font-size:9.5px;color:rgba(200,220,255,.72);line-height:1.6;
+  font-size:9px;color:rgba(200,220,255,.72);line-height:1.6;position:relative;z-index:1;
 }
-.gantt-cell.expanded .gantt-cell-detail{display:block;max-height:200px}
-.gantt-cell.expanded{
-  z-index:2;
-  box-shadow:0 0 0 1px rgba(255,255,255,.14),0 6px 20px rgba(0,0,0,.55)
-}
-/* Cell expand icon */
-.gantt-cell-expand{position:absolute;top:5px;right:6px;font-size:9px;color:rgba(255,255,255,.25);transition:transform .2s,color .15s}
-.gantt-cell:hover .gantt-cell-expand{color:rgba(255,255,255,.5)}
-.gantt-cell.expanded .gantt-cell-expand{transform:rotate(45deg);color:rgba(255,255,255,.6)}
+.msg-bar.open .msg-bar-detail{display:block}
 /* Color variants */
-.gc-blue{background:rgba(42,128,200,.2);border:1px solid rgba(42,128,200,.3)}
-.gc-blue::before{background:rgba(82,168,255,.6)}
-.gc-green{background:rgba(118,185,0,.17);border:1px solid rgba(118,185,0,.28)}
-.gc-green::before{background:rgba(118,185,0,.75)}
-.gc-teal{background:rgba(0,185,155,.17);border:1px solid rgba(0,185,155,.28)}
-.gc-teal::before{background:rgba(0,185,155,.7)}
-.gc-orange{background:rgba(212,130,10,.17);border:1px solid rgba(212,130,10,.28)}
-.gc-orange::before{background:rgba(212,130,10,.7)}
-/* Phase badge — only shown on mobile */
-.gantt-pb{
-  display:none;font-size:8.5px;font-weight:700;
-  padding:1px 7px;border-radius:3px;margin-bottom:5px;width:fit-content;
+.msg-hw {background:rgba(42,128,200,.2);border-color:rgba(42,128,200,.35)}
+.msg-hw::before{background:rgba(82,168,255,.75)}
+.msg-hw .msg-bar-fill{background:rgba(82,168,255,1)}
+.msg-sw {background:rgba(118,185,0,.17);border-color:rgba(118,185,0,.3)}
+.msg-sw::before{background:rgba(118,185,0,.8)}
+.msg-sw .msg-bar-fill{background:rgba(118,185,0,1)}
+.msg-bp2{background:rgba(0,185,155,.17);border-color:rgba(0,185,155,.3)}
+.msg-bp2::before{background:rgba(0,185,155,.8)}
+.msg-bp2 .msg-bar-fill{background:rgba(0,185,155,1)}
+.msg-gtm{background:rgba(212,130,10,.17);border-color:rgba(212,130,10,.3)}
+.msg-gtm::before{background:rgba(212,130,10,.75)}
+.msg-gtm .msg-bar-fill{background:rgba(212,130,10,1)}
+/* Milestone rows */
+.msg-ms-row{grid-column:1/-1;position:relative;height:24px;margin:1px 0}
+.msg-ms-glow-line{
+  position:absolute;top:50%;left:0;right:0;height:1px;transform:translateY(-50%);
+  background:linear-gradient(90deg,
+    transparent 0%,rgba(118,185,0,.04) 80px,
+    rgba(118,185,0,.3) calc(var(--ms-x) - 30px),
+    rgba(118,185,0,.5) var(--ms-x),
+    rgba(118,185,0,.1) calc(var(--ms-x) + 25px),transparent 100%);
 }
-.gantt-pb-now{background:rgba(224,80,80,.15);color:rgba(255,110,110,.9);border:1px solid rgba(224,80,80,.25)}
-.gantt-pb-near{background:rgba(212,130,10,.15);color:rgba(255,180,60,.9);border:1px solid rgba(212,130,10,.25)}
-.gantt-pb-mid{background:rgba(42,128,200,.15);color:rgba(82,168,255,.9);border:1px solid rgba(42,128,200,.25)}
-.gantt-pb-scale{background:rgba(118,185,0,.1);color:rgba(148,212,42,.85);border:1px solid rgba(118,185,0,.2)}
-/* Inline milestone rows */
-.gantt-ms-inline{
-  grid-column:1/-1;
-  display:flex;align-items:center;gap:8px;
-  padding:3px 0;font-size:9.5px;font-weight:700;
-  color:rgba(118,185,0,.75);letter-spacing:.02em;
+.msg-ms-dia{
+  position:absolute;top:50%;left:var(--ms-x);
+  width:10px;height:10px;background:rgba(118,185,0,.9);
+  transform:translateX(-50%) translateY(-50%) rotate(45deg);
+  box-shadow:0 0 8px rgba(118,185,0,.65),0 0 20px rgba(118,185,0,.22);z-index:1;
 }
-.gantt-ms-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(118,185,0,.25),rgba(118,185,0,.04))}
-.gantt-ms-line-r{flex:1;height:1px;background:linear-gradient(270deg,rgba(118,185,0,.25),rgba(118,185,0,.04))}
-.gantt-ms-dia{
-  width:7px;height:7px;background:rgba(118,185,0,.85);
-  transform:rotate(45deg);flex-shrink:0;
-  box-shadow:0 0 6px rgba(118,185,0,.35);
+.msg-ms-lbl{
+  position:absolute;top:50%;transform:translateY(-50%);
+  font-size:8.5px;font-weight:700;color:rgba(118,185,0,.82);
+  letter-spacing:.02em;white-space:nowrap;z-index:1;
 }
-.gantt-note{font-size:10px;color:var(--text3);margin-top:9px;font-style:italic;grid-column:1/-1}
-
-/* ?? MOBILE ?600px ??????????????????????????????????????????????? */
+.msg-ms-lbl-r{left:calc(var(--ms-x) + 14px)}
+.msg-ms-lbl-l{right:calc(100% - var(--ms-x) + 14px);text-align:right}
+.msg-note{
+  font-size:9.5px;color:var(--text3);font-style:italic;
+  margin-top:12px;padding-top:9px;border-top:1px solid var(--border2);
+}
+/* Mobile */
 @media(max-width:700px){
   .psa-grid{grid-template-columns:1fr}
-
-  /* Gantt: switch to accordion cards */
-  .gantt-grid{display:flex;flex-direction:column;gap:5px}
-  /* Hide desktop phase header items */
-  .gantt-phase-spacer,.gantt-ph{display:none}
-  /* Track group becomes a card */
-  .gantt-tg{
-    display:flex;flex-direction:column;
-    background:var(--card);border:1px solid var(--border);
-    border-radius:8px;overflow:hidden;
-  }
-  .gantt-trk-cells{display:none;flex-direction:column}
-  .gantt-tg.open .gantt-trk-cells{display:flex}
-  .gantt-trk-hd{
-    flex-direction:row;align-items:center;gap:8px;border-right:none;
-    padding:10px 13px;cursor:pointer;
-    border-bottom:1px solid transparent;transition:border-color .15s;
-    position:relative;
-  }
-  .gantt-trk-name{display:block;font-size:10px;color:var(--text3)}
-  .gantt-trk-chevron{
-    display:block;margin-left:auto;font-size:14px;
-    color:var(--text3);transition:transform .2s;line-height:1;
-  }
-  .gantt-tg.open .gantt-trk-hd{border-bottom-color:var(--border)}
-  .gantt-tg.open .gantt-trk-chevron{transform:rotate(90deg)}
-  .gantt-cell{
-    border-radius:0;border:none;border-bottom:1px solid var(--border2) !important;
-    padding:9px 13px;
-  }
-  .gantt-cell::before{display:none}
-  .gantt-cell:last-child{border-bottom:none !important}
-  .gantt-cell:hover{transform:none;box-shadow:none}
-  .gantt-cell b{font-size:11px}
-  .gantt-cell i{font-size:10px}
-  .gantt-cell-detail{font-size:10px}
-  .gantt-pb{display:block}
-  /* Milestones between track cards */
-  .gantt-ms-inline{padding:2px 4px;font-size:9px;justify-content:center}
-  .gantt-ms-line,.gantt-ms-line-r{display:none}
-  .gantt-note{font-size:9.5px}
+  .msgantt-outer{padding:11px 12px}
+  .msgantt-scroll{margin:0 -12px;padding:0 12px 4px}
+  .msgantt-grid{min-width:430px}
+  .msg-bar{padding:6px 9px 6px 11px;margin:2px 1px}
+  .msg-bar b{font-size:9.5px}
+  .msg-bar i{font-size:8px}
+  .msg-ms-lbl{font-size:7.5px}
+  .msg-ms-dia{width:8px;height:8px}
+  .msg-q-name{font-size:8.5px}
+  .msg-tlabel{padding:5px 8px 5px 2px}
+  .msg-today-wrap{margin-top:3px}
 }
 
 /* -- Strategic Alternatives (interactive) -- */
@@ -1786,7 +1787,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </svg>
         <div class="cust-donut-legend">
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(42,128,200,.75)"></span><span class="cdl-seg">Hyperscalers</span><span class="cdl-pct">40%</span></div>
-          <div class="cdl-row"><span class="cdl-dot" style="background:rgba(118,185,0,.75)"></span><span class="cdl-seg">GPU Cloud</span><span class="cdl-pct cdl-pct-grow">28% ?</span></div>
+          <div class="cdl-row"><span class="cdl-dot" style="background:rgba(118,185,0,.75)"></span><span class="cdl-seg">GPU Cloud</span><span class="cdl-pct cdl-pct-grow">28% 📈</span></div>
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(212,130,10,.7)"></span><span class="cdl-seg">Enterprise</span><span class="cdl-pct">20%</span></div>
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(0,185,155,.6)"></span><span class="cdl-seg">Telco / Edge</span><span class="cdl-pct">12%</span></div>
         </div>
@@ -1807,7 +1808,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">BlueField DPU · Azure Boost</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Millions of servers offloaded</span>
-                  <span class="cgr-impact cgi-crit">??? Critical</span>
+                  <span class="cgr-impact cgi-crit">🔥🔥🔥 Critical</span>
                 </div>
               </div>
               <div class="cgr-detail">CPU fully freed per server. Every Azure upgrade = new BlueField + ConnectX. DOCA is why Azure stays NVIDIA over custom silicon.</div>
@@ -1818,7 +1819,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX-7 400Gb · AI Training Fabric</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">100k+ GPUs on ConnectX</span>
-                  <span class="cgr-impact cgi-crit">??? Critical</span>
+                  <span class="cgr-impact cgi-crit">🔥🔥🔥 Critical</span>
                 </div>
               </div>
               <div class="cgr-detail">Llama 2 and Llama 3 trained on ConnectX-7 RDMA fabric. Every new model generation = larger cluster = more ConnectX per rack.</div>
@@ -1829,7 +1830,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX · GKE &amp; TPU Networking</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat cgr-stat-watch">Evaluating BlueField DPU</span>
-                  <span class="cgr-impact cgi-strat">?? Strategic</span>
+                  <span class="cgr-impact cgi-strat">🎯🎯 Strategic</span>
                 </div>
               </div>
               <div class="cgr-detail">Converting Google from ConnectX-only to ConnectX + BlueField + DOCA doubles revenue per socket. DPU adoption here is a landmark win.</div>
@@ -1849,7 +1850,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX-7 400Gb · GPU Cloud Fabric</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">$23B IPO · 10× growth 2023-25</span>
-                  <span class="cgr-impact cgi-high">??? High</span>
+                  <span class="cgr-impact cgi-high">⚡⚡⚡ High</span>
                 </div>
               </div>
               <div class="cgr-detail">Entire business depends on ConnectX. Higher GPU util via DOCA = more capacity sold = more H100s ordered. CoreWeave's revenue is NVIDIA's revenue.</div>
@@ -1859,8 +1860,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-name">Lambda / Together AI</div>
                 <div class="cgr-product">ConnectX-7 · AI Training-as-a-Service</div>
                 <div class="cgr-badges">
-                  <span class="cgr-stat">2-3? YoY GPU cluster growth</span>
-                  <span class="cgr-impact cgi-emerg">? Emerging</span>
+                  <span class="cgr-stat">2-3× YoY GPU cluster growth</span>
+                  <span class="cgr-impact cgi-emerg">🌱 Emerging</span>
                 </div>
               </div>
               <div class="cgr-detail">Next wave of GPU cloud buyers. DOCA blueprints that cut deployment time = faster cluster expansion = more ConnectX orders sooner.</div>
@@ -1880,7 +1881,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">BlueField DPU · RDMA &amp; Tenant Isolation</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Bare metal perf + full isolation</span>
-                  <span class="cgr-impact cgi-strat">?? Strategic</span>
+                  <span class="cgr-impact cgi-strat">🎯🎯 Strategic</span>
                 </div>
               </div>
               <div class="cgr-detail">OCI's bare metal differentiation is built on BlueField. A reference architecture that enterprise clouds copy. DOCA adoption drives repeatable blueprints across the segment.</div>
@@ -1923,7 +1924,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="urg-lbl">Idle value in a $1B GPU cluster running at 65% util</div>
       </div>
       <div class="urg-stat">
-        <div class="urg-val urg-val-blue">2-3?</div>
+        <div class="urg-val urg-val-blue">2-3×</div>
         <div class="urg-lbl">Faster cluster expansion when GPUs run at full utilization</div>
       </div>
     </div>
@@ -1958,7 +1959,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <div class="ufw-sub">GPU utilization: 65% → 90%+</div>
             </div>
           </div>
-          <div class="ufw-arr">?</div>
+          <div class="ufw-arr">→</div>
           <div class="urg-fw-step ufw-green">
             <div class="ufw-n">2</div>
             <div class="ufw-body">
@@ -1966,7 +1967,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <div class="ufw-sub">More capacity available = more models, faster iteration, more value created</div>
             </div>
           </div>
-          <div class="ufw-arr">?</div>
+          <div class="ufw-arr">→</div>
           <div class="urg-fw-step ufw-blue">
             <div class="ufw-n">3</div>
             <div class="ufw-body">
@@ -1974,7 +1975,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <div class="ufw-sub">ROI is proven → budget grows → cluster expansion approved faster</div>
             </div>
           </div>
-          <div class="ufw-arr">?</div>
+          <div class="ufw-arr">→</div>
           <div class="urg-fw-step ufw-gold">
             <div class="ufw-n">4</div>
             <div class="ufw-body">
@@ -2038,15 +2039,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- Strategy options — tracks mapping bridge -->
     <div class="psa-bridge a2" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 12px;background:rgba(118,185,0,.06);border:1px solid rgba(118,185,0,.18);border-radius:9px;font-size:11px">
       <span style="font-weight:700;color:var(--green);letter-spacing:.04em;margin-right:4px">OPTIONS · TRACKS</span>
-      <span style="color:var(--text2)">A (APIs)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">?</span>
-      <span style="color:var(--text2)">B (Blueprints)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">Blueprint track</span>
-      <span style="color:var(--text3);margin:0 4px">?</span>
-      <span style="color:var(--text2)">C (Kubernetes)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">?</span>
-      <span style="color:var(--text2)">D (Observability)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">?</span>
-      <span style="color:var(--text2)">E (Partners)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">GTM track</span>
+      <span style="color:var(--text2)">A (APIs)</span><span style="color:var(--text3)">→</span><span style="color:#76b900">SW track</span>
+      <span style="color:var(--text3);margin:0 4px">·</span>
+      <span style="color:var(--text2)">B (Blueprints)</span><span style="color:var(--text3)">→</span><span style="color:#76b900">Blueprint track</span>
+      <span style="color:var(--text3);margin:0 4px">·</span>
+      <span style="color:var(--text2)">C (Kubernetes)</span><span style="color:var(--text3)">→</span><span style="color:#76b900">SW track</span>
+      <span style="color:var(--text3);margin:0 4px">·</span>
+      <span style="color:var(--text2)">D (Observability)</span><span style="color:var(--text3)">→</span><span style="color:#76b900">SW track</span>
+      <span style="color:var(--text3);margin:0 4px">·</span>
+      <span style="color:var(--text2)">E (Partners)</span><span style="color:var(--text3)">→</span><span style="color:#76b900">GTM track</span>
       <span style="flex:1;text-align:right;color:var(--text3);font-style:italic">All five strategies are embedded in this plan</span>
     </div>
 
@@ -2160,211 +2161,207 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     </div><!-- /psa-grid -->
 
-    <!-- Gantt execution roadmap -->
-    <div class="gantt-wrap a4">
-      <div class="gantt-hd">Execution Roadmap &mdash; 4 tracks in parallel</div>
 
-      <div class="gantt-grid">
+    <!-- MS Project-style Execution Roadmap -->
+    <div class="msgantt-outer a4">
+      <div class="msgantt-hd">Execution Roadmap &mdash; 4 tracks &middot; Q3 2026 &rarr; 2027+</div>
 
-        <!-- Phase header row -->
-        <div class="gantt-phase-spacer"></div>
-        <div class="gantt-ph ph-now">
-          <span class="gantt-ph-dot"></span>
-          <span class="gantt-ph-label">Now</span>
-          <span class="gantt-ph-period">Q3 2026</span>
-        </div>
-        <div class="gantt-ph ph-near">
-          <span class="gantt-ph-dot"></span>
-          <span class="gantt-ph-label">Near</span>
-          <span class="gantt-ph-period">Q4 2026</span>
-        </div>
-        <div class="gantt-ph ph-mid">
-          <span class="gantt-ph-dot"></span>
-          <span class="gantt-ph-label">Mid</span>
-          <span class="gantt-ph-period">H1 2027</span>
-        </div>
-        <div class="gantt-ph ph-scale">
-          <span class="gantt-ph-dot"></span>
-          <span class="gantt-ph-label">Scale</span>
-          <span class="gantt-ph-period">2027+</span>
-        </div>
+      <div class="msgantt-scroll">
+        <div class="msgantt-grid">
 
-        <!-- HW Track -->
-        <div class="gantt-tg" id="tg-hw">
-          <div class="gantt-trk-hd" onclick="toggleGanttTrack('tg-hw')">
+          <!-- Phase header row -->
+          <div class="msg-track-spacer"></div>
+          <div class="msg-qhd msg-q-now">
+            <span class="msg-q-name">Now</span>
+            <span class="msg-q-period">Q3 2026</span>
+            <div class="msg-today-wrap">
+              <span class="msg-today-dot"></span>
+              <span class="msg-today-label">Today</span>
+            </div>
+          </div>
+          <div class="msg-qhd msg-q-near">
+            <span class="msg-q-name">Near</span>
+            <span class="msg-q-period">Q4 2026</span>
+          </div>
+          <div class="msg-qhd msg-q-mid">
+            <span class="msg-q-name">Mid</span>
+            <span class="msg-q-period">H1 2027</span>
+          </div>
+          <div class="msg-qhd msg-q-scale">
+            <span class="msg-q-name">Scale</span>
+            <span class="msg-q-period">2027+</span>
+          </div>
+
+          <!-- HW Track -->
+          <div class="msg-tlabel">
             <span class="psa-t-tag psa-t-hw">HW</span>
-            <span class="gantt-trk-name">Hardware</span>
-            <span class="gantt-trk-chevron">&#8250;</span>
+            <span class="msg-tname">Hardware</span>
           </div>
-          <div class="gantt-trk-cells">
-            <div class="gantt-cell gc-blue" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-now">Now &middot; Q3 2026</span>
-              <b>ConnectX-8 spec freeze</b><i>800Gb readiness</i>
-              <div class="gantt-cell-detail">Finalize ConnectX-8 architecture for 800Gb throughput. Define PCIe requirements, power envelope, and co-placement integration spec with BlueField-4.</div>
-            </div>
-            <div class="gantt-cell gc-blue" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-near">Near &middot; Q4 2026</span>
-              <b>BlueField-4 sampling</b><i>Partner reference boards</i>
-              <div class="gantt-cell-detail">Distribute engineering samples to 3 design partners. Deliver reference PCB layout, bring-up guide, and first-pass DOCA firmware build for partner validation.</div>
-            </div>
-            <div class="gantt-cell gc-blue" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-mid">Mid &middot; H1 2027</span>
-              <b>800Gb tape-out</b><i>DPU gen-next bring-up</i>
-              <div class="gantt-cell-detail">Silicon tape-out for next-gen DPU. Begin 18-month path to volume with simultaneous bring-up of subsystems and parallel software preparation.</div>
-            </div>
-            <div class="gantt-cell gc-blue dim" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-scale">Scale &middot; 2027+</span>
-              <b>Volume ramp</b><i>Supply scale-out</i>
-              <div class="gantt-cell-detail">Transition from NPI to volume manufacturing. Coordinate supply chain, ODM relationships, and logistics for hyperscale deployments worldwide.</div>
-            </div>
+          <div class="msg-bar msg-hw" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:18%"></div>
+            <b>ConnectX-8 spec freeze</b>
+            <i>800Gb readiness</i>
+            <div class="msg-bar-detail">Finalize ConnectX-8 architecture for 800Gb throughput. Define PCIe requirements, power envelope, and co-placement integration spec with BlueField-4.</div>
           </div>
-        </div>
+          <div class="msg-bar msg-hw" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>BlueField-4 sampling</b>
+            <i>Partner reference boards</i>
+            <div class="msg-bar-detail">Distribute engineering samples to 3 design partners. Deliver reference PCB layout, bring-up guide, and first-pass DOCA firmware build for partner validation.</div>
+          </div>
+          <div class="msg-bar msg-hw" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>800Gb tape-out</b>
+            <i>DPU gen-next bring-up</i>
+            <div class="msg-bar-detail">Silicon tape-out for next-gen DPU. Begin 18-month path to volume with simultaneous bring-up of subsystems and parallel software preparation.</div>
+          </div>
+          <div class="msg-bar msg-hw dim" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>Volume ramp</b>
+            <i>Supply scale-out</i>
+            <div class="msg-bar-detail">Transition from NPI to volume manufacturing. Coordinate supply chain, ODM relationships, and logistics for hyperscale deployments worldwide.</div>
+          </div>
 
-        <!-- M1 -->
-        <div class="gantt-ms-inline">
-          <div class="gantt-ms-line-r"></div>
-          <span class="gantt-ms-dia"></span>
-          <span>M1 &mdash; First blueprint live in production</span>
-          <div class="gantt-ms-line"></div>
-        </div>
+          <!-- Milestone M1 -->
+          <div class="msg-ms-row" style="--ms-x: calc(25% + 82.5px)">
+            <div class="msg-ms-glow-line"></div>
+            <div class="msg-ms-dia"></div>
+            <div class="msg-ms-lbl msg-ms-lbl-r">M1 &mdash; First blueprint live in production</div>
+          </div>
 
-        <!-- SW Track -->
-        <div class="gantt-tg" id="tg-sw">
-          <div class="gantt-trk-hd" onclick="toggleGanttTrack('tg-sw')">
+          <!-- SW Track -->
+          <div class="msg-tlabel">
             <span class="psa-t-tag psa-t-sw">SW</span>
-            <span class="gantt-trk-name">DOCA Platform</span>
-            <span class="gantt-trk-chevron">&#8250;</span>
+            <span class="msg-tname">DOCA Platform</span>
           </div>
-          <div class="gantt-trk-cells">
-            <div class="gantt-cell gc-green" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-now">Now &middot; Q3 2026</span>
-              <b>DOCA APIs v2</b><i>Microservices GA</i>
-              <div class="gantt-cell-detail">Ship DOCA 2.0 with stable APIs across all service domains. DOCA Flow, GPUNetIO, and Telemetry as production-grade microservices with versioned contracts.</div>
-            </div>
-            <div class="gantt-cell gc-green" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-near">Near &middot; Q4 2026</span>
-              <b>Kubernetes operator</b><i>Helm charts &middot; OpenShift</i>
-              <div class="gantt-cell-detail">Publish DOCA K8s Operator and Helm charts. One-command BlueField fleet provisioning on OpenShift, EKS, and GKE. Removes all manual config steps.</div>
-            </div>
-            <div class="gantt-cell gc-green" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-mid">Mid &middot; H1 2027</span>
-              <b>Observability suite</b><i>Telemetry &middot; health CLI</i>
-              <div class="gantt-cell-detail">DOCA Health Check CLI + Grafana dashboard. Real-time DPU metrics, firmware status, and performance baselines visible from a single pane of glass.</div>
-            </div>
-            <div class="gantt-cell gc-green dim" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-scale">Scale &middot; 2027+</span>
-              <b>Self-service portal</b><i>Auto-tuning</i>
-              <div class="gantt-cell-detail">Developer portal with auto-tuning recommendations, blueprint wizard, and one-click deployment to any registered BlueField fleet via API or web UI.</div>
-            </div>
+          <div class="msg-bar msg-sw" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:20%"></div>
+            <b>DOCA APIs v2</b>
+            <i>Microservices GA</i>
+            <div class="msg-bar-detail">Ship DOCA 2.0 with stable APIs across all service domains. DOCA Flow, GPUNetIO, and Telemetry as production-grade microservices with versioned contracts.</div>
           </div>
-        </div>
+          <div class="msg-bar msg-sw" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>Kubernetes operator</b>
+            <i>Helm charts &middot; OpenShift</i>
+            <div class="msg-bar-detail">Publish DOCA K8s Operator and Helm charts. One-command BlueField fleet provisioning on OpenShift, EKS, and GKE. Removes all manual config steps.</div>
+          </div>
+          <div class="msg-bar msg-sw" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>Observability suite</b>
+            <i>Telemetry &middot; health CLI</i>
+            <div class="msg-bar-detail">DOCA Health Check CLI + Grafana dashboard. Real-time DPU metrics, firmware status, and performance baselines visible from a single pane of glass.</div>
+          </div>
+          <div class="msg-bar msg-sw dim" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>Self-service portal</b>
+            <i>Auto-tuning</i>
+            <div class="msg-bar-detail">Developer portal with auto-tuning recommendations, blueprint wizard, and one-click deployment to any registered BlueField fleet via API or web UI.</div>
+          </div>
 
-        <!-- M2 -->
-        <div class="gantt-ms-inline">
-          <div class="gantt-ms-line-r"></div>
-          <span class="gantt-ms-dia"></span>
-          <span>M2 &mdash; 5 use cases validated with customers</span>
-          <div class="gantt-ms-line"></div>
-        </div>
+          <!-- Milestone M2 -->
+          <div class="msg-ms-row" style="--ms-x: calc(50% + 55px)">
+            <div class="msg-ms-glow-line"></div>
+            <div class="msg-ms-dia"></div>
+            <div class="msg-ms-lbl msg-ms-lbl-r">M2 &mdash; 5 use cases validated with customers</div>
+          </div>
 
-        <!-- Blueprints Track -->
-        <div class="gantt-tg" id="tg-bp">
-          <div class="gantt-trk-hd" onclick="toggleGanttTrack('tg-bp')">
+          <!-- BP Track -->
+          <div class="msg-tlabel">
             <span class="psa-t-tag psa-t-bp">BP</span>
-            <span class="gantt-trk-name">Blueprints</span>
-            <span class="gantt-trk-chevron">&#8250;</span>
+            <span class="msg-tname">Blueprints</span>
           </div>
-          <div class="gantt-trk-cells">
-            <div class="gantt-cell gc-teal" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-now">Now &middot; Q3 2026</span>
-              <b>AI cluster offload BP</b><i>First reference app</i>
-              <div class="gantt-cell-detail">AI Storage Blueprint: NVMe-oF offload via BlueField raises GPU utilization 65% &rarr; 90%+. Includes deploy YAML, Grafana dashboard, and ROI calculator.</div>
-            </div>
-            <div class="gantt-cell gc-teal" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-near">Near &middot; Q4 2026</span>
-              <b>Storage + security BPs</b><i>Benchmark dashboards</i>
-              <div class="gantt-cell-detail">Storage Isolation and Zero-Trust Network blueprints. Each includes benchmark suite, before/after dashboards, and validated deploy scripts for partner stacks.</div>
-            </div>
-            <div class="gantt-cell gc-teal" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-mid">Mid &middot; H1 2027</span>
-              <b>5 validated use cases</b><i>ROI calculators</i>
-              <div class="gantt-cell-detail">5 production-validated blueprints live with 3+ enterprise design partners each. Average POC time: 2 weeks vs. previous 3 months. ROI calculators embedded.</div>
-            </div>
-            <div class="gantt-cell gc-teal dim" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-scale">Scale &middot; 2027+</span>
-              <b>Blueprint marketplace</b><i>Community BPs</i>
-              <div class="gantt-cell-detail">Open marketplace for ISVs to publish and consume blueprints. Certification program ensures quality. NVIDIA curates top-tier blueprints for co-marketing.</div>
-            </div>
+          <div class="msg-bar msg-bp2" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:15%"></div>
+            <b>AI cluster offload BP</b>
+            <i>First reference app</i>
+            <div class="msg-bar-detail">AI Storage Blueprint: NVMe-oF offload via BlueField raises GPU utilization 65% &rarr; 90%+. Includes deploy YAML, Grafana dashboard, and ROI calculator.</div>
           </div>
-        </div>
+          <div class="msg-bar msg-bp2" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>Storage + security BPs</b>
+            <i>Benchmark dashboards</i>
+            <div class="msg-bar-detail">Storage Isolation and Zero-Trust Network blueprints. Each includes benchmark suite, before/after dashboards, and validated deploy scripts for partner stacks.</div>
+          </div>
+          <div class="msg-bar msg-bp2" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>5 validated use cases</b>
+            <i>ROI calculators</i>
+            <div class="msg-bar-detail">5 production-validated blueprints live with 3+ enterprise design partners each. Average POC time: 2 weeks vs. previous 3 months. ROI calculators embedded.</div>
+          </div>
+          <div class="msg-bar msg-bp2 dim" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>Blueprint marketplace</b>
+            <i>Community BPs</i>
+            <div class="msg-bar-detail">Open marketplace for ISVs to publish and consume blueprints. Certification program ensures quality. NVIDIA curates top-tier blueprints for co-marketing.</div>
+          </div>
 
-        <!-- M3 -->
-        <div class="gantt-ms-inline">
-          <div class="gantt-ms-line-r"></div>
-          <span class="gantt-ms-dia"></span>
-          <span>M3 &mdash; DOCA platform GA + observability</span>
-          <div class="gantt-ms-line"></div>
-        </div>
+          <!-- Milestone M3 -->
+          <div class="msg-ms-row" style="--ms-x: calc(75% + 27.5px)">
+            <div class="msg-ms-glow-line"></div>
+            <div class="msg-ms-dia"></div>
+            <div class="msg-ms-lbl msg-ms-lbl-l">M3 &mdash; DOCA platform GA + observability</div>
+          </div>
 
-        <!-- GTM Track -->
-        <div class="gantt-tg" id="tg-gtm">
-          <div class="gantt-trk-hd" onclick="toggleGanttTrack('tg-gtm')">
+          <!-- GTM Track -->
+          <div class="msg-tlabel">
             <span class="psa-t-tag psa-t-go">GTM</span>
-            <span class="gantt-trk-name">Go-to-Market</span>
-            <span class="gantt-trk-chevron">&#8250;</span>
+            <span class="msg-tname">Go-to-Market</span>
           </div>
-          <div class="gantt-trk-cells">
-            <div class="gantt-cell gc-orange" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-now">Now &middot; Q3 2026</span>
-              <b>3 Tier-1 pilots</b><i>Design partner MOUs</i>
-              <div class="gantt-cell-detail">Sign MOUs with 3 Tier-1 hyperscaler or enterprise design partners. Co-develop first blueprint, co-author reference architecture, share benchmark data publicly.</div>
-            </div>
-            <div class="gantt-cell gc-orange" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-near">Near &middot; Q4 2026</span>
-              <b>Reference program</b><i>Sales enablement</i>
-              <div class="gantt-cell-detail">Sales playbook with blueprint demo environment. Train 50+ SEs. Each blueprint becomes a sales motion: technical demo &rarr; POC kit &rarr; business case template.</div>
-            </div>
-            <div class="gantt-cell gc-orange" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-mid">Mid &middot; H1 2027</span>
-              <b>ISV partner program</b><i>Co-sell motions</i>
-              <div class="gantt-cell-detail">ISV partner program with 10 certified integrations. Joint go-to-market with Pure Storage, VMware, Red Hat. Partners create pull-through hardware demand at scale.</div>
-            </div>
-            <div class="gantt-cell gc-orange dim" onclick="toggleGanttCell(this)">
-              <span class="gantt-cell-expand">+</span>
-              <span class="gantt-pb gantt-pb-scale">Scale &middot; 2027+</span>
-              <b>Self-serve adoption</b><i>Global rollout</i>
-              <div class="gantt-cell-detail">Developer self-service portal drives adoption without NVIDIA involvement. Global partner network ensures local deployment support in every region.</div>
-            </div>
+          <div class="msg-bar msg-gtm" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:12%"></div>
+            <b>3 Tier-1 pilots</b>
+            <i>Design partner MOUs</i>
+            <div class="msg-bar-detail">Sign MOUs with 3 Tier-1 hyperscaler or enterprise design partners. Co-develop first blueprint, co-author reference architecture, share benchmark data publicly.</div>
           </div>
-        </div>
+          <div class="msg-bar msg-gtm" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>Reference program</b>
+            <i>Sales enablement</i>
+            <div class="msg-bar-detail">Sales playbook with blueprint demo environment. Train 50+ SEs. Each blueprint becomes a sales motion: technical demo &rarr; POC kit &rarr; business case template.</div>
+          </div>
+          <div class="msg-bar msg-gtm" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>ISV partner program</b>
+            <i>Co-sell motions</i>
+            <div class="msg-bar-detail">ISV partner program with 10 certified integrations. Joint go-to-market with Pure Storage, VMware, Red Hat. Partners create pull-through hardware demand at scale.</div>
+          </div>
+          <div class="msg-bar msg-gtm dim" onclick="toggleMsgBar(this)">
+            <span class="msg-bar-xp">+</span>
+            <div class="msg-bar-fill" style="--bp:0%"></div>
+            <b>Self-serve adoption</b>
+            <i>Global rollout</i>
+            <div class="msg-bar-detail">Developer self-service portal drives adoption without NVIDIA involvement. Global partner network ensures local deployment support in every region.</div>
+          </div>
 
-        <!-- M4 -->
-        <div class="gantt-ms-inline">
-          <div class="gantt-ms-line-r"></div>
-          <span class="gantt-ms-dia"></span>
-          <span>M4 &mdash; Self-serve marketplace + global rollout</span>
-          <div class="gantt-ms-line"></div>
-        </div>
+          <!-- Milestone M4 -->
+          <div class="msg-ms-row" style="--ms-x: calc(100% - 8px)">
+            <div class="msg-ms-glow-line"></div>
+            <div class="msg-ms-dia"></div>
+            <div class="msg-ms-lbl msg-ms-lbl-l">M4 &mdash; Self-serve marketplace &amp; global rollout</div>
+          </div>
 
-        <div class="gantt-note">All four tracks run simultaneously &mdash; a delay in any track creates an adoption gap that stalls the others. Tap any cell for details.</div>
+        </div><!-- /msgantt-grid -->
+      </div><!-- /msgantt-scroll -->
 
-      </div><!-- /gantt-grid -->
-    </div><!-- /gantt-wrap -->
+      <p class="msg-note">All four tracks run simultaneously &mdash; a delay in any track creates an adoption gap that stalls the others. Tap any bar for details.</p>
+    </div><!-- /msgantt-outer -->
+
 
   </div><!-- /sc -->
   </div><!-- /s_strategy_align -->
@@ -2469,15 +2466,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="cs-flow">
         <div class="cs-flow-hd">The Adoption Flow</div>
         <div class="cs-step">Customer Pain</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">→</div>
         <div class="cs-step">Use Case Definition</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">→</div>
         <div class="cs-step cs-step-focal">DOCA Solution Blueprint</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">→</div>
         <div class="cs-step">Customer POC</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">→</div>
         <div class="cs-step">Production Deployment</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">→</div>
         <div class="cs-step cs-step-win">Account Expansion</div>
       </div>
 
@@ -3087,7 +3084,7 @@ const ALT_DATA={
      value:'Grows the developer ecosystem and widens the software moat over time.',
      risk:'More APIs do not equal more deployments. A developer with 50 libraries but no deployment guide still ships nothing.',
      c:[50,55,45,80]},
-  B:{name:'Solution Blueprints',overall:87,verdict:'Recommended starting point ?',
+  B:{name:'Solution Blueprints',overall:87,verdict:'Recommended starting point ✓',
      example:'"DOCA AI Storage Blueprint": a repo where one script deploys NVMe-oF offload and GPU utilization rises from 65% to 90%, with deploy YAML, dashboard, and ROI calculator.',
      value:'Connects DOCA to business outcomes. POC drops from weeks to days. Sales gets a demo-able artifact. Every blueprint is measurable.',
      risk:'Requires sharp prioritization. Cannot build 20 at once, must pick the 3 to 5 highest-impact use cases.',
@@ -3156,24 +3153,12 @@ function animROI(){
   });
 }
 
-// --- GANTT: cell expand/collapse ---
-function toggleGanttCell(el){
-  const isOpen = el.classList.contains('expanded');
-  // close all cells in the same track-cells group
-  const parent = el.closest('.gantt-trk-cells') || el.parentElement;
-  parent.querySelectorAll('.gantt-cell.expanded').forEach(c => c.classList.remove('expanded'));
-  if(!isOpen) el.classList.add('expanded');
-}
-
-// --- GANTT: mobile accordion per track ---
-function toggleGanttTrack(id){
-  // Only takes effect visually on mobile (display:contents on desktop has no box)
-  const tg = document.getElementById(id);
-  if(!tg) return;
-  const isOpen = tg.classList.contains('open');
-  // Close all tracks first
-  document.querySelectorAll('.gantt-tg').forEach(t => t.classList.remove('open'));
-  if(!isOpen) tg.classList.add('open');
+// --- MS-Project Gantt: bar expand/collapse ---
+function toggleMsgBar(el){
+  const isOpen = el.classList.contains('open');
+  const grid = el.closest('.msgantt-grid');
+  if(grid) grid.querySelectorAll('.msg-bar.open').forEach(b => b.classList.remove('open'));
+  if(!isOpen) el.classList.add('open');
 }
 
 // Run on first load
