@@ -3596,7 +3596,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="bp-metric">
           <div class="bp-metric-top">
             <span class="bp-metric-name">GPU Utilization</span>
-            <span class="bp-metric-val bpm-good" id="bp-gpu-v">65% &rarr; 90%+</span>
+            <span class="bp-metric-val bpm-good" id="bp-gpu-v"><span class="ntip" data-tip="65% baseline = host CPU saturates all I/O at 400Gb/s, GPUs idle ~35% of the time (slide 8 · NVIDIA GTC 2024 field data · Forrester 2025). 90%+ = 35% idle gap recovered minus ~10% reserve for legitimate compute pauses. DOCA GPUNetIO routes packets GPU→GPU with zero CPU involvement. Source: NVIDIA ConnectX-7 RDMA benchmarks.">65% &rarr; 90%+</span></span>
           </div>
           <div class="bp-track"><div class="bp-fill-bad" style="width:65%"></div><div class="bp-fill-good" id="bp-gpu-f"></div></div>
           <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Consistent with slide 16 derivation &middot; DOCA GPUNetIO eliminates CPU I/O bottleneck</div>
@@ -3605,7 +3605,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="bp-metric">
           <div class="bp-metric-top">
             <span class="bp-metric-name">Host CPU load from networking I/O</span>
-            <span class="bp-metric-val bpm-good" id="bp-cpu-v">~90% &rarr; &lt;20%</span>
+            <span class="bp-metric-val bpm-good" id="bp-cpu-v"><span class="ntip" data-tip="~90% = share of host CPU cycles consumed by networking, telemetry, and policy at 400Gb/s in a scaled GPU cluster (NVIDIA field data). &lt;20% = residual control-plane work once DOCA GPUNetIO moves the data path off the CPU entirely. Source: NVIDIA DOCA GPUNetIO reference architecture — packets move GPU-to-GPU, zero CPU involvement.">~90% &rarr; &lt;20%</span></span>
           </div>
           <div class="bp-track"><div class="bp-fill-good2" id="bp-cpu-f"></div></div>
           <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Source: NVIDIA DOCA GPUNetIO reference architecture &middot; packets move GPU-to-GPU, zero CPU involvement</div>
@@ -3614,7 +3614,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="bp-metric">
           <div class="bp-metric-top">
             <span class="bp-metric-name">Per-cluster setup time <em style="font-weight:400;color:var(--text3)">(using Blueprint, not POC-to-production)</em></span>
-            <span class="bp-metric-val bpm-good">2&ndash;3 wk &rarr; &lt;1 day</span>
+            <span class="bp-metric-val bpm-good"><span class="ntip" data-tip="This is Blueprint replication time — NOT POC-to-production (slide 14's 9 mo → 6 wk full journey). 2–3 wk = manual per-cluster tuning + validation done from scratch today. &lt;1 day = infra team runs the pre-validated Blueprint template. Source: NVIDIA Blueprint early-customer time-to-deploy feedback.">2&ndash;3 wk &rarr; &lt;1 day</span></span>
           </div>
           <div class="bp-track"><div class="bp-fill-good3" id="bp-dep-f"></div></div>
           <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Blueprint = validated template ? infra team runs it in hours ? <em>distinct from slide 14&rsquo;s 9 mo &rarr; 6 wk (full POC-to-production journey)</em></div>
@@ -3622,7 +3622,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
         <div class="bp-principle">
           <strong style="color:var(--text)">Validate once, replicate at scale.</strong>
-          One Blueprint in production becomes the template for every AI networking deployment that follows &ndash; across the entire installed base of 55K+ BlueField DPUs.
+          One Blueprint in production becomes the template for every AI networking deployment that follows &ndash; across the entire installed base of <span class="ntip" data-tip="~55K BlueField DPUs shipped / installed base. Source: Dell'Oro Group Q4 2025 BlueField shipment data. Each 1pp of production adoption ≈ 550 new deployments (55K × 1%).">55K+ BlueField DPUs</span>.
         </div>
       </div>
     </div>
