@@ -1894,8 +1894,20 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   transition:max-height .4s cubic-bezier(.16,1,.3,1),opacity .32s ease;
   padding-top:0!important;margin-top:0!important;
 }
-.approach-card{cursor:default;transition:border-color .2s,box-shadow .2s,transform .2s}
-.approach-card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.35)}
+/* shared interactive card badge */
+.ic-hint{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:8px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:rgba(118,185,0,.55);background:rgba(118,185,0,.07);
+  border:1px solid rgba(118,185,0,.18);border-radius:20px;
+  padding:2px 8px;margin-top:7px;
+  transition:opacity .2s ease;
+  width:fit-content;
+}
+.ic-hint::before{content:'▾';font-size:10px;line-height:1}
+
+.approach-card{cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.approach-card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.35);border-color:rgba(118,185,0,.28)!important}
 .approach-card:hover .approach-partial-box,
 .approach-card:hover .approach-fail-box,
 .approach-card:hover .approach-threat-box{
@@ -1903,6 +1915,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 }
 .approach-hover-hint{font-size:8.5px;color:var(--text3);opacity:.5;margin-top:6px;text-align:right;letter-spacing:.04em;transition:opacity .2s}
 .approach-card:hover .approach-hover-hint{opacity:0}
+.approach-card:hover .ic-hint{opacity:0;pointer-events:none}
 
 /* ── Hover-reveal on force cards (slide 6) ──────────────── */
 .force-card .force-desc{
@@ -1910,9 +1923,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   transition:max-height .4s cubic-bezier(.16,1,.3,1),opacity .32s ease;
   margin-top:0!important;
 }
-.force-card{cursor:default;transition:border-color .2s,box-shadow .2s,transform .2s}
-.force-card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.35)}
+.force-card{cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
+.force-card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.35);border-color:rgba(118,185,0,.3)!important}
 .force-card:hover .force-desc{max-height:220px;opacity:1;margin-top:9px!important}
+.force-card:hover .ic-hint{opacity:0;pointer-events:none}
 
 /* ── Hover-reveal on eliminated cards (slide 11) ────────── */
 .elim-card .elim-short{
@@ -1920,8 +1934,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   transition:max-height .4s cubic-bezier(.16,1,.3,1),opacity .32s ease;
   margin-top:0!important;
 }
-.elim-card{cursor:default;transition:border-color .2s,transform .15s}
+.elim-card{cursor:pointer;transition:border-color .2s,transform .15s}
 .elim-card:hover{transform:translateY(-1px);border-color:rgba(224,80,80,.35)!important}
+.elim-card:hover .ic-hint{opacity:0;pointer-events:none}
 .elim-card:hover .elim-short{max-height:140px;opacity:1;margin-top:6px!important}
 
 /* ── Rich number tooltip ─────────────────────────────────── */
@@ -2611,7 +2626,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-fail-label">Still missing</div>
           <div class="approach-fail-text">No NVIDIA-native optimization, no AI-scale security, no production glue. Every team writes the same 200K lines of boilerplate. Works for one team, not 1,000.</div>
         </div>
-        <div class="approach-hover-hint">hover for detail ▾</div>
+        <div class="ic-hint">hover to expand</div>
       </div>
 
       <!-- 2: Specialist engineers ? partial -->
@@ -2631,7 +2646,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-fail-label">Still missing</div>
           <div class="approach-fail-text">$800K+ per engagement. Knowledge stays with the SI, not the customer. Creates a bottleneck: NVIDIA&rsquo;s growth is now gated by partner headcount, not product quality.</div>
         </div>
-        <div class="approach-hover-hint">hover for detail ▾</div>
+        <div class="ic-hint">hover to expand</div>
       </div>
 
       <!-- 3: Cloud-managed NICs ? strategic threat -->
@@ -2651,7 +2666,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-fail-label">Still missing</div>
           <div class="approach-fail-text">Only works in managed cloud. On-prem, private AI, and regulated industries (finance, defense, health) cannot outsource their data plane to AWS. The majority of BlueField TAM remains exposed.</div>
         </div>
-        <div class="approach-hover-hint">hover for detail ▾</div>
+        <div class="ic-hint">hover to expand</div>
       </div>
 
       <!-- 4: NVIDIA PS ? partial -->
@@ -2671,7 +2686,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-fail-label">Still missing</div>
           <div class="approach-fail-text">Cannot scale to 1,000+ DOCA accounts. Every PS engagement is a bottleneck on NVIDIA headcount. This model gates DOCA adoption to the size of NVIDIA&rsquo;s field organization.</div>
         </div>
-        <div class="approach-hover-hint">hover for detail ▾</div>
+        <div class="ic-hint">hover to expand</div>
       </div>
 
     </div><!-- /approach-grid -->
@@ -2713,16 +2728,19 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- 3 forcing-function arguments ? DOCA platform, not just Blueprints -->
     <div class="force-grid">
       <div class="force-card">
+        <div class="ic-hint">hover to expand</div>
         <div class="force-num"><span class="ntip" data-tip="9 months → 6 weeks. Derived from slide 5: 65% of the 9-month cycle is boilerplate code Blueprints eliminate entirely. 9mo ÷ 6wk ≈ 6×. Source: NVIDIA PS data · Docker simplification analogy.">6<span class="force-unit">×</span></span></div>
         <div class="force-title">Deployment Speed Multiplier</div>
         <div class="force-desc">DOCA&rsquo;s APIs, microservices, and Solution Blueprints collapse deployment from <strong style="color:#e05050">9 months</strong> to <strong style="color:rgba(118,185,0,.9)">6 weeks</strong>. Not by making engineers better &ndash; by eliminating 65% of the work that should never have existed in the first place.</div>
       </div>
       <div class="force-card">
+        <div class="ic-hint">hover to expand</div>
         <div class="force-num"><span class="ntip" data-tip="NVIDIA holds 55% of the global AI DPU/SmartNIC market (revenue share). Source: Dell'Oro Group · IDC Q4 2025. Excludes captive ASICs (AWS Nitro, Azure MAIA). 55K BlueField DPUs in production = DOCA's activated TAM.">55<span class="force-unit">%</span></span></div>
         <div class="force-title">Hardware Lead Becomes Software Moat</div>
         <div class="force-desc">NVIDIA owns 55% of the AI DPU market. Without DOCA, that&rsquo;s 55% of hardware sitting on racks waiting for someone to write integration code. With DOCA, it becomes an active, programmable ecosystem that compounds with every new deployment.</div>
       </div>
       <div class="force-card">
+        <div class="ic-hint">hover to expand</div>
         <div class="force-num"><span class="ntip" data-tip="Goldman Sachs 'AI Infrastructure Spending' report, April 2024: cumulative global AI infrastructure CapEx reaches $600B+ by 2028. Today captured as one-time hardware revenue. DOCA converts this to recurring software attach — estimated $0.20–$0.40 per $1 CapEx annually.">$600B</span></div>
         <div class="force-title">One-Time Hardware &rarr; Recurring Platform Revenue</div>
         <div class="force-desc">The $600B AI CapEx wave (Goldman Sachs, 2028) is currently captured as one-time hardware sales. DOCA is the mechanism that converts BlueField hardware spend into recurring software, services, and ecosystem revenue for NVIDIA.</div>
@@ -3396,6 +3414,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="elim-x">&#10005;</div>
         <div class="elim-name">API / SDK Expansion</div>
         <div class="elim-solves">Solves: developer ergonomics</div>
+        <div class="ic-hint">hover to expand</div>
         <div class="elim-short">Better APIs don't fix deployment complexity. Customers with great SDK access still fail POCs because they can't get to production &ndash; the bottleneck is integration, not the API.</div>
       </div>
 
@@ -3403,6 +3422,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="elim-x">&#10005;</div>
         <div class="elim-name">Cloud-Native Integration</div>
         <div class="elim-solves">Solves: long-term architecture</div>
+        <div class="ic-hint">hover to expand</div>
         <div class="elim-short">Right direction, wrong timeline. Requires infrastructure NVIDIA doesn't own. A 2&ndash;3 year build can't help customers who are failing POCs today.</div>
       </div>
 
@@ -3410,6 +3430,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="elim-x">&#10005;</div>
         <div class="elim-name">Observability &amp; Validation</div>
         <div class="elim-solves">Solves: visibility into failures</div>
+        <div class="ic-hint">hover to expand</div>
         <div class="elim-short">A feature, not a strategy. Knowing exactly where you're stuck doesn't fix the integration complexity causing the stall. Diagnose &ne; cure.</div>
       </div>
 
@@ -3417,6 +3438,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="elim-x">&#10005;</div>
         <div class="elim-name">Partner Ecosystem</div>
         <div class="elim-solves">Solves: market reach</div>
+        <div class="ic-hint">hover to expand</div>
         <div class="elim-short">Too dependent on partner execution. No leverage over deployment quality. Partners co-selling an untested SDK amplifies the problem, not the solution.</div>
       </div>
 
