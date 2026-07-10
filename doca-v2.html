@@ -793,21 +793,96 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 @media(max-width:700px){.roi-kpis,.roi-layers,.roi-two{grid-template-columns:1fr}}
 
 /* -- How I Built This -- */
-.method-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.method-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:13px 15px;display:flex;flex-direction:column;gap:8px}
-.method-card-hd{display:flex;align-items:center;gap:9px}
-.method-card-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.method-card-title{font-size:12px;font-weight:700;color:#fff;letter-spacing:-.01em}
-.method-card-items{display:flex;flex-direction:column;gap:5px;flex:1}
-.method-card-item{font-size:11px;color:var(--text2);line-height:1.5;display:flex;gap:7px;align-items:flex-start}
-.method-card-dot{width:4px;height:4px;border-radius:50%;background:rgba(118,185,0,.5);margin-top:5px;flex-shrink:0}
-.method-statement{background:rgba(118,185,0,.04);border:1px solid rgba(118,185,0,.18);border-radius:9px;padding:14px 18px;font-size:12.5px;color:var(--text2);line-height:1.65;text-align:center}
-.method-tool-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.method-tool-tag{font-size:9.5px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;border:1px solid}
+#s_method.slide{-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+.method-sc{flex:0 0 auto!important;min-height:auto!important;padding-bottom:36px!important;gap:16px!important}
+.method-hero{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
+  background:linear-gradient(135deg,rgba(118,185,0,.06) 0%,rgba(42,128,200,.04) 50%,rgba(138,92,246,.04) 100%);
+  border:1px solid var(--border);border-radius:12px;padding:14px 16px;
+}
+.method-stat{text-align:center;padding:4px 6px}
+.method-stat-num{font-size:clamp(22px,4vw,28px);font-weight:800;letter-spacing:-.03em;line-height:1}
+.method-stat-num.green{color:var(--green)}
+.method-stat-num.blue{color:rgba(82,168,255,.95)}
+.method-stat-num.purple{color:rgba(168,130,255,.95)}
+.method-stat-lbl{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-top:4px}
+.method-pipeline{
+  display:flex;align-items:center;justify-content:space-between;gap:4px;
+  padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;
+}
+.method-pipe-step{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;position:relative;text-align:center}
+.method-pipe-step:not(:last-child)::after{
+  content:'';position:absolute;right:-50%;top:14px;width:100%;height:1px;
+  background:linear-gradient(90deg,rgba(118,185,0,.35),rgba(118,185,0,.08));z-index:0;
+}
+.method-pipe-num{
+  width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:800;border:1px solid;position:relative;z-index:1;background:var(--card2);
+}
+.method-pipe-step:nth-child(1) .method-pipe-num{color:rgba(82,168,255,.9);border-color:rgba(82,168,255,.35);background:rgba(42,128,200,.1)}
+.method-pipe-step:nth-child(2) .method-pipe-num{color:rgba(212,165,60,.9);border-color:rgba(212,130,10,.35);background:rgba(212,130,10,.1)}
+.method-pipe-step:nth-child(3) .method-pipe-num{color:rgba(118,185,0,.9);border-color:rgba(118,185,0,.35);background:rgba(118,185,0,.1)}
+.method-pipe-step:nth-child(4) .method-pipe-num{color:rgba(168,130,255,.9);border-color:rgba(138,92,246,.35);background:rgba(138,92,246,.1)}
+.method-pipe-lbl{font-size:8.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text3)}
+.method-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.method-card{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:15px 16px;display:flex;flex-direction:column;gap:9px;
+  position:relative;overflow:hidden;transition:border-color .25s,box-shadow .25s,transform .25s;
+}
+.method-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:12px 12px 0 0}
+.method-card-src::before{background:linear-gradient(90deg,rgba(42,128,200,.8),rgba(82,168,255,.4))}
+.method-card-fw::before{background:linear-gradient(90deg,rgba(212,130,10,.8),rgba(212,165,60,.4))}
+.method-card-ai::before{background:linear-gradient(90deg,var(--green),rgba(178,222,48,.4))}
+.method-card-vid::before{background:linear-gradient(90deg,rgba(138,92,246,.85),rgba(168,130,255,.4))}
+.method-card:hover{border-color:var(--border2);box-shadow:0 8px 32px rgba(0,0,0,.35);transform:translateY(-2px)}
+.method-card-hd{display:flex;align-items:center;gap:10px}
+.method-card-icon{width:36px;height:36px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.method-card-title{font-size:12.5px;font-weight:700;color:#fff;letter-spacing:-.01em;line-height:1.25}
+.method-card-items{display:flex;flex-direction:column;gap:6px;flex:1}
+.method-card-item{font-size:11px;color:var(--text2);line-height:1.5;display:flex;gap:8px;align-items:flex-start}
+.method-card-dot{width:5px;height:5px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.method-card-src .method-card-dot{background:rgba(82,168,255,.65)}
+.method-card-fw .method-card-dot{background:rgba(212,165,60,.65)}
+.method-card-ai .method-card-dot{background:rgba(118,185,0,.65)}
+.method-card-vid .method-card-dot{background:rgba(168,130,255,.65)}
+.method-tool-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.method-tool-tag{font-size:9.5px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:20px;border:1px solid}
 .method-tool-ai{color:rgba(118,185,0,.9);border-color:rgba(118,185,0,.3);background:rgba(118,185,0,.06)}
 .method-tool-src{color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)}
 .method-tool-fw{color:rgba(212,165,60,.9);border-color:rgba(212,130,10,.3);background:rgba(212,130,10,.06)}
-@media(max-width:700px){.method-grid{grid-template-columns:1fr}}
+.method-tool-vid{color:rgba(168,130,255,.9);border-color:rgba(138,92,246,.3);background:rgba(138,92,246,.08)}
+.method-vid-preview{
+  margin-top:4px;border-radius:8px;overflow:hidden;
+  background:linear-gradient(135deg,rgba(138,92,246,.12),rgba(42,128,200,.08));
+  border:1px solid rgba(138,92,246,.25);padding:12px;display:flex;align-items:center;gap:12px;
+}
+.method-vid-play{
+  width:40px;height:40px;border-radius:50%;flex-shrink:0;
+  background:rgba(138,92,246,.2);border:1px solid rgba(168,130,255,.4);
+  display:flex;align-items:center;justify-content:center;box-shadow:0 0 20px rgba(138,92,246,.15);
+}
+.method-vid-play svg{color:rgba(168,130,255,.9)}
+.method-vid-meta{flex:1;min-width:0}
+.method-vid-title{font-size:11px;font-weight:700;color:var(--text);margin-bottom:2px}
+.method-vid-sub{font-size:10px;color:var(--text3);line-height:1.4}
+.method-statement{
+  background:linear-gradient(135deg,rgba(118,185,0,.05),rgba(42,128,200,.03));
+  border:1px solid rgba(118,185,0,.2);border-radius:12px;
+  padding:16px 20px;font-size:12.5px;color:var(--text2);line-height:1.65;text-align:center;
+}
+@media(max-width:700px){
+  .method-sc{padding-bottom:80px!important;gap:12px!important}
+  .method-hero{grid-template-columns:repeat(3,1fr);gap:6px;padding:12px 10px}
+  .method-stat-num{font-size:20px}
+  .method-stat-lbl{font-size:8px}
+  .method-pipeline{padding:8px 10px}
+  .method-pipe-lbl{font-size:7.5px}
+  .method-grid{grid-template-columns:1fr;gap:10px}
+  .method-card{padding:13px 14px;border-radius:10px}
+  .method-card:hover{transform:none;box-shadow:none}
+  .method-statement{padding:14px 14px;font-size:11.5px}
+}
 
 /* -- Why Barak -- */
 .why-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
@@ -2433,21 +2508,42 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
        SLIDE 13 ? HOW I BUILT THIS
   ---------------------------------- -->
   <div class="slide" id="s_method" data-title="How I Built This">
-  <div class="sc" style="gap:14px">
+  <div class="sc method-sc">
 
     <div class="a1">
       <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 14 &nbsp;?&nbsp; Behind the work</div>
       <div class="headline"><span class="grad">How I Built This</span></div>
-      <div class="subline a2" style="margin-top:5px">Sources, methodology, and tools ? because transparency is part of good product thinking.</div>
+      <div class="subline a2" style="margin-top:5px">Research, strategy, build, and video ? full transparency on sources, process, and AI-native production.</div>
     </div>
 
-    <div class="method-grid a3">
+    <div class="method-hero a2">
+      <div class="method-stat">
+        <div class="method-stat-num green">1 day</div>
+        <div class="method-stat-lbl">Deck built</div>
+      </div>
+      <div class="method-stat">
+        <div class="method-stat-num blue">Weeks</div>
+        <div class="method-stat-lbl">Domain immersion</div>
+      </div>
+      <div class="method-stat">
+        <div class="method-stat-num purple">4 layers</div>
+        <div class="method-stat-lbl">AI production stack</div>
+      </div>
+    </div>
 
-      <!-- Sources -->
-      <div class="method-card">
+    <div class="method-pipeline a3">
+      <div class="method-pipe-step"><div class="method-pipe-num">01</div><div class="method-pipe-lbl">Research</div></div>
+      <div class="method-pipe-step"><div class="method-pipe-num">02</div><div class="method-pipe-lbl">Strategy</div></div>
+      <div class="method-pipe-step"><div class="method-pipe-num">03</div><div class="method-pipe-lbl">Build</div></div>
+      <div class="method-pipe-step"><div class="method-pipe-num">04</div><div class="method-pipe-lbl">Video</div></div>
+    </div>
+
+    <div class="method-grid a4">
+
+      <div class="method-card method-card-src">
         <div class="method-card-hd">
           <div class="method-card-icon" style="background:rgba(42,128,200,.12);color:rgba(82,168,255,.85)">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 3h12M2 6h8M2 9h10M2 12h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M2 3h12M2 6h8M2 9h10M2 12h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
           </div>
           <div class="method-card-title">Where the information came from</div>
         </div>
@@ -2464,11 +2560,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
       </div>
 
-      <!-- Methodology -->
-      <div class="method-card">
+      <div class="method-card method-card-fw">
         <div class="method-card-hd">
           <div class="method-card-icon" style="background:rgba(212,130,10,.12);color:rgba(212,165,60,.85)">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 2v3M8 11v3M2 8h3M11 8h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 2v3M8 11v3M2 8h3M11 8h3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.2"/></svg>
           </div>
           <div class="method-card-title">How the strategy was developed</div>
         </div>
@@ -2485,13 +2580,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
       </div>
 
-      <!-- Tools -->
-      <div class="method-card">
+      <div class="method-card method-card-ai">
         <div class="method-card-hd">
           <div class="method-card-icon" style="background:rgba(118,185,0,.12);color:rgba(118,185,0,.9)">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="2" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.2"/><rect x="2" y="9" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="9" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.2"/></svg>
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="2" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.2"/><rect x="2" y="9" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.2"/><rect x="9" y="9" width="5" height="5" rx="1.2" stroke="currentColor" stroke-width="1.2"/></svg>
           </div>
-          <div class="method-card-title">Tools used to produce this</div>
+          <div class="method-card-title">Tools used to build this deck</div>
         </div>
         <div class="method-card-items">
           <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">Cursor AI (Agent mode)</strong> ? built the interactive HTML presentation: layout, animations, navigation</div>
@@ -2505,11 +2599,39 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
       </div>
 
+      <div class="method-card method-card-vid">
+        <div class="method-card-hd">
+          <div class="method-card-icon" style="background:rgba(138,92,246,.12);color:rgba(168,130,255,.9)">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="3.5" width="13" height="9" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M6.5 6.2l4 1.8-4 1.8V6.2Z" fill="currentColor" opacity=".85"/></svg>
+          </div>
+          <div class="method-card-title">Training video with Synthesia</div>
+        </div>
+        <div class="method-card-items">
+          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">Synthesia</strong> ? AI presenter video to walk through this strategy for async review and training</div>
+          <div class="method-card-item"><span class="method-card-dot"></span>Same narrative as the deck: problem ? strategy ? blueprint ? ROI, in a 5?7 min executive format</div>
+          <div class="method-card-item"><span class="method-card-dot"></span>Deck + video = two artifacts from one thinking process ? live presentation and scalable enablement</div>
+        </div>
+        <div class="method-vid-preview">
+          <div class="method-vid-play">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 2.5l8 4.5-8 4.5V2.5Z" fill="currentColor"/></svg>
+          </div>
+          <div class="method-vid-meta">
+            <div class="method-vid-title">DOCA Blueprints ? Strategy Walkthrough</div>
+            <div class="method-vid-sub">Synthesia training video ? coming soon ? link placeholder ready</div>
+          </div>
+        </div>
+        <div class="method-tool-row">
+          <span class="method-tool-tag method-tool-vid">Synthesia</span>
+          <span class="method-tool-tag method-tool-vid">AI Presenter</span>
+          <span class="method-tool-tag method-tool-vid">5?7 min</span>
+        </div>
+      </div>
+
     </div><!-- /method-grid -->
 
-    <div class="method-statement a4">
+    <div class="method-statement a5">
       A product manager who knows how to leverage AI tools to produce high-quality artifacts faster is not cutting corners ? it is the job.<br>
-      <span style="color:rgba(118,185,0,.85);font-weight:600">This presentation was built in one day. The thinking behind it took several weeks of domain immersion.</span>
+      <span style="color:rgba(118,185,0,.85);font-weight:600">Built in one day. Researched over weeks. Ready as a deck, a video, and a conversation.</span>
     </div>
 
   </div><!-- /sc -->
@@ -2673,9 +2795,12 @@ function upd(){const s=slides[cur];nTitle.textContent=s.dataset.title||'';snEl.t
 bpEl.addEventListener('click',()=>goTo(cur-1));
 bnEl.addEventListener('click',()=>goTo(cur+1));
 document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown'].includes(e.key))goTo(cur+1);if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key))goTo(cur-1)});
-let tx=0;
-document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
-document.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){if(dx<0)goTo(cur+1);if(dx>0)goTo(cur-1)}},{passive:true});
+let tx=0,ty=0;
+document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){if(dx<0)goTo(cur+1);if(dx>0)goTo(cur-1);}
+},{passive:true});
 // --- SLIDE 1 STORY ANIMATION ---
 function animS1(){
   const phases = ['s1p0','s1p1','s1p2','s1p3','s1p4','s1p5'];
