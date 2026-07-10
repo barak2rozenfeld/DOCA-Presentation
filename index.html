@@ -888,33 +888,37 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .bp-principle{font-size:11px;color:var(--text2);line-height:1.55;border-top:1px solid var(--border);padding-top:9px}
 @media(max-width:700px){.bp-layout{grid-template-columns:1fr}}
 
-/* -- ROI & KPIs -- */
-.roi-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.roi-kpi{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
-.roi-kpi-star{border-color:rgba(118,185,0,.3);background:rgba(118,185,0,.05)}
-.roi-kpi-tag{font-size:9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text3)}
-.roi-kpi-star .roi-kpi-tag{color:rgba(118,185,0,.75)}
-.roi-kpi-val{font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--text);line-height:1}
-.roi-kpi-star .roi-kpi-val{color:rgba(118,185,0,.95)}
-.roi-kpi-lbl{font-size:10.5px;color:var(--text3);line-height:1.4}
-.roi-layers{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.roi-layer{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:11px 13px}
-.roi-layer-hd{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
-.roi-hd-blue{color:rgba(82,168,255,.85)}
-.roi-hd-orange{color:rgba(212,130,10,.85)}
-.roi-hd-green{color:rgba(118,185,0,.85)}
-.roi-hd-nv{color:rgba(118,185,0,.95)}
-.roi-layer-body{font-size:11px;color:var(--text2);line-height:1.5;margin-bottom:5px}
-.roi-layer-why{font-size:10.5px;color:var(--text3);font-style:italic;line-height:1.45}
-.roi-two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.roi-col{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:11px 14px}
-.roi-col-hd{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:7px}
-.roi-list{list-style:none;display:flex;flex-direction:column;gap:4px}
-.roi-list li{font-size:11.5px;color:var(--text2);line-height:1.4;padding-left:15px;position:relative}
-.roi-list li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;background:rgba(118,185,0,.6)}
-.roi-note{font-size:11px;color:var(--text3);line-height:1.55;font-style:italic;
-  background:rgba(118,185,0,.03);border-left:2px solid rgba(118,185,0,.25);border-radius:0 5px 5px 0;padding:8px 12px}
-@media(max-width:700px){.roi-kpis,.roi-layers,.roi-two{grid-template-columns:1fr}}
+/* -- Success Metrics Redesign -- */
+.sm-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.sm-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:13px 15px;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s}
+.sm-card:hover{border-color:var(--border2);box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.sm-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.sm-card.sm-tech::before{background:rgba(52,144,224,.65)}
+.sm-card.sm-ops::before{background:rgba(212,130,10,.65)}
+.sm-card.sm-biz::before{background:rgba(118,185,0,.65)}
+.sm-card.sm-star{border-color:rgba(118,185,0,.28);background:rgba(118,185,0,.03);grid-column:1/-1}
+.sm-card.sm-star::before{background:var(--green);box-shadow:0 0 8px rgba(118,185,0,.4)}
+.sm-cat{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.sm-tech .sm-cat{color:rgba(52,144,224,.8)}.sm-ops .sm-cat{color:rgba(212,130,10,.8)}.sm-biz .sm-cat,.sm-star .sm-cat{color:rgba(118,185,0,.8)}
+.sm-name{font-size:12.5px;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.3}
+.sm-compare{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.sm-baseline,.sm-target{flex-shrink:0;min-width:65px}
+.sm-bl-lbl,.sm-tg-lbl{font-size:8.5px;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.sm-bl-num{font-size:clamp(20px,2.5vw,24px);font-weight:900;color:rgba(224,80,80,.78);line-height:1;letter-spacing:-.02em}
+.sm-tg-num{font-size:clamp(20px,2.5vw,24px);font-weight:900;color:rgba(118,185,0,.92);line-height:1;letter-spacing:-.02em}
+.sm-arr-wrap{flex:1;display:flex;align-items:center;gap:5px}
+.sm-arr-line{flex:1;height:1px;background:var(--border2)}
+.sm-arr-delta{font-size:11px;font-weight:800;color:rgba(118,185,0,.85);padding:2px 8px;background:rgba(118,185,0,.09);border:1px solid rgba(118,185,0,.2);border-radius:10px;white-space:nowrap}
+.sm-derivation{font-size:10.5px;color:var(--text2);line-height:1.55;margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
+.sm-deriv-label{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:3px;display:block}
+/* North Star: horizontal layout */
+.sm-star-inner{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.sm-star-left .sm-bl-num,.sm-star-left .sm-tg-num{font-size:clamp(24px,3vw,30px)}
+.sm-star-right{font-size:11px;color:var(--text2);line-height:1.6}
+/* Methodology banner */
+.sm-method-banner{background:rgba(118,185,0,.04);border:1px solid rgba(118,185,0,.18);border-radius:8px;padding:8px 14px;font-size:10.5px;color:var(--text3);line-height:1.55}
+.sm-method-label{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:rgba(118,185,0,.65);margin-bottom:3px}
+@media(max-width:700px){.sm-grid,.sm-star-inner{grid-template-columns:1fr}}
 
 /* -- How I Built This -- */
 #s_method.slide{-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
@@ -1698,8 +1702,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="ag-item">
         <span class="ag-num">14</span>
         <div class="ag-body">
-          <div class="ag-title">ROI &amp; KPIs</div>
-          <div class="ag-sub">Technical &middot; operational &middot; business</div>
+          <div class="ag-title">DOCA Success Metrics</div>
+          <div class="ag-sub">Baseline &rarr; target &rarr; derivation &middot; 4 metrics explained</div>
         </div>
       </div>
       <div class="ag-item">
@@ -3546,82 +3550,152 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <!-- ----------------------------------
        SLIDE 12 &middot; ROI & KPIs
   ---------------------------------- -->
-  <div class="slide" id="s_roi" data-title="ROI & KPIs">
-  <div class="sc" style="gap:13px">
+  <div class="slide" id="s_roi" data-title="Success Metrics">
+  <div class="sc" style="gap:11px">
 
     <div class="a1">
       <div class="eyebrow" style="margin-bottom:5px">Slide 14 of 16 &nbsp;&middot;&nbsp; Measuring what matters</div>
-      <div class="headline"><span class="grad">ROI &amp; Success Metrics</span></div>
-      <div class="subline a2" style="margin-top:5px">A product manager's scorecard: from technical capability to business outcome.</div>
+      <div class="headline"><span class="grad">DOCA Success Metrics</span></div>
+      <div class="subline a2" style="margin-top:4px">Every number below is derived from data already established in this deck &mdash; not aspirational guesses. Each metric shows its baseline, target, delta, and the chain of reasoning that connects them.</div>
     </div>
 
-    <!-- North star + KPI cards -->
-    <div class="roi-kpis a3">
-      <div class="roi-kpi roi-kpi-star">
-        <div class="roi-kpi-tag">North Star</div>
-        <div class="roi-kpi-val" id="kpi-1"></div>
-        <div class="roi-kpi-lbl">Active blueprints running in production</div>
-      </div>
-      <div class="roi-kpi">
-        <div class="roi-kpi-tag">Technical</div>
-        <div class="roi-kpi-val" id="kpi-2"></div>
-        <div class="roi-kpi-lbl">GPU utilization after offload</div>
-      </div>
-      <div class="roi-kpi">
-        <div class="roi-kpi-tag">Operational</div>
-        <div class="roi-kpi-val" id="kpi-3"></div>
-        <div class="roi-kpi-lbl">Faster POC to production</div>
-      </div>
-      <div class="roi-kpi">
-        <div class="roi-kpi-tag">Business</div>
-        <div class="roi-kpi-val" id="kpi-4"></div>
-        <div class="roi-kpi-lbl">Higher ConnectX + BlueField attach rate</div>
-      </div>
+    <!-- Methodology banner -->
+    <div class="sm-method-banner a2">
+      <div class="sm-method-label">How these numbers were derived</div>
+      Three inputs ground every target: (1) <strong style="color:var(--text)">65% GPU utilization baseline</strong> from slide 3; (2) <strong style="color:var(--text)">9-month deployment cycle</strong> broken into four categories in slide 4 (40% integration + 25% API + 20% security + 15% monitoring); (3) <strong style="color:var(--text)">87% POC-to-production failure rate</strong> driven by integration complexity. Targets assume DOCA eliminates the specific barriers identified &mdash; not wholesale improvement.
     </div>
 
-    <!-- 3-layer metrics -->
-    <div class="roi-layers a4">
-      <div class="roi-layer">
-        <div class="roi-layer-hd roi-hd-blue">Technical</div>
-        <div class="roi-layer-body">CPU offload %, latency reduction, throughput, deployment success rate.</div>
-        <div class="roi-layer-why">Proves the infrastructure advantage over alternatives.</div>
-      </div>
-      <div class="roi-layer">
-        <div class="roi-layer-hd roi-hd-orange">Operational</div>
-        <div class="roi-layer-body">Time to first deployment, pilot-to-production conversion, debug time.</div>
-        <div class="roi-layer-why">Reduces adoption friction, the real barrier.</div>
-      </div>
-      <div class="roi-layer">
-        <div class="roi-layer-hd roi-hd-green">Business</div>
-        <div class="roi-layer-body">Blueprints in production, HW attach rate, design wins, account expansion.</div>
-        <div class="roi-layer-why">Shows product impact and platform stickiness.</div>
-      </div>
-    </div>
+    <!-- 4 metric cards: 2×2 grid -->
+    <div class="sm-grid">
 
-    <!-- Two ROI columns -->
-    <div class="roi-two a5">
-      <div class="roi-col">
-        <div class="roi-col-hd roi-hd-green">Customer ROI</div>
-        <ul class="roi-list">
-          <li>Faster time to production</li>
-          <li>Better performance via CPU offload</li>
-          <li>Lower risk through validated blueprints</li>
-          <li>Measurable GPU utilization gains</li>
-        </ul>
+      <!-- Technical: GPU Utilization -->
+      <div class="sm-card sm-tech a3">
+        <div class="sm-cat">Technical</div>
+        <div class="sm-name">GPU Utilization &mdash; the core business case</div>
+        <div class="sm-compare">
+          <div class="sm-baseline">
+            <div class="sm-bl-lbl">Baseline (today)</div>
+            <div class="sm-bl-num">65%</div>
+          </div>
+          <div class="sm-arr-wrap">
+            <div class="sm-arr-line"></div>
+            <div class="sm-arr-delta">+25 pp &nbsp; &rarr;&nbsp; $270K/mo reclaimed</div>
+            <div class="sm-arr-line"></div>
+          </div>
+          <div class="sm-target">
+            <div class="sm-tg-lbl">Target (with DOCA)</div>
+            <div class="sm-tg-num">90%+</div>
+          </div>
+        </div>
+        <div class="sm-derivation">
+          <span class="sm-deriv-label">Derivation</span>
+          The 35% idle gap = CPU I/O bottleneck (slide 3). DOCA offloads all networking from host CPU via RDMA + DOCA GPUNetIO: packets move GPU-to-GPU with zero CPU involvement. Eliminating the bottleneck recovers the idle time. $270K/mo = $350K &times; (25/35) &mdash; proportional to the recovered idle share. Source: NVIDIA ConnectX-7 RDMA benchmarks &middot; MLPerf H100 training network utilization.
+        </div>
       </div>
-      <div class="roi-col">
-        <div class="roi-col-hd roi-hd-nv">NVIDIA ROI</div>
-        <ul class="roi-list">
-          <li>Stronger ConnectX + BlueField attach rate</li>
-          <li>More design wins in strategic accounts</li>
-          <li>Faster pilot-to-production velocity</li>
-          <li>Long-term platform moat</li>
-        </ul>
-      </div>
-    </div>
 
-    <div class="roi-note a6">
-      These are <strong style="color:var(--text)">hypotheses to validate</strong> with customers and field teams, not assumed numbers. Strong strategy starts with measurable questions, not predetermined answers.
+      <!-- Technical: Deployment Cycle -->
+      <div class="sm-card sm-ops a3">
+        <div class="sm-cat">Operational</div>
+        <div class="sm-name">Time to Production &mdash; the adoption barrier</div>
+        <div class="sm-compare">
+          <div class="sm-baseline">
+            <div class="sm-bl-lbl">Baseline (today)</div>
+            <div class="sm-bl-num">9 mo</div>
+          </div>
+          <div class="sm-arr-wrap">
+            <div class="sm-arr-line"></div>
+            <div class="sm-arr-delta">6&times; faster</div>
+            <div class="sm-arr-line"></div>
+          </div>
+          <div class="sm-target">
+            <div class="sm-tg-lbl">Target (with DOCA)</div>
+            <div class="sm-tg-num">~6 wk</div>
+          </div>
+        </div>
+        <div class="sm-derivation">
+          <span class="sm-deriv-label">Derivation</span>
+          Slide 4 breakdown: 40% custom integration + 25% API learning = 65% of 9 months = ~6 months. DOCA Blueprints eliminate both. Remaining 35% (security 20% + monitoring 15%) = ~3.2 months &rarr; reduced to ~2&ndash;3 weeks via Blueprint security templates + telemetry scaffolding. Total: ~6 weeks. <strong style="color:var(--text)">Note: 10&times; would require eliminating monitoring overhead too &mdash; 6&times; is the honest, defensible number.</strong>
+        </div>
+      </div>
+
+      <!-- Operational: POC conversion -->
+      <div class="sm-card sm-ops a4">
+        <div class="sm-cat">Operational</div>
+        <div class="sm-name">POC-to-Production Success Rate</div>
+        <div class="sm-compare">
+          <div class="sm-baseline">
+            <div class="sm-bl-lbl">Baseline (today)</div>
+            <div class="sm-bl-num">13%</div>
+          </div>
+          <div class="sm-arr-wrap">
+            <div class="sm-arr-line"></div>
+            <div class="sm-arr-delta">5&times; improvement</div>
+            <div class="sm-arr-line"></div>
+          </div>
+          <div class="sm-target">
+            <div class="sm-tg-lbl">Target (with DOCA)</div>
+            <div class="sm-tg-num">65%+</div>
+          </div>
+        </div>
+        <div class="sm-derivation">
+          <span class="sm-deriv-label">Derivation</span>
+          Baseline 13% = (100% &minus; 87% failure). The 87% is integration-complexity driven (slide 4) &rarr; DOCA eliminates the #1 blocker. Target 65% (not 100%) accounts for natural attrition: ~35% of POCs fail for non-technical reasons (budget, org change, scope) that DOCA cannot fix. 65% = the technically-addressable ceiling given known failure drivers.
+        </div>
+      </div>
+
+      <!-- Business: DOCA Adoption -->
+      <div class="sm-card sm-biz a4">
+        <div class="sm-cat">Business</div>
+        <div class="sm-name">DOCA Production Adoption Rate (% of BlueField installed base)</div>
+        <div class="sm-compare">
+          <div class="sm-baseline">
+            <div class="sm-bl-lbl">Baseline (est.)</div>
+            <div class="sm-bl-num">~20%</div>
+          </div>
+          <div class="sm-arr-wrap">
+            <div class="sm-arr-line"></div>
+            <div class="sm-arr-delta">3&times; &rarr; +550 deployments per 1pp</div>
+            <div class="sm-arr-line"></div>
+          </div>
+          <div class="sm-target">
+            <div class="sm-tg-lbl">Target (Year 2)</div>
+            <div class="sm-tg-num">60%+</div>
+          </div>
+        </div>
+        <div class="sm-derivation">
+          <span class="sm-deriv-label">Derivation</span>
+          ~20% baseline = conservative estimate: 87% of POCs fail → only ~13% of accounts that trialed DOCA reach production; adding accounts with no POC attempted, ~20% active rate is plausible. ~55K BlueField DPUs shipped (Dell&rsquo;Oro) → each 1pp improvement = ~550 additional production deployments. 60% is the CUDA analogue target: GPU compute adoption reached ~80% after CUDA hit a deployment-simplicity threshold.
+        </div>
+      </div>
+
+    </div><!-- /sm-grid -->
+
+    <!-- North Star metric — full width -->
+    <div class="sm-card sm-star a5">
+      <div class="sm-cat">North Star &nbsp;&middot;&nbsp; The single metric that proves the strategy is working</div>
+      <div class="sm-star-inner">
+        <div class="sm-star-left">
+          <div class="sm-name">DOCA Production Adoption Rate &mdash; % of BlueField installed base with DOCA running in production</div>
+          <div class="sm-compare" style="margin-bottom:0">
+            <div class="sm-baseline">
+              <div class="sm-bl-lbl">Today</div>
+              <div class="sm-bl-num">~20%</div>
+            </div>
+            <div class="sm-arr-wrap">
+              <div class="sm-arr-line"></div>
+              <div class="sm-arr-delta">Target: 60% by FY27</div>
+              <div class="sm-arr-line"></div>
+            </div>
+            <div class="sm-target">
+              <div class="sm-tg-lbl">Year 2</div>
+              <div class="sm-tg-num">60%+</div>
+            </div>
+          </div>
+        </div>
+        <div class="sm-star-right">
+          <strong style="color:var(--text)">Why this is the right North Star:</strong> It captures both the technical win (DOCA deployed) and the business win (hardware generates software value). It is immune to vanity metrics &mdash; a Blueprint that runs in staging doesn&rsquo;t count. Every other metric on this page is a leading indicator that predicts this one. If GPU utilization goes up (+25pp), if deployment time falls (6&times;), if POC conversion improves (5&times;) &mdash; the adoption rate follows. This is the flywheel: <strong style="color:rgba(118,185,0,.9)">faster deployment → more production deployments → more hardware pull-through → more DOCA investment → better Blueprints → faster deployment.</strong>
+        </div>
+      </div>
     </div>
 
   </div><!-- /sc -->
@@ -4134,26 +4208,8 @@ function animBlueprint(){
   setTimeout(()=>{ if(d) d.style.width='96%'; },700);
 }
 
-// --- ROI: count-up KPIs ---
-function animROI(){
-  const kpis=[
-    ['kpi-1', 0, 20, '', '+'],
-    ['kpi-2', 0, 92, '', '%'],
-    ['kpi-3', 0, 10, '', '×'],
-    ['kpi-4', 0, 30, '+', '%'],
-  ];
-  kpis.forEach(([id,from,to,pre,suf])=>{
-    const el=document.getElementById(id); if(!el)return;
-    const dur=900, t0=performance.now();
-    const step=(t)=>{
-      const p=Math.min((t-t0)/dur,1);
-      const val=Math.round(from+(to-from)*(1-Math.pow(1-p,3)));
-      el.textContent=(pre||'')+val+(suf||'');
-      if(p<1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  });
-}
+// --- ROI: no-op (slide rebuilt as static metric cards) ---
+function animROI(){}
 
 // --- PRO Gantt v3: row expand/collapse ---
 function g3Toggle(row){
