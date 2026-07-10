@@ -1108,6 +1108,48 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .ux-step-detail{font-size:10.5px;color:var(--text2);line-height:1.4}
 .ux-step-kpi{font-size:9.5px;font-weight:700;color:rgba(118,185,0,.8);margin-top:3px}
 .ux-principle{font-size:11px;color:var(--text2);padding:7px 12px;background:rgba(118,185,0,.04);border:1px solid rgba(118,185,0,.18);border-radius:7px;text-align:center}
+/* ---- Slide 16: PM Manifesto ---- */
+.pm-hero{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;
+  background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:12px;padding:14px 18px}
+.pm-hero-avatar{width:58px;height:58px;border-radius:50%;flex-shrink:0;
+  background:radial-gradient(circle at 35% 35%,rgba(118,185,0,.25),rgba(42,128,200,.1));
+  border:2px solid rgba(118,185,0,.35);display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:800;color:rgba(118,185,0,.95);letter-spacing:-.02em;
+  box-shadow:0 0 20px rgba(118,185,0,.12)}
+.pm-hero-quote{font-size:12.5px;font-style:italic;color:var(--text2);line-height:1.6;
+  border-left:2px solid rgba(118,185,0,.3);padding-left:14px}
+.pm-hero-sig{font-size:10px;font-weight:700;color:var(--text3);margin-top:7px;padding-left:14px;letter-spacing:.04em}
+.pm-loop-wrap{display:flex;flex-direction:column;gap:6px}
+.pm-loop-3d{perspective:1000px;perspective-origin:50% 10%}
+.pm-loop-inner{transform:rotateX(6deg);transform-style:preserve-3d;transition:transform .4s ease}
+.pm-loop-3d:hover .pm-loop-inner{transform:rotateX(0deg)}
+.pm-loop-track{display:flex;align-items:stretch;border-radius:10px;overflow:visible;border:1px solid var(--border)}
+.pm-loop-node{flex:1;position:relative;padding:10px 12px;background:var(--card);
+  border-right:1px solid var(--border);cursor:default;transition:background .2s}
+.pm-loop-node:last-child{border-right:none}
+.pm-loop-node:hover{background:rgba(118,185,0,.04);z-index:10}
+.pm-ln{font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--text3);margin-bottom:4px}
+.pm-lt{font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:3px}
+.pm-ls{font-size:10px;color:var(--text3);line-height:1.35}
+.pm-tt{position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(6px);
+  background:rgba(10,14,24,.97);border:1px solid rgba(118,185,0,.35);border-radius:9px;
+  padding:11px 13px;width:190px;font-size:10.5px;color:var(--text2);line-height:1.5;
+  opacity:0;transition:opacity .18s,transform .18s;pointer-events:none;z-index:50;
+  box-shadow:0 12px 32px rgba(0,0,0,.6)}
+.pm-loop-node:last-child .pm-tt{left:auto;right:0;transform:translateY(6px)}
+.pm-loop-node:hover .pm-tt{opacity:1;transform:translateX(-50%) translateY(0)}
+.pm-loop-node:last-child:hover .pm-tt{transform:translateY(0)}
+.pm-tt::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:rgba(118,185,0,.35)}
+.pm-loop-node:last-child .pm-tt::after{left:auto;right:18px;transform:none}
+.pm-tt-hd{font-size:10px;font-weight:700;color:rgba(118,185,0,.85);margin-bottom:5px;letter-spacing:.04em}
+.pm-tt-deck{font-size:9.5px;color:var(--text3);margin-top:6px;border-top:1px solid rgba(255,255,255,.06);padding-top:5px;font-style:italic;line-height:1.4}
+.pm-beliefs{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.pm-belief{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:12px 13px;position:relative;overflow:hidden}
+.pm-belief::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:9px 9px 0 0;background:linear-gradient(90deg,rgba(118,185,0,.5),transparent)}
+.pm-belief-n{font-size:26px;font-weight:800;color:rgba(118,185,0,.1);line-height:1;margin-bottom:3px}
+.pm-belief-title{font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.3}
+.pm-belief-text{font-size:10.5px;color:var(--text3);line-height:1.5}
 /* Slide type labels ? Technical / Business / Market Context */
 .lbl-tech{color:rgba(82,168,255,.85);font-weight:700}
 .lbl-biz{color:rgba(0,185,155,.8);font-weight:700}
@@ -4080,161 +4122,120 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <div class="a1">
       <div class="eyebrow" style="margin-bottom:5px">Slide 16 of 17 &nbsp;&middot;&nbsp; Behind the work</div>
-      <div class="headline"><span class="grad">The PM Thinking Behind This Deck</span></div>
-      <div class="subline a2" style="margin-top:5px">Full transparency &ndash; because <em>how</em> I think is as important as <em>what</em> I conclude.</div>
+      <div class="headline"><span class="grad">My PM Manifesto</span></div>
+      <div class="subline a2" style="margin-top:5px">How I think about product &ndash; not just what I deliver.</div>
     </div>
 
-    <!-- Opening personal statement -->
-    <div class="method-opener a2">
-      <div class="method-opener-quote">&ldquo;</div>
-      <div class="method-opener-body">
-        I started where I always start: with the <strong style="color:var(--text)">customer&rsquo;s economic pain</strong>, not the product feature list.
-        The central question that shaped every slide was: <em style="color:rgba(200,220,255,.75)">Why are customers who already own the hardware not deploying DOCA?</em>
-        The answer to that question determined the problem framing, the strategy choice, the metrics, and the narrative arc.
-        This deck is the artifact of that thinking process &ndash; not a summary of what I learned, but a demonstration of how I work.
-      </div>
-    </div>
-
-    <!-- What guided me ? 3 PM principles -->
-    <div class="method-principles a3">
-
-      <div class="method-principle">
-        <div class="method-pr-num">01</div>
-        <div class="method-pr-body">
-          <div class="method-pr-title">Problem-first, always &ndash; not product-first</div>
-          <div class="method-pr-text">
-            Before I opened any slide tool, I spent time understanding the <em>economic</em> reality of the pain: 87% of POCs stalling, $350M idle in a $1B cluster, customers solving the problem themselves with workarounds that erode NVIDIA&rsquo;s moat.
-            The product came second. Slides 3&ndash;5 exist before the solution slides for exactly this reason.
-          </div>
+    <!-- Personal hero -->
+    <div class="pm-hero a2">
+      <div class="pm-hero-avatar">BR</div>
+      <div class="pm-hero-right">
+        <div class="pm-hero-quote">
+          &ldquo;I don&rsquo;t start with features. I start with the question: <em>what is the most expensive unsolved problem this customer has right now?</em>
+          Everything else &ndash; strategy, roadmap, metrics &ndash; follows from the honest answer to that question.&rdquo;
         </div>
-      </div>
-
-      <div class="method-principle">
-        <div class="method-pr-num">02</div>
-        <div class="method-pr-body">
-          <div class="method-pr-title">A strategy needs a forcing function, not a feature list</div>
-          <div class="method-pr-text">
-            I evaluated 5 strategic paths. I chose Blueprints not because it delivers the most features, but because it creates a <strong style="color:rgba(118,185,0,.85)">forcing function</strong>:
-            one motion that unlocks adoption, repeatability, and revenue simultaneously.
-            A strategy that makes everything else easier is a strategy worth betting on. That&rsquo;s the PM judgment call in slide 11.
-          </div>
-        </div>
-      </div>
-
-      <div class="method-principle">
-        <div class="method-pr-num">03</div>
-        <div class="method-pr-body">
-          <div class="method-pr-title">Numbers must trace back &ndash; not inspire forward</div>
-          <div class="method-pr-text">
-            Every metric in the Success Metrics slide is derived from data that appears earlier in the deck. I do not present aspirational targets.
-            I derive them: baseline &rarr; mechanism &rarr; delta &rarr; target. If you cannot trace the number to a concrete assumption, it is not a metric. It is a wish.
-            This is how I hold myself and my teams accountable.
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- PM philosophy diagram (3D perspective card) -->
-    <div class="a4" style="display:flex;flex-direction:column;gap:6px">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:2px">How I see the PM role</div>
-      <div class="pm-view-wrap">
-        <div class="pm-view">
-
-          <!-- LEFT: Engineering / Technical world -->
-          <div class="pm-side pm-side-tech">
-            <div class="pm-side-hd">Engineering World</div>
-            <div class="pm-side-item">Architecture constraints &amp; trade-offs</div>
-            <div class="pm-side-item">API design &amp; SDK surface area</div>
-            <div class="pm-side-item">Performance limits &amp; bottlenecks</div>
-            <div class="pm-side-item">What is technically feasible in the timeline</div>
-          </div>
-
-          <!-- CENTER: PM node -->
-          <div class="pm-node">
-            <div class="pm-arrow">&#8592;</div>
-            <div class="pm-node-circle">PM</div>
-            <div class="pm-arrow">&#8594;</div>
-            <div class="pm-node-lbl">Translate &amp; Decide</div>
-          </div>
-
-          <!-- RIGHT: Business / Customer world -->
-          <div class="pm-side pm-side-biz" style="text-align:right;align-items:flex-end">
-            <div class="pm-side-hd">Business World</div>
-            <div class="pm-side-item" style="flex-direction:row-reverse">Customer economic pain &amp; ROI</div>
-            <div class="pm-side-item" style="flex-direction:row-reverse">Revenue impact &amp; market timing</div>
-            <div class="pm-side-item" style="flex-direction:row-reverse">What success looks like to stakeholders</div>
-            <div class="pm-side-item" style="flex-direction:row-reverse">The "why now" urgency argument</div>
-          </div>
-
-        </div>
-      </div>
-      <div style="font-size:11px;color:var(--text3);text-align:center;font-style:italic;padding:4px 0">
-        The PM doesn&rsquo;t sit in one world. They translate between them &ndash; turning engineering reality into business value, and business urgency into engineering direction.
+        <div class="pm-hero-sig">Barak Rozenfeld &nbsp;&middot;&nbsp; Product Manager &nbsp;&middot;&nbsp; This deck is proof of that process.</div>
       </div>
     </div>
 
-    <!-- Build toolchain ? layered stack visual -->
-    <div class="a5" style="display:flex;flex-direction:column;gap:8px">
-      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3)">How this deck was built &ndash; the full stack</div>
-      <div class="build-stack">
+    <!-- Interactive 3D loop diagram -->
+    <div class="pm-loop-wrap a3">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:5px">My PM mental loop &nbsp;&middot;&nbsp; <span style="color:rgba(118,185,0,.5);font-weight:500;text-transform:none;letter-spacing:0">hover each stage to see how it applied in this deck</span></div>
+      <div class="pm-loop-3d">
+        <div class="pm-loop-inner">
+          <div class="pm-loop-track">
 
-        <div class="bs-layer bs-l4">
-          <div class="bs-num" style="color:rgba(82,168,255,.7)">01</div>
-          <div class="bs-label" style="color:rgba(82,168,255,.85)">Research Foundation</div>
-          <div class="bs-tools">
-            <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">NVIDIA developer docs</span>
-            <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">GTC 2023?24 sessions</span>
-            <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">Earnings calls</span>
-            <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">Competitor materials</span>
-            <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">JD analysis</span>
+            <div class="pm-loop-node">
+              <div class="pm-ln">01 &darr;</div>
+              <div class="pm-lt">Start with Pain</div>
+              <div class="pm-ls">Customer economic reality, not feature requests</div>
+              <div class="pm-tt">
+                <div class="pm-tt-hd">Start with Pain</div>
+                I map the customer&rsquo;s economic reality before touching any product surface. If I can&rsquo;t put a dollar figure on the problem, I don&rsquo;t fully understand it yet.
+                <div class="pm-tt-deck">In this deck: 65% GPU utilization &rarr; $350M idle in a $1B cluster. That single number shaped every slide that followed.</div>
+              </div>
+            </div>
+
+            <div class="pm-loop-node">
+              <div class="pm-ln">02 &darr;</div>
+              <div class="pm-lt">Map Technical Reality</div>
+              <div class="pm-ls">Feasibility, constraints, root cause</div>
+              <div class="pm-tt">
+                <div class="pm-tt-hd">Map Technical Reality</div>
+                I work with engineering to understand what&rsquo;s actually possible &ndash; not to confirm my ideas, but to stress-test them against real constraints.
+                <div class="pm-tt-deck">In this deck: the root cause wasn&rsquo;t the API &ndash; it was the 9-month integration wall that no API fix alone could solve.</div>
+              </div>
+            </div>
+
+            <div class="pm-loop-node">
+              <div class="pm-ln">03 &darr;</div>
+              <div class="pm-lt">Find the Forcing Function</div>
+              <div class="pm-ls">The one decision that unlocks everything else</div>
+              <div class="pm-tt">
+                <div class="pm-tt-hd">Find the Forcing Function</div>
+                I look for the strategic choice that makes every other decision easier &ndash; not the option that solves the most, but the one that unblocks the most.
+                <div class="pm-tt-deck">In this deck: Blueprints don&rsquo;t replace APIs, cloud-native, or partners &ndash; they make all three necessary and aligned in one motion.</div>
+              </div>
+            </div>
+
+            <div class="pm-loop-node">
+              <div class="pm-ln">04 &circlearrowleft;</div>
+              <div class="pm-lt">Trace the Numbers</div>
+              <div class="pm-ls">Baseline &rarr; mechanism &rarr; target. Never aspirations</div>
+              <div class="pm-tt">
+                <div class="pm-tt-hd">Trace the Numbers</div>
+                Every metric I own has a causal derivation. &ldquo;Aspirational targets&rdquo; are guesses. Real metrics trace back to a specific mechanism you control.
+                <div class="pm-tt-deck">In this deck: GPU 65%&rarr;90% derives from the exact CPU bottleneck eliminated by GPUNetIO. Not a round number &ndash; a causal chain.</div>
+              </div>
+            </div>
+
           </div>
-          <div class="bs-note">Weeks</div>
         </div>
+      </div>
+      <div style="font-size:10px;color:var(--text3);text-align:center;font-style:italic;padding-top:3px">
+        The loop repeats: new production data &rarr; updated pain understanding &rarr; refined strategy &rarr; better metrics.
+      </div>
+    </div>
 
-        <div class="bs-layer bs-l3">
-          <div class="bs-num" style="color:rgba(118,185,0,.7)">02</div>
-          <div class="bs-label" style="color:rgba(118,185,0,.85)">PM Framework</div>
-          <div class="bs-tools">
-            <span class="bs-tool" style="color:rgba(118,185,0,.85);border-color:rgba(118,185,0,.25);background:rgba(118,185,0,.06)">Problem framing</span>
-            <span class="bs-tool" style="color:rgba(118,185,0,.85);border-color:rgba(118,185,0,.25);background:rgba(118,185,0,.06)">5-path alt evaluation</span>
-            <span class="bs-tool" style="color:rgba(118,185,0,.85);border-color:rgba(118,185,0,.25);background:rgba(118,185,0,.06)">Forcing function logic</span>
-            <span class="bs-tool" style="color:rgba(118,185,0,.85);border-color:rgba(118,185,0,.25);background:rgba(118,185,0,.06)">Metric derivation</span>
-            <span class="bs-tool" style="color:rgba(118,185,0,.85);border-color:rgba(118,185,0,.25);background:rgba(118,185,0,.06)">Narrative architecture</span>
-          </div>
-          <div class="bs-note" style="color:rgba(118,185,0,.5)">My thinking</div>
-        </div>
+    <!-- 3 core beliefs -->
+    <div class="pm-beliefs a4">
 
-        <div class="bs-layer bs-l2">
-          <div class="bs-num" style="color:rgba(168,130,255,.7)">03</div>
-          <div class="bs-label" style="color:rgba(168,130,255,.85)">AI Production</div>
-          <div class="bs-tools">
-            <span class="bs-tool" style="color:rgba(168,130,255,.85);border-color:rgba(138,92,246,.25);background:rgba(138,92,246,.06)">Cursor AI (Agent mode)</span>
-            <span class="bs-tool" style="color:rgba(168,130,255,.85);border-color:rgba(138,92,246,.25);background:rgba(138,92,246,.06)">Claude (Sonnet)</span>
-            <span class="bs-tool" style="color:rgba(168,130,255,.85);border-color:rgba(138,92,246,.25);background:rgba(138,92,246,.06)">ChatGPT</span>
-            <span class="bs-tool" style="color:rgba(168,130,255,.85);border-color:rgba(138,92,246,.25);background:rgba(138,92,246,.06)">HTML / CSS / JS</span>
-            <span class="bs-tool" style="color:rgba(168,130,255,.85);border-color:rgba(138,92,246,.25);background:rgba(138,92,246,.06)">Python scripts</span>
-          </div>
-          <div class="bs-note" style="color:rgba(168,130,255,.5)">1 day build</div>
-        </div>
+      <div class="pm-belief">
+        <div class="pm-belief-n">01</div>
+        <div class="pm-belief-title">Problem-first. Always.</div>
+        <div class="pm-belief-text">I spent weeks understanding DOCA&rsquo;s customer pain before opening a slide tool. The problem framing determines everything &ndash; the product answer is just the conclusion.</div>
+      </div>
 
-        <div class="bs-layer bs-l1">
-          <div class="bs-num" style="color:rgba(0,185,155,.7)">04</div>
-          <div class="bs-label" style="color:rgba(0,185,155,.85)">Output Artifacts</div>
-          <div class="bs-tools">
-            <span class="bs-tool" style="color:rgba(0,185,155,.85);border-color:rgba(0,185,155,.25);background:rgba(0,185,155,.06)">Interactive HTML deck</span>
-            <span class="bs-tool" style="color:rgba(0,185,155,.85);border-color:rgba(0,185,155,.25);background:rgba(0,185,155,.06)">Synthesia walkthrough video</span>
-            <span class="bs-tool" style="color:rgba(0,185,155,.85);border-color:rgba(0,185,155,.25);background:rgba(0,185,155,.06)">Live conversation</span>
-          </div>
-          <div class="bs-note" style="color:rgba(0,185,155,.5)">3 artifacts, 1 process</div>
-        </div>
+      <div class="pm-belief">
+        <div class="pm-belief-n">02</div>
+        <div class="pm-belief-title">Strategy is a forcing function, not a feature list.</div>
+        <div class="pm-belief-text">The right strategic choice makes every other decision easier. Blueprints don&rsquo;t add features &ndash; they create the motion that pulls APIs, cloud-native, observability, and partners into a single aligned roadmap.</div>
+      </div>
 
+      <div class="pm-belief">
+        <div class="pm-belief-n">03</div>
+        <div class="pm-belief-title">Numbers must trace back, not inspire forward.</div>
+        <div class="pm-belief-text">I don&rsquo;t present aspirational targets. I derive them: baseline &rarr; mechanism &rarr; delta &rarr; target. If you can&rsquo;t trace the number to a concrete assumption, it&rsquo;s not a metric. It&rsquo;s a wish.</div>
+      </div>
+
+    </div>
+
+    <!-- How this was built (condensed) -->
+    <div class="a5">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">How this deck was actually built</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <span style="font-size:10.5px;color:rgba(82,168,255,.8);background:rgba(42,128,200,.07);border:1px solid rgba(82,168,255,.2);border-radius:5px;padding:3px 10px">NVIDIA docs &amp; GTC sessions</span>
+        <span style="font-size:10.5px;color:rgba(82,168,255,.8);background:rgba(42,128,200,.07);border:1px solid rgba(82,168,255,.2);border-radius:5px;padding:3px 10px">Earnings calls &amp; competitor analysis</span>
+        <span style="font-size:10.5px;color:rgba(118,185,0,.8);background:rgba(118,185,0,.07);border:1px solid rgba(118,185,0,.2);border-radius:5px;padding:3px 10px">PM framework &amp; forcing-function logic</span>
+        <span style="font-size:10.5px;color:rgba(168,130,255,.8);background:rgba(138,92,246,.07);border:1px solid rgba(138,92,246,.2);border-radius:5px;padding:3px 10px">Cursor AI &middot; Claude &middot; ChatGPT</span>
+        <span style="font-size:10.5px;color:rgba(168,130,255,.8);background:rgba(138,92,246,.07);border:1px solid rgba(138,92,246,.2);border-radius:5px;padding:3px 10px">HTML &middot; CSS &middot; JS &middot; Python</span>
+        <span style="font-size:10.5px;color:rgba(0,185,155,.8);background:rgba(0,185,155,.07);border:1px solid rgba(0,185,155,.2);border-radius:5px;padding:3px 10px">Synthesia walkthrough video</span>
       </div>
     </div>
 
     <div class="method-statement a6">
-      A PM who leverages AI to produce high-quality artifacts faster is not cutting corners &ndash; it is the job.<br>
-      <span style="color:rgba(118,185,0,.85);font-weight:600">This deck is not what I know about DOCA. It is how I think about product.</span>
+      A PM who uses AI to produce better artifacts faster is not cutting corners &ndash; it is the job.<br>
+      <span style="color:rgba(118,185,0,.9);font-weight:600">This deck is not what I know about DOCA. It is how I think about product.</span>
     </div>
 
   </div><!-- /sc -->
