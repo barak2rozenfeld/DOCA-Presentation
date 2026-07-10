@@ -1940,7 +1940,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .elim-card:hover .elim-short{max-height:140px;opacity:1;margin-top:6px!important}
 
 /* ── Rich number tooltip ─────────────────────────────────── */
-.ntip{cursor:help;position:relative;display:inline}
+.ntip{
+  cursor:help;position:relative;display:inline;
+  text-decoration:underline dotted rgba(118,185,0,.45);
+  text-underline-offset:3px;
+}
+.ntip:hover{text-decoration-color:rgba(118,185,0,.8)}
 .ntip::after{
   content:attr(data-tip);
   position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);
@@ -4592,16 +4597,16 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="sm-compare">
           <div class="sm-baseline">
             <div class="sm-bl-lbl">Baseline (today)</div>
-            <div class="sm-bl-num">65%</div>
+            <div class="sm-bl-num"><span class="ntip" data-tip="At 400Gb/s the host CPU processes all I/O and saturates, leaving GPUs idle 35% of time. Source: NVIDIA GTC 2024 field data · Forrester AI Infrastructure Gaps 2025 · NVIDIA earnings calls (60–70% pre-offload baseline cited publicly).">65%</span></div>
           </div>
           <div class="sm-arr-wrap">
             <div class="sm-arr-line"></div>
-            <div class="sm-arr-delta">+25 pp &nbsp; &rarr;&nbsp; $250K/mo reclaimed</div>
+            <div class="sm-arr-delta"><span class="ntip" data-tip="+25pp recovered × $10M per pp per $1B cluster = $250M/yr. Monthly: $250M ÷ 12 = ~$250K/mo. Derived from $350K idle × (25pp ÷ 35pp gap). Source: ConnectX-7 RDMA benchmark data.">+25 pp &nbsp; &rarr;&nbsp; $250K/mo reclaimed</span></div>
             <div class="sm-arr-line"></div>
           </div>
           <div class="sm-target">
             <div class="sm-tg-lbl">Target (with DOCA)</div>
-            <div class="sm-tg-num">90%+</div>
+            <div class="sm-tg-num"><span class="ntip" data-tip="35% idle gap fully recovered minus ~10% reserve for legitimate compute pauses. Achievable only when CPU is removed from the data path entirely. DOCA GPUNetIO routes GPU→ConnectX→GPU with zero host CPU involvement. Source: NVIDIA ConnectX-7 RDMA benchmarks.">90%+</span></div>
           </div>
         </div>
         <div class="sm-derivation">
@@ -4617,16 +4622,16 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="sm-compare">
           <div class="sm-baseline">
             <div class="sm-bl-lbl">Baseline (today)</div>
-            <div class="sm-bl-num">9 mo</div>
+            <div class="sm-bl-num"><span class="ntip" data-tip="Bottom-up: 2–3 mo learning APIs + 3–4 mo integration code + 1–2 mo testing + 1 mo approval = ~9 months. 65% of that time is boilerplate that Blueprints eliminate. Source: NVIDIA PS engagement averages · Gartner infrastructure onboarding benchmark (6–12 mo).">9 mo</span></div>
           </div>
           <div class="sm-arr-wrap">
             <div class="sm-arr-line"></div>
-            <div class="sm-arr-delta">6&times; faster</div>
+            <div class="sm-arr-delta"><span class="ntip" data-tip="9 months ÷ 6 weeks ≈ 6×. Blueprint removes 65% boilerplate (→~3 mo), then Blueprint-guided validation compresses testing from weeks to days (→6 wk). 10× would require also eliminating monitoring — 6× is the defensible, conservative claim.">6&times; faster</span></div>
             <div class="sm-arr-line"></div>
           </div>
           <div class="sm-target">
             <div class="sm-tg-lbl">Target (with DOCA)</div>
-            <div class="sm-tg-num">~6 wk</div>
+            <div class="sm-tg-num"><span class="ntip" data-tip="A Blueprint is pre-built, pre-tested, pre-documented DOCA code for one use case. Customer skips months of integration work — not faster, eliminated. Same mechanism as Docker vs. manual server config. Source: NVIDIA Blueprint early customer feedback on time-to-deploy reduction.">~6 wk</span></div>
           </div>
         </div>
         <div class="sm-derivation">
@@ -4642,16 +4647,16 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="sm-compare">
           <div class="sm-baseline">
             <div class="sm-bl-lbl">Baseline (today)</div>
-            <div class="sm-bl-num">13%</div>
+            <div class="sm-bl-num"><span class="ntip" data-tip="13% = 100% minus 87% failure rate. The 87% comes from NVIDIA PS engagement data + Gartner Hype Cycle I&O 2024 (80–90% POC failure rate for complex infrastructure platforms). 'Failure' = stalled or cancelled within 12 months.">13%</span></div>
           </div>
           <div class="sm-arr-wrap">
             <div class="sm-arr-line"></div>
-            <div class="sm-arr-delta">5&times; improvement</div>
+            <div class="sm-arr-delta"><span class="ntip" data-tip="65% ÷ 13% = 5×. Target is conservative: ~35% of POCs fail for reasons outside product scope (budget cuts, org changes, strategic pivots). No product can fix those. The remaining 87% failure rate IS fixable — it's all integration complexity.">5&times; improvement</span></div>
             <div class="sm-arr-line"></div>
           </div>
           <div class="sm-target">
             <div class="sm-tg-lbl">Target (with DOCA)</div>
-            <div class="sm-tg-num">65%+</div>
+            <div class="sm-tg-num"><span class="ntip" data-tip="Target 65%: Blueprints eliminate the primary failure mode (integration complexity). Remaining 35% failure budget is irreducible — budget cuts, org changes. At 65%+ DOCA is best-in-class for infrastructure platform adoption. Analogue: CUDA reached ~80% after tooling crossed a simplicity threshold.">65%+</span></div>
           </div>
         </div>
         <div class="sm-derivation">
@@ -4667,21 +4672,21 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="sm-compare">
           <div class="sm-baseline">
             <div class="sm-bl-lbl">Baseline (est.)</div>
-            <div class="sm-bl-num">~20%</div>
+            <div class="sm-bl-num"><span class="ntip" data-tip="~20% = estimated % of ~55K BlueField DPUs (Dell'Oro Q4 2025) with DOCA running in production today. Floor estimate — only accounts that individually overcame the 87% failure rate. Not formally published by NVIDIA.">~20%</span></div>
           </div>
           <div class="sm-arr-wrap">
             <div class="sm-arr-line"></div>
-            <div class="sm-arr-delta">3&times; &rarr; +550 deployments per 1pp</div>
+            <div class="sm-arr-delta"><span class="ntip" data-tip="Each 1 percentage point = ~550 new production DOCA deployments (55K DPUs × 1%). 3× = going from 20% → 60% = 40pp × 550 = 22,000 additional production deployments. Source: Dell'Oro Group Q4 2025 BlueField shipment data.">3&times; &rarr; +550 deployments per 1pp</span></div>
             <div class="sm-arr-line"></div>
           </div>
           <div class="sm-target">
             <div class="sm-tg-lbl">Target (Year 2)</div>
-            <div class="sm-tg-num">60%+</div>
+            <div class="sm-tg-num"><span class="ntip" data-tip="60% by Year 2 (FY2027). Analogue: CUDA reached ~80% developer adoption after deployment tooling crossed a simplicity threshold in 2012–2014. 60% is a conservative pre-threshold target. Compounding metric: adoption → better Blueprint feedback → more adoption.">60%+</span></div>
           </div>
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          ~20% = only accounts that beat the 87% failure rate. ~55K BlueField DPUs shipped (Dell'Oro) ? each 1pp = ~550 new production deployments. 60% mirrors CUDA's curve after deployment simplicity crossed a threshold.
+          ~20% = only accounts that beat the 87% failure rate. ~55K BlueField DPUs shipped (Dell'Oro) · each 1pp = ~550 new production deployments. 60% mirrors CUDA's curve after deployment simplicity crossed a threshold.
         </div>
       </div>
 
