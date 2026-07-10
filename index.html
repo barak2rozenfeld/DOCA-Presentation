@@ -1809,6 +1809,80 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .kc-term-name{font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:1px}
 .kc-term-full{font-size:9px;color:var(--text3);margin-bottom:4px;font-style:italic}
 .kc-term-def{font-size:10px;color:var(--text2);line-height:1.42}
+
+/* ── Key Concepts: mobile ─────────────────────────────────────── */
+@media(max-width:700px){
+  #s_concepts .sc{padding-bottom:32px}
+  .kc-split{grid-template-columns:1fr}
+  .kc-cmp-row{grid-template-columns:1fr}
+  .kc-glossary{grid-template-columns:repeat(2,1fr)}
+  /* BlueField/ConnectX side-by-side row stacks on mobile */
+  .kc-stack>div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+  .kc-layer{grid-template-columns:40px 1fr auto;padding:9px 12px;gap:3px 10px}
+  .kc-cmp{padding:9px 11px}
+  .kc-item{padding:8px 10px}
+  .kc-item-name{font-size:11.5px}
+  .kc-item-desc{font-size:10px}
+  .kc-term-name{font-size:11px}
+  .kc-term-def{font-size:9.5px}
+}
+
+/* ── MoSCoW table: mobile ─────────────────────────────────────── */
+@media(max-width:700px){
+  .moscow-table{grid-template-columns:1fr 1fr}
+  .moscow-col:nth-child(3),.moscow-col:nth-child(4){border-top:1px solid var(--border)}
+  .exec-grid{grid-template-columns:1fr}
+  .moscow-wrap{grid-column:1/-1}
+  .rm-grid{grid-template-columns:48px repeat(4,1fr);gap:1px}
+  .rm-register{grid-template-columns:1fr}
+  .rm-corner,.rm-th,.rm-label,.rm-cell{min-height:30px;font-size:7.5px;padding:3px 2px}
+  .rm-badge,.rm-badge-ghost{width:18px;height:18px;font-size:9px}
+  .ux-steps{flex-direction:column;border-radius:8px}
+  .ux-step{border-right:none;border-bottom:1px solid var(--border)}
+  .ux-step:last-child{border-bottom:none}
+}
+
+/* ── Success Metrics: mobile ──────────────────────────────────── */
+@media(max-width:700px){
+  .sm-compare{flex-wrap:wrap;gap:6px}
+  .sm-arr-wrap{width:100%;order:3}
+  .sm-arr-delta{font-size:10px;padding:2px 7px}
+  .sm-bl-num,.sm-tg-num{font-size:20px!important}
+  #s_roi table{font-size:9px}
+  #s_roi th,#s_roi td{padding:5px 7px!important}
+}
+
+/* ── Product Strategy Gantt: mobile ──────────────────────────── */
+@media(max-width:700px){
+  .psa-grid{grid-template-columns:1fr}
+  .gantt3-col-hdr,.gantt3-info,.gantt3-ms-left,.gantt3-detail-pad{width:110px;padding:6px 7px 6px 10px}
+  .g3-info-name{font-size:8.5px}
+  .gantt3-bar-lbl b{font-size:7.5px}
+  .gantt3-legend{display:none}
+  .gantt3-today-vline{left:calc(110px + 2%)}
+  .gantt3-phases{overflow:hidden}
+  .gantt3-phase-lbl{font-size:8px}
+  .gantt3-phase-per{font-size:6.5px}
+}
+
+/* ── Strategic Alternatives: mobile ──────────────────────────── */
+@media(max-width:700px){
+  .elim-w-right{border-left:none;padding-left:0;border-top:1px solid rgba(118,185,0,.15);padding-top:10px}
+  .elim-winner{grid-template-columns:1fr}
+}
+
+/* ── Why DOCA Wins / force cards: mobile ─────────────────────── */
+@media(max-width:700px){
+  .force-grid{grid-template-columns:1fr}
+  .force-num{font-size:32px}
+}
+
+/* ── Pain slide: mobile ───────────────────────────────────────── */
+@media(max-width:700px){
+  .pain-metrics-row{grid-template-columns:1fr!important}
+  .pain-quotes{grid-template-columns:1fr}
+  .approach-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -3475,6 +3549,233 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
+       SLIDE 08 &middot; STRATEGIC ALTERNATIVES
+  ---------------------------------- -->
+  <div class="slide" id="s_alternatives" data-title="Strategic Alternatives">
+  <div class="sc" style="gap:12px">
+
+    <div class="a1">
+      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The reasoning behind the plan</div>
+      <div class="headline"><span class="grad">Why Blueprints, Not the Alternatives</span></div>
+      <div class="subline a2" style="margin-top:5px">Every other path solves one piece of the problem. Only Blueprints address the root cause and pull everything else into a single roadmap.</div>
+    </div>
+
+    <!-- 4 eliminated options -->
+    <div class="elim-top a2">
+
+      <div class="elim-card">
+        <div class="elim-x">&#10005;</div>
+        <div class="elim-name">API / SDK Expansion</div>
+        <div class="elim-solves">Solves: developer ergonomics</div>
+        <div class="elim-short">Better APIs don't fix deployment complexity. Customers with great SDK access still fail POCs because they can't get to production &ndash; the bottleneck is integration, not the API.</div>
+      </div>
+
+      <div class="elim-card">
+        <div class="elim-x">&#10005;</div>
+        <div class="elim-name">Cloud-Native Integration</div>
+        <div class="elim-solves">Solves: long-term architecture</div>
+        <div class="elim-short">Right direction, wrong timeline. Requires infrastructure NVIDIA doesn't own. A 2&ndash;3 year build can't help customers who are failing POCs today.</div>
+      </div>
+
+      <div class="elim-card">
+        <div class="elim-x">&#10005;</div>
+        <div class="elim-name">Observability &amp; Validation</div>
+        <div class="elim-solves">Solves: visibility into failures</div>
+        <div class="elim-short">A feature, not a strategy. Knowing exactly where you're stuck doesn't fix the integration complexity causing the stall. Diagnose &ne; cure.</div>
+      </div>
+
+      <div class="elim-card">
+        <div class="elim-x">&#10005;</div>
+        <div class="elim-name">Partner Ecosystem</div>
+        <div class="elim-solves">Solves: market reach</div>
+        <div class="elim-short">Too dependent on partner execution. No leverage over deployment quality. Partners co-selling an untested SDK amplifies the problem, not the solution.</div>
+      </div>
+
+    </div>
+
+    <!-- Winner card -->
+    <div class="elim-winner a3">
+
+      <div class="elim-w-left">
+        <div class="elim-w-badge">&#10003;&nbsp; Chosen path</div>
+        <div class="elim-w-name">DOCA Solution Blueprints</div>
+        <div class="elim-w-sub">A Blueprint is a complete, validated, production path for a specific use case. It attacks the root cause: customers don't know how to get DOCA into production. And it doesn't replace the other options &ndash; it makes them mandatory.</div>
+      </div>
+
+      <div class="elim-w-right">
+        <div class="elim-w-row">
+          <div class="elim-w-check">&#10003;</div>
+          <div class="elim-w-txt"><strong style="color:var(--text)">Requires solid APIs</strong> &ndash; every Blueprint surfaces SDK gaps during development, not in the field</div>
+        </div>
+        <div class="elim-w-row">
+          <div class="elim-w-check">&#10003;</div>
+          <div class="elim-w-txt"><strong style="color:var(--text)">Ships cloud-native</strong> &ndash; Kubernetes deployment is built into every Blueprint from day one</div>
+        </div>
+        <div class="elim-w-row">
+          <div class="elim-w-check">&#10003;</div>
+          <div class="elim-w-txt"><strong style="color:var(--text)">Includes observability</strong> &ndash; telemetry hooks are a mandatory part of the Blueprint spec</div>
+        </div>
+        <div class="elim-w-row">
+          <div class="elim-w-check">&#10003;</div>
+          <div class="elim-w-txt"><strong style="color:var(--text)">Enables partners</strong> &ndash; co-marketing a validated reference beats co-selling a blank SDK</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="elim-ff a4">
+      <strong style="color:rgba(118,185,0,.9)">The forcing function:</strong> Choosing Blueprints doesn't replace options A, C, D, or E. It makes them required &ndash; because a great Blueprint needs all four. One strategic choice, one unified roadmap.
+    </div>
+
+  </div><!-- /sc -->
+  </div><!-- /s_alternatives -->
+
+
+  <!-- ----------------------------------
+       SLIDE 09 &middot; CHOSEN STRATEGY
+  ---------------------------------- -->
+  <div class="slide" id="s_chosen" data-title="Chosen Strategy">
+  <div class="sc" style="gap:14px">
+
+    <div class="a1">
+      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The chosen path</div>
+      <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
+      <div class="subline a2" style="margin-top:5px">Customers do not adopt platforms. They adopt solutions to painful problems.</div>
+    </div>
+
+    <div class="cs-layout a3">
+
+      <!-- Left: adoption flow -->
+      <div class="cs-flow">
+        <div class="cs-flow-hd">The Adoption Flow</div>
+        <div class="cs-step">Customer Pain</div>
+        <div class="cs-arrow">&rarr;</div>
+        <div class="cs-step">Use Case Definition</div>
+        <div class="cs-arrow">&rarr;</div>
+        <div class="cs-step cs-step-focal">DOCA Solution Blueprint</div>
+        <div class="cs-arrow">&rarr;</div>
+        <div class="cs-step">Customer POC</div>
+        <div class="cs-arrow">&rarr;</div>
+        <div class="cs-step">Production Deployment</div>
+        <div class="cs-arrow">&rarr;</div>
+        <div class="cs-step cs-step-win">Account Expansion</div>
+      </div>
+
+      <!-- Right: package + use cases -->
+      <div class="cs-right">
+        <div>
+          <div class="cs-flow-hd">What is in a Blueprint</div>
+          <div class="cs-chips">
+            <span class="cs-chip">Reference architecture</span>
+            <span class="cs-chip">Reference application</span>
+            <span class="cs-chip">Deployment guide</span>
+            <span class="cs-chip">Validation checklist</span>
+            <span class="cs-chip">Performance benchmarks</span>
+            <span class="cs-chip">Observability hooks</span>
+            <span class="cs-chip">ROI / TCO model</span>
+            <span class="cs-chip">Pilot playbook</span>
+          </div>
+        </div>
+        <div>
+          <div class="cs-flow-hd">5 Priority Use Cases</div>
+          <div class="cs-uc">
+            <div class="cs-uc-item"><span class="cs-uc-n">1</span>AI cluster networking offload</div>
+            <div class="cs-uc-item"><span class="cs-uc-n">2</span>Secure multi-tenant DPU infrastructure</div>
+            <div class="cs-uc-item"><span class="cs-uc-n">3</span>Storage acceleration &amp; data path offload</div>
+            <div class="cs-uc-item"><span class="cs-uc-n">4</span>Cloud-native DPU-as-a-Service</div>
+            <div class="cs-uc-item"><span class="cs-uc-n">5</span>Observability &amp; validation for rollout</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="insight a4">
+      <div class="insight-hd">Core Principle</div>
+      Shorten the path from <strong style="color:var(--text)">"interesting technology"</strong> to <strong style="color:rgba(118,185,0,.9)">"production value."</strong>
+      Make DOCA adoption measurable, not only technically impressive.
+    </div>
+
+  </div><!-- /sc -->
+  </div><!-- /s_chosen -->
+
+
+  <!-- ----------------------------------
+       SLIDE 15 &middot; EXAMPLE BLUEPRINT
+  ---------------------------------- -->
+  <div class="slide" id="s_blueprint" data-title="Example Blueprint">
+  <div class="sc" style="gap:13px">
+
+    <div class="a1">
+      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 18 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; Strategy made concrete</div>
+      <div class="headline"><span class="grad">Blueprint #1: AI Cluster Networking Offload</span></div>
+      <div class="subline a2" style="margin-top:4px">
+        A Blueprint is not documentation &ndash; it is a <strong style="color:var(--text)">repeatable, tested, production path</strong>.
+        This slide exists to prove the strategy is executable, not just directionally correct.
+        One Blueprint like this, running in production, validates the entire model.
+      </div>
+    </div>
+
+    <!-- Pain -->
+    <div class="bp-pain a2">
+      <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="rgba(224,80,80,.6)" stroke-width="1" fill="rgba(224,80,80,.06)"/><line x1="7" y1="4" x2="7" y2="8" stroke="rgba(224,80,80,.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="rgba(224,80,80,.9)"/></svg>
+      <span><strong style="color:rgba(224,80,80,.85)">The Pain:</strong> As GPU clusters scale, host CPU cycles spent on networking, telemetry, and policy grow proportionally &ndash; CPU becomes the bottleneck in the most expensive infrastructure in the world. Slide 9 quantifies this: 65% GPU utilization, $350M idle in a $1B cluster.</span>
+    </div>
+
+    <div class="bp-layout a3">
+      <!-- Spec table -->
+      <div class="bp-spec">
+        <div class="bp-spec-row"><span class="bp-k">Target customer</span><span class="bp-v">AI platform team, cloud architect, hyperscaler infra engineer</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Hardware</span><span class="bp-v">ConnectX SuperNIC + BlueField DPU</span></div>
+        <div class="bp-spec-row"><span class="bp-k">DOCA services used</span><span class="bp-v">DOCA Flow &middot; GPUNetIO &middot; Telemetry &middot; Firefly</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Deliverables</span><span class="bp-v">Reference arch &middot; sample app &middot; deploy guide &middot; validation checklist</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Success definition</span><span class="bp-v">GPU util &gt;90% ? CPU I/O load &lt;25% ? new cluster live within 1 day of setup</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Why this Blueprint first</span><span class="bp-v">Largest TAM ? directly tied to GPU sales ? addresses the #1 customer pain from slide 9</span></div>
+      </div>
+
+      <!-- Before/after -->
+      <div class="bp-results">
+        <div class="bp-res-hd">Expected impact &ndash; sources noted</div>
+
+        <div class="bp-metric">
+          <div class="bp-metric-top">
+            <span class="bp-metric-name">GPU Utilization</span>
+            <span class="bp-metric-val bpm-good" id="bp-gpu-v">65% &rarr; 90%+</span>
+          </div>
+          <div class="bp-track"><div class="bp-fill-bad" style="width:65%"></div><div class="bp-fill-good" id="bp-gpu-f"></div></div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Consistent with slide 14 derivation &middot; DOCA GPUNetIO eliminates CPU I/O bottleneck</div>
+        </div>
+
+        <div class="bp-metric">
+          <div class="bp-metric-top">
+            <span class="bp-metric-name">Host CPU load from networking I/O</span>
+            <span class="bp-metric-val bpm-good" id="bp-cpu-v">~90% &rarr; &lt;20%</span>
+          </div>
+          <div class="bp-track"><div class="bp-fill-good2" id="bp-cpu-f"></div></div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Source: NVIDIA DOCA GPUNetIO reference architecture &middot; packets move GPU-to-GPU, zero CPU involvement</div>
+        </div>
+
+        <div class="bp-metric">
+          <div class="bp-metric-top">
+            <span class="bp-metric-name">Per-cluster setup time <em style="font-weight:400;color:var(--text3)">(using Blueprint, not POC-to-production)</em></span>
+            <span class="bp-metric-val bpm-good">2&ndash;3 wk &rarr; &lt;1 day</span>
+          </div>
+          <div class="bp-track"><div class="bp-fill-good3" id="bp-dep-f"></div></div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Blueprint = validated template ? infra team runs it in hours ? <em>distinct from slide 14&rsquo;s 9 mo &rarr; 6 wk (full POC-to-production journey)</em></div>
+        </div>
+
+        <div class="bp-principle">
+          <strong style="color:var(--text)">Validate once, replicate at scale.</strong>
+          One Blueprint in production becomes the template for every AI networking deployment that follows &ndash; across the entire installed base of 55K+ BlueField DPUs.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /sc -->
+  </div><!-- /s_blueprint -->
+
+
+  <!-- ----------------------------------
        SLIDE 10 &middot; PRODUCT STRATEGY ALIGNMENT
   ---------------------------------- -->
   <div class="slide" id="s_strategy_align" data-title="Product Strategy">
@@ -4232,158 +4533,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 08 &middot; STRATEGIC ALTERNATIVES
-  ---------------------------------- -->
-  <div class="slide" id="s_alternatives" data-title="Strategic Alternatives">
-  <div class="sc" style="gap:12px">
-
-    <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The reasoning behind the plan</div>
-      <div class="headline"><span class="grad">Why Blueprints, Not the Alternatives</span></div>
-      <div class="subline a2" style="margin-top:5px">Every other path solves one piece of the problem. Only Blueprints address the root cause and pull everything else into a single roadmap.</div>
-    </div>
-
-    <!-- 4 eliminated options -->
-    <div class="elim-top a2">
-
-      <div class="elim-card">
-        <div class="elim-x">&#10005;</div>
-        <div class="elim-name">API / SDK Expansion</div>
-        <div class="elim-solves">Solves: developer ergonomics</div>
-        <div class="elim-short">Better APIs don't fix deployment complexity. Customers with great SDK access still fail POCs because they can't get to production &ndash; the bottleneck is integration, not the API.</div>
-      </div>
-
-      <div class="elim-card">
-        <div class="elim-x">&#10005;</div>
-        <div class="elim-name">Cloud-Native Integration</div>
-        <div class="elim-solves">Solves: long-term architecture</div>
-        <div class="elim-short">Right direction, wrong timeline. Requires infrastructure NVIDIA doesn't own. A 2&ndash;3 year build can't help customers who are failing POCs today.</div>
-      </div>
-
-      <div class="elim-card">
-        <div class="elim-x">&#10005;</div>
-        <div class="elim-name">Observability &amp; Validation</div>
-        <div class="elim-solves">Solves: visibility into failures</div>
-        <div class="elim-short">A feature, not a strategy. Knowing exactly where you're stuck doesn't fix the integration complexity causing the stall. Diagnose &ne; cure.</div>
-      </div>
-
-      <div class="elim-card">
-        <div class="elim-x">&#10005;</div>
-        <div class="elim-name">Partner Ecosystem</div>
-        <div class="elim-solves">Solves: market reach</div>
-        <div class="elim-short">Too dependent on partner execution. No leverage over deployment quality. Partners co-selling an untested SDK amplifies the problem, not the solution.</div>
-      </div>
-
-    </div>
-
-    <!-- Winner card -->
-    <div class="elim-winner a3">
-
-      <div class="elim-w-left">
-        <div class="elim-w-badge">&#10003;&nbsp; Chosen path</div>
-        <div class="elim-w-name">DOCA Solution Blueprints</div>
-        <div class="elim-w-sub">A Blueprint is a complete, validated, production path for a specific use case. It attacks the root cause: customers don't know how to get DOCA into production. And it doesn't replace the other options &ndash; it makes them mandatory.</div>
-      </div>
-
-      <div class="elim-w-right">
-        <div class="elim-w-row">
-          <div class="elim-w-check">&#10003;</div>
-          <div class="elim-w-txt"><strong style="color:var(--text)">Requires solid APIs</strong> &ndash; every Blueprint surfaces SDK gaps during development, not in the field</div>
-        </div>
-        <div class="elim-w-row">
-          <div class="elim-w-check">&#10003;</div>
-          <div class="elim-w-txt"><strong style="color:var(--text)">Ships cloud-native</strong> &ndash; Kubernetes deployment is built into every Blueprint from day one</div>
-        </div>
-        <div class="elim-w-row">
-          <div class="elim-w-check">&#10003;</div>
-          <div class="elim-w-txt"><strong style="color:var(--text)">Includes observability</strong> &ndash; telemetry hooks are a mandatory part of the Blueprint spec</div>
-        </div>
-        <div class="elim-w-row">
-          <div class="elim-w-check">&#10003;</div>
-          <div class="elim-w-txt"><strong style="color:var(--text)">Enables partners</strong> &ndash; co-marketing a validated reference beats co-selling a blank SDK</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="elim-ff a4">
-      <strong style="color:rgba(118,185,0,.9)">The forcing function:</strong> Choosing Blueprints doesn't replace options A, C, D, or E. It makes them required &ndash; because a great Blueprint needs all four. One strategic choice, one unified roadmap.
-    </div>
-
-  </div><!-- /sc -->
-  </div><!-- /s_alternatives -->
-
-
-  <!-- ----------------------------------
-       SLIDE 09 &middot; CHOSEN STRATEGY
-  ---------------------------------- -->
-  <div class="slide" id="s_chosen" data-title="Chosen Strategy">
-  <div class="sc" style="gap:14px">
-
-    <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The chosen path</div>
-      <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
-      <div class="subline a2" style="margin-top:5px">Customers do not adopt platforms. They adopt solutions to painful problems.</div>
-    </div>
-
-    <div class="cs-layout a3">
-
-      <!-- Left: adoption flow -->
-      <div class="cs-flow">
-        <div class="cs-flow-hd">The Adoption Flow</div>
-        <div class="cs-step">Customer Pain</div>
-        <div class="cs-arrow">&rarr;</div>
-        <div class="cs-step">Use Case Definition</div>
-        <div class="cs-arrow">&rarr;</div>
-        <div class="cs-step cs-step-focal">DOCA Solution Blueprint</div>
-        <div class="cs-arrow">&rarr;</div>
-        <div class="cs-step">Customer POC</div>
-        <div class="cs-arrow">&rarr;</div>
-        <div class="cs-step">Production Deployment</div>
-        <div class="cs-arrow">&rarr;</div>
-        <div class="cs-step cs-step-win">Account Expansion</div>
-      </div>
-
-      <!-- Right: package + use cases -->
-      <div class="cs-right">
-        <div>
-          <div class="cs-flow-hd">What is in a Blueprint</div>
-          <div class="cs-chips">
-            <span class="cs-chip">Reference architecture</span>
-            <span class="cs-chip">Reference application</span>
-            <span class="cs-chip">Deployment guide</span>
-            <span class="cs-chip">Validation checklist</span>
-            <span class="cs-chip">Performance benchmarks</span>
-            <span class="cs-chip">Observability hooks</span>
-            <span class="cs-chip">ROI / TCO model</span>
-            <span class="cs-chip">Pilot playbook</span>
-          </div>
-        </div>
-        <div>
-          <div class="cs-flow-hd">5 Priority Use Cases</div>
-          <div class="cs-uc">
-            <div class="cs-uc-item"><span class="cs-uc-n">1</span>AI cluster networking offload</div>
-            <div class="cs-uc-item"><span class="cs-uc-n">2</span>Secure multi-tenant DPU infrastructure</div>
-            <div class="cs-uc-item"><span class="cs-uc-n">3</span>Storage acceleration &amp; data path offload</div>
-            <div class="cs-uc-item"><span class="cs-uc-n">4</span>Cloud-native DPU-as-a-Service</div>
-            <div class="cs-uc-item"><span class="cs-uc-n">5</span>Observability &amp; validation for rollout</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="insight a4">
-      <div class="insight-hd">Core Principle</div>
-      Shorten the path from <strong style="color:var(--text)">"interesting technology"</strong> to <strong style="color:rgba(118,185,0,.9)">"production value."</strong>
-      Make DOCA adoption measurable, not only technically impressive.
-    </div>
-
-  </div><!-- /sc -->
-  </div><!-- /s_chosen -->
-
-
-  <!-- ----------------------------------
        SLIDE 13 &middot; PRIORITIES, RISK & UX
   ---------------------------------- -->
   <div class="slide" id="s_exec" data-title="Execution Discipline">
@@ -4762,81 +4911,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 15 &middot; EXAMPLE BLUEPRINT
-  ---------------------------------- -->
-  <div class="slide" id="s_blueprint" data-title="Example Blueprint">
-  <div class="sc" style="gap:13px">
-
-    <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 18 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; Strategy made concrete</div>
-      <div class="headline"><span class="grad">Blueprint #1: AI Cluster Networking Offload</span></div>
-      <div class="subline a2" style="margin-top:4px">
-        A Blueprint is not documentation &ndash; it is a <strong style="color:var(--text)">repeatable, tested, production path</strong>.
-        This slide exists to prove the strategy is executable, not just directionally correct.
-        One Blueprint like this, running in production, validates the entire model.
-      </div>
-    </div>
-
-    <!-- Pain -->
-    <div class="bp-pain a2">
-      <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="rgba(224,80,80,.6)" stroke-width="1" fill="rgba(224,80,80,.06)"/><line x1="7" y1="4" x2="7" y2="8" stroke="rgba(224,80,80,.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="rgba(224,80,80,.9)"/></svg>
-      <span><strong style="color:rgba(224,80,80,.85)">The Pain:</strong> As GPU clusters scale, host CPU cycles spent on networking, telemetry, and policy grow proportionally &ndash; CPU becomes the bottleneck in the most expensive infrastructure in the world. Slide 9 quantifies this: 65% GPU utilization, $350M idle in a $1B cluster.</span>
-    </div>
-
-    <div class="bp-layout a3">
-      <!-- Spec table -->
-      <div class="bp-spec">
-        <div class="bp-spec-row"><span class="bp-k">Target customer</span><span class="bp-v">AI platform team, cloud architect, hyperscaler infra engineer</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Hardware</span><span class="bp-v">ConnectX SuperNIC + BlueField DPU</span></div>
-        <div class="bp-spec-row"><span class="bp-k">DOCA services used</span><span class="bp-v">DOCA Flow &middot; GPUNetIO &middot; Telemetry &middot; Firefly</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Deliverables</span><span class="bp-v">Reference arch &middot; sample app &middot; deploy guide &middot; validation checklist</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Success definition</span><span class="bp-v">GPU util &gt;90% ? CPU I/O load &lt;25% ? new cluster live within 1 day of setup</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Why this Blueprint first</span><span class="bp-v">Largest TAM ? directly tied to GPU sales ? addresses the #1 customer pain from slide 9</span></div>
-      </div>
-
-      <!-- Before/after -->
-      <div class="bp-results">
-        <div class="bp-res-hd">Expected impact &ndash; sources noted</div>
-
-        <div class="bp-metric">
-          <div class="bp-metric-top">
-            <span class="bp-metric-name">GPU Utilization</span>
-            <span class="bp-metric-val bpm-good" id="bp-gpu-v">65% &rarr; 90%+</span>
-          </div>
-          <div class="bp-track"><div class="bp-fill-bad" style="width:65%"></div><div class="bp-fill-good" id="bp-gpu-f"></div></div>
-          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Consistent with slide 14 derivation &middot; DOCA GPUNetIO eliminates CPU I/O bottleneck</div>
-        </div>
-
-        <div class="bp-metric">
-          <div class="bp-metric-top">
-            <span class="bp-metric-name">Host CPU load from networking I/O</span>
-            <span class="bp-metric-val bpm-good" id="bp-cpu-v">~90% &rarr; &lt;20%</span>
-          </div>
-          <div class="bp-track"><div class="bp-fill-good2" id="bp-cpu-f"></div></div>
-          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Source: NVIDIA DOCA GPUNetIO reference architecture &middot; packets move GPU-to-GPU, zero CPU involvement</div>
-        </div>
-
-        <div class="bp-metric">
-          <div class="bp-metric-top">
-            <span class="bp-metric-name">Per-cluster setup time <em style="font-weight:400;color:var(--text3)">(using Blueprint, not POC-to-production)</em></span>
-            <span class="bp-metric-val bpm-good">2&ndash;3 wk &rarr; &lt;1 day</span>
-          </div>
-          <div class="bp-track"><div class="bp-fill-good3" id="bp-dep-f"></div></div>
-          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Blueprint = validated template ? infra team runs it in hours ? <em>distinct from slide 14&rsquo;s 9 mo &rarr; 6 wk (full POC-to-production journey)</em></div>
-        </div>
-
-        <div class="bp-principle">
-          <strong style="color:var(--text)">Validate once, replicate at scale.</strong>
-          One Blueprint in production becomes the template for every AI networking deployment that follows &ndash; across the entire installed base of 55K+ BlueField DPUs.
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /sc -->
-  </div><!-- /s_blueprint -->
-
-
-  <!-- ----------------------------------
        SLIDE 13 &middot; HOW I BUILT THIS
   ---------------------------------- -->
   <div class="slide" id="s_method" data-title="How I Built This">
@@ -5193,7 +5267,7 @@ function goTo(i){
   cur=i;const s=slides[cur];
   s.style.display='none';void s.offsetWidth;s.style.display='';
   s.classList.add('active');upd();
-  if(cur===2) setTimeout(animS1,100);
+  if(slides[cur].id==='s1') setTimeout(animS1,100);
   if(slides[cur].id==='s_market') setTimeout(animMarket,200);
   if(slides[cur].id==='s_customers') setTimeout(animCustomers,200);
   // s_alternatives: static layout, no animation needed
