@@ -210,9 +210,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   display:flex;align-items:flex-start;gap:12px;
   padding:10px 14px;border-radius:8px;
   background:var(--card);border:1px solid var(--border);
-  transition:border-color .2s;
+  transition:border-color .2s,transform .15s,box-shadow .15s;
+  cursor:pointer;
 }
-.ag-item:hover{border-color:rgba(118,185,0,.3)}
+.ag-item:hover{border-color:rgba(118,185,0,.5);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.3)}
+.ag-item:hover .ag-num{color:rgba(118,185,0,.8)}
 .ag-num{
   font-size:11px;font-weight:800;letter-spacing:.04em;
   color:var(--text3);font-family:var(--mono);
@@ -3531,6 +3533,11 @@ document.addEventListener('touchend',e=>{
   const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
   if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){if(dx<0)goTo(cur+1);if(dx>0)goTo(cur-1);}
 },{passive:true});
+// --- AGENDA CLICK NAVIGATION ---
+document.querySelectorAll('.ag-item').forEach(item=>{
+  const num=parseInt(item.querySelector('.ag-num')?.textContent);
+  if(!isNaN(num))item.addEventListener('click',()=>goTo(num-1));
+});
 // --- SLIDE 1 STORY ANIMATION ---
 function animS1(){
   const phases = ['s1p0','s1p1','s1p2','s1p3','s1p4','s1p5'];
