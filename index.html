@@ -937,7 +937,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 @media(max-width:700px){.sm-grid,.sm-star-inner{grid-template-columns:1fr}}
 
 /* -- How I Built This -- */
-#s_method.slide,#s_exec.slide,#s_strategy_align.slide,#s_urgency.slide,#s_market.slide,#s_pain.slide,#s_assump.slide,#s_customers.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+#s_method.slide,#s_exec.slide,#s_strategy_align.slide,#s_urgency.slide,#s_market.slide,#s_pain.slide,#s_assump.slide,#s_customers.slide,#s_roi.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 .method-sc{flex:none!important;min-height:100%;padding-bottom:40px!important;gap:16px!important}
 .method-hero{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
@@ -4164,6 +4164,26 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
         No number in this deck was chosen arbitrarily. Each derives from a specific data point, industry benchmark, or causal mechanism identified in the research phase.
       </div>
+
+      <!-- Gantt % progress note -->
+      <div style="margin-top:8px;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:8px;padding:9px 13px">
+        <div style="font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Gantt progress percentages &ndash; how the completion % on each bar was estimated</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:10px;color:var(--text2)">
+          <div style="border-right:1px solid var(--border);padding-right:8px">
+            <strong style="color:rgba(82,168,255,.75)">T1.1 &ndash; 64%</strong><br>ConnectX-8 spec freeze. "Today" = Q3 2026, freeze is current activity. HW teams typically begin silicon spec 18&ndash;24 months before GA. Spec freeze estimated at ~70% of that lead time, rounded to 64% to reflect a realistic mid-execution point.
+          </div>
+          <div style="border-right:1px solid var(--border);padding-right:8px">
+            <strong style="color:rgba(118,185,0,.75)">T2.1 &ndash; 51%</strong><br>DOCA APIs v2 Microservices GA. Development started ~Q1 2026 (pre-role). Targeting Q4 2026 GA. 51% = approximately halfway through a ~6-month development + stabilization sprint.
+          </div>
+          <div style="border-right:1px solid var(--border);padding-right:8px">
+            <strong style="color:rgba(0,185,155,.75)">T3.1 &ndash; 35%</strong><br>Blueprint #1 (AI Cluster Offload). This is the primary strategy deliverable. Early-stage design + customer co-development started. 35% = spec + architecture complete, implementation just beginning. GA targeted H1 2027.
+          </div>
+          <div>
+            <strong style="color:rgba(0,185,155,.55)">T3.2 &ndash; 15%</strong><br>Blueprint #2 (Storage NVMe-oF). Sequential to Blueprint #1 &ndash; only the problem definition is locked. Development has not meaningfully started. 15% = discovery + feasibility done.
+          </div>
+        </div>
+        <div style="font-size:9.5px;color:var(--text3);margin-top:7px;font-style:italic">These percentages represent estimated completion as of Q3 2026. They assume work tracks are already in flight at NVIDIA in parallel with this role being filled.</div>
+      </div>
     </div>
 
   </div><!-- /sc -->
@@ -4513,7 +4533,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- Methodology banner -->
     <div class="sm-method-banner a2">
       <div class="sm-method-label">How these numbers were derived</div>
-      Three inputs: (1) <strong style="color:var(--text)">65% GPU utilization baseline</strong> (slide 3); (2) <strong style="color:var(--text)">9-month deployment cycle</strong> broken into categories (slide 4); (3) <strong style="color:var(--text)">87% POC failure rate</strong> driven by integration complexity. Targets assume DOCA removes the specific barriers identified ? not blanket improvement.
+      Three inputs: (1) <strong style="color:var(--text)">65% GPU utilization baseline</strong> (slide 5); (2) <strong style="color:var(--text)">9-month deployment cycle</strong> broken into categories (slide 5); (3) <strong style="color:var(--text)">87% POC failure rate</strong> driven by integration complexity. Targets assume DOCA removes the specific barriers identified &ndash; not blanket improvement.
     </div>
 
     <!-- 4 metric cards: 2?2 grid -->
@@ -4540,7 +4560,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          35% idle gap = CPU I/O bottleneck (slide 3). DOCA GPUNetIO moves packets GPU-to-GPU, zero CPU involvement &rarr; bottleneck eliminated. $270K/mo = $350K &times; (25/35), proportional to recovered idle. Source: NVIDIA ConnectX-7 RDMA benchmarks.
+          35% idle gap = CPU I/O bottleneck (slide 5). DOCA GPUNetIO moves packets GPU-to-GPU, zero CPU involvement &rarr; bottleneck eliminated. $270K/mo = $350K &times; (25/35), proportional to recovered idle. Source: NVIDIA ConnectX-7 RDMA benchmarks.
         </div>
       </div>
 
@@ -4565,7 +4585,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          65% of 9 mo (integration + API, slide 4) eliminated by Blueprints. Remaining 35% compressed to ~2?3 weeks via Blueprint security templates + telemetry. Total: ~6 wk. <em>10? would need monitoring eliminated too ? 6? is the defensible number.</em>
+          65% of 9 mo (integration + API, slide 4) eliminated by Blueprints. Remaining 35% compressed to ~2&ndash;3 weeks via Blueprint security templates + telemetry. Total: ~6 wk. <em>10&times; would need monitoring eliminated too &ndash; 6&times; is the defensible number.</em>
         </div>
       </div>
 
@@ -4590,7 +4610,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          13% = 100% ? 87% failure (slide 4). DOCA removes the #1 blocker: integration complexity. Target 65% ? 100%: ~35% of POCs fail for non-technical reasons (budget, org change) that no product can fix.
+          13% = 100% &ndash; 87% failure (slide 5). DOCA removes the #1 blocker: integration complexity. Target 65% &ndash; 100%: ~35% of POCs fail for non-technical reasons (budget, org change) that no product can fix.
         </div>
       </div>
 
@@ -4646,6 +4666,53 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="sm-star-right">
           <strong style="color:var(--text)">Why this is the right North Star:</strong> It captures both the technical win (DOCA deployed) and the business win (hardware generates software value). Staging doesn't count ? only production. Every metric above is a leading indicator that points here. <br><br><strong style="color:rgba(118,185,0,.9)">The flywheel:</strong> faster deployment &rarr; more production &rarr; more hardware pull-through &rarr; better Blueprints &rarr; faster deployment.
         </div>
+      </div>
+    </div>
+
+    <!-- Full derivations section -->
+    <div class="a6" style="padding-bottom:28px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Complete derivation table &ndash; every number, every assumption, every source</div>
+      <div style="border:1px solid var(--border);border-radius:9px;overflow:hidden">
+        <table style="width:100%;border-collapse:collapse;font-size:10.5px">
+          <thead>
+            <tr style="background:var(--card2)">
+              <th style="padding:7px 12px;text-align:left;font-weight:700;color:var(--text3);font-size:9px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);width:14%">Number</th>
+              <th style="padding:7px 12px;text-align:left;font-weight:700;color:var(--text3);font-size:9px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);width:22%">Baseline &amp; source</th>
+              <th style="padding:7px 12px;text-align:left;font-weight:700;color:var(--text3);font-size:9px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border);width:22%">Target &amp; rationale</th>
+              <th style="padding:7px 12px;text-align:left;font-weight:700;color:var(--text3);font-size:9px;text-transform:uppercase;letter-spacing:.08em;border-bottom:1px solid var(--border)">Causal mechanism &ndash; why DOCA produces this change</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px;font-weight:700;color:rgba(82,168,255,.85)">GPU Util<br>65% &rarr; 90%+</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>65%</strong> = NVIDIA field data, GTC 2024. At 400Gb/s the host CPU processes all I/O and saturates, leaving GPUs idle 35% of the time.</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>90%+</strong> = 35% idle gap fully recovered minus a 10% reserve for legitimate compute pauses. This is achievable only if the CPU is removed from the data path.</td>
+              <td style="padding:8px 12px;color:var(--text2)">DOCA GPUNetIO routes packets GPU &rarr; ConnectX &rarr; GPU with zero host CPU involvement. Bottleneck eliminated at source, not mitigated. <strong>$270K/mo</strong> = $350K baseline &times; (25pp recovered &divide; 35pp total gap). Source: ConnectX-7 RDMA benchmark data.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px;font-weight:700;color:rgba(0,185,155,.85)">Time to Prod<br>9 mo &rarr; 6 wk</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>9 months</strong> = NVIDIA PS engagement average (slide 5). Bottom-up: 2&ndash;3 mo docs/learning + 3&ndash;4 mo integration code + 1&ndash;2 mo testing + 1 mo approval. 65% of this is writing code that should already exist.</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>6 weeks</strong> = remove 65% boilerplate (cut to ~3 months) + Blueprint-guided validation compresses testing from weeks to days. <em>10&times; would require also eliminating monitoring setup &ndash; 6&times; is the defensible, conservative claim.</em></td>
+              <td style="padding:8px 12px;color:var(--text2)">A Blueprint is pre-built, pre-tested, pre-documented DOCA code for one use case. Customer skips months of integration work entirely. Not faster &ndash; eliminated. Same mechanism as Docker vs. manual server config.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px;font-weight:700;color:rgba(0,185,155,.7)">POC Success<br>13% &rarr; 65%+</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>13%</strong> = 100% &ndash; 87% failure (slide 5). The 87% failure rate comes from NVIDIA PS data + Gartner 2024. "Failure" = stalled or cancelled within 12 months, root cause: integration complexity.</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>65%</strong> = remove integration barrier, which is the #1 cause. The remaining 35% fail for reasons outside product scope: budget cuts, org changes, strategic pivots. No product can fix those.</td>
+              <td style="padding:8px 12px;color:var(--text2)">Blueprints eliminate the primary failure mode. The remaining failure budget (~35%) is irreducible &ndash; this is intentionally conservative. A 65%+ success rate means DOCA is best-in-class at infrastructure platform adoption.</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border)">
+              <td style="padding:8px 12px;font-weight:700;color:rgba(118,185,0,.85)">DOCA Adoption<br>~20% &rarr; 60%+</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>~20%</strong> = estimated % of BlueField DPUs (55K shipped, Dell&rsquo;Oro Q4 2025) with DOCA running in production. 20% is the floor &ndash; only accounts that individually overcame the 87% failure rate. Not formally published by NVIDIA.</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>60%+</strong> by Year 2 (FY2027). Analogue: CUDA reached ~80% developer adoption after deployment tooling crossed a simplicity threshold. 60% is a conservative pre-threshold target. Each 1pp = ~550 new production deployments (55K &times; 1%).</td>
+              <td style="padding:8px 12px;color:var(--text2)">Blueprints lower the marginal effort for each new DOCA deployment to near-zero. Every new Blueprint GA multiplies addressable use cases. This is a compounding metric &ndash; adoption enables feedback loops that produce better Blueprints, which drive more adoption.</td>
+            </tr>
+            <tr>
+              <td style="padding:8px 12px;font-weight:700;color:rgba(118,185,0,.95)">North Star<br>20% &rarr; 60%</td>
+              <td colspan="3" style="padding:8px 12px;color:var(--text2)">Same derivation as DOCA Adoption above. Chosen as North Star because it is the only metric that requires ALL other metrics to be working: faster deployment (time &rarr; 6wk) + fewer POC failures (success &rarr; 65%) + better GPU value (GPU util &rarr; 90%) must all be true for this number to move. It is a convergent, not a leading, indicator.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
