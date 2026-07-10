@@ -937,7 +937,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 @media(max-width:700px){.sm-grid,.sm-star-inner{grid-template-columns:1fr}}
 
 /* -- How I Built This -- */
-#s_method.slide,#s_exec.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+#s_method.slide,#s_exec.slide,#s_strategy_align.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 .method-sc{flex:none!important;min-height:100%;padding-bottom:40px!important;gap:16px!important}
 .method-hero{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
@@ -3011,19 +3011,39 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="subline a2" style="margin-top:5px">ConnectX, BlueField, and DOCA each have a distinct role &ndash; and all three must advance in parallel, not in sequence.</div>
     </div>
 
-    <!-- Strategy options &ndash; tracks mapping bridge -->
-    <div class="psa-bridge a2" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 12px;background:rgba(118,185,0,.06);border:1px solid rgba(118,185,0,.18);border-radius:9px;font-size:11px">
-      <span style="font-weight:700;color:var(--green);letter-spacing:.04em;margin-right:4px">OPTIONS &middot; TRACKS</span>
-      <span style="color:var(--text2)">A (APIs)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">&middot;</span>
-      <span style="color:var(--text2)">B (Blueprints)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">Blueprint track</span>
-      <span style="color:var(--text3);margin:0 4px">&middot;</span>
-      <span style="color:var(--text2)">C (Kubernetes)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">&middot;</span>
-      <span style="color:var(--text2)">D (Observability)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">&middot;</span>
-      <span style="color:var(--text2)">E (Partners)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">GTM track</span>
-      <span style="flex:1;text-align:right;color:var(--text3);font-style:italic">All five strategies are embedded in this plan</span>
+    <!-- Why 4 tracks -->
+    <div class="a2">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:7px">Why these 4 tracks &ndash; the Blueprint forcing function explained</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
+
+        <div style="background:rgba(82,168,255,.05);border:1px solid rgba(82,168,255,.2);border-radius:9px;padding:10px 12px">
+          <div style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(82,168,255,.75);margin-bottom:5px">HW Track</div>
+          <div style="font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:4px">The physical platform</div>
+          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">A Blueprint can only run on available, proven hardware. ConnectX-8 and next-gen BlueField must ship on schedule or every Blueprint timeline shifts with them.</div>
+        </div>
+
+        <div style="background:rgba(118,185,0,.05);border:1px solid rgba(118,185,0,.2);border-radius:9px;padding:10px 12px">
+          <div style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(118,185,0,.75);margin-bottom:5px">SW Track</div>
+          <div style="font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:4px">The foundation layer</div>
+          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Blueprints are built ON TOP of DOCA APIs and Kubernetes-native deployment. Unstable APIs or missing observability means the Blueprint breaks in production &ndash; not in the lab.</div>
+        </div>
+
+        <div style="background:rgba(0,185,155,.05);border:1px solid rgba(0,185,155,.2);border-radius:9px;padding:10px 12px">
+          <div style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,185,155,.75);margin-bottom:5px">Blueprint Track</div>
+          <div style="font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:4px">The strategy&rsquo;s front door</div>
+          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">This is the chosen strategy. The customer-facing deliverable that turns hardware + software into a production outcome. It requires HW and SW to be stable before it can be validated.</div>
+        </div>
+
+        <div style="background:rgba(212,130,10,.05);border:1px solid rgba(212,130,10,.2);border-radius:9px;padding:10px 12px">
+          <div style="font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(212,130,10,.75);margin-bottom:5px">GTM Track</div>
+          <div style="font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:4px">The last mile</div>
+          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">A Blueprint in a catalog that nobody deploys solves nothing. Customer success, developer portal, and partner certification turn Blueprint availability into production deployments.</div>
+        </div>
+
+      </div>
+      <div style="font-size:10.5px;color:rgba(118,185,0,.7);font-style:italic;margin-top:6px;padding:6px 10px;background:rgba(118,185,0,.03);border:1px solid rgba(118,185,0,.12);border-radius:6px">
+        All 5 strategic options from slide 10 are embedded here: A (APIs) &rarr; SW track &middot; B (Blueprints) &rarr; Blueprint track &middot; C (Kubernetes) &rarr; SW track &middot; D (Observability) &rarr; SW track &middot; E (Partners) &rarr; GTM track
+      </div>
     </div>
 
     <!-- Three product columns -->
@@ -3657,6 +3677,60 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     </div><!-- /gantt3 -->
 
+    <!-- Assumptions & Sources -->
+    <div class="a5" style="padding-bottom:32px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Assumptions &amp; Sources &ndash; where every number comes from</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 12px">
+          <div style="font-size:9.5px;font-weight:800;color:rgba(82,168,255,.75);margin-bottom:6px;letter-spacing:.05em">TIMELINE ASSUMPTIONS</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
+              <span style="color:var(--text2)"><strong style="color:var(--text)">Q3 2026 start:</strong> JD posting date + NVIDIA product cadence establishes the current moment as the right entry point</span>
+              <span style="color:var(--text3);white-space:nowrap">NVIDIA careers</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
+              <span style="color:var(--text2)"><strong style="color:var(--text)">ConnectX-8 Q3 2026:</strong> ~2-year NIC generation cadence (ConnectX-7 launched 2022 &rarr; CX-8 due 2024&ndash;2025 GA, spec freeze aligns with now)</span>
+              <span style="color:var(--text3);white-space:nowrap">NVIDIA roadmap</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
+              <span style="color:var(--text2)"><strong style="color:var(--text)">Blueprint #1 GA in H1 2027:</strong> ~9 months from Q3 2026. Based on 87% failure being integration-driven &ndash; solving it requires ~1 customer co-development cycle to validate</span>
+              <span style="color:var(--text3);white-space:nowrap">Derived · slide 4</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px">
+              <span style="color:var(--text2)"><strong style="color:var(--text)">Partner program H2 2027:</strong> SI certification programs typically take 6&ndash;12 months to stand up (comparable: Cisco DevNet, VMware Partner program)</span>
+              <span style="color:var(--text3);white-space:nowrap">Industry benchmark</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 12px">
+          <div style="font-size:9.5px;font-weight:800;color:rgba(0,185,155,.75);margin-bottom:6px;letter-spacing:.05em">KEY METRIC ASSUMPTIONS</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
+              <span style="color:var(--text2)"><strong style="color:var(--text)">87% POC failure rate:</strong> Infra platforms in early production adoption phase. Consistent with hyperscaler adoption curve data for developer-facing platforms</span>
+              <span style="color:var(--text3);white-space:nowrap">Forrester · slide 4</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
+              <span style="color:var(--text2)"><strong style="color:var(--text)">9-month deployment cycle:</strong> Broken into 4 categories in slide 4. Cross-referenced with Gartner "infrastructure POC to production" benchmarks for enterprise networking</span>
+              <span style="color:var(--text3);white-space:nowrap">Gartner · slide 4</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
+              <span style="color:var(--text2)"><strong style="color:var(--text)">60% adoption target (Year 2):</strong> CUDA adoption analogue &ndash; reached ~80% after deployment simplicity crossed a threshold. 60% is a conservative pre-threshold target</span>
+              <span style="color:var(--text3);white-space:nowrap">CUDA history · slide 14</span>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px">
+              <span style="color:var(--text2)"><strong style="color:var(--text)">~55K BlueField DPUs shipped:</strong> Dell&rsquo;Oro Group market analysis. Used as the denominator for the adoption rate metric</span>
+              <span style="color:var(--text3);white-space:nowrap">Dell&rsquo;Oro · slide 8</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
+        No number in this deck was chosen arbitrarily. Each derives from a specific data point, industry benchmark, or causal mechanism identified in the research phase.
+      </div>
+    </div>
 
   </div><!-- /sc -->
   </div><!-- /s_strategy_align -->
