@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -66,7 +66,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .slide::-webkit-scrollbar{width:3px}
 .slide::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
-/* Content column — presentation width */
+/* Content column ? presentation width */
 .sc{
   width:100%;max-width:900px;
   padding:22px 32px 14px;
@@ -115,7 +115,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
 /* ----------------------------------
-   SLIDE 01 · TITLE + EXAMPLE
+   SLIDE 01 ? TITLE + EXAMPLE
 ---------------------------------- */
 
 /* Thesis */
@@ -173,8 +173,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .ex-col.good .ex-col-hd{color:var(--green)}
 .ex-col ul{list-style:none;display:flex;flex-direction:column;gap:4px}
 .ex-col ul li{font-size:12.5px;color:var(--text2);padding-left:14px;position:relative;line-height:1.5}
-.ex-col.bad ul li::before{content:'↓';position:absolute;left:0;color:var(--red);font-size:10px;top:1px}
-.ex-col.good ul li::before{content:'↓';position:absolute;left:0;color:var(--green);font-size:10px;top:1px}
+.ex-col.bad ul li::before{content:'?';position:absolute;left:0;color:var(--red);font-size:10px;top:1px}
+.ex-col.good ul li::before{content:'?';position:absolute;left:0;color:var(--green);font-size:10px;top:1px}
 .ex-result{
   background:rgba(118,185,0,.06);border-left:2px solid var(--green);
   padding:8px 12px;border-radius:0 5px 5px 0;
@@ -346,7 +346,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   .fn-arrow{right:25%;top:50%}
 }
 
-/* -- Market Landscape — Donut -- */
+/* -- Market Landscape ? Donut -- */
 .donut-wrap{display:flex;align-items:center;gap:24px}
 .donut-chart-box{flex-shrink:0}
 .donut-seg{transition:stroke-dasharray .9s cubic-bezier(0.16,1,0.3,1)}
@@ -1055,10 +1055,50 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .bs-tools{display:flex;flex-wrap:wrap;gap:5px;flex:1}
 .bs-tool{font-size:9.5px;font-weight:600;padding:2px 9px;border-radius:20px;border:1px solid;white-space:nowrap}
 .bs-note{font-size:10.5px;color:var(--text3);flex-shrink:0;font-style:italic;text-align:right;min-width:120px}
-/* Slide type labels — Technical / Business / Market Context */
+/* ---- Slide 13: MoSCoW + Risk + UX ---- */
+.exec-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.moscow-wrap{grid-column:1/-1}
+.moscow-table{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.moscow-col{display:flex;flex-direction:column}
+.moscow-hd{padding:8px 12px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid rgba(255,255,255,.06)}
+.moscow-must .moscow-hd{background:rgba(118,185,0,.1);color:rgba(118,185,0,.9)}
+.moscow-should .moscow-hd{background:rgba(42,128,200,.1);color:rgba(82,168,255,.85)}
+.moscow-could .moscow-hd{background:rgba(138,92,246,.08);color:rgba(168,130,255,.8)}
+.moscow-wont .moscow-hd{background:rgba(255,255,255,.03);color:var(--text3)}
+.moscow-items{display:flex;flex-direction:column;gap:0;flex:1;background:rgba(255,255,255,.015)}
+.moscow-item{font-size:10.5px;color:var(--text2);padding:6px 12px;border-bottom:1px solid rgba(255,255,255,.04);line-height:1.4}
+.moscow-item:last-child{border-bottom:none}
+.moscow-col:not(:last-child) .moscow-items{border-right:1px solid var(--border)}
+.moscow-dot{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:6px;flex-shrink:0;vertical-align:middle;position:relative;top:-1px}
+.moscow-must .moscow-dot{background:rgba(118,185,0,.7)}
+.moscow-should .moscow-dot{background:rgba(82,168,255,.7)}
+.moscow-could .moscow-dot{background:rgba(168,130,255,.7)}
+.moscow-wont .moscow-dot{background:rgba(130,130,150,.4)}
+/* Risk grid */
+.risk-list{display:flex;flex-direction:column;gap:8px}
+.risk-item{display:grid;grid-template-columns:auto 1fr auto;gap:8px 10px;align-items:start;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
+.risk-prob{grid-column:1;grid-row:1/3;display:flex;flex-direction:column;gap:3px;align-items:center;min-width:42px}
+.risk-badge{font-size:8.5px;font-weight:800;letter-spacing:.08em;padding:2px 6px;border-radius:4px;text-transform:uppercase;text-align:center;white-space:nowrap}
+.rb-crit{color:rgba(224,80,80,.9);background:rgba(224,80,80,.12);border:1px solid rgba(224,80,80,.25)}
+.rb-high{color:rgba(212,130,10,.9);background:rgba(212,130,10,.1);border:1px solid rgba(212,130,10,.2)}
+.rb-med{color:rgba(168,130,255,.85);background:rgba(138,92,246,.08);border:1px solid rgba(138,92,246,.2)}
+.risk-name{font-size:11.5px;font-weight:700;color:var(--text)}
+.risk-mitigate{grid-column:2;font-size:10.5px;color:var(--text3);line-height:1.45}
+.risk-impact{grid-column:3;grid-row:1/3;font-size:9px;font-weight:700;text-align:right;color:var(--text3)}
+/* UX journey */
+.ux-journey{display:flex;flex-direction:column;gap:6px}
+.ux-steps{display:flex;gap:0;align-items:stretch;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
+.ux-step{flex:1;display:flex;flex-direction:column;gap:5px;padding:10px 11px;background:var(--card);border-right:1px solid var(--border);position:relative}
+.ux-step:last-child{border-right:none}
+.ux-step-n{font-size:9px;font-weight:800;letter-spacing:.1em;color:var(--text3);text-transform:uppercase}
+.ux-step-title{font-size:12px;font-weight:700;color:var(--text)}
+.ux-step-detail{font-size:10.5px;color:var(--text2);line-height:1.4}
+.ux-step-kpi{font-size:9.5px;font-weight:700;color:rgba(118,185,0,.8);margin-top:3px}
+.ux-principle{font-size:11px;color:var(--text2);padding:7px 12px;background:rgba(118,185,0,.04);border:1px solid rgba(118,185,0,.18);border-radius:7px;text-align:center}
+/* Slide type labels ? Technical / Business / Market Context */
 .lbl-tech{color:rgba(82,168,255,.85);font-weight:700}
 .lbl-biz{color:rgba(0,185,155,.8);font-weight:700}
-/* Method slide v2 — personal PM narrative */
+/* Method slide v2 ? personal PM narrative */
 .method-opener{
   background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:12px;
   padding:16px 20px;display:flex;gap:14px;align-items:flex-start;
@@ -1340,7 +1380,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
 /* ----------------------------------
-   SLIDE 02 · WHAT IS DOCA (LAYERS)
+   SLIDE 02 ? WHAT IS DOCA (LAYERS)
 ---------------------------------- */
 /* s2 uses .sc flex column */
 .s2-stack{display:flex;flex-direction:column;gap:0;width:100%;margin-bottom:14px}
@@ -1362,7 +1402,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr.hi,.lyr.hi-teal,.lyr.hi-blue{
   transition:border-color .2s,background .2s,box-shadow .2s;
 }
-/* DOCA — green */
+/* DOCA ? green */
 .lyr.hi{background:rgba(118,185,0,.04);border-color:rgba(118,185,0,.38)}
 .lyr.hi::before{content:'';position:absolute;left:-3px;top:0;bottom:0;width:3px;
   background:var(--green);box-shadow:0 0 14px var(--green-glow);border-radius:3px 0 0 3px;}
@@ -1371,7 +1411,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr.hi .lyr-icon svg{color:var(--green)}
 .lyr.hi .lyr-title{color:var(--green);font-size:15px}
 .lyr.hi .lyr-sub{color:var(--text2)}
-/* BlueField — teal */
+/* BlueField ? teal */
 .lyr.hi-teal{background:rgba(24,168,120,.03);border-color:rgba(24,168,120,.35)}
 .lyr.hi-teal::before{content:'';position:absolute;left:-3px;top:0;bottom:0;width:3px;
   background:#18a878;box-shadow:0 0 12px rgba(24,168,120,.2);border-radius:3px 0 0 3px;}
@@ -1380,7 +1420,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr.hi-teal .lyr-icon svg{color:#18a878}
 .lyr.hi-teal .lyr-title{color:#18a878}
 .lyr.hi-teal .lyr-sub{color:var(--text2)}
-/* ConnectX — blue */
+/* ConnectX ? blue */
 .lyr.hi-blue{background:rgba(52,144,224,.03);border-color:rgba(52,144,224,.35)}
 .lyr.hi-blue::before{content:'';position:absolute;left:-3px;top:0;bottom:0;width:3px;
   background:var(--blue);box-shadow:0 0 12px rgba(52,144,224,.2);border-radius:3px 0 0 3px;}
@@ -1407,7 +1447,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr-arrow{
   text-align:center;padding:2px 0;color:var(--text3);font-size:12px;line-height:1;
 }
-.lyr-arrow::before{content:'↓';opacity:.35}
+.lyr-arrow::before{content:'?';opacity:.35}
 
 /* Insight callout */
 .insight{
@@ -1506,7 +1546,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .moat-box-text{font-size:11.5px;color:var(--text2);line-height:1.55}
 
 /* ==================================
-   SLIDE 04 � CUSTOMER PAIN MAP
+   SLIDE 04 ? CUSTOMER PAIN MAP
 ================================== */
 .pain-grad{background:linear-gradient(130deg,#e05050 0%,#ff9090 55%,#ffb8b8 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -1566,7 +1606,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .pq-text::before{content:'\201C';color:rgba(255,255,255,.12);font-size:22px;font-style:normal;line-height:0;vertical-align:-.3em;margin-right:2px;font-family:Georgia,serif}
 
 /* ==================================
-   SLIDE 05 � FOUNDATIONAL ASSUMPTIONS
+   SLIDE 05 ? FOUNDATIONAL ASSUMPTIONS
 ================================== */
 .assump-grid{display:flex;flex-direction:column;gap:7px}
 .assump-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:11px 15px;display:grid;grid-template-columns:32px 1fr auto;align-items:start;gap:12px;position:relative;overflow:hidden;opacity:0;transition:border-color .2s,box-shadow .2s}
@@ -1706,7 +1746,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:16px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 2 of 16 &nbsp;&middot;&nbsp; What we will cover</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 2 of 17 &nbsp;&middot;&nbsp; What we will cover</div>
       <div class="headline"><span class="grad">The Agenda</span></div>
     </div>
 
@@ -1800,29 +1840,36 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; ConnectX &middot; BlueField &middot; DOCA in parallel</div>
         </div>
       </div>
+      <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">13</span>
+        <div class="ag-body">
+          <div class="ag-title">Priorities, Risk &amp; Developer UX</div>
+          <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; MoSCoW &middot; Risk assessment &middot; Blueprint UX journey</div>
+        </div>
+      </div>
       <div class="ag-item" style="border-left:2px solid rgba(42,128,200,.3)">
-        <span class="ag-num" style="color:rgba(82,168,255,.75)">13</span>
+        <span class="ag-num" style="color:rgba(82,168,255,.75)">14</span>
         <div class="ag-body">
           <div class="ag-title">Example Blueprint</div>
           <div class="ag-sub" style="color:rgba(82,168,255,.55)">&#9670; Technical &nbsp;&middot;&nbsp; AI cluster offload, end to end</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">14</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">15</span>
         <div class="ag-body">
           <div class="ag-title">DOCA Success Metrics</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; Baseline &rarr; target &rarr; derivation</div>
         </div>
       </div>
       <div class="ag-item">
-        <span class="ag-num">15</span>
+        <span class="ag-num">16</span>
         <div class="ag-body">
           <div class="ag-title">How I Built This</div>
           <div class="ag-sub">Sources &middot; methodology &middot; tools used</div>
         </div>
       </div>
       <div class="ag-item">
-        <span class="ag-num">16</span>
+        <span class="ag-num">17</span>
         <div class="ag-body">
           <div class="ag-title">Why Barak Rozenfeld</div>
           <div class="ag-sub">3 fit pillars &middot; direct JD match</div>
@@ -1842,7 +1889,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Header -->
     <div class="s1-ph" id="s1p0">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 3 of 16 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem &amp; what DOCA solved</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 3 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem &amp; what DOCA solved</div>
       <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
     </div>
 
@@ -2011,7 +2058,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Header -->
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 4 of 16 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem and why it persists</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 4 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem and why it persists</div>
       <div class="headline"><span class="pain-grad">The Gap Is Not for Lack of Trying</span></div>
       <div class="subline a2" style="margin-top:4px">Every approach below has real merit &mdash; and real limits. The problem persists not because the market ignored it, but because each solution addresses one dimension while leaving the root cause untouched.</div>
     </div>
@@ -2038,7 +2085,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- 4 approaches with partial credit + still-missing structure -->
     <div class="approach-grid">
 
-      <!-- 1: Open Source — partial -->
+      <!-- 1: Open Source ? partial -->
       <div class="approach-card ap-partial">
         <div class="approach-icon-row">
           <div class="approach-icon" style="background:rgba(212,130,10,.1);border-color:rgba(212,130,10,.25)">
@@ -2057,7 +2104,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
       </div>
 
-      <!-- 2: Specialist engineers — partial -->
+      <!-- 2: Specialist engineers ? partial -->
       <div class="approach-card ap-partial">
         <div class="approach-icon-row">
           <div class="approach-icon" style="background:rgba(212,130,10,.1);border-color:rgba(212,130,10,.25)">
@@ -2076,7 +2123,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
       </div>
 
-      <!-- 3: Cloud-managed NICs — strategic threat -->
+      <!-- 3: Cloud-managed NICs ? strategic threat -->
       <div class="approach-card ap-threat">
         <div class="approach-icon-row">
           <div class="approach-icon" style="background:rgba(52,144,224,.1);border-color:rgba(52,144,224,.25)">
@@ -2095,7 +2142,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
       </div>
 
-      <!-- 4: NVIDIA PS — partial -->
+      <!-- 4: NVIDIA PS ? partial -->
       <div class="approach-card ap-partial">
         <div class="approach-icon-row">
           <div class="approach-icon" style="background:rgba(212,130,10,.1);border-color:rgba(212,130,10,.25)">
@@ -2116,7 +2163,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     </div><!-- /approach-grid -->
 
-    <!-- The missing piece — references DOCA, not just Blueprints -->
+    <!-- The missing piece ? references DOCA, not just Blueprints -->
     <div class="missing-piece a5">
       <div class="missing-piece-icon">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v3M9 13v3M2 9h3M13 9h3" stroke="rgba(118,185,0,.8)" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="9" r="3.5" stroke="rgba(118,185,0,.8)" stroke-width="1.5"/></svg>
@@ -2139,12 +2186,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Header -->
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 5 of 16 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Why this solution is the most significant</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 5 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Why this solution is the most significant</div>
       <div class="headline"><span class="grad">Why DOCA is the Most Significant Answer</span></div>
       <div class="subline a2" style="margin-top:4px">The four approaches on the previous slide each address one dimension. DOCA is the only answer that operates at the platform level &mdash; addressing all five simultaneously, at scale, and with an unfair advantage no competitor can replicate.</div>
     </div>
 
-    <!-- 3 forcing-function arguments — DOCA platform, not just Blueprints -->
+    <!-- 3 forcing-function arguments ? DOCA platform, not just Blueprints -->
     <div class="force-grid">
       <div class="force-card">
         <div class="force-num">6<span class="force-unit">&times;</span></div>
@@ -2242,7 +2289,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:12px">
 
     <div>
-      <div class="eyebrow a1" style="margin-bottom:6px">Slide 6 of 16 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; What is DOCA</div>
+      <div class="eyebrow a1" style="margin-bottom:6px">Slide 6 of 17 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; What is DOCA</div>
       <div class="headline a2"><span class="grad">DOCA: The Programmability Layer</span></div>
       <div class="subline a2" style="margin-top:5px">Not just an SDK. The adoption layer between hardware capability and production deployment.</div>
     </div>
@@ -2372,7 +2419,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 7 of 16 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Why this matters now</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 7 of 17 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Why this matters now</div>
       <div class="headline"><span class="grad">Why DOCA Drives NVIDIA Revenue</span></div>
     </div>
 
@@ -2494,7 +2541,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 16 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Understanding the market</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 17 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Understanding the market</div>
       <div class="headline"><span class="grad">Competitive Landscape</span></div>
       <div class="subline a2" style="margin-top:4px">
         AI SmartNIC &amp; DPU hardware market share &mdash; the layer DOCA runs on.
@@ -2506,7 +2553,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="a2" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
       <div style="display:inline-flex;align-items:center;gap:5px;font-size:9.5px;color:var(--text3);padding:3px 11px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:20px">
         <svg width="9" height="9" viewBox="0 0 9 9" fill="none"><circle cx="4.5" cy="4.5" r="4" stroke="rgba(150,180,210,.5)" stroke-width=".9"/><line x1="4.5" y1="2.5" x2="4.5" y2="4.5" stroke="rgba(150,180,210,.6)" stroke-width=".9" stroke-linecap="round"/><circle cx="4.5" cy="6" r=".6" fill="rgba(150,180,210,.6)"/></svg>
-        Source: Dell&rsquo;Oro Group · IDC · Forrester Q4 2025 &nbsp;&middot;&nbsp; Global AI DPU &amp; SmartNIC shipment revenue &nbsp;&middot;&nbsp; Excludes captive hyperscaler ASICs (AWS Nitro, Azure MAIA)
+        Source: Dell&rsquo;Oro Group ? IDC ? Forrester Q4 2025 &nbsp;&middot;&nbsp; Global AI DPU &amp; SmartNIC shipment revenue &nbsp;&middot;&nbsp; Excludes captive hyperscaler ASICs (AWS Nitro, Azure MAIA)
       </div>
       <div style="display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;color:rgba(118,185,0,.7);padding:3px 10px;background:rgba(118,185,0,.07);border:1px solid rgba(118,185,0,.18);border-radius:10px;letter-spacing:.05em;text-transform:uppercase">
         <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M4 .5L5 3h2.5L5.5 4.7l.8 2.5L4 5.8l-2.3 1.4.8-2.5L.5 3H3z" stroke="rgba(118,185,0,.75)" stroke-width=".8" stroke-linejoin="round"/></svg>
@@ -2568,7 +2615,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
 
-    <!-- DOCA Connection box — the key insight this number drives -->
+    <!-- DOCA Connection box ? the key insight this number drives -->
     <div class="a4" style="border:1px solid rgba(118,185,0,.25);border-radius:9px;padding:12px 16px;background:rgba(118,185,0,.04)">
       <div style="display:flex;align-items:flex-start;gap:12px">
         <div style="flex-shrink:0;margin-top:1px">
@@ -2580,13 +2627,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div style="font-size:11px;color:var(--text2);line-height:1.55">
               <strong style="color:var(--text)">Every BlueField DPU sold = a potential DOCA deployment.</strong>
               NVIDIA&rsquo;s 55% hardware share is DOCA&rsquo;s installed-base opportunity.
-              The 87% of stalled POCs sit inside this 55% —
+              The 87% of stalled POCs sit inside this 55% ?
               they already have the hardware. What they need is DOCA running on it.
             </div>
             <div style="font-size:11px;color:var(--text2);line-height:1.55">
               <strong style="color:rgba(224,80,80,.85)">Broadcom 22% + Intel 15% = 37% with no software story.</strong>
               Neither Broadcom Stingray nor Intel Mount Evans has a DOCA-equivalent platform.
-              This is the structural gap that makes NVIDIA&rsquo;s hardware lead defensible —
+              This is the structural gap that makes NVIDIA&rsquo;s hardware lead defensible ?
               <em>only</em> if DOCA keeps making BlueField uniquely programmable.
             </div>
           </div>
@@ -2641,7 +2688,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 16 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Who is buying and why</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 17 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Who is buying and why</div>
       <div class="headline"><span class="grad">Key Customers</span></div>
     </div>
 
@@ -2674,7 +2721,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </svg>
         <div class="cust-donut-legend">
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(42,128,200,.75)"></span><span class="cdl-seg">Hyperscalers</span><span class="cdl-pct">40%</span></div>
-          <div class="cdl-row"><span class="cdl-dot" style="background:rgba(118,185,0,.75)"></span><span class="cdl-seg">GPU Cloud</span><span class="cdl-pct cdl-pct-grow">28% 📈</span></div>
+          <div class="cdl-row"><span class="cdl-dot" style="background:rgba(118,185,0,.75)"></span><span class="cdl-seg">GPU Cloud</span><span class="cdl-pct cdl-pct-grow">28% ??</span></div>
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(212,130,10,.7)"></span><span class="cdl-seg">Enterprise</span><span class="cdl-pct">20%</span></div>
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(0,185,155,.6)"></span><span class="cdl-seg">Telco / Edge</span><span class="cdl-pct">12%</span></div>
         </div>
@@ -2695,7 +2742,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">BlueField DPU &middot; Azure Boost</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Millions of servers offloaded</span>
-                  <span class="cgr-impact cgi-crit">🔥🔥🔥 Critical</span>
+                  <span class="cgr-impact cgi-crit">?????? Critical</span>
                 </div>
               </div>
               <div class="cgr-detail">CPU fully freed per server. Every Azure upgrade = new BlueField + ConnectX. DOCA is why Azure stays NVIDIA over custom silicon.</div>
@@ -2706,7 +2753,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX-7 400Gb &middot; AI Training Fabric</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">100k+ GPUs on ConnectX</span>
-                  <span class="cgr-impact cgi-crit">🔥🔥🔥 Critical</span>
+                  <span class="cgr-impact cgi-crit">?????? Critical</span>
                 </div>
               </div>
               <div class="cgr-detail">Llama 2 and Llama 3 trained on ConnectX-7 RDMA fabric. Every new model generation = larger cluster = more ConnectX per rack.</div>
@@ -2717,7 +2764,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX &middot; GKE &amp; TPU Networking</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat cgr-stat-watch">Evaluating BlueField DPU</span>
-                  <span class="cgr-impact cgi-strat">🎯🎯 Strategic</span>
+                  <span class="cgr-impact cgi-strat">???? Strategic</span>
                 </div>
               </div>
               <div class="cgr-detail">Converting Google from ConnectX-only to ConnectX + BlueField + DOCA doubles revenue per socket. DPU adoption here is a landmark win.</div>
@@ -2737,7 +2784,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX-7 400Gb &middot; GPU Cloud Fabric</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">$23B IPO &middot; 10&times; growth 2023-25</span>
-                  <span class="cgr-impact cgi-high">⚡⚡⚡ High</span>
+                  <span class="cgr-impact cgi-high">??? High</span>
                 </div>
               </div>
               <div class="cgr-detail">Entire business depends on ConnectX. Higher GPU util via DOCA = more capacity sold = more H100s ordered. CoreWeave's revenue is NVIDIA's revenue.</div>
@@ -2748,7 +2795,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX-7 &middot; AI Training-as-a-Service</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">2-3&times; YoY GPU cluster growth</span>
-                  <span class="cgr-impact cgi-emerg">🌱 Emerging</span>
+                  <span class="cgr-impact cgi-emerg">?? Emerging</span>
                 </div>
               </div>
               <div class="cgr-detail">Next wave of GPU cloud buyers. DOCA blueprints that cut deployment time = faster cluster expansion = more ConnectX orders sooner.</div>
@@ -2768,7 +2815,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">BlueField DPU &middot; RDMA &amp; Tenant Isolation</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Bare metal perf + full isolation</span>
-                  <span class="cgr-impact cgi-strat">🎯🎯 Strategic</span>
+                  <span class="cgr-impact cgi-strat">???? Strategic</span>
                 </div>
               </div>
               <div class="cgr-detail">OCI's bare metal differentiation is built on BlueField. A reference architecture that enterprise clouds copy. DOCA adoption drives repeatable blueprints across the segment.</div>
@@ -2798,7 +2845,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 16 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The execution plan</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The execution plan</div>
       <div class="headline"><span class="grad">Product Strategy Alignment</span></div>
       <div class="subline a2" style="margin-top:5px">ConnectX, BlueField, and DOCA each have a distinct role &mdash; and all three must advance in parallel, not in sequence.</div>
     </div>
@@ -3461,7 +3508,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:12px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 16 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The reasoning behind the plan</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The reasoning behind the plan</div>
       <div class="headline"><span class="grad">How the Strategy Was Chosen</span></div>
       <div class="subline a2" style="margin-top:5px">Before committing to the blueprint-led roadmap, I evaluated five options against four criteria. Click any option to see the analysis.</div>
     </div>
@@ -3542,7 +3589,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 16 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The chosen path</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The chosen path</div>
       <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
       <div class="subline a2" style="margin-top:5px">Customers do not adopt platforms. They adopt solutions to painful problems.</div>
     </div>
@@ -3605,13 +3652,138 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 11 &middot; EXAMPLE BLUEPRINT
+       SLIDE 13 &middot; PRIORITIES, RISK & UX
+  ---------------------------------- -->
+  <div class="slide" id="s_exec" data-title="Execution Discipline">
+  <div class="sc" style="gap:11px">
+
+    <div class="a1">
+      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Execution discipline</div>
+      <div class="headline"><span class="grad">Priorities, Risk &amp; Developer UX</span></div>
+      <div class="subline a2" style="margin-top:4px">Three questions every CEO asks: <em>What are we doing first?</em> &nbsp;&middot;&nbsp; <em>What can go wrong?</em> &nbsp;&middot;&nbsp; <em>What does the product feel like to use?</em></div>
+    </div>
+
+    <!-- MoSCoW -->
+    <div class="a2">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">MoSCoW &mdash; Year 1 Priorities</div>
+      <div class="moscow-table">
+        <div class="moscow-col moscow-must">
+          <div class="moscow-hd">Must Have</div>
+          <div class="moscow-items">
+            <div class="moscow-item"><span class="moscow-dot"></span>Blueprint #1: AI Cluster Networking Offload (GA)</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>DOCA deployment guide + validation checklist</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>90-day POC-to-production program</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>Developer portal with Blueprint catalog</div>
+          </div>
+        </div>
+        <div class="moscow-col moscow-should">
+          <div class="moscow-hd">Should Have</div>
+          <div class="moscow-items">
+            <div class="moscow-item"><span class="moscow-dot"></span>Blueprint #2: Storage Offload</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>DOCA Telemetry &amp; observability dashboard</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>Partner SI certification program</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>Performance benchmarking suite</div>
+          </div>
+        </div>
+        <div class="moscow-col moscow-could">
+          <div class="moscow-hd">Could Have</div>
+          <div class="moscow-items">
+            <div class="moscow-item"><span class="moscow-dot"></span>Blueprint #3: Security / Zero-trust</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>Blueprint customization wizard</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>Hyperscaler-specific Blueprint variants</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>Community contribution framework</div>
+          </div>
+        </div>
+        <div class="moscow-col moscow-wont">
+          <div class="moscow-hd">Won&rsquo;t Have (Y1)</div>
+          <div class="moscow-items">
+            <div class="moscow-item"><span class="moscow-dot"></span>GUI / no-code Blueprint builder</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>SaaS deployment model</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>Vertical-specific Blueprints (healthcare, finance)</div>
+            <div class="moscow-item"><span class="moscow-dot"></span>Full DOCA IDE integration</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Risk + UX (2 columns) -->
+    <div class="exec-grid a3">
+
+      <!-- Risk Assessment -->
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Risk Assessment</div>
+        <div class="risk-list">
+          <div class="risk-item">
+            <div class="risk-prob"><span class="risk-badge rb-crit">Critical</span><span style="font-size:9px;color:var(--text3);margin-top:2px">Prob: High</span></div>
+            <div class="risk-name">Adoption Stall &mdash; last-mile integration still fails</div>
+            <div class="risk-impact">Impact<br>Critical</div>
+            <div class="risk-mitigate"><strong style="color:rgba(118,185,0,.8)">Mitigation:</strong> Customer Success program + 90-day deployment SLA. Blueprint pre-flight checklist catches 80% of integration failures before they happen.</div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-prob"><span class="risk-badge rb-high">High</span><span style="font-size:9px;color:var(--text3);margin-top:2px">Prob: Med</span></div>
+            <div class="risk-name">Hyperscaler In-house &mdash; AWS/Azure/GCP solve it themselves</div>
+            <div class="risk-impact">Impact<br>High</div>
+            <div class="risk-mitigate"><strong style="color:rgba(118,185,0,.8)">Mitigation:</strong> Own the open standard before they do. Partner ecosystem + SI certification creates switching cost. Blueprint catalog breadth beats a captive solution.</div>
+          </div>
+          <div class="risk-item">
+            <div class="risk-prob"><span class="risk-badge rb-med">Medium</span><span style="font-size:9px;color:var(--text3);margin-top:2px">Prob: Med</span></div>
+            <div class="risk-name">API Fragmentation &mdash; DOCA SDK changes break Blueprints</div>
+            <div class="risk-impact">Impact<br>Med</div>
+            <div class="risk-mitigate"><strong style="color:rgba(118,185,0,.8)">Mitigation:</strong> Blueprint versioning system + backward compatibility SLA. SDK breaking changes require Blueprint-team sign-off before release.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer UX Journey -->
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Developer UX &mdash; Blueprint Journey</div>
+        <div class="ux-journey">
+          <div class="ux-steps">
+            <div class="ux-step">
+              <div class="ux-step-n">01</div>
+              <div class="ux-step-title">Discover</div>
+              <div class="ux-step-detail">DOCA Developer Portal &middot; filter by use case, hardware &amp; customer segment</div>
+              <div class="ux-step-kpi">Entry point</div>
+            </div>
+            <div class="ux-step">
+              <div class="ux-step-n">02</div>
+              <div class="ux-step-title">Validate</div>
+              <div class="ux-step-detail">Pre-req checklist &middot; hardware compatibility scan &middot; see expected outcomes before running anything</div>
+              <div class="ux-step-kpi">&lt; 30 min</div>
+            </div>
+            <div class="ux-step">
+              <div class="ux-step-n">03</div>
+              <div class="ux-step-title">Deploy</div>
+              <div class="ux-step-detail">Run Blueprint script &middot; automated config &middot; live metrics confirm success</div>
+              <div class="ux-step-kpi">&lt; 4 hours</div>
+            </div>
+            <div class="ux-step" style="border-right:none">
+              <div class="ux-step-n">04</div>
+              <div class="ux-step-title">Scale</div>
+              <div class="ux-step-detail">Clone for next cluster &middot; param-driven customization &middot; contribute back to community</div>
+              <div class="ux-step-kpi">Same day</div>
+            </div>
+          </div>
+          <div class="ux-principle">
+            <strong style="color:rgba(118,185,0,.85)">&ldquo;Copy, not code&rdquo;</strong> &mdash; a Blueprint runs in production without writing a single line of custom code.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- /sc -->
+  </div><!-- /s_exec -->
+
+
+  <!-- ----------------------------------
+       SLIDE 14 &middot; EXAMPLE BLUEPRINT
   ---------------------------------- -->
   <div class="slide" id="s_blueprint" data-title="Example Blueprint">
   <div class="sc" style="gap:13px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 16 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; Strategy made concrete</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 14 of 17 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; Strategy made concrete</div>
       <div class="headline"><span class="grad">Blueprint #1: AI Cluster Networking Offload</span></div>
       <div class="subline a2" style="margin-top:4px">
         A Blueprint is not documentation &mdash; it is a <strong style="color:var(--text)">repeatable, tested, production path</strong>.
@@ -3633,8 +3805,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="bp-spec-row"><span class="bp-k">Hardware</span><span class="bp-v">ConnectX SuperNIC + BlueField DPU</span></div>
         <div class="bp-spec-row"><span class="bp-k">DOCA services used</span><span class="bp-v">DOCA Flow &middot; GPUNetIO &middot; Telemetry &middot; Firefly</span></div>
         <div class="bp-spec-row"><span class="bp-k">Deliverables</span><span class="bp-v">Reference arch &middot; sample app &middot; deploy guide &middot; validation checklist</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Success definition</span><span class="bp-v">GPU util &gt;90% · CPU I/O load &lt;25% · new cluster live within 1 day of setup</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Why this Blueprint first</span><span class="bp-v">Largest TAM · directly tied to GPU sales · addresses the #1 customer pain from slide 9</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Success definition</span><span class="bp-v">GPU util &gt;90% ? CPU I/O load &lt;25% ? new cluster live within 1 day of setup</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Why this Blueprint first</span><span class="bp-v">Largest TAM ? directly tied to GPU sales ? addresses the #1 customer pain from slide 9</span></div>
       </div>
 
       <!-- Before/after -->
@@ -3665,7 +3837,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <span class="bp-metric-val bpm-good">2&ndash;3 wk &rarr; &lt;1 day</span>
           </div>
           <div class="bp-track"><div class="bp-fill-good3" id="bp-dep-f"></div></div>
-          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Blueprint = validated template · infra team runs it in hours · <em>distinct from slide 14&rsquo;s 9 mo &rarr; 6 wk (full POC-to-production journey)</em></div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Blueprint = validated template ? infra team runs it in hours ? <em>distinct from slide 14&rsquo;s 9 mo &rarr; 6 wk (full POC-to-production journey)</em></div>
         </div>
 
         <div class="bp-principle">
@@ -3686,7 +3858,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:11px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 14 of 16 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Measuring what matters</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 15 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Measuring what matters</div>
       <div class="headline"><span class="grad">DOCA Success Metrics</span></div>
       <div class="subline a2" style="margin-top:4px">Every number below is derived from data already established in this deck &mdash; not aspirational guesses. Each metric shows its baseline, target, delta, and the chain of reasoning that connects them.</div>
     </div>
@@ -3697,7 +3869,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       Three inputs ground every target: (1) <strong style="color:var(--text)">65% GPU utilization baseline</strong> from slide 3; (2) <strong style="color:var(--text)">9-month deployment cycle</strong> broken into four categories in slide 4 (40% integration + 25% API + 20% security + 15% monitoring); (3) <strong style="color:var(--text)">87% POC-to-production failure rate</strong> driven by integration complexity. Targets assume DOCA eliminates the specific barriers identified &mdash; not wholesale improvement.
     </div>
 
-    <!-- 4 metric cards: 2×2 grid -->
+    <!-- 4 metric cards: 2?2 grid -->
     <div class="sm-grid">
 
       <!-- Technical: GPU Utilization -->
@@ -3796,13 +3968,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          ~20% baseline = conservative estimate: 87% of POCs fail → only ~13% of accounts that trialed DOCA reach production; adding accounts with no POC attempted, ~20% active rate is plausible. ~55K BlueField DPUs shipped (Dell&rsquo;Oro) → each 1pp improvement = ~550 additional production deployments. 60% is the CUDA analogue target: GPU compute adoption reached ~80% after CUDA hit a deployment-simplicity threshold.
+          ~20% baseline = conservative estimate: 87% of POCs fail ? only ~13% of accounts that trialed DOCA reach production; adding accounts with no POC attempted, ~20% active rate is plausible. ~55K BlueField DPUs shipped (Dell&rsquo;Oro) ? each 1pp improvement = ~550 additional production deployments. 60% is the CUDA analogue target: GPU compute adoption reached ~80% after CUDA hit a deployment-simplicity threshold.
         </div>
       </div>
 
     </div><!-- /sm-grid -->
 
-    <!-- North Star metric — full width -->
+    <!-- North Star metric ? full width -->
     <div class="sm-card sm-star a5">
       <div class="sm-cat">North Star &nbsp;&middot;&nbsp; The single metric that proves the strategy is working</div>
       <div class="sm-star-inner">
@@ -3825,7 +3997,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           </div>
         </div>
         <div class="sm-star-right">
-          <strong style="color:var(--text)">Why this is the right North Star:</strong> It captures both the technical win (DOCA deployed) and the business win (hardware generates software value). It is immune to vanity metrics &mdash; a Blueprint that runs in staging doesn&rsquo;t count. Every other metric on this page is a leading indicator that predicts this one. If GPU utilization goes up (+25pp), if deployment time falls (6&times;), if POC conversion improves (5&times;) &mdash; the adoption rate follows. This is the flywheel: <strong style="color:rgba(118,185,0,.9)">faster deployment → more production deployments → more hardware pull-through → more DOCA investment → better Blueprints → faster deployment.</strong>
+          <strong style="color:var(--text)">Why this is the right North Star:</strong> It captures both the technical win (DOCA deployed) and the business win (hardware generates software value). It is immune to vanity metrics &mdash; a Blueprint that runs in staging doesn&rsquo;t count. Every other metric on this page is a leading indicator that predicts this one. If GPU utilization goes up (+25pp), if deployment time falls (6&times;), if POC conversion improves (5&times;) &mdash; the adoption rate follows. This is the flywheel: <strong style="color:rgba(118,185,0,.9)">faster deployment ? more production deployments ? more hardware pull-through ? more DOCA investment ? better Blueprints ? faster deployment.</strong>
         </div>
       </div>
     </div>
@@ -3841,7 +4013,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc method-sc">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 15 of 16 &nbsp;&middot;&nbsp; Behind the work</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 16 of 17 &nbsp;&middot;&nbsp; Behind the work</div>
       <div class="headline"><span class="grad">The PM Thinking Behind This Deck</span></div>
       <div class="subline a2" style="margin-top:5px">Full transparency &mdash; because <em>how</em> I think is as important as <em>what</em> I conclude.</div>
     </div>
@@ -3857,7 +4029,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
 
-    <!-- What guided me — 3 PM principles -->
+    <!-- What guided me ? 3 PM principles -->
     <div class="method-principles a3">
 
       <div class="method-principle">
@@ -3936,7 +4108,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
     </div>
 
-    <!-- Build toolchain — layered stack visual -->
+    <!-- Build toolchain ? layered stack visual -->
     <div class="a5" style="display:flex;flex-direction:column;gap:8px">
       <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3)">How this deck was built &mdash; the full stack</div>
       <div class="build-stack">
@@ -3946,7 +4118,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="bs-label" style="color:rgba(82,168,255,.85)">Research Foundation</div>
           <div class="bs-tools">
             <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">NVIDIA developer docs</span>
-            <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">GTC 2023–24 sessions</span>
+            <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">GTC 2023?24 sessions</span>
             <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">Earnings calls</span>
             <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">Competitor materials</span>
             <span class="bs-tool" style="color:rgba(82,168,255,.85);border-color:rgba(82,168,255,.25);background:rgba(42,128,200,.06)">JD analysis</span>
@@ -4011,7 +4183,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <div class="why-hero a1">
       <div class="why-hero-top">
-        <div class="why-hero-badge">Slide 16 of 16 &nbsp;&middot;&nbsp; The Pitch</div>
+        <div class="why-hero-badge">Slide 17 of 17 &nbsp;&middot;&nbsp; The Pitch</div>
       </div>
       <div class="why-hero-split">
         <!-- Photo card -->
@@ -4208,7 +4380,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   window.addEventListener('resize',()=>{resize();init()});resize();init();draw();
 })();
 
-// --- SLIDE ORDER FIX: s_alternatives → s_chosen → s_strategy_align ---
+// --- SLIDE ORDER FIX: s_alternatives ? s_chosen ? s_strategy_align ---
 (function reorderSlides(){
   const vp=document.getElementById('vp');
   const sa=document.getElementById('s_strategy_align');
@@ -4343,7 +4515,7 @@ const ALT_DATA={
      value:'Grows the developer ecosystem and widens the software moat over time.',
      risk:'More APIs do not equal more deployments. A developer with 50 libraries but no deployment guide still ships nothing.',
      c:[50,55,45,80]},
-  B:{name:'Solution Blueprints',overall:87,verdict:'Recommended starting point ✓',
+  B:{name:'Solution Blueprints',overall:87,verdict:'Recommended starting point ?',
      example:'"DOCA AI Storage Blueprint": a repo where one script deploys NVMe-oF offload and GPU utilization rises from 65% to 90%, with deploy YAML, dashboard, and ROI calculator.',
      value:'Connects DOCA to business outcomes. POC drops from weeks to days. Sales gets a demo-able artifact. Every blueprint is measurable.',
      risk:'Requires sharp prioritization. Cannot build 20 at once, must pick the 3 to 5 highest-impact use cases.',
