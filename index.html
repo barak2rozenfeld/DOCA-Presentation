@@ -1081,17 +1081,23 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .rm-zone-serious{color:rgba(212,130,10,.8);background:rgba(212,130,10,.07)}
 .rm-zone-med{color:rgba(212,190,10,.8);background:rgba(212,190,10,.06)}
 .rm-zone-low{color:rgba(118,185,0,.8);background:rgba(118,185,0,.06)}
+/* Ghost badge = after-mitigation target on matrix */
+.rm-badge-ghost{width:21px;height:21px;border-radius:50%;font-size:9.5px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:transparent;border:1.5px dashed rgba(118,185,0,.45);color:rgba(118,185,0,.7)}
 /* Risk register */
-.rm-register{display:flex;flex-direction:column;gap:4px;margin-top:2px}
-.rm-reg-item{display:grid;grid-template-columns:22px 1fr;grid-template-rows:auto auto;gap:2px 8px;padding:6px 9px;background:var(--card);border:1px solid var(--border);border-radius:7px;align-items:start}
-.rm-reg-n{width:22px;height:22px;border-radius:50%;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;grid-row:1/3}
-.rm-reg-top{display:flex;align-items:center;gap:7px}
-.rm-reg-name{font-size:11px;font-weight:700;color:var(--text);flex:1}
+.rm-register{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px}
+.rm-reg-item{display:grid;grid-template-columns:22px 1fr;grid-template-rows:auto auto auto;gap:2px 8px;padding:8px 10px;background:var(--card);border:1px solid var(--border);border-radius:8px;align-items:start}
+.rm-reg-n{width:22px;height:22px;border-radius:50%;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;grid-row:1/4}
+.rm-reg-top{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.rm-reg-name{font-size:11px;font-weight:700;color:var(--text);flex:1;min-width:0}
+.rm-levels{display:flex;align-items:center;gap:5px;flex-shrink:0}
+.rm-lv-arrow{font-size:10px;color:var(--text3)}
 .rm-reg-lv{font-size:8px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:1px 6px;border-radius:3px;white-space:nowrap}
 .rm-lv-high{color:rgba(224,80,80,.9);background:rgba(224,80,80,.1);border:1px solid rgba(224,80,80,.25)}
 .rm-lv-serious{color:rgba(212,130,10,.9);background:rgba(212,130,10,.1);border:1px solid rgba(212,130,10,.2)}
 .rm-lv-med{color:rgba(212,190,10,.85);background:rgba(212,190,10,.08);border:1px solid rgba(212,190,10,.2)}
-.rm-reg-mit{grid-column:2;font-size:10px;color:var(--text3);line-height:1.4}
+.rm-lv-low{color:rgba(118,185,0,.9);background:rgba(118,185,0,.08);border:1px solid rgba(118,185,0,.25)}
+.rm-reg-mit{grid-column:2;font-size:10px;color:var(--text3);line-height:1.4;margin-top:1px}
+.rm-reg-why{grid-column:2;font-size:9.5px;color:rgba(118,185,0,.65);line-height:1.35;font-style:italic;margin-top:2px}
 /* UX journey */
 .ux-journey{display:flex;flex-direction:column;gap:6px}
 .ux-steps{display:flex;gap:0;align-items:stretch;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
@@ -3716,137 +3722,120 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     </div>
 
     <!-- Risk + UX (2 columns) -->
-    <div class="exec-grid a3">
+    <!-- Risk Assessment – full width -->
+    <div class="a3">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Risk Assessment &nbsp;&middot;&nbsp; Probability &times; Impact &nbsp;&middot;&nbsp; <span style="color:rgba(118,185,0,.6);font-weight:600;text-transform:none;letter-spacing:0">solid badge = current &nbsp;&#9679;&nbsp; dashed badge = after mitigation</span></div>
+      <div class="rm-wrap">
 
-      <!-- Risk Assessment Matrix -->
-      <div>
-        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:7px">Risk Assessment Matrix &nbsp;&middot;&nbsp; Probability &times; Impact</div>
-        <div class="rm-wrap">
+        <!-- Matrix + legend side by side -->
+        <div style="display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start">
 
           <!-- Matrix grid -->
-          <div class="rm-grid">
-            <!-- Header row -->
-            <div class="rm-corner">PROB &darr;&nbsp;/&nbsp;IMPACT &rarr;</div>
-            <div class="rm-th">Catastrophic</div>
-            <div class="rm-th">Critical</div>
-            <div class="rm-th">Marginal</div>
-            <div class="rm-th">Negligible</div>
-            <!-- High probability row -->
-            <div class="rm-label">High</div>
-            <div class="rm-cell rm-c-red"></div>
-            <div class="rm-cell rm-c-red"><div class="rm-badge rm-bd-red" title="Adoption Stall">1</div></div>
-            <div class="rm-cell rm-c-orange"><div class="rm-badge rm-bd-orange" title="Blueprint Mis-prioritization">3</div></div>
-            <div class="rm-cell rm-c-yellow"></div>
-            <!-- Medium probability row -->
-            <div class="rm-label">Medium</div>
-            <div class="rm-cell rm-c-red"><div class="rm-badge rm-bd-red" title="Hyperscaler In-house">2</div></div>
-            <div class="rm-cell rm-c-orange"><div class="rm-badge rm-bd-orange" title="API Fragmentation">4</div></div>
-            <div class="rm-cell rm-c-yellow"></div>
-            <div class="rm-cell rm-c-dim"></div>
-            <!-- Low probability row -->
-            <div class="rm-label">Low</div>
-            <div class="rm-cell rm-c-orange"></div>
-            <div class="rm-cell rm-c-yellow"><div class="rm-badge rm-bd-yellow" title="Partner Execution">5</div></div>
-            <div class="rm-cell rm-c-green"></div>
-            <div class="rm-cell rm-c-dim"></div>
-          </div>
-
-          <!-- Zone legend -->
-          <div class="rm-zone-row">
-            <div></div>
-            <div class="rm-zone-lbl rm-zone-high" style="grid-column:2/4">High Risk</div>
-            <div class="rm-zone-lbl rm-zone-serious">Serious</div>
-            <div class="rm-zone-lbl rm-zone-med">Medium</div>
-          </div>
-
-          <!-- Risk register -->
-          <div class="rm-register">
-
-            <div class="rm-reg-item">
-              <div class="rm-reg-n rm-bd-red">1</div>
-              <div class="rm-reg-top">
-                <div class="rm-reg-name">Adoption Stall &ndash; last-mile integration fails</div>
-                <span class="rm-reg-lv rm-lv-high">High</span>
-              </div>
-              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Customer Success + 90-day deployment SLA. Blueprint pre-flight checklist catches 80% of failures before they happen.</div>
+          <div>
+            <div class="rm-grid">
+              <div class="rm-corner">PROB &darr; / IMPACT &rarr;</div>
+              <div class="rm-th">Catastrophic</div>
+              <div class="rm-th">Critical</div>
+              <div class="rm-th">Marginal</div>
+              <div class="rm-th">Negligible</div>
+              <!-- High probability -->
+              <div class="rm-label">High</div>
+              <div class="rm-cell rm-c-red"></div>
+              <div class="rm-cell rm-c-red"><div class="rm-badge rm-bd-red">1</div></div>
+              <div class="rm-cell rm-c-orange"><div class="rm-badge rm-bd-orange">3</div></div>
+              <div class="rm-cell rm-c-yellow"></div>
+              <!-- Medium probability -->
+              <div class="rm-label">Medium</div>
+              <div class="rm-cell rm-c-red"><div class="rm-badge rm-bd-red">2</div></div>
+              <div class="rm-cell rm-c-orange"><div class="rm-badge rm-bd-orange">4</div>&nbsp;<div class="rm-badge-ghost">1</div></div>
+              <div class="rm-cell rm-c-yellow"></div>
+              <div class="rm-cell rm-c-dim"></div>
+              <!-- Low probability -->
+              <div class="rm-label">Low</div>
+              <div class="rm-cell rm-c-orange"></div>
+              <div class="rm-cell rm-c-yellow"><div class="rm-badge rm-bd-yellow">5</div>&nbsp;<div class="rm-badge-ghost">2</div>&nbsp;<div class="rm-badge-ghost">4</div></div>
+              <div class="rm-cell rm-c-green"><div class="rm-badge-ghost">3</div>&nbsp;<div class="rm-badge-ghost">5</div></div>
+              <div class="rm-cell rm-c-dim"></div>
             </div>
-
-            <div class="rm-reg-item">
-              <div class="rm-reg-n rm-bd-red">2</div>
-              <div class="rm-reg-top">
-                <div class="rm-reg-name">Hyperscaler In-house &ndash; AWS / Azure / GCP ship their own</div>
-                <span class="rm-reg-lv rm-lv-high">High</span>
-              </div>
-              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Own the open standard first. Partner ecosystem + SI certification creates switching cost that a captive solution can't replicate.</div>
-            </div>
-
-            <div class="rm-reg-item">
-              <div class="rm-reg-n rm-bd-orange">3</div>
-              <div class="rm-reg-top">
-                <div class="rm-reg-name">Blueprint Mis-prioritization &ndash; wrong use case chosen first</div>
-                <span class="rm-reg-lv rm-lv-serious">Serious</span>
-              </div>
-              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Quarterly customer advisory board validates priority ranking. Year 1 Blueprint tied to #1 customer pain (AI cluster networking) with measurable TAM.</div>
-            </div>
-
-            <div class="rm-reg-item">
-              <div class="rm-reg-n rm-bd-orange">4</div>
-              <div class="rm-reg-top">
-                <div class="rm-reg-name">API Fragmentation &ndash; DOCA SDK breaks Blueprint versions</div>
-                <span class="rm-reg-lv rm-lv-serious">Serious</span>
-              </div>
-              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Blueprint versioning system + backward compatibility SLA. SDK breaking changes require Blueprint-team sign-off before release.</div>
-            </div>
-
-            <div class="rm-reg-item">
-              <div class="rm-reg-n rm-bd-yellow">5</div>
-              <div class="rm-reg-top">
-                <div class="rm-reg-name">Partner Execution &ndash; SI quality varies in the field</div>
-                <span class="rm-reg-lv rm-lv-med">Medium</span>
-              </div>
-              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Partner certification program with mandatory Blueprint validation. Certified SIs get co-marketing access; non-certified don't.</div>
-            </div>
-
-          </div><!-- /rm-register -->
-        </div><!-- /rm-wrap -->
-      </div>
-
-      <!-- Developer UX Journey -->
-      <div>
-        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Developer UX &ndash; Blueprint Journey</div>
-        <div class="ux-journey">
-          <div class="ux-steps">
-            <div class="ux-step">
-              <div class="ux-step-n">01</div>
-              <div class="ux-step-title">Discover</div>
-              <div class="ux-step-detail">DOCA Developer Portal &middot; filter by use case, hardware &amp; customer segment</div>
-              <div class="ux-step-kpi">Entry point</div>
-            </div>
-            <div class="ux-step">
-              <div class="ux-step-n">02</div>
-              <div class="ux-step-title">Validate</div>
-              <div class="ux-step-detail">Pre-req checklist &middot; hardware compatibility scan &middot; see expected outcomes before running anything</div>
-              <div class="ux-step-kpi">&lt; 30 min</div>
-            </div>
-            <div class="ux-step">
-              <div class="ux-step-n">03</div>
-              <div class="ux-step-title">Deploy</div>
-              <div class="ux-step-detail">Run Blueprint script &middot; automated config &middot; live metrics confirm success</div>
-              <div class="ux-step-kpi">&lt; 4 hours</div>
-            </div>
-            <div class="ux-step" style="border-right:none">
-              <div class="ux-step-n">04</div>
-              <div class="ux-step-title">Scale</div>
-              <div class="ux-step-detail">Clone for next cluster &middot; param-driven customization &middot; contribute back to community</div>
-              <div class="ux-step-kpi">Same day</div>
+            <!-- Zone legend -->
+            <div class="rm-zone-row" style="margin-top:3px">
+              <div></div>
+              <div class="rm-zone-lbl rm-zone-high" style="grid-column:2/4">High</div>
+              <div class="rm-zone-lbl rm-zone-serious">Serious</div>
+              <div class="rm-zone-lbl rm-zone-low">Low</div>
             </div>
           </div>
-          <div class="ux-principle">
-            <strong style="color:rgba(118,185,0,.85)">&ldquo;Copy, not code&rdquo;</strong> &ndash; a Blueprint runs in production without writing a single line of custom code.
+
+          <!-- Reading guide -->
+          <div style="font-size:10.5px;color:var(--text3);line-height:1.7;padding-top:4px">
+            <div style="margin-bottom:6px;color:var(--text2);font-weight:600">How to read this:</div>
+            Each risk is plotted at its <strong style="color:var(--text)">current position</strong> (solid badge).<br>
+            The <strong style="color:rgba(118,185,0,.75)">dashed badge</strong> shows where that risk lands <em>after the mitigation is in place</em> &ndash; moving down (lower probability) or left (lower impact).<br><br>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:rgba(224,80,80,.4);margin-right:5px"></span>High &rarr; must address before launch</div>
+              <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:rgba(212,130,10,.4);margin-right:5px"></span>Serious &rarr; active mitigation in place</div>
+              <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:rgba(212,190,10,.4);margin-right:5px"></span>Medium &rarr; monitor quarterly</div>
+              <div><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:rgba(118,185,0,.4);margin-right:5px"></span>Low &rarr; accepted, no action needed</div>
+            </div>
           </div>
+
         </div>
-      </div>
 
+        <!-- Risk register: 2-col grid -->
+        <div class="rm-register">
+
+          <div class="rm-reg-item">
+            <div class="rm-reg-n rm-bd-red">1</div>
+            <div class="rm-reg-top">
+              <div class="rm-reg-name">Adoption Stall &ndash; last-mile integration still fails</div>
+              <div class="rm-levels"><span class="rm-reg-lv rm-lv-high">High</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-serious">Serious</span></div>
+            </div>
+            <div class="rm-reg-mit">Customer Success program + 90-day deployment SLA. Blueprint pre-flight checklist catches 80% of integration failures before they happen.</div>
+            <div class="rm-reg-why">Reduces probability High &rarr; Medium: customers no longer alone in the last mile.</div>
+          </div>
+
+          <div class="rm-reg-item">
+            <div class="rm-reg-n rm-bd-red">2</div>
+            <div class="rm-reg-top">
+              <div class="rm-reg-name">Hyperscaler In-house &ndash; AWS / Azure / GCP build their own</div>
+              <div class="rm-levels"><span class="rm-reg-lv rm-lv-high">High</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-med">Medium</span></div>
+            </div>
+            <div class="rm-reg-mit">Own the open standard before they do. SI certification + partner ecosystem creates switching cost a captive solution can't replicate.</div>
+            <div class="rm-reg-why">Reduces probability Medium &rarr; Low: ecosystem moat makes in-house less attractive as market matures.</div>
+          </div>
+
+          <div class="rm-reg-item">
+            <div class="rm-reg-n rm-bd-orange">3</div>
+            <div class="rm-reg-top">
+              <div class="rm-reg-name">Blueprint Mis-prioritization &ndash; wrong use case chosen first</div>
+              <div class="rm-levels"><span class="rm-reg-lv rm-lv-serious">Serious</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-low">Low</span></div>
+            </div>
+            <div class="rm-reg-mit">Quarterly customer advisory board validates priority. Year 1 Blueprint tied to #1 customer pain with measurable TAM and active customer co-development.</div>
+            <div class="rm-reg-why">Reduces probability High &rarr; Low: customer signal is the selection mechanism, not internal gut feel.</div>
+          </div>
+
+          <div class="rm-reg-item">
+            <div class="rm-reg-n rm-bd-orange">4</div>
+            <div class="rm-reg-top">
+              <div class="rm-reg-name">API Fragmentation &ndash; DOCA SDK breaks Blueprint versions</div>
+              <div class="rm-levels"><span class="rm-reg-lv rm-lv-serious">Serious</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-med">Medium</span></div>
+            </div>
+            <div class="rm-reg-mit">Blueprint versioning system + backward compatibility SLA. SDK breaking changes require Blueprint-team sign-off before any release.</div>
+            <div class="rm-reg-why">Reduces probability Medium &rarr; Low: contractual gate prevents the breakage from reaching customers.</div>
+          </div>
+
+          <div class="rm-reg-item" style="grid-column:1/-1">
+            <div class="rm-reg-n rm-bd-yellow">5</div>
+            <div class="rm-reg-top">
+              <div class="rm-reg-name">Partner Execution &ndash; SI quality varies in the field</div>
+              <div class="rm-levels"><span class="rm-reg-lv rm-lv-med">Medium</span><span class="rm-lv-arrow">&rarr;</span><span class="rm-reg-lv rm-lv-low">Low</span></div>
+            </div>
+            <div class="rm-reg-mit">Partner certification program with mandatory Blueprint validation lab. Certified SIs get co-marketing + deal support. Non-certified don't.</div>
+            <div class="rm-reg-why">Reduces impact Critical &rarr; Marginal: only validated partners touch customer deployments &ndash; bad execution no longer reaches production.</div>
+          </div>
+
+        </div><!-- /rm-register -->
+      </div><!-- /rm-wrap -->
     </div>
 
   </div><!-- /sc -->
