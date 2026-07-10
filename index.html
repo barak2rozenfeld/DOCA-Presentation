@@ -3719,7 +3719,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- Pain -->
     <div class="bp-pain a2">
       <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="rgba(224,80,80,.6)" stroke-width="1" fill="rgba(224,80,80,.06)"/><line x1="7" y1="4" x2="7" y2="8" stroke="rgba(224,80,80,.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="rgba(224,80,80,.9)"/></svg>
-      <span><strong style="color:rgba(224,80,80,.85)">The Pain:</strong> As GPU clusters scale, host CPU cycles spent on networking, telemetry, and policy grow proportionally &ndash; CPU becomes the bottleneck in the most expensive infrastructure in the world. Slide 9 quantifies this: 65% GPU utilization, $350M idle in a $1B cluster.</span>
+      <span><strong style="color:rgba(224,80,80,.85)">The Pain:</strong> As GPU clusters scale, host CPU cycles spent on networking, telemetry, and policy grow proportionally &ndash; CPU becomes the bottleneck in the most expensive infrastructure in the world. Slide 8 quantifies this: 65% GPU utilization, $350M idle in a $1B cluster.</span>
     </div>
 
     <div class="bp-layout a3">
@@ -3730,7 +3730,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="bp-spec-row"><span class="bp-k">DOCA services used</span><span class="bp-v">DOCA Flow &middot; GPUNetIO &middot; Telemetry &middot; Firefly</span></div>
         <div class="bp-spec-row"><span class="bp-k">Deliverables</span><span class="bp-v">Reference arch &middot; sample app &middot; deploy guide &middot; validation checklist</span></div>
         <div class="bp-spec-row"><span class="bp-k">Success definition</span><span class="bp-v">GPU util &gt;90% ? CPU I/O load &lt;25% ? new cluster live within 1 day of setup</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Why this Blueprint first</span><span class="bp-v">Largest TAM ? directly tied to GPU sales ? addresses the #1 customer pain from slide 9</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Why this Blueprint first</span><span class="bp-v">Largest TAM ? directly tied to GPU sales ? addresses the #1 customer pain from slide 8</span></div>
       </div>
 
       <!-- Before/after -->
@@ -3743,7 +3743,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <span class="bp-metric-val bpm-good" id="bp-gpu-v">65% &rarr; 90%+</span>
           </div>
           <div class="bp-track"><div class="bp-fill-bad" style="width:65%"></div><div class="bp-fill-good" id="bp-gpu-f"></div></div>
-          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Consistent with slide 14 derivation &middot; DOCA GPUNetIO eliminates CPU I/O bottleneck</div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Consistent with slide 16 derivation &middot; DOCA GPUNetIO eliminates CPU I/O bottleneck</div>
         </div>
 
         <div class="bp-metric">
@@ -3818,7 +3818,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
       </div>
       <div style="font-size:10.5px;color:rgba(118,185,0,.7);font-style:italic;margin-top:6px;padding:6px 10px;background:rgba(118,185,0,.03);border:1px solid rgba(118,185,0,.12);border-radius:6px">
-        All 5 strategic options from slide 10 are embedded here: A (APIs) &rarr; SW track &middot; B (Blueprints) &rarr; Blueprint track &middot; C (Kubernetes) &rarr; SW track &middot; D (Observability) &rarr; SW track &middot; E (Partners) &rarr; GTM track
+        All 5 strategic options from slide 11 are embedded here: A (APIs) &rarr; SW track &middot; B (Blueprints) &rarr; Blueprint track &middot; C (Kubernetes) &rarr; SW track &middot; D (Observability) &rarr; SW track &middot; E (Partners) &rarr; GTM track
       </div>
     </div>
 
@@ -4740,7 +4740,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           </div>
           <div class="sm-arr-wrap">
             <div class="sm-arr-line"></div>
-            <div class="sm-arr-delta">+25 pp &nbsp; &rarr;&nbsp; $270K/mo reclaimed</div>
+            <div class="sm-arr-delta">+25 pp &nbsp; &rarr;&nbsp; $250K/mo reclaimed</div>
             <div class="sm-arr-line"></div>
           </div>
           <div class="sm-target">
@@ -4750,7 +4750,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          35% idle gap = CPU I/O bottleneck (slide 5). DOCA GPUNetIO moves packets GPU-to-GPU, zero CPU involvement &rarr; bottleneck eliminated. $270K/mo = $350K &times; (25/35), proportional to recovered idle. Source: NVIDIA ConnectX-7 RDMA benchmarks.
+          35% idle gap = CPU I/O bottleneck (slide 5). DOCA GPUNetIO moves packets GPU-to-GPU, zero CPU involvement &rarr; bottleneck eliminated. $250K/mo = $350K &times; (25/35), proportional to recovered idle. Source: NVIDIA ConnectX-7 RDMA benchmarks.
         </div>
       </div>
 
@@ -4775,7 +4775,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          65% of 9 mo (integration + API, slide 4) eliminated by Blueprints. Remaining 35% compressed to ~2&ndash;3 weeks via Blueprint security templates + telemetry. Total: ~6 wk. <em>10&times; would need monitoring eliminated too &ndash; 6&times; is the defensible number.</em>
+          65% of 9 mo (integration + API, slide 5) eliminated by Blueprints. Remaining 35% compressed to ~2&ndash;3 weeks via Blueprint security templates + telemetry. Total: ~6 wk. <em>10&times; would need monitoring eliminated too &ndash; 6&times; is the defensible number.</em>
         </div>
       </div>
 
@@ -4877,7 +4877,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <td style="padding:8px 12px;font-weight:700;color:rgba(82,168,255,.85)">GPU Util<br>65% &rarr; 90%+</td>
               <td style="padding:8px 12px;color:var(--text2)"><strong>65%</strong> = NVIDIA field data, GTC 2024. At 400Gb/s the host CPU processes all I/O and saturates, leaving GPUs idle 35% of the time.</td>
               <td style="padding:8px 12px;color:var(--text2)"><strong>90%+</strong> = 35% idle gap fully recovered minus a 10% reserve for legitimate compute pauses. This is achievable only if the CPU is removed from the data path.</td>
-              <td style="padding:8px 12px;color:var(--text2)">DOCA GPUNetIO routes packets GPU &rarr; ConnectX &rarr; GPU with zero host CPU involvement. Bottleneck eliminated at source, not mitigated. <strong>$270K/mo</strong> = $350K baseline &times; (25pp recovered &divide; 35pp total gap). Source: ConnectX-7 RDMA benchmark data.</td>
+              <td style="padding:8px 12px;color:var(--text2)">DOCA GPUNetIO routes packets GPU &rarr; ConnectX &rarr; GPU with zero host CPU involvement. Bottleneck eliminated at source, not mitigated. <strong>$250K/mo</strong> = $350K baseline &times; (25pp recovered &divide; 35pp total gap). Source: ConnectX-7 RDMA benchmark data.</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border)">
               <td style="padding:8px 12px;font-weight:700;color:rgba(0,185,155,.85)">Time to Prod<br>9 mo &rarr; 6 wk</td>
