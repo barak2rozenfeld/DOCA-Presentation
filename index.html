@@ -1789,44 +1789,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .tip::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(5,10,18,.97);border:1px solid rgba(118,185,0,.3);border-radius:7px;color:#cdd9e5;font-size:10.5px;font-weight:400;line-height:1.55;padding:7px 11px;min-width:170px;max-width:260px;width:max-content;white-space:normal;pointer-events:none;opacity:0;z-index:9999;transition:opacity .18s ease;text-decoration:none;font-style:normal;box-shadow:0 4px 18px rgba(0,0,0,.5)}
 .tip:hover::after{opacity:1}
 
-/* ── Key Concepts slide ──────────────────────────────────────────── */
-#s_concepts.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
-.kc-stack{display:flex;flex-direction:column;gap:0}
-.kc-layer{display:grid;grid-template-columns:56px 1fr auto;align-items:start;gap:4px 12px;padding:10px 16px;border:1px solid var(--border);border-bottom:none}
-.kc-stack>.kc-layer:first-child{border-radius:10px 10px 0 0}
-.kc-stack>.kc-layer:last-child{border-bottom:1px solid var(--border);border-radius:0 0 10px 10px}
-.kc-arrow{text-align:center;font-size:12px;color:var(--text3);padding:1px 0;opacity:.55;letter-spacing:.1em}
-.kc-split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.kc-cmp{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:11px 14px}
-.kc-cmp-hd{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
-.kc-cmp-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.kc-item{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:7px;padding:9px 11px}
-.kc-item-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
-.kc-item-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
-.kc-item-desc{font-size:10.5px;color:var(--text3);line-height:1.45}
-.kc-glossary{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.kc-term{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:8px 10px}
-.kc-term-name{font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:1px}
-.kc-term-full{font-size:9px;color:var(--text3);margin-bottom:4px;font-style:italic}
-.kc-term-def{font-size:10px;color:var(--text2);line-height:1.42}
-
-/* ── Key Concepts: mobile ─────────────────────────────────────── */
-@media(max-width:700px){
-  #s_concepts .sc{padding-bottom:32px}
-  .kc-split{grid-template-columns:1fr}
-  .kc-cmp-row{grid-template-columns:1fr}
-  .kc-glossary{grid-template-columns:repeat(2,1fr)}
-  /* BlueField/ConnectX side-by-side row stacks on mobile */
-  .kc-stack>div[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
-  .kc-layer{grid-template-columns:40px 1fr auto;padding:9px 12px;gap:3px 10px}
-  .kc-cmp{padding:9px 11px}
-  .kc-item{padding:8px 10px}
-  .kc-item-name{font-size:11.5px}
-  .kc-item-desc{font-size:10px}
-  .kc-term-name{font-size:11px}
-  .kc-term-def{font-size:9.5px}
-}
-
 /* ── MoSCoW table: mobile ─────────────────────────────────────── */
 @media(max-width:700px){
   .moscow-table{grid-template-columns:1fr 1fr}
@@ -2152,7 +2114,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="s0-bottom a6">
       <div class="s0-hint">Press <kbd>&rarr;</kbd> to explore the strategy</div>
       <div class="s0-stat-row">
-        <div class="s0-stat"><div class="s0-stat-n">19</div><div class="s0-stat-l">Slides</div></div>
+        <div class="s0-stat"><div class="s0-stat-n">18</div><div class="s0-stat-l">Slides</div></div>
       </div>
     </div>
 
@@ -2167,7 +2129,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:16px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 2 of 19 &nbsp;&middot;&nbsp; What we will cover</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 2 of 18 &nbsp;&middot;&nbsp; What we will cover</div>
       <div class="headline"><span class="grad">The Agenda</span></div>
     </div>
 
@@ -2191,120 +2153,113 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     </div>
 
     <div class="agenda-grid a3">
-      <div class="ag-item" style="border-left:2px solid rgba(255,255,255,.12)">
-        <span class="ag-num" style="color:var(--text3)">03</span>
-        <div class="ag-body">
-          <div class="ag-title">Key Concepts</div>
-          <div class="ag-sub">The 4-layer stack &middot; ConnectX &middot; BlueField &middot; DOCA &middot; Blueprint</div>
-        </div>
-      </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">04</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">03</span>
         <div class="ag-body">
           <div class="ag-title ag-red">Problem &amp; What DOCA Solved</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; Why GPU utilization fails at scale</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">05</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">04</span>
         <div class="ag-body">
           <div class="ag-title ag-red">Why Existing Solutions Fall Short</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; 4 partial solutions &middot; the common gap</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">06</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">05</span>
         <div class="ag-body">
           <div class="ag-title ag-green">Why DOCA Is the Most Significant Answer</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; 6&times; faster &middot; 55% hardware lead &rarr; software moat</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(42,128,200,.3)">
-        <span class="ag-num" style="color:rgba(82,168,255,.75)">07</span>
+        <span class="ag-num" style="color:rgba(82,168,255,.75)">06</span>
         <div class="ag-body">
           <div class="ag-title">What is DOCA</div>
           <div class="ag-sub" style="color:rgba(82,168,255,.55)">&#9670; Technical &nbsp;&middot;&nbsp; The programmability layer</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(212,130,10,.3)">
-        <span class="ag-num" style="color:rgba(212,130,10,.7)">08</span>
+        <span class="ag-num" style="color:rgba(212,130,10,.7)">07</span>
         <div class="ag-body">
           <div class="ag-title">Market Urgency</div>
           <div class="ag-sub" style="color:rgba(212,130,10,.55)">&#9670; Market context &nbsp;&middot;&nbsp; Why DOCA drives NVIDIA revenue</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(212,130,10,.3)">
-        <span class="ag-num" style="color:rgba(212,130,10,.7)">09</span>
+        <span class="ag-num" style="color:rgba(212,130,10,.7)">08</span>
         <div class="ag-body">
           <div class="ag-title">Market Landscape</div>
           <div class="ag-sub" style="color:rgba(212,130,10,.55)">&#9670; Market context &nbsp;&middot;&nbsp; Competitors &middot; segments &middot; ecosystem</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(212,130,10,.3)">
-        <span class="ag-num" style="color:rgba(212,130,10,.7)">10</span>
+        <span class="ag-num" style="color:rgba(212,130,10,.7)">09</span>
         <div class="ag-body">
           <div class="ag-title">Key Customers</div>
           <div class="ag-sub" style="color:rgba(212,130,10,.55)">&#9670; Market context &nbsp;&middot;&nbsp; Who buys, and the NVIDIA angle</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">11</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">10</span>
         <div class="ag-body">
           <div class="ag-title">Strategic Alternatives</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; 5 paths evaluated, 1 chosen</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">12</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">11</span>
         <div class="ag-body">
           <div class="ag-title ag-green">Chosen Strategy</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; Blueprint model &middot; 5 use cases</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(42,128,200,.3)">
-        <span class="ag-num" style="color:rgba(82,168,255,.75)">13</span>
+        <span class="ag-num" style="color:rgba(82,168,255,.75)">12</span>
         <div class="ag-body">
           <div class="ag-title">Example Blueprint</div>
           <div class="ag-sub" style="color:rgba(82,168,255,.55)">&#9670; Technical &nbsp;&middot;&nbsp; What a Blueprint looks like in practice</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">14</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">13</span>
         <div class="ag-body">
           <div class="ag-title">Product Strategy</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; ConnectX &middot; BlueField &middot; DOCA in parallel</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(224,80,80,.3)">
-        <span class="ag-num" style="color:rgba(224,80,80,.75)">15</span>
+        <span class="ag-num" style="color:rgba(224,80,80,.75)">14</span>
         <div class="ag-body">
           <div class="ag-title ag-red">Foundational Assumptions</div>
           <div class="ag-sub" style="color:rgba(224,80,80,.55)">&#9670; Business &nbsp;&middot;&nbsp; What I'm betting on &middot; how I'd validate it</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">16</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">15</span>
         <div class="ag-body">
           <div class="ag-title">Priorities, Risk &amp; MoSCoW</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; MoSCoW &middot; Risk assessment matrix</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">17</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">16</span>
         <div class="ag-body">
           <div class="ag-title">DOCA Success Metrics</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; Baseline &rarr; target &rarr; derivation</div>
         </div>
       </div>
       <div class="ag-item">
-        <span class="ag-num">18</span>
+        <span class="ag-num">17</span>
         <div class="ag-body">
           <div class="ag-title">How I Built This</div>
           <div class="ag-sub">Sources &middot; methodology &middot; tools used</div>
         </div>
       </div>
       <div class="ag-item">
-        <span class="ag-num">19</span>
+        <span class="ag-num">18</span>
         <div class="ag-body">
           <div class="ag-title">Why Barak Rozenfeld</div>
           <div class="ag-sub">3 fit pillars &middot; direct JD match</div>
@@ -2316,115 +2271,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   </div><!-- /s_agenda -->
 
 
-  <!-- ────────────────────────────────── SLIDE 03 · KEY CONCEPTS ────────────────────────────────── -->
-  <div class="slide" id="s_concepts" data-title="Key Concepts">
-  <div class="sc" style="gap:13px;padding-bottom:24px">
-
-    <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 3 of 19 &nbsp;&middot;&nbsp; Read this before anything else</div>
-      <div class="headline"><span class="grad">Key Concepts</span></div>
-      <div class="subline a2" style="margin-top:5px">NVIDIA's AI infrastructure stack has 4 distinct layers &ndash; each with a different role. Confusing them is the #1 reason the rest of this deck is misread.</div>
-    </div>
-
-    <!-- 4-layer stack -->
-    <div class="kc-stack a2">
-
-      <div class="kc-layer" style="background:rgba(0,185,155,.06);border-color:rgba(0,185,155,.22);border-radius:10px 10px 0 0">
-        <div style="font-size:10px;font-weight:800;color:rgba(0,185,155,.7);letter-spacing:.08em;padding-top:2px">LAYER 4</div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">Solution Blueprint &nbsp;<span style="font-size:9px;font-weight:700;letter-spacing:.08em;padding:2px 7px;border-radius:4px;background:rgba(0,185,155,.12);color:rgba(0,185,155,.85)">THE STRATEGY</span></div>
-          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">A complete, validated, production-ready deployment recipe for a specific use case (e.g. AI cluster offload). Think of it as a "Docker image" for DPU workloads &ndash; pull, configure, deploy. Removes the 9-month integration burden customers face today.</div>
-        </div>
-        <div style="font-size:22px;opacity:.45;padding-top:2px">📋</div>
-      </div>
-
-      <div class="kc-arrow">↑ runs on top of</div>
-
-      <div class="kc-layer" style="background:rgba(118,185,0,.05);border-color:rgba(118,185,0,.2)">
-        <div style="font-size:10px;font-weight:800;color:rgba(118,185,0,.7);letter-spacing:.08em;padding-top:2px">LAYER 3</div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">DOCA &nbsp;<span style="font-size:9px;font-weight:700;letter-spacing:.08em;padding:2px 7px;border-radius:4px;background:rgba(118,185,0,.1);color:rgba(118,185,0,.85)">SOFTWARE PLATFORM</span></div>
-          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">NVIDIA's SDK and runtime for programming BlueField and ConnectX. Provides APIs for networking, storage, security, and GPU-direct data paths (GPUNetIO). Like Linux &ndash; powerful, but you need to know how to use it.</div>
-        </div>
-        <div style="font-size:22px;opacity:.45;padding-top:2px">⚙️</div>
-      </div>
-
-      <div class="kc-arrow">↑ programs the hardware</div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:none">
-        <div class="kc-layer" style="background:rgba(82,168,255,.06);border-color:rgba(82,168,255,.22);border-right:none">
-          <div style="font-size:10px;font-weight:800;color:rgba(82,168,255,.75);letter-spacing:.08em;padding-top:2px">LAYER 2</div>
-          <div>
-            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">BlueField &nbsp;<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(82,168,255,.1);color:rgba(82,168,255,.85)">DPU</span></div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">ConnectX + ARM server-grade cores + memory. Runs a full OS inside the PCIe card. Offloads networking, storage, and security work entirely from the host CPU. Programmed with DOCA.</div>
-          </div>
-        </div>
-        <div class="kc-layer" style="background:rgba(82,168,255,.03);border-color:rgba(82,168,255,.14)">
-          <div style="font-size:10px;font-weight:800;color:rgba(82,168,255,.5);letter-spacing:.08em;padding-top:2px">LAYER 2</div>
-          <div>
-            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">ConnectX &nbsp;<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(82,168,255,.07);color:rgba(82,168,255,.65)">NIC / SuperNIC</span></div>
-            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Network Interface Card. Moves data between GPU and the network at line rate (400Gb &rarr; 800Gb). Every AI cluster server needs one. BlueField is built on top of ConnectX silicon.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="kc-arrow">↑ runs on physical infrastructure</div>
-
-      <div class="kc-layer" style="background:rgba(255,255,255,.02);border-color:var(--border);border-bottom:1px solid var(--border);border-radius:0 0 10px 10px">
-        <div style="font-size:10px;font-weight:800;color:var(--text3);letter-spacing:.08em;padding-top:2px">LAYER 1</div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:3px">Physical AI Infrastructure</div>
-          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">GPU clusters, AI factories, data center servers. The hardware environment where everything ultimately runs.</div>
-        </div>
-        <div style="font-size:22px;opacity:.25;padding-top:2px">🖥️</div>
-      </div>
-
-    </div><!-- /kc-stack -->
-
-    <!-- Two key distinctions -->
-    <div class="kc-split a3">
-      <div class="kc-cmp">
-        <div class="kc-cmp-hd" style="color:rgba(82,168,255,.75)">ConnectX vs. BlueField &ndash; the key difference</div>
-        <div class="kc-cmp-row">
-          <div class="kc-item">
-            <div class="kc-item-cat" style="color:rgba(82,168,255,.6)">ConnectX</div>
-            <div class="kc-item-name">The NIC</div>
-            <div class="kc-item-desc">Moves data. No onboard CPU. Programmable for packet steering and RDMA via DOCA. Ships in every AI server.</div>
-          </div>
-          <div class="kc-item" style="border-color:rgba(82,168,255,.2);background:rgba(82,168,255,.04)">
-            <div class="kc-item-cat" style="color:rgba(82,168,255,.85)">BlueField</div>
-            <div class="kc-item-name">The DPU</div>
-            <div class="kc-item-desc">ConnectX + ARM cores. Runs its own OS. Offloads full workloads from the host. More capable, requires DOCA to program.</div>
-          </div>
-        </div>
-      </div>
-      <div class="kc-cmp">
-        <div class="kc-cmp-hd" style="color:rgba(118,185,0,.75)">DOCA vs. Blueprint &ndash; the key difference</div>
-        <div class="kc-cmp-row">
-          <div class="kc-item">
-            <div class="kc-item-cat" style="color:rgba(118,185,0,.65)">DOCA</div>
-            <div class="kc-item-name">The Platform</div>
-            <div class="kc-item-desc">APIs and runtime. Raw capability. You build solutions with it &ndash; but requires deep expertise.</div>
-          </div>
-          <div class="kc-item" style="border-color:rgba(0,185,155,.22);background:rgba(0,185,155,.04)">
-            <div class="kc-item-cat" style="color:rgba(0,185,155,.8)">Blueprint</div>
-            <div class="kc-item-name">The Recipe</div>
-            <div class="kc-item-desc">Pre-built solution on DOCA for one use case. Pull, configure, deploy. No deep expertise needed.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="a4" style="padding-bottom:8px">
-      <div style="font-size:10px;color:var(--text3);font-style:italic;text-align:center">
-        Hover any underlined term throughout the deck for a definition.
-      </div>
-    </div>
-
-  </div><!-- /sc -->
-  </div><!-- /s_concepts -->
-
-
   <!-- ----------------------------------
        SLIDE 03 &middot; PROBLEM & SOLUTION
   ---------------------------------- -->
@@ -2433,7 +2279,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Header -->
     <div class="s1-ph" id="s1p0">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 4 of 19 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem &amp; what DOCA solved</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 3 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem &amp; what DOCA solved</div>
       <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
     </div>
 
@@ -2602,7 +2448,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Header -->
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 5 of 19 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem and why it persists</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 4 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem and why it persists</div>
       <div class="headline"><span class="pain-grad">Why Existing Solutions Fall Short</span></div>
       <div class="subline a2" style="margin-top:4px">Every approach below has real merit &ndash; and real limits. The problem persists not because the market ignored it, but because each solution addresses one dimension while leaving the root cause untouched.</div>
     </div>
@@ -2748,7 +2594,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Header -->
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 6 of 19 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Why this solution is the most significant</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 5 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Why this solution is the most significant</div>
       <div class="headline"><span class="grad">Why DOCA is the Most Significant Answer</span></div>
       <div class="subline a2" style="margin-top:4px">The four approaches on the previous slide each address one dimension. DOCA is the only answer that operates at the platform level &ndash; addressing all five simultaneously, at scale, and with an unfair advantage no competitor can replicate.</div>
     </div>
@@ -2757,7 +2603,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="force-grid">
       <div class="force-card">
         <div class="ic-hint">hover to expand</div>
-        <div class="force-num"><span class="ntip" data-tip="9 months → 6 weeks. Derived from slide 5: 65% of the 9-month cycle is boilerplate code Blueprints eliminate entirely. 9mo ÷ 6wk ≈ 6×. Source: NVIDIA PS data · Docker simplification analogy.">6<span class="force-unit">×</span></span></div>
+        <div class="force-num"><span class="ntip" data-tip="9 months → 6 weeks. Derived from slide 4: 65% of the 9-month cycle is boilerplate code Blueprints eliminate entirely. 9mo ÷ 6wk ≈ 6×. Source: NVIDIA PS data · Docker simplification analogy.">6<span class="force-unit">×</span></span></div>
         <div class="force-title">Deployment Speed Multiplier</div>
         <div class="force-desc">DOCA&rsquo;s APIs, microservices, and Solution Blueprints collapse deployment from <strong style="color:#e05050">9 months</strong> to <strong style="color:rgba(118,185,0,.9)">6 weeks</strong>. Not by making engineers better &ndash; by eliminating 65% of the work that should never have existed in the first place.</div>
       </div>
@@ -2860,7 +2706,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:12px">
 
     <div>
-      <div class="eyebrow a1" style="margin-bottom:6px">Slide 7 of 19 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; What is DOCA</div>
+      <div class="eyebrow a1" style="margin-bottom:6px">Slide 6 of 18 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; What is DOCA</div>
       <div class="headline a2"><span class="grad">DOCA: The Programmability Layer</span></div>
       <div class="subline a2" style="margin-top:5px">Not just an SDK. The adoption layer between hardware capability and production deployment.</div>
     </div>
@@ -2990,7 +2836,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 19 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Why this matters now</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 7 of 18 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Why this matters now</div>
       <div class="headline"><span class="grad">Why DOCA Drives NVIDIA Revenue</span></div>
     </div>
 
@@ -3114,7 +2960,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 19 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Understanding the market</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 18 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Understanding the market</div>
       <div class="headline"><span class="grad">Competitive Landscape</span></div>
       <div class="subline a2" style="margin-top:4px">
         AI SmartNIC &amp; DPU hardware market share &ndash; the layer DOCA runs on.
@@ -3267,7 +3113,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 19 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Who is buying and why</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 18 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Who is buying and why</div>
       <div class="headline"><span class="grad">Key Customers</span></div>
     </div>
 
@@ -3430,9 +3276,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:12px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 19 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The reasoning behind the plan</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The reasoning behind the plan</div>
       <div class="headline"><span class="grad">Why Blueprints, Not the Alternatives</span></div>
-      <div class="subline a2" style="margin-top:5px">Every other path solves one piece of the problem. Only Blueprints address the root cause and pull everything else into a single roadmap.</div>
+      <div class="subline a2" style="margin-top:5px">We now know what DOCA is (slide 6). This is the strategic case for why <em>Blueprints</em> &ndash; not any other go-to-market path &ndash; is the right way to get it into production. Every other path solves one piece of the problem; only Blueprints address the root cause and pull everything else into a single roadmap.</div>
     </div>
 
     <!-- 4 eliminated options -->
@@ -3517,7 +3363,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 19 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The chosen path</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The chosen path</div>
       <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
       <div class="subline a2" style="margin-top:5px">Customers do not adopt platforms. They adopt solutions to painful problems.</div>
     </div>
@@ -3586,7 +3432,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:13px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 19 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; Strategy made concrete</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 18 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; Strategy made concrete</div>
       <div class="headline"><span class="grad">Blueprint #1: AI Cluster Networking Offload</span></div>
       <div class="subline a2" style="margin-top:4px">
         A Blueprint is not documentation &ndash; it is a <strong style="color:var(--text)">repeatable, tested, production path</strong>.
@@ -3598,7 +3444,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- Pain -->
     <div class="bp-pain a2">
       <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="rgba(224,80,80,.6)" stroke-width="1" fill="rgba(224,80,80,.06)"/><line x1="7" y1="4" x2="7" y2="8" stroke="rgba(224,80,80,.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="rgba(224,80,80,.9)"/></svg>
-      <span><strong style="color:rgba(224,80,80,.85)">The Pain:</strong> As GPU clusters scale, host CPU cycles spent on networking, telemetry, and policy grow proportionally &ndash; CPU becomes the bottleneck in the most expensive infrastructure in the world. Slide 8 quantifies this: 65% GPU utilization, $350M idle in a $1B cluster.</span>
+      <span><strong style="color:rgba(224,80,80,.85)">The Pain:</strong> As GPU clusters scale, host CPU cycles spent on networking, telemetry, and policy grow proportionally &ndash; CPU becomes the bottleneck in the most expensive infrastructure in the world. Slide 7 quantifies this: 65% GPU utilization, $350M idle in a $1B cluster.</span>
     </div>
 
     <div class="bp-layout a3">
@@ -3609,7 +3455,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="bp-spec-row"><span class="bp-k">DOCA services used</span><span class="bp-v">DOCA Flow &middot; GPUNetIO &middot; Telemetry &middot; Firefly</span></div>
         <div class="bp-spec-row"><span class="bp-k">Deliverables</span><span class="bp-v">Reference arch &middot; sample app &middot; deploy guide &middot; validation checklist</span></div>
         <div class="bp-spec-row"><span class="bp-k">Success definition</span><span class="bp-v">GPU util &gt;90% ? CPU I/O load &lt;25% ? new cluster live within 1 day of setup</span></div>
-        <div class="bp-spec-row"><span class="bp-k">Why this Blueprint first</span><span class="bp-v">Largest TAM ? directly tied to GPU sales ? addresses the #1 customer pain from slide 8</span></div>
+        <div class="bp-spec-row"><span class="bp-k">Why this Blueprint first</span><span class="bp-v">Largest TAM ? directly tied to GPU sales ? addresses the #1 customer pain from slide 7</span></div>
       </div>
 
       <!-- Before/after -->
@@ -3619,10 +3465,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="bp-metric">
           <div class="bp-metric-top">
             <span class="bp-metric-name">GPU Utilization</span>
-            <span class="bp-metric-val bpm-good" id="bp-gpu-v"><span class="ntip" data-tip="65% baseline = host CPU saturates all I/O at 400Gb/s, GPUs idle ~35% of the time (slide 8 · NVIDIA GTC 2024 field data · Forrester 2025). 90%+ = 35% idle gap recovered minus ~10% reserve for legitimate compute pauses. DOCA GPUNetIO routes packets GPU→GPU with zero CPU involvement. Source: NVIDIA ConnectX-7 RDMA benchmarks.">65% &rarr; 90%+</span></span>
+            <span class="bp-metric-val bpm-good" id="bp-gpu-v"><span class="ntip" data-tip="65% baseline = host CPU saturates all I/O at 400Gb/s, GPUs idle ~35% of the time (slide 7 · NVIDIA GTC 2024 field data · Forrester 2025). 90%+ = 35% idle gap recovered minus ~10% reserve for legitimate compute pauses. DOCA GPUNetIO routes packets GPU→GPU with zero CPU involvement. Source: NVIDIA ConnectX-7 RDMA benchmarks.">65% &rarr; 90%+</span></span>
           </div>
           <div class="bp-track"><div class="bp-fill-bad" style="width:65%"></div><div class="bp-fill-good" id="bp-gpu-f"></div></div>
-          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Consistent with slide 16 derivation &middot; DOCA GPUNetIO eliminates CPU I/O bottleneck</div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Consistent with slide 15 derivation &middot; DOCA GPUNetIO eliminates CPU I/O bottleneck</div>
         </div>
 
         <div class="bp-metric">
@@ -3637,10 +3483,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="bp-metric">
           <div class="bp-metric-top">
             <span class="bp-metric-name">Per-cluster setup time <em style="font-weight:400;color:var(--text3)">(using Blueprint, not POC-to-production)</em></span>
-            <span class="bp-metric-val bpm-good"><span class="ntip" data-tip="This is Blueprint replication time — NOT POC-to-production (slide 14's 9 mo → 6 wk full journey). 2–3 wk = manual per-cluster tuning + validation done from scratch today. &lt;1 day = infra team runs the pre-validated Blueprint template. Source: NVIDIA Blueprint early-customer time-to-deploy feedback.">2&ndash;3 wk &rarr; &lt;1 day</span></span>
+            <span class="bp-metric-val bpm-good"><span class="ntip" data-tip="This is Blueprint replication time — NOT POC-to-production (slide 13's 9 mo → 6 wk full journey). 2–3 wk = manual per-cluster tuning + validation done from scratch today. &lt;1 day = infra team runs the pre-validated Blueprint template. Source: NVIDIA Blueprint early-customer time-to-deploy feedback.">2&ndash;3 wk &rarr; &lt;1 day</span></span>
           </div>
           <div class="bp-track"><div class="bp-fill-good3" id="bp-dep-f"></div></div>
-          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Blueprint = validated template ? infra team runs it in hours ? <em>distinct from slide 14&rsquo;s 9 mo &rarr; 6 wk (full POC-to-production journey)</em></div>
+          <div style="font-size:9.5px;color:var(--text3);margin-top:3px">Blueprint = validated template ? infra team runs it in hours ? <em>distinct from slide 13&rsquo;s 9 mo &rarr; 6 wk (full POC-to-production journey)</em></div>
         </div>
 
         <div class="bp-principle">
@@ -3661,7 +3507,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 14 of 19 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The execution plan</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The execution plan</div>
       <div class="headline"><span class="grad">Product Strategy Alignment</span></div>
       <div class="subline a2" style="margin-top:5px">ConnectX, BlueField, and DOCA each have a distinct role &ndash; and all three must advance in parallel, not in sequence.</div>
     </div>
@@ -3697,7 +3543,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
       </div>
       <div style="font-size:10.5px;color:rgba(118,185,0,.7);font-style:italic;margin-top:6px;padding:6px 10px;background:rgba(118,185,0,.03);border:1px solid rgba(118,185,0,.12);border-radius:6px">
-        All 5 strategic options from slide 11 are embedded here: A (APIs) &rarr; SW track &middot; B (Blueprints) &rarr; Blueprint track &middot; C (Kubernetes) &rarr; SW track &middot; D (Observability) &rarr; SW track &middot; E (Partners) &rarr; GTM track
+        All 5 strategic options from slide 10 are embedded here: A (APIs) &rarr; SW track &middot; B (Blueprints) &rarr; Blueprint track &middot; C (Kubernetes) &rarr; SW track &middot; D (Observability) &rarr; SW track &middot; E (Partners) &rarr; GTM track
       </div>
     </div>
 
@@ -4350,7 +4196,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             </div>
             <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
               <span style="color:var(--text2)"><strong style="color:var(--text)">Blueprint #1 GA in H1 2027:</strong> ~9 months from Q3 2026. Based on 87% failure being integration-driven &ndash; solving it requires ~1 customer co-development cycle to validate</span>
-              <span style="color:var(--text3);white-space:nowrap">Derived · slide 4</span>
+              <span style="color:var(--text3);white-space:nowrap">Derived · slide 3</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px">
               <span style="color:var(--text2)"><strong style="color:var(--text)">Partner program H2 2027:</strong> SI certification programs typically take 6&ndash;12 months to stand up (comparable: Cisco DevNet, VMware Partner program)</span>
@@ -4364,19 +4210,19 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div style="display:flex;flex-direction:column;gap:5px">
             <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
               <span style="color:var(--text2)"><strong style="color:var(--text)">87% POC failure rate:</strong> Infra platforms in early production adoption phase. Consistent with hyperscaler adoption curve data for developer-facing platforms</span>
-              <span style="color:var(--text3);white-space:nowrap">Forrester · slide 4</span>
+              <span style="color:var(--text3);white-space:nowrap">Forrester · slide 3</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
-              <span style="color:var(--text2)"><strong style="color:var(--text)">9-month deployment cycle:</strong> Broken into 4 categories in slide 4. Cross-referenced with Gartner "infrastructure POC to production" benchmarks for enterprise networking</span>
-              <span style="color:var(--text3);white-space:nowrap">Gartner · slide 4</span>
+              <span style="color:var(--text2)"><strong style="color:var(--text)">9-month deployment cycle:</strong> Broken into 4 categories in slide 3. Cross-referenced with Gartner "infrastructure POC to production" benchmarks for enterprise networking</span>
+              <span style="color:var(--text3);white-space:nowrap">Gartner · slide 3</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px;border-bottom:1px solid var(--border);padding-bottom:4px">
               <span style="color:var(--text2)"><strong style="color:var(--text)">60% adoption target (Year 2):</strong> CUDA adoption analogue &ndash; reached ~80% after deployment simplicity crossed a threshold. 60% is a conservative pre-threshold target</span>
-              <span style="color:var(--text3);white-space:nowrap">CUDA history · slide 14</span>
+              <span style="color:var(--text3);white-space:nowrap">CUDA history · slide 13</span>
             </div>
             <div style="display:grid;grid-template-columns:1fr auto;gap:8px;font-size:10.5px">
               <span style="color:var(--text2)"><strong style="color:var(--text)">~55K BlueField DPUs shipped:</strong> Dell&rsquo;Oro Group market analysis. Used as the denominator for the adoption rate metric</span>
-              <span style="color:var(--text3);white-space:nowrap">Dell&rsquo;Oro · slide 8</span>
+              <span style="color:var(--text3);white-space:nowrap">Dell&rsquo;Oro · slide 7</span>
             </div>
           </div>
         </div>
@@ -4418,7 +4264,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:11px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 15 of 19 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; What I&rsquo;m betting on</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 14 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; What I&rsquo;m betting on</div>
       <div class="headline"><span class="grad">Foundational Assumptions</span></div>
       <div class="subline a2" style="margin-top:4px">Everything on the last three slides is built on beliefs I have not yet proven. Naming them &ndash; and how I&rsquo;d de-risk each one fast &ndash; is what separates a plan from a hope.</div>
     </div>
@@ -4489,7 +4335,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="assump-num">4</div>
         <div class="assump-body">
           <div class="assump-title">There is an 18&ndash;24 month window before DPU software capability commoditizes</div>
-          <div class="assump-desc">The urgency argument (slide 8) depends on this window holding. Faster-than-expected progress from AWS Nitro-class ASICs or an open DPDK/SPDK standard would shrink the head start DOCA is meant to buy.</div>
+          <div class="assump-desc">The urgency argument (slide 7) depends on this window holding. Faster-than-expected progress from AWS Nitro-class ASICs or an open DPDK/SPDK standard would shrink the head start DOCA is meant to buy.</div>
           <div class="assump-meta">
             <span class="conf-label">Confidence</span>
             <span class="conf-dots"><span class="conf-dot on"></span><span class="conf-dot on"></span><span class="conf-dot on"></span><span class="conf-dot"></span><span class="conf-dot"></span></span>
@@ -4522,7 +4368,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     </div><!-- /assump-grid -->
 
     <div class="assump-note a4">
-      If assumptions 1 or 2 break, I don&rsquo;t abandon Blueprints &ndash; I re-scope which use case ships first (slide 12) using whatever the post-mortems actually show. That&rsquo;s the point of testing cheap, early bets before the roadmap (slide 14) locks in.
+      If assumptions 1 or 2 break, I don&rsquo;t abandon Blueprints &ndash; I re-scope which use case ships first (slide 11) using whatever the post-mortems actually show. That&rsquo;s the point of testing cheap, early bets before the roadmap (slide 13) locks in.
     </div>
 
   </div><!-- /sc -->
@@ -4536,7 +4382,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:11px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 16 of 19 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Execution discipline</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 15 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Execution discipline</div>
       <div class="headline"><span class="grad">Priorities &amp; Risk</span></div>
       <div class="subline a2" style="margin-top:4px">Two questions every CEO asks: <em>What are we doing first?</em> &nbsp;&middot;&nbsp; <em>What can go wrong &mdash; and how do we mitigate it?</em></div>
     </div>
@@ -4717,7 +4563,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:11px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 17 of 19 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Measuring what matters</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 16 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Measuring what matters</div>
       <div class="headline"><span class="grad">DOCA Success Metrics</span></div>
       <div class="subline a2" style="margin-top:4px">Every number traces back to data already in this deck ? baseline, target, delta, and why.</div>
     </div>
@@ -4725,7 +4571,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- Methodology banner -->
     <div class="sm-method-banner a2">
       <div class="sm-method-label">How these numbers were derived</div>
-      Three inputs: (1) <strong style="color:var(--text)">65% GPU utilization baseline</strong> (slide 5); (2) <strong style="color:var(--text)">9-month deployment cycle</strong> broken into categories (slide 5); (3) <strong style="color:var(--text)">87% POC failure rate</strong> driven by integration complexity. Targets assume DOCA removes the specific barriers identified &ndash; not blanket improvement.
+      Three inputs: (1) <strong style="color:var(--text)">65% GPU utilization baseline</strong> (slide 4); (2) <strong style="color:var(--text)">9-month deployment cycle</strong> broken into categories (slide 4); (3) <strong style="color:var(--text)">87% POC failure rate</strong> driven by integration complexity. Targets assume DOCA removes the specific barriers identified &ndash; not blanket improvement.
     </div>
 
     <!-- 4 metric cards: 2?2 grid -->
@@ -4752,7 +4598,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          35% idle gap = CPU I/O bottleneck (slide 5). DOCA GPUNetIO moves packets GPU-to-GPU, zero CPU involvement &rarr; bottleneck eliminated. $250K/mo = $350K &times; (25/35), proportional to recovered idle. Source: NVIDIA ConnectX-7 RDMA benchmarks.
+          35% idle gap = CPU I/O bottleneck (slide 4). DOCA GPUNetIO moves packets GPU-to-GPU, zero CPU involvement &rarr; bottleneck eliminated. $250K/mo = $350K &times; (25/35), proportional to recovered idle. Source: NVIDIA ConnectX-7 RDMA benchmarks.
         </div>
       </div>
 
@@ -4777,7 +4623,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          65% of 9 mo (integration + API, slide 5) eliminated by Blueprints. Remaining 35% compressed to ~2&ndash;3 weeks via Blueprint security templates + telemetry. Total: ~6 wk. <em>10&times; would need monitoring eliminated too &ndash; 6&times; is the defensible number.</em>
+          65% of 9 mo (integration + API, slide 4) eliminated by Blueprints. Remaining 35% compressed to ~2&ndash;3 weeks via Blueprint security templates + telemetry. Total: ~6 wk. <em>10&times; would need monitoring eliminated too &ndash; 6&times; is the defensible number.</em>
         </div>
       </div>
 
@@ -4802,7 +4648,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          13% = 100% &ndash; 87% failure (slide 5). DOCA removes the #1 blocker: integration complexity. Target 65% &ndash; 100%: ~35% of POCs fail for non-technical reasons (budget, org change) that no product can fix.
+          13% = 100% &ndash; 87% failure (slide 4). DOCA removes the #1 blocker: integration complexity. Target 65% &ndash; 100%: ~35% of POCs fail for non-technical reasons (budget, org change) that no product can fix.
         </div>
       </div>
 
@@ -4885,13 +4731,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             </tr>
             <tr style="border-bottom:1px solid var(--border)">
               <td style="padding:8px 12px;font-weight:700;color:rgba(0,185,155,.85)">Time to Prod<br>9 mo &rarr; 6 wk</td>
-              <td style="padding:8px 12px;color:var(--text2)"><strong>9 months</strong> = NVIDIA PS engagement average (slide 5). Bottom-up: 2&ndash;3 mo docs/learning + 3&ndash;4 mo integration code + 1&ndash;2 mo testing + 1 mo approval. 65% of this is writing code that should already exist.</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>9 months</strong> = NVIDIA PS engagement average (slide 4). Bottom-up: 2&ndash;3 mo docs/learning + 3&ndash;4 mo integration code + 1&ndash;2 mo testing + 1 mo approval. 65% of this is writing code that should already exist.</td>
               <td style="padding:8px 12px;color:var(--text2)"><strong>6 weeks</strong> = remove 65% boilerplate (cut to ~3 months) + Blueprint-guided validation compresses testing from weeks to days. <em>10&times; would require also eliminating monitoring setup &ndash; 6&times; is the defensible, conservative claim.</em></td>
               <td style="padding:8px 12px;color:var(--text2)">A Blueprint is pre-built, pre-tested, pre-documented DOCA code for one use case. Customer skips months of integration work entirely. Not faster &ndash; eliminated. Same mechanism as Docker vs. manual server config.</td>
             </tr>
             <tr style="border-bottom:1px solid var(--border)">
               <td style="padding:8px 12px;font-weight:700;color:rgba(0,185,155,.7)">POC Success<br>13% &rarr; 65%+</td>
-              <td style="padding:8px 12px;color:var(--text2)"><strong>13%</strong> = 100% &ndash; 87% failure (slide 5). The 87% failure rate comes from NVIDIA PS data + Gartner 2024. "Failure" = stalled or cancelled within 12 months, root cause: integration complexity.</td>
+              <td style="padding:8px 12px;color:var(--text2)"><strong>13%</strong> = 100% &ndash; 87% failure (slide 4). The 87% failure rate comes from NVIDIA PS data + Gartner 2024. "Failure" = stalled or cancelled within 12 months, root cause: integration complexity.</td>
               <td style="padding:8px 12px;color:var(--text2)"><strong>65%</strong> = remove integration barrier, which is the #1 cause. The remaining 35% fail for reasons outside product scope: budget cuts, org changes, strategic pivots. No product can fix those.</td>
               <td style="padding:8px 12px;color:var(--text2)">Blueprints eliminate the primary failure mode. The remaining failure budget (~35%) is irreducible &ndash; this is intentionally conservative. A 65%+ success rate means DOCA is best-in-class at infrastructure platform adoption.</td>
             </tr>
@@ -4922,7 +4768,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc method-sc">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 18 of 19 &nbsp;&middot;&nbsp; Behind the work</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 17 of 18 &nbsp;&middot;&nbsp; Behind the work</div>
       <div class="headline"><span class="grad">My PM Manifesto</span></div>
       <div class="subline a2" style="margin-top:5px">How I think about product &ndash; not just what I deliver.</div>
     </div>
@@ -5051,7 +4897,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <div class="why-hero a1">
       <div class="why-hero-top">
-        <div class="why-hero-badge">Slide 19 of 19 &nbsp;&middot;&nbsp; The Pitch</div>
+        <div class="why-hero-badge">Slide 18 of 18 &nbsp;&middot;&nbsp; The Pitch</div>
       </div>
       <div class="why-hero-split">
         <!-- Photo card -->
