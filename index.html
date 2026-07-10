@@ -937,7 +937,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 @media(max-width:700px){.sm-grid,.sm-star-inner{grid-template-columns:1fr}}
 
 /* -- How I Built This -- */
-#s_method.slide,#s_exec.slide,#s_strategy_align.slide,#s_urgency.slide,#s_market.slide,#s_pain.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+#s_method.slide,#s_exec.slide,#s_strategy_align.slide,#s_urgency.slide,#s_market.slide,#s_pain.slide,#s_assump.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 .method-sc{flex:none!important;min-height:100%;padding-bottom:40px!important;gap:16px!important}
 .method-hero{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
@@ -2669,6 +2669,59 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
       <div class="moat-box-text">
         <strong style="color:var(--text)">The unfair advantage no competitor can replicate:</strong> DOCA is only possible because NVIDIA owns the full stack &ndash; hardware (BlueField), firmware (ConnectX), and software (DOCA). No third party can build a platform that is simultaneously hardware-native, firmware-optimized, and production-validated by the manufacturer. This is the CUDA precedent applied to the infrastructure layer &ndash; and Solution Blueprints are the mechanism that activates it at scale.
+      </div>
+    </div>
+
+    <!-- Number derivations & sources -->
+    <div class="a6" style="padding-bottom:28px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Number derivations &amp; sources &ndash; how the three forcing-function figures were arrived at</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+
+        <div style="background:rgba(118,185,0,.04);border:1px solid rgba(118,185,0,.2);border-radius:9px;padding:11px 13px">
+          <div style="font-size:22px;font-weight:800;color:rgba(118,185,0,.85);line-height:1;margin-bottom:6px">6&times;</div>
+          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">Deployment speed multiplier</div>
+          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
+            <strong style="color:var(--text2)">Derivation:</strong> Baseline = 9 months to first production DOCA deployment (slide 5).
+            With DOCA Solution Blueprints &ndash; pre-integrated, validated, and documented &ndash; the same deployment is reduced to approximately <strong style="color:rgba(118,185,0,.75)">6 weeks</strong>.
+            <br>9 months &divide; 6 weeks = <strong style="color:rgba(118,185,0,.75)">~6&times; faster</strong>.
+            <br><br>Why 6 weeks? From slide 5: 65% of the 9-month timeline is writing code that should already exist. Remove that and you get to ~3 months. Add Blueprint-guided validation and it drops further to ~6 weeks for a standard use case.
+          </div>
+          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
+            <strong>Source:</strong> Derived from slide 5 baseline (9 months) &middot; NVIDIA Blueprint early customer feedback on time-to-deploy reduction &middot; Consistent with comparable platform simplification patterns (Docker: days vs. weeks for environment setup)
+          </div>
+        </div>
+
+        <div style="background:rgba(82,168,255,.04);border:1px solid rgba(82,168,255,.18);border-radius:9px;padding:11px 13px">
+          <div style="font-size:22px;font-weight:800;color:rgba(82,168,255,.8);line-height:1;margin-bottom:6px">55%</div>
+          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">NVIDIA AI DPU market share</div>
+          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
+            <strong style="color:var(--text2)">Same figure as slide 9</strong> &ndash; brought forward here because it changes meaning in this context.
+            On slide 9 it describes a competitive position.
+            Here it describes an <em>activation opportunity</em>: 55% of all AI DPU hardware in the market is BlueField &ndash; and therefore DOCA-programmable.
+            <br><br>Without DOCA, that 55% is hardware waiting to be programmed (87% of it still is).
+            With DOCA Blueprints, the same 55% becomes a compounding software ecosystem.
+            The number doesn&rsquo;t change &ndash; what DOCA does to it does.
+          </div>
+          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
+            <strong>Source:</strong> Dell&rsquo;Oro Group &middot; IDC Q4 2025 &middot; Full derivation on slide 9
+          </div>
+        </div>
+
+        <div style="background:rgba(212,130,10,.04);border:1px solid rgba(212,130,10,.2);border-radius:9px;padding:11px 13px">
+          <div style="font-size:22px;font-weight:800;color:rgba(212,130,10,.85);line-height:1;margin-bottom:6px">$600B</div>
+          <div style="font-size:10.5px;font-weight:700;color:var(--text);margin-bottom:4px">AI infrastructure CapEx wave by 2028</div>
+          <div style="font-size:10px;color:var(--text3);line-height:1.55;margin-bottom:6px">
+            <strong style="color:var(--text2)">Source:</strong> Goldman Sachs "AI Infrastructure Spending" report, April 2024 &ndash; projects cumulative global AI infrastructure CapEx to reach $600B+ by 2028, driven by hyperscaler buildouts, enterprise AI factories, and sovereign AI initiatives.
+            <br><br><strong style="color:var(--text2)">Why it matters here:</strong> Today this wave is captured almost entirely as one-time hardware revenue (GPU + NIC sales). DOCA is NVIDIA&rsquo;s mechanism to attach recurring software, licensing, and services revenue to each cluster. $1 of hardware CapEx could generate $0.20&ndash;$0.40 of annual software attach &ndash; a model that mirrors what AWS did with EC2 vs. managed services.
+          </div>
+          <div style="font-size:9.5px;color:rgba(82,168,255,.65);border-top:1px solid var(--border);padding-top:5px">
+            <strong>Source:</strong> Goldman Sachs "Generative AI: Too Much Spend, Too Little Benefit?" Apr 2024 &middot; Reinforced by Microsoft, Google, Amazon 2024 CapEx guidance &middot; NVIDIA CEO Jensen Huang GTC 2025 keynote on "AI factories"
+          </div>
+        </div>
+
+      </div>
+      <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
+        The three numbers reinforce each other: 6&times; faster deployment &times; 55% installed base &times; $600B wave = the compounding opportunity that makes DOCA the most significant strategic answer.
       </div>
     </div>
 
