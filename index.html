@@ -3860,13 +3860,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="a1">
       <div class="eyebrow" style="margin-bottom:5px">Slide 15 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Measuring what matters</div>
       <div class="headline"><span class="grad">DOCA Success Metrics</span></div>
-      <div class="subline a2" style="margin-top:4px">Every number below is derived from data already established in this deck &mdash; not aspirational guesses. Each metric shows its baseline, target, delta, and the chain of reasoning that connects them.</div>
+      <div class="subline a2" style="margin-top:4px">Every number traces back to data already in this deck ? baseline, target, delta, and why.</div>
     </div>
 
     <!-- Methodology banner -->
     <div class="sm-method-banner a2">
       <div class="sm-method-label">How these numbers were derived</div>
-      Three inputs ground every target: (1) <strong style="color:var(--text)">65% GPU utilization baseline</strong> from slide 3; (2) <strong style="color:var(--text)">9-month deployment cycle</strong> broken into four categories in slide 4 (40% integration + 25% API + 20% security + 15% monitoring); (3) <strong style="color:var(--text)">87% POC-to-production failure rate</strong> driven by integration complexity. Targets assume DOCA eliminates the specific barriers identified &mdash; not wholesale improvement.
+      Three inputs: (1) <strong style="color:var(--text)">65% GPU utilization baseline</strong> (slide 3); (2) <strong style="color:var(--text)">9-month deployment cycle</strong> broken into categories (slide 4); (3) <strong style="color:var(--text)">87% POC failure rate</strong> driven by integration complexity. Targets assume DOCA removes the specific barriers identified ? not blanket improvement.
     </div>
 
     <!-- 4 metric cards: 2?2 grid -->
@@ -3893,7 +3893,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          The 35% idle gap = CPU I/O bottleneck (slide 3). DOCA offloads all networking from host CPU via RDMA + DOCA GPUNetIO: packets move GPU-to-GPU with zero CPU involvement. Eliminating the bottleneck recovers the idle time. $270K/mo = $350K &times; (25/35) &mdash; proportional to the recovered idle share. Source: NVIDIA ConnectX-7 RDMA benchmarks &middot; MLPerf H100 training network utilization.
+          35% idle gap = CPU I/O bottleneck (slide 3). DOCA GPUNetIO moves packets GPU-to-GPU, zero CPU involvement &rarr; bottleneck eliminated. $270K/mo = $350K &times; (25/35), proportional to recovered idle. Source: NVIDIA ConnectX-7 RDMA benchmarks.
         </div>
       </div>
 
@@ -3918,7 +3918,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          Slide 4 breakdown: 40% custom integration + 25% API learning = 65% of 9 months = ~6 months. DOCA Blueprints eliminate both. Remaining 35% (security 20% + monitoring 15%) = ~3.2 months &rarr; reduced to ~2&ndash;3 weeks via Blueprint security templates + telemetry scaffolding. Total: ~6 weeks. <strong style="color:var(--text)">Note: 10&times; would require eliminating monitoring overhead too &mdash; 6&times; is the honest, defensible number.</strong>
+          65% of 9 mo (integration + API, slide 4) eliminated by Blueprints. Remaining 35% compressed to ~2?3 weeks via Blueprint security templates + telemetry. Total: ~6 wk. <em>10? would need monitoring eliminated too ? 6? is the defensible number.</em>
         </div>
       </div>
 
@@ -3943,7 +3943,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          Baseline 13% = (100% &minus; 87% failure). The 87% is integration-complexity driven (slide 4) &rarr; DOCA eliminates the #1 blocker. Target 65% (not 100%) accounts for natural attrition: ~35% of POCs fail for non-technical reasons (budget, org change, scope) that DOCA cannot fix. 65% = the technically-addressable ceiling given known failure drivers.
+          13% = 100% ? 87% failure (slide 4). DOCA removes the #1 blocker: integration complexity. Target 65% ? 100%: ~35% of POCs fail for non-technical reasons (budget, org change) that no product can fix.
         </div>
       </div>
 
@@ -3968,7 +3968,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="sm-derivation">
           <span class="sm-deriv-label">Derivation</span>
-          ~20% baseline = conservative estimate: 87% of POCs fail ? only ~13% of accounts that trialed DOCA reach production; adding accounts with no POC attempted, ~20% active rate is plausible. ~55K BlueField DPUs shipped (Dell&rsquo;Oro) ? each 1pp improvement = ~550 additional production deployments. 60% is the CUDA analogue target: GPU compute adoption reached ~80% after CUDA hit a deployment-simplicity threshold.
+          ~20% = only accounts that beat the 87% failure rate. ~55K BlueField DPUs shipped (Dell'Oro) ? each 1pp = ~550 new production deployments. 60% mirrors CUDA's curve after deployment simplicity crossed a threshold.
         </div>
       </div>
 
@@ -3997,7 +3997,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           </div>
         </div>
         <div class="sm-star-right">
-          <strong style="color:var(--text)">Why this is the right North Star:</strong> It captures both the technical win (DOCA deployed) and the business win (hardware generates software value). It is immune to vanity metrics &mdash; a Blueprint that runs in staging doesn&rsquo;t count. Every other metric on this page is a leading indicator that predicts this one. If GPU utilization goes up (+25pp), if deployment time falls (6&times;), if POC conversion improves (5&times;) &mdash; the adoption rate follows. This is the flywheel: <strong style="color:rgba(118,185,0,.9)">faster deployment ? more production deployments ? more hardware pull-through ? more DOCA investment ? better Blueprints ? faster deployment.</strong>
+          <strong style="color:var(--text)">Why this is the right North Star:</strong> It captures both the technical win (DOCA deployed) and the business win (hardware generates software value). Staging doesn't count ? only production. Every metric above is a leading indicator that points here. <br><br><strong style="color:rgba(118,185,0,.9)">The flywheel:</strong> faster deployment &rarr; more production &rarr; more hardware pull-through &rarr; better Blueprints &rarr; faster deployment.
         </div>
       </div>
     </div>
