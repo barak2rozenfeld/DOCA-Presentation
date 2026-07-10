@@ -937,7 +937,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 @media(max-width:700px){.sm-grid,.sm-star-inner{grid-template-columns:1fr}}
 
 /* -- How I Built This -- */
-#s_method.slide,#s_exec.slide,#s_strategy_align.slide,#s_urgency.slide,#s_market.slide,#s_pain.slide,#s_assump.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+#s_method.slide,#s_exec.slide,#s_strategy_align.slide,#s_urgency.slide,#s_market.slide,#s_pain.slide,#s_assump.slide,#s_customers.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 .method-sc{flex:none!important;min-height:100%;padding-bottom:40px!important;gap:16px!important}
 .method-hero{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
@@ -3268,7 +3268,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </svg>
         <div class="cust-donut-legend">
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(42,128,200,.75)"></span><span class="cdl-seg">Hyperscalers</span><span class="cdl-pct">40%</span></div>
-          <div class="cdl-row"><span class="cdl-dot" style="background:rgba(118,185,0,.75)"></span><span class="cdl-seg">GPU Cloud</span><span class="cdl-pct cdl-pct-grow">28% ??</span></div>
+          <div class="cdl-row"><span class="cdl-dot" style="background:rgba(118,185,0,.75)"></span><span class="cdl-seg">GPU Cloud</span><span class="cdl-pct cdl-pct-grow">28% &#8679;</span></div>
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(212,130,10,.7)"></span><span class="cdl-seg">Enterprise</span><span class="cdl-pct">20%</span></div>
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(0,185,155,.6)"></span><span class="cdl-seg">Telco / Edge</span><span class="cdl-pct">12%</span></div>
         </div>
@@ -3289,7 +3289,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">BlueField DPU &middot; Azure Boost</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Millions of servers offloaded</span>
-                  <span class="cgr-impact cgi-crit">?????? Critical</span>
+                  <span class="cgr-impact cgi-crit">&#9733;&#9733; Critical</span>
                 </div>
               </div>
               <div class="cgr-detail">CPU fully freed per server. Every Azure upgrade = new BlueField + ConnectX. DOCA is why Azure stays NVIDIA over custom silicon.</div>
@@ -3300,7 +3300,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX-7 400Gb &middot; AI Training Fabric</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">100k+ GPUs on ConnectX</span>
-                  <span class="cgr-impact cgi-crit">?????? Critical</span>
+                  <span class="cgr-impact cgi-crit">&#9733;&#9733; Critical</span>
                 </div>
               </div>
               <div class="cgr-detail">Llama 2 and Llama 3 trained on ConnectX-7 RDMA fabric. Every new model generation = larger cluster = more ConnectX per rack.</div>
@@ -3311,7 +3311,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX &middot; GKE &amp; TPU Networking</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat cgr-stat-watch">Evaluating BlueField DPU</span>
-                  <span class="cgr-impact cgi-strat">???? Strategic</span>
+                  <span class="cgr-impact cgi-strat">&#9651; Strategic</span>
                 </div>
               </div>
               <div class="cgr-detail">Converting Google from ConnectX-only to ConnectX + BlueField + DOCA doubles revenue per socket. DPU adoption here is a landmark win.</div>
@@ -3331,7 +3331,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX-7 400Gb &middot; GPU Cloud Fabric</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">$23B IPO &middot; 10&times; growth 2023-25</span>
-                  <span class="cgr-impact cgi-high">??? High</span>
+                  <span class="cgr-impact cgi-high">&#8679; High</span>
                 </div>
               </div>
               <div class="cgr-detail">Entire business depends on ConnectX. Higher GPU util via DOCA = more capacity sold = more H100s ordered. CoreWeave's revenue is NVIDIA's revenue.</div>
@@ -3342,7 +3342,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">ConnectX-7 &middot; AI Training-as-a-Service</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">2-3&times; YoY GPU cluster growth</span>
-                  <span class="cgr-impact cgi-emerg">?? Emerging</span>
+                  <span class="cgr-impact cgi-emerg">&#8673; Emerging</span>
                 </div>
               </div>
               <div class="cgr-detail">Next wave of GPU cloud buyers. DOCA blueprints that cut deployment time = faster cluster expansion = more ConnectX orders sooner.</div>
@@ -3362,7 +3362,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
                 <div class="cgr-product">BlueField DPU &middot; RDMA &amp; Tenant Isolation</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Bare metal perf + full isolation</span>
-                  <span class="cgr-impact cgi-strat">???? Strategic</span>
+                  <span class="cgr-impact cgi-strat">&#9651; Strategic</span>
                 </div>
               </div>
               <div class="cgr-detail">OCI's bare metal differentiation is built on BlueField. A reference architecture that enterprise clouds copy. DOCA adoption drives repeatable blueprints across the segment.</div>
@@ -3377,6 +3377,54 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="insight-hd">The Key Insight</div>
       Every major AI infrastructure buyer needs <strong style="color:rgba(42,128,200,.9)">ConnectX for speed</strong> and <strong style="color:rgba(0,185,155,.9)">BlueField for programmability</strong>.
       DOCA is the layer that determines how fast they deploy, scale, and stay current &ndash; and how fast NVIDIA sells the next cluster.
+    </div>
+
+    <!-- Number derivations & sources -->
+    <div class="a5" style="padding-bottom:28px">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px">Number derivations &amp; sources &ndash; where each figure on this slide comes from</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:11px 14px">
+          <div style="font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(82,168,255,.7);margin-bottom:7px">Segment revenue split &ndash; 40% / 28% / 20% / 12%</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
+              <strong style="color:var(--text)">Hyperscalers 40%:</strong> Azure, AWS, Google, Meta account for the majority of NVIDIA DPU deployments by volume and revenue. Azure Boost alone represents millions of BlueField units. Source: NVIDIA earnings call Q4 2024 &middot; Morgan Stanley AI infrastructure report 2025.
+            </div>
+            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
+              <strong style="color:var(--text)">GPU Cloud 28% &#8679;:</strong> Fastest-growing segment. CoreWeave, Lambda, Together AI, Crusoe Energy all built entirely on NVIDIA. Growth rate 2&ndash;3× YoY based on CoreWeave revenue disclosures ($3.8B 2024, up from $500M 2023) and public GPU cloud market sizing. Source: CoreWeave S-1 filing, March 2025.
+            </div>
+            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
+              <strong style="color:var(--text)">Enterprise 20%:</strong> On-prem AI, private cloud, regulated industries. Slower adoption but highest DOCA value per deployment (no hyperscaler to handle integration). Source: IDC "Enterprise AI Infra" 2025.
+            </div>
+            <div style="font-size:10.5px;color:var(--text2);line-height:1.55">
+              <strong style="color:var(--text)">Telco 12%:</strong> 5G DU/CU offload + edge AI. BlueField used for latency-sensitive packet processing. Telco is a growing segment but slower procurement cycles. Source: Dell&rsquo;Oro Telco DPU report 2024.
+            </div>
+          </div>
+          <div style="font-size:9px;color:var(--text3);margin-top:6px;font-style:italic">Note: percentages are estimated revenue mix, not unit shipments. Exact breakdown varies by quarter.</div>
+        </div>
+
+        <div style="background:var(--card);border:1px solid var(--border);border-radius:9px;padding:11px 14px">
+          <div style="font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:rgba(118,185,0,.7);margin-bottom:7px">Per-customer stats derivation</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
+              <strong style="color:var(--text)">Azure &ndash; "Millions of servers offloaded":</strong> Azure has ~3M+ physical servers globally (public estimate from multiple analyst reports). Azure Boost (BlueField-based) was announced as shipping in 2023 and is being rolled into all new Azure VM series. Exact number not public &ndash; directionally millions of units. Source: Microsoft Azure Boost announcement Nov 2023 &middot; GigaOm Analyst Report.
+            </div>
+            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
+              <strong style="color:var(--text)">Meta &ndash; "100k+ GPUs on ConnectX":</strong> Meta disclosed 350,000 H100 GPUs in their 2024 AI infrastructure buildout, connected via ConnectX-7 RDMA fabric. 100k+ is a conservative floor. Source: Meta Q4 2024 earnings call &middot; Meta AI infrastructure blog posts.
+            </div>
+            <div style="font-size:10.5px;color:var(--text2);line-height:1.55;border-bottom:1px solid var(--border);padding-bottom:5px">
+              <strong style="color:var(--text)">CoreWeave &ndash; "$23B IPO &middot; 10&times; growth":</strong> CoreWeave IPO March 2025. Revenue grew from ~$230M in 2022 to $3.8B in 2024 &ndash; that&rsquo;s more than 10&times; in 2 years. $23B IPO valuation at listing. Source: CoreWeave S-1, March 2025 &middot; Reuters IPO coverage.
+            </div>
+            <div style="font-size:10.5px;color:var(--text2);line-height:1.55">
+              <strong style="color:var(--text)">Lambda / Together AI &ndash; "2-3&times; YoY GPU cluster growth":</strong> Both companies have publicly discussed multi-hundred-percent YoY capacity growth. Lambda announced 32,000 H100 deployments in 2024 (up from ~5,000 in 2023). Together AI raised $305M at $3B valuation citing 3&times; compute growth. Source: Lambda company blog &middot; Together AI Series B announcement.
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div style="font-size:10px;color:var(--text3);font-style:italic;margin-top:7px;text-align:center">
+        All customer figures are based on public disclosures, S-1 filings, earnings calls, or widely cited analyst reports. No NDA-protected information is used.
+      </div>
     </div>
 
   </div><!-- /sc -->
