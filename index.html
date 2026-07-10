@@ -802,47 +802,31 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 }
 
 /* -- Strategic Alternatives (interactive) -- */
-.alt9{display:grid;grid-template-columns:270px 1fr;gap:14px;align-items:stretch}
-.alt9-tabs{display:flex;flex-direction:column;gap:6px}
-.alt9-tab{
-  display:flex;align-items:center;gap:10px;text-align:left;cursor:pointer;
-  background:var(--card);border:1px solid var(--border);border-radius:8px;padding:9px 11px;
-  font-family:inherit;transition:border-color .2s,background .2s;width:100%;
-}
-.alt9-tab:hover{border-color:rgba(118,185,0,.25)}
-.alt9-tab.active{border-color:rgba(118,185,0,.45);background:rgba(118,185,0,.06)}
-.alt9-badge{width:24px;height:24px;border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  font-size:12px;font-weight:800;color:var(--text3);background:var(--card2);border:1px solid var(--border2)}
-.alt9-tab.active .alt9-badge{color:#fff;background:rgba(118,185,0,.85);border-color:rgba(118,185,0,.5)}
-.alt9-tname{flex:1;font-size:12px;font-weight:700;color:var(--text);letter-spacing:-.01em}
-.alt9-tscore{font-size:12px;font-weight:800;color:var(--text3);font-family:var(--mono)}
-.alt9-tab.active .alt9-tscore{color:rgba(118,185,0,.9)}
-/* Panel */
-.alt9-panel{background:var(--card);border:1px solid rgba(118,185,0,.2);border-radius:10px;padding:14px 16px;
-  display:flex;flex-direction:column;gap:11px}
-.alt9-p-head{display:flex;align-items:center;gap:11px}
-.alt9-p-badge{width:32px;height:32px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;
-  font-size:15px;font-weight:800;color:#fff;background:rgba(118,185,0,.85)}
-.alt9-p-name{font-size:15px;font-weight:800;color:var(--text);letter-spacing:-.02em}
-.alt9-p-verdict{font-size:10.5px;color:rgba(118,185,0,.8);font-weight:600}
-.alt9-p-overall{margin-left:auto;font-size:24px;font-weight:800;color:rgba(118,185,0,.95);letter-spacing:-.03em}
-.alt9-p-overall small{font-size:11px;color:var(--text3);font-weight:600}
-.alt9-p-example{font-size:11.5px;color:var(--text2);line-height:1.55;background:var(--card2);
-  border:1px solid var(--border);border-radius:7px;padding:9px 12px}
-.alt9-vr{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.alt9-vr-col{display:flex;flex-direction:column;gap:3px;font-size:11px;color:var(--text2);line-height:1.45}
-.alt9-vr-lbl{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;width:fit-content;padding:1px 6px;border-radius:3px}
-.alt9-vr-good{color:rgba(118,185,0,.85);background:rgba(118,185,0,.08);border:1px solid rgba(118,185,0,.2)}
-.alt9-vr-bad{color:rgba(224,80,80,.85);background:rgba(224,80,80,.07);border:1px solid rgba(224,80,80,.2)}
-.alt9-crit{display:flex;flex-direction:column;gap:7px;border-top:1px solid var(--border);padding-top:10px}
-.alt9-crit-row{display:flex;align-items:center;gap:9px}
-.alt9-crit-name{font-size:10.5px;color:var(--text2);width:100px;flex-shrink:0}
-.alt9-crit-bar{flex:1;height:7px;background:rgba(255,255,255,.05);border-radius:4px;overflow:hidden}
-.alt9-crit-fill{height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,rgba(118,185,0,.5),rgba(118,185,0,.9));transition:width .6s var(--ease)}
-.alt9-crit-v{font-size:10.5px;font-weight:700;color:var(--text2);width:26px;text-align:right;font-family:var(--mono)}
-.alt9-forcing{font-size:11.5px;color:var(--text2);line-height:1.6;background:rgba(118,185,0,.04);
-  border:1px solid rgba(118,185,0,.18);border-radius:8px;padding:11px 14px}
-@media(max-width:700px){.alt9{grid-template-columns:1fr}}
+/* Elimination story ? slide 10 */
+.elim-top{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.elim-card{background:var(--card);border:1px solid rgba(224,80,80,.2);border-radius:10px;padding:12px 13px;opacity:.75}
+.elim-x{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;
+  background:rgba(224,80,80,.1);border:1px solid rgba(224,80,80,.22);color:rgba(224,80,80,.75);
+  font-size:10px;font-weight:800;margin-bottom:7px}
+.elim-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
+.elim-solves{font-size:10px;font-weight:600;color:rgba(118,185,0,.6);margin-bottom:5px;font-style:italic}
+.elim-short{font-size:10.5px;color:var(--text3);line-height:1.5}
+.elim-winner{display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  background:rgba(118,185,0,.04);border:1.5px solid rgba(118,185,0,.3);border-radius:12px;padding:14px 18px}
+.elim-w-badge{display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:800;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(118,185,0,.85);background:rgba(118,185,0,.08);
+  border:1px solid rgba(118,185,0,.25);border-radius:4px;padding:2px 9px;margin-bottom:7px}
+.elim-w-name{font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.03em;margin-bottom:6px}
+.elim-w-sub{font-size:11.5px;color:var(--text2);line-height:1.55}
+.elim-w-right{display:flex;flex-direction:column;gap:8px;border-left:1px solid rgba(118,185,0,.15);padding-left:16px;justify-content:center}
+.elim-w-row{display:flex;align-items:flex-start;gap:8px}
+.elim-w-check{width:16px;height:16px;border-radius:50%;flex-shrink:0;
+  background:rgba(118,185,0,.1);border:1px solid rgba(118,185,0,.3);
+  color:rgba(118,185,0,.85);font-size:9px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.elim-w-txt{font-size:11px;color:var(--text2);line-height:1.45}
+.elim-ff{font-size:11.5px;color:var(--text2);line-height:1.6;
+  background:rgba(118,185,0,.04);border:1px solid rgba(118,185,0,.18);border-radius:8px;padding:11px 14px}
+@media(max-width:700px){.elim-top{grid-template-columns:1fr 1fr}.elim-winner{grid-template-columns:1fr}}
 
 /* -- Chosen Strategy -- */
 .cs-layout{display:grid;grid-template-columns:260px 1fr;gap:18px;align-items:start}
@@ -3509,73 +3493,75 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <div class="a1">
       <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The reasoning behind the plan</div>
-      <div class="headline"><span class="grad">How the Strategy Was Chosen</span></div>
-      <div class="subline a2" style="margin-top:5px">Before committing to the blueprint-led roadmap, I evaluated five options against four criteria. Click any option to see the analysis.</div>
+      <div class="headline"><span class="grad">Why Blueprints, Not the Alternatives</span></div>
+      <div class="subline a2" style="margin-top:5px">Every other path solves one piece of the problem. Only Blueprints address the root cause and pull everything else into a single roadmap.</div>
     </div>
 
-    <!-- Interactive decision comparison -->
-    <div class="alt9 a3">
+    <!-- 4 eliminated options -->
+    <div class="elim-top a2">
 
-      <!-- Left: clickable tabs -->
-      <div class="alt9-tabs">
-        <button class="alt9-tab" data-alt="A" onclick="selectAlt('A')">
-          <span class="alt9-badge">A</span>
-          <span class="alt9-tname">API / SDK Expansion</span>
-          <span class="alt9-tscore">58</span>
-        </button>
-        <button class="alt9-tab" data-alt="B" onclick="selectAlt('B')">
-          <span class="alt9-badge">B</span>
-          <span class="alt9-tname">Solution Blueprints</span>
-          <span class="alt9-tscore">87</span>
-        </button>
-        <button class="alt9-tab" data-alt="C" onclick="selectAlt('C')">
-          <span class="alt9-badge">C</span>
-          <span class="alt9-tname">Cloud-Native Integration</span>
-          <span class="alt9-tscore">68</span>
-        </button>
-        <button class="alt9-tab" data-alt="D" onclick="selectAlt('D')">
-          <span class="alt9-badge">D</span>
-          <span class="alt9-tname">Observability &amp; Validation</span>
-          <span class="alt9-tscore">54</span>
-        </button>
-        <button class="alt9-tab" data-alt="E" onclick="selectAlt('E')">
-          <span class="alt9-badge">E</span>
-          <span class="alt9-tname">Partner Ecosystem</span>
-          <span class="alt9-tscore">61</span>
-        </button>
+      <div class="elim-card">
+        <div class="elim-x">&#10005;</div>
+        <div class="elim-name">API / SDK Expansion</div>
+        <div class="elim-solves">Solves: developer ergonomics</div>
+        <div class="elim-short">Better APIs don't fix deployment complexity. Customers with great SDK access still fail POCs because they can't get to production &ndash; the bottleneck is integration, not the API.</div>
       </div>
 
-      <!-- Right: detail panel -->
-      <div class="alt9-panel">
-        <div class="alt9-p-head">
-          <div class="alt9-p-badge" id="a9-badge">B</div>
-          <div>
-            <div class="alt9-p-name" id="a9-name">Solution Blueprints</div>
-            <div class="alt9-p-verdict" id="a9-verdict">Recommended starting point</div>
-          </div>
-          <div class="alt9-p-overall"><span id="a9-overall">87</span><small>/100</small></div>
-        </div>
+      <div class="elim-card">
+        <div class="elim-x">&#10005;</div>
+        <div class="elim-name">Cloud-Native Integration</div>
+        <div class="elim-solves">Solves: long-term architecture</div>
+        <div class="elim-short">Right direction, wrong timeline. Requires infrastructure NVIDIA doesn't own. A 2&ndash;3 year build can't help customers who are failing POCs today.</div>
+      </div>
 
-        <div class="alt9-p-example" id="a9-example"></div>
+      <div class="elim-card">
+        <div class="elim-x">&#10005;</div>
+        <div class="elim-name">Observability &amp; Validation</div>
+        <div class="elim-solves">Solves: visibility into failures</div>
+        <div class="elim-short">A feature, not a strategy. Knowing exactly where you're stuck doesn't fix the integration complexity causing the stall. Diagnose &ne; cure.</div>
+      </div>
 
-        <div class="alt9-vr">
-          <div class="alt9-vr-col"><span class="alt9-vr-lbl alt9-vr-good">Value</span><span id="a9-value"></span></div>
-          <div class="alt9-vr-col"><span class="alt9-vr-lbl alt9-vr-bad">Risk</span><span id="a9-risk"></span></div>
-        </div>
-
-        <div class="alt9-crit">
-          <div class="alt9-crit-row"><span class="alt9-crit-name">Customer Impact</span><div class="alt9-crit-bar"><div class="alt9-crit-fill" id="a9-c1"></div></div><span class="alt9-crit-v" id="a9-c1v"></span></div>
-          <div class="alt9-crit-row"><span class="alt9-crit-name">Speed to Value</span><div class="alt9-crit-bar"><div class="alt9-crit-fill" id="a9-c2"></div></div><span class="alt9-crit-v" id="a9-c2v"></span></div>
-          <div class="alt9-crit-row"><span class="alt9-crit-name">Revenue Pull</span><div class="alt9-crit-bar"><div class="alt9-crit-fill" id="a9-c3"></div></div><span class="alt9-crit-v" id="a9-c3v"></span></div>
-          <div class="alt9-crit-row"><span class="alt9-crit-name">Feasibility</span><div class="alt9-crit-bar"><div class="alt9-crit-fill" id="a9-c4"></div></div><span class="alt9-crit-v" id="a9-c4v"></span></div>
-        </div>
+      <div class="elim-card">
+        <div class="elim-x">&#10005;</div>
+        <div class="elim-name">Partner Ecosystem</div>
+        <div class="elim-solves">Solves: market reach</div>
+        <div class="elim-short">Too dependent on partner execution. No leverage over deployment quality. Partners co-selling an untested SDK amplifies the problem, not the solution.</div>
       </div>
 
     </div>
 
-    <div class="alt9-forcing a4">
-      <strong style="color:rgba(118,185,0,.9)">Why B, and why it does not compete with the plan:</strong>
-      Blueprints are the forcing function. A good blueprint <strong style="color:var(--text)">requires</strong> solid APIs (A), deploys via Kubernetes (C), ships with observability (D), and gets co-marketed with partners (E). Choosing B pulls all five into one roadmap &middot; see the full execution plan on the next slide.
+    <!-- Winner card -->
+    <div class="elim-winner a3">
+
+      <div class="elim-w-left">
+        <div class="elim-w-badge">&#10003;&nbsp; Chosen path</div>
+        <div class="elim-w-name">DOCA Solution Blueprints</div>
+        <div class="elim-w-sub">A Blueprint is a complete, validated, production path for a specific use case. It attacks the root cause: customers don't know how to get DOCA into production. And it doesn't replace the other options &ndash; it makes them mandatory.</div>
+      </div>
+
+      <div class="elim-w-right">
+        <div class="elim-w-row">
+          <div class="elim-w-check">&#10003;</div>
+          <div class="elim-w-txt"><strong style="color:var(--text)">Requires solid APIs</strong> &ndash; every Blueprint surfaces SDK gaps during development, not in the field</div>
+        </div>
+        <div class="elim-w-row">
+          <div class="elim-w-check">&#10003;</div>
+          <div class="elim-w-txt"><strong style="color:var(--text)">Ships cloud-native</strong> &ndash; Kubernetes deployment is built into every Blueprint from day one</div>
+        </div>
+        <div class="elim-w-row">
+          <div class="elim-w-check">&#10003;</div>
+          <div class="elim-w-txt"><strong style="color:var(--text)">Includes observability</strong> &ndash; telemetry hooks are a mandatory part of the Blueprint spec</div>
+        </div>
+        <div class="elim-w-row">
+          <div class="elim-w-check">&#10003;</div>
+          <div class="elim-w-txt"><strong style="color:var(--text)">Enables partners</strong> &ndash; co-marketing a validated reference beats co-selling a blank SDK</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="elim-ff a4">
+      <strong style="color:rgba(118,185,0,.9)">The forcing function:</strong> Choosing Blueprints doesn't replace options A, C, D, or E. It makes them required &ndash; because a great Blueprint needs all four. One strategic choice, one unified roadmap.
     </div>
 
   </div><!-- /sc -->
@@ -4403,7 +4389,7 @@ function goTo(i){
   if(cur===2) setTimeout(animS1,100);
   if(slides[cur].id==='s_market') setTimeout(animMarket,200);
   if(slides[cur].id==='s_customers') setTimeout(animCustomers,200);
-  if(slides[cur].id==='s_alternatives') setTimeout(animSA,200);
+  // s_alternatives: static layout, no animation needed
   if(slides[cur].id==='s_blueprint') setTimeout(animBlueprint,200);
   if(slides[cur].id==='s_roi') setTimeout(animROI,200);
 }
@@ -4509,50 +4495,7 @@ function toggleCgr(el){
 }
 
 // --- STRATEGIC ALTERNATIVES: interactive comparison ---
-const ALT_DATA={
-  A:{name:'API / SDK Expansion',overall:58,verdict:'Enabler, not a strategy on its own',
-     example:'Release DOCA Flow 2.0 with a new packet pipeline API, publish 15 libraries, launch a developer portal, run a hackathon.',
-     value:'Grows the developer ecosystem and widens the software moat over time.',
-     risk:'More APIs do not equal more deployments. A developer with 50 libraries but no deployment guide still ships nothing.',
-     c:[50,55,45,80]},
-  B:{name:'Solution Blueprints',overall:87,verdict:'Recommended starting point ?',
-     example:'"DOCA AI Storage Blueprint": a repo where one script deploys NVMe-oF offload and GPU utilization rises from 65% to 90%, with deploy YAML, dashboard, and ROI calculator.',
-     value:'Connects DOCA to business outcomes. POC drops from weeks to days. Sales gets a demo-able artifact. Every blueprint is measurable.',
-     risk:'Requires sharp prioritization. Cannot build 20 at once, must pick the 3 to 5 highest-impact use cases.',
-     c:[95,88,90,75]},
-  C:{name:'Cloud-Native Integration',overall:68,verdict:'Necessary, folds into blueprints',
-     example:'Publish a DOCA Kubernetes Operator. A customer runs helm install and the entire BlueField fleet configures automatically.',
-     value:'Hyperscalers and enterprises deploy via Kubernetes by default. Removes friction from every deployment.',
-     risk:'Each cloud has its own model. Deep integration needs sustained investment and external roadmap dependency.',
-     c:[75,70,65,60]},
-  D:{name:'Observability & Validation',overall:54,verdict:'Trust layer, not a headline',
-     example:'"DOCA Health Check CLI" scans every BlueField for firmware, health, and performance. A Grafana dashboard auto-populates DOCA metrics.',
-     value:'Reduces incidents, builds trust, shortens the time to "safe to deploy at scale."',
-     risk:'An enabler, not a customer-facing value proposition on its own. Hard to attach a dollar figure.',
-     c:[55,50,40,70]},
-  E:{name:'Partner Ecosystem',overall:61,verdict:'Force multiplier, slow to activate',
-     example:'Joint stack with Pure Storage: "FlashArray + BlueField NVMe-oF, tested and certified." The partner sells BlueField without NVIDIA in the room.',
-     value:'Multiplies GTM coverage without adding headcount. Partners create pull-through hardware demand.',
-     risk:'Partner cycles are slow, 6 to 18 months. Harder to control quality and messaging once a partner owns delivery.',
-     c:[70,45,75,55]}
-};
-function selectAlt(k){
-  const d=ALT_DATA[k];if(!d)return;
-  document.querySelectorAll('#s_alternatives .alt9-tab').forEach(t=>t.classList.toggle('active',t.dataset.alt===k));
-  document.getElementById('a9-badge').textContent=k;
-  document.getElementById('a9-name').textContent=d.name;
-  document.getElementById('a9-verdict').textContent=d.verdict;
-  document.getElementById('a9-overall').textContent=d.overall;
-  document.getElementById('a9-example').textContent=d.example;
-  document.getElementById('a9-value').textContent=d.value;
-  document.getElementById('a9-risk').textContent=d.risk;
-  for(let i=0;i<4;i++){
-    document.getElementById('a9-c'+(i+1)).style.width='0';
-    document.getElementById('a9-c'+(i+1)+'v').textContent=d.c[i];
-  }
-  setTimeout(()=>{for(let i=0;i<4;i++){document.getElementById('a9-c'+(i+1)).style.width=d.c[i]+'%';}},60);
-}
-function animSA(){ selectAlt('B'); }
+// s_alternatives: static elimination story, no JS needed
 
 // --- EXAMPLE BLUEPRINT: impact bars ---
 function animBlueprint(){
