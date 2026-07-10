@@ -1615,7 +1615,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .approach-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
 .approach-card{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:12px 14px;position:relative;overflow:hidden;transition:border-color .2s,box-shadow .2s;opacity:0}
 .approach-card:hover{border-color:rgba(224,80,80,.35);box-shadow:0 4px 18px rgba(224,80,80,.08)}
-.approach-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:rgba(224,80,80,.45)}
+.approach-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:rgba(224,80,80,.45);border-radius:9px 0 0 9px}
 .approach-card.ap-partial::before{background:rgba(212,130,10,.55)}
 .approach-card.ap-threat::before{background:rgba(52,144,224,.55)}
 .approach-partial-box{padding:6px 10px;background:rgba(212,130,10,.06);border-radius:6px;border-left:2px solid rgba(212,130,10,.3);margin-bottom:6px}
@@ -1681,11 +1681,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .pain-metrics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
 .pain-metric{
   background:var(--card);border:1px solid rgba(224,80,80,.2);border-radius:10px;
-  padding:14px 14px 13px;position:relative;overflow:hidden;
+  padding:14px 14px 13px;position:relative;overflow:visible;
   transform-style:preserve-3d;opacity:0;
   transition:border-color .25s,box-shadow .25s,transform .25s var(--ease);
 }
-.pain-metric::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 15% 0%,rgba(224,80,80,.08) 0%,transparent 65%);pointer-events:none}
+.pain-metric::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(ellipse at 15% 0%,rgba(224,80,80,.08) 0%,transparent 65%);pointer-events:none}
 .pain-metric.pm-orange{border-color:rgba(212,130,10,.2)}
 .pain-metric.pm-orange::before{background:radial-gradient(ellipse at 15% 0%,rgba(212,130,10,.08) 0%,transparent 65%)}
 .pain-metric:hover{border-color:rgba(224,80,80,.48);box-shadow:0 6px 26px rgba(224,80,80,.14);transform:perspective(800px) rotateX(0deg) rotateY(0deg) translateY(-3px)!important}
@@ -1889,11 +1889,28 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
    ══════════════════════════════════════════════════════════ */
 
 /* ── Hover-reveal on approach cards ─────────────────────── */
-.approach-partial-box,.approach-fail-box,.approach-threat-box{
-  max-height:0;overflow:hidden;opacity:0;
-  transition:max-height .4s cubic-bezier(.16,1,.3,1),opacity .32s ease;
-  padding-top:0!important;margin-top:0!important;
+/* The detail panel floats above the layout (position:absolute) so revealing
+   it never resizes the grid row, never pushes sibling cards or the content
+   below (e.g. the "missing piece" box) down, and never triggers slide scroll. */
+.approach-card{cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s;overflow:visible}
+.approach-card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.35);border-color:rgba(118,185,0,.28)!important;z-index:20}
+
+.approach-detail{
+  position:absolute;left:0;right:0;top:calc(100% + 7px);z-index:30;
+  background:rgba(8,12,20,.98);backdrop-filter:blur(10px);
+  border:1px solid rgba(118,185,0,.22);border-radius:9px;
+  padding:9px 10px 2px;
+  box-shadow:0 14px 34px rgba(0,0,0,.55);
+  opacity:0;transform:translateY(-6px);pointer-events:none;
+  transition:opacity .22s ease,transform .22s cubic-bezier(.16,1,.3,1);
 }
+.approach-detail .approach-partial-box,
+.approach-detail .approach-fail-box,
+.approach-detail .approach-threat-box{margin-bottom:8px}
+.approach-detail .approach-partial-box:last-child,
+.approach-detail .approach-fail-box:last-child,
+.approach-detail .approach-threat-box:last-child{margin-bottom:6px}
+
 /* shared interactive card badge */
 .ic-hint{
   display:inline-flex;align-items:center;gap:4px;
@@ -1906,13 +1923,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 }
 .ic-hint::before{content:'▾';font-size:10px;line-height:1}
 
-.approach-card{cursor:pointer;transition:border-color .2s,box-shadow .2s,transform .2s}
-.approach-card:hover{transform:translateY(-2px);box-shadow:0 6px 22px rgba(0,0,0,.35);border-color:rgba(118,185,0,.28)!important}
-.approach-card:hover .approach-partial-box,
-.approach-card:hover .approach-fail-box,
-.approach-card:hover .approach-threat-box{
-  max-height:220px;opacity:1;padding-top:8px!important;
-}
+.approach-card:hover .approach-detail{opacity:1;transform:translateY(0);pointer-events:auto}
 .approach-hover-hint{font-size:8.5px;color:var(--text3);opacity:.5;margin-top:6px;text-align:right;letter-spacing:.04em;transition:opacity .2s}
 .approach-card:hover .approach-hover-hint{opacity:0}
 .approach-card:hover .ic-hint{opacity:0;pointer-events:none}
@@ -2623,15 +2634,17 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-name">Open Source Frameworks (DPDK, SPDK)</div>
         </div>
         <div class="approach-what">Community frameworks that handle low-level data-path programming. Used by hyperscalers as a foundation for custom NIC offload.</div>
-        <div class="approach-partial-box">
-          <div class="approach-partial-label">Partial solution</div>
-          <div class="approach-partial-text">Genuinely solves for raw packet-processing performance. Free, well-documented, battle-tested at hyperscaler scale for specific workloads.</div>
-        </div>
-        <div class="approach-fail-box">
-          <div class="approach-fail-label">Still missing</div>
-          <div class="approach-fail-text">No NVIDIA-native optimization, no AI-scale security, no production glue. Every team writes the same 200K lines of boilerplate. Works for one team, not 1,000.</div>
-        </div>
         <div class="ic-hint">hover to expand</div>
+        <div class="approach-detail">
+          <div class="approach-partial-box">
+            <div class="approach-partial-label">Partial solution</div>
+            <div class="approach-partial-text">Genuinely solves for raw packet-processing performance. Free, well-documented, battle-tested at hyperscaler scale for specific workloads.</div>
+          </div>
+          <div class="approach-fail-box">
+            <div class="approach-fail-label">Still missing</div>
+            <div class="approach-fail-text">No NVIDIA-native optimization, no AI-scale security, no production glue. Every team writes the same 200K lines of boilerplate. Works for one team, not 1,000.</div>
+          </div>
+        </div>
       </div>
 
       <!-- 2: Specialist engineers ? partial -->
@@ -2643,15 +2656,17 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-name">Specialist SI / VAR Partners</div>
         </div>
         <div class="approach-what">System integrators and value-added resellers with DOCA expertise deploy on behalf of customers. Several NVIDIA partners now offer this as a service.</div>
-        <div class="approach-partial-box">
-          <div class="approach-partial-label">Partial solution</div>
-          <div class="approach-partial-text">Genuinely delivers production deployments. Distributes the knowledge problem across the ecosystem. Reduces time-to-deploy for customers with budget.</div>
-        </div>
-        <div class="approach-fail-box">
-          <div class="approach-fail-label">Still missing</div>
-          <div class="approach-fail-text">$800K+ per engagement. Knowledge stays with the SI, not the customer. Creates a bottleneck: NVIDIA&rsquo;s growth is now gated by partner headcount, not product quality.</div>
-        </div>
         <div class="ic-hint">hover to expand</div>
+        <div class="approach-detail">
+          <div class="approach-partial-box">
+            <div class="approach-partial-label">Partial solution</div>
+            <div class="approach-partial-text">Genuinely delivers production deployments. Distributes the knowledge problem across the ecosystem. Reduces time-to-deploy for customers with budget.</div>
+          </div>
+          <div class="approach-fail-box">
+            <div class="approach-fail-label">Still missing</div>
+            <div class="approach-fail-text">$800K+ per engagement. Knowledge stays with the SI, not the customer. Creates a bottleneck: NVIDIA&rsquo;s growth is now gated by partner headcount, not product quality.</div>
+          </div>
+        </div>
       </div>
 
       <!-- 3: Cloud-managed NICs ? strategic threat -->
@@ -2663,15 +2678,17 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-name">Cloud-Managed NICs (AWS Nitro, Azure MAIA)</div>
         </div>
         <div class="approach-what">Hyperscalers abstract the entire NIC/DPU management layer into their managed infrastructure. Customers get the performance benefit without touching DOCA.</div>
-        <div class="approach-threat-box">
-          <div class="approach-threat-label">Strategic threat to NVIDIA</div>
-          <div class="approach-threat-text">This is the most elegant partial solution &ndash; it works. But every H100 on AWS is a DOCA deployment NVIDIA doesn&rsquo;t own. The hyperscaler captures the software value, not NVIDIA.</div>
-        </div>
-        <div class="approach-fail-box">
-          <div class="approach-fail-label">Still missing</div>
-          <div class="approach-fail-text">Only works in managed cloud. On-prem, private AI, and regulated industries (finance, defense, health) cannot outsource their data plane to AWS. The majority of BlueField TAM remains exposed.</div>
-        </div>
         <div class="ic-hint">hover to expand</div>
+        <div class="approach-detail">
+          <div class="approach-threat-box">
+            <div class="approach-threat-label">Strategic threat to NVIDIA</div>
+            <div class="approach-threat-text">This is the most elegant partial solution &ndash; it works. But every H100 on AWS is a DOCA deployment NVIDIA doesn&rsquo;t own. The hyperscaler captures the software value, not NVIDIA.</div>
+          </div>
+          <div class="approach-fail-box">
+            <div class="approach-fail-label">Still missing</div>
+            <div class="approach-fail-text">Only works in managed cloud. On-prem, private AI, and regulated industries (finance, defense, health) cannot outsource their data plane to AWS. The majority of BlueField TAM remains exposed.</div>
+          </div>
+        </div>
       </div>
 
       <!-- 4: NVIDIA PS ? partial -->
@@ -2683,15 +2700,17 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="approach-name">NVIDIA Professional Services</div>
         </div>
         <div class="approach-what">NVIDIA&rsquo;s own field engineers deploy DOCA for enterprise customers end-to-end. White-glove, fully validated, NVIDIA-backed.</div>
-        <div class="approach-partial-box">
-          <div class="approach-partial-label">Partial solution</div>
-          <div class="approach-partial-text">Highest-quality output. Customers get a production deployment that actually works, with direct NVIDIA accountability. The gold standard for individual engagements.</div>
-        </div>
-        <div class="approach-fail-box">
-          <div class="approach-fail-label">Still missing</div>
-          <div class="approach-fail-text">Cannot scale to 1,000+ DOCA accounts. Every PS engagement is a bottleneck on NVIDIA headcount. This model gates DOCA adoption to the size of NVIDIA&rsquo;s field organization.</div>
-        </div>
         <div class="ic-hint">hover to expand</div>
+        <div class="approach-detail">
+          <div class="approach-partial-box">
+            <div class="approach-partial-label">Partial solution</div>
+            <div class="approach-partial-text">Highest-quality output. Customers get a production deployment that actually works, with direct NVIDIA accountability. The gold standard for individual engagements.</div>
+          </div>
+          <div class="approach-fail-box">
+            <div class="approach-fail-label">Still missing</div>
+            <div class="approach-fail-text">Cannot scale to 1,000+ DOCA accounts. Every PS engagement is a bottleneck on NVIDIA headcount. This model gates DOCA adoption to the size of NVIDIA&rsquo;s field organization.</div>
+          </div>
+        </div>
       </div>
 
     </div><!-- /approach-grid -->
