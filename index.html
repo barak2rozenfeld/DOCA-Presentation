@@ -1650,25 +1650,25 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="ag-sub">The programmability layer</div>
         </div>
       </div>
-      <div class="ag-item">
-        <span class="ag-num">07</span>
-        <div class="ag-body">
-          <div class="ag-title">Market Landscape</div>
-          <div class="ag-sub">Competitors &middot; segments &middot; ecosystem</div>
-        </div>
-      </div>
-      <div class="ag-item">
-        <span class="ag-num">08</span>
-        <div class="ag-body">
-          <div class="ag-title">Key Customers</div>
-          <div class="ag-sub">Who buys, and the NVIDIA angle</div>
-        </div>
-      </div>
-      <div class="ag-item">
-        <span class="ag-num">09</span>
+      <div class="ag-item" style="border-left:2px solid rgba(212,130,10,.3)">
+        <span class="ag-num" style="color:rgba(212,130,10,.7)">07</span>
         <div class="ag-body">
           <div class="ag-title">Market Urgency</div>
-          <div class="ag-sub">Why DOCA drives NVIDIA revenue</div>
+          <div class="ag-sub" style="color:rgba(212,130,10,.55)">&#9670; Market context &nbsp;&middot;&nbsp; Why DOCA drives NVIDIA revenue</div>
+        </div>
+      </div>
+      <div class="ag-item" style="border-left:2px solid rgba(212,130,10,.3)">
+        <span class="ag-num" style="color:rgba(212,130,10,.7)">08</span>
+        <div class="ag-body">
+          <div class="ag-title">Market Landscape</div>
+          <div class="ag-sub" style="color:rgba(212,130,10,.55)">&#9670; Market context &nbsp;&middot;&nbsp; Competitors &middot; segments &middot; ecosystem</div>
+        </div>
+      </div>
+      <div class="ag-item" style="border-left:2px solid rgba(212,130,10,.3)">
+        <span class="ag-num" style="color:rgba(212,130,10,.7)">09</span>
+        <div class="ag-body">
+          <div class="ag-title">Key Customers</div>
+          <div class="ag-sub" style="color:rgba(212,130,10,.55)">&#9670; Market context &nbsp;&middot;&nbsp; Who buys, and the NVIDIA angle</div>
         </div>
       </div>
       <div class="ag-item">
@@ -2258,13 +2258,135 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 05 &middot; MARKET LANDSCAPE
+       SLIDE 05 &middot; MARKET URGENCY
+  ---------------------------------- -->
+  <div class="slide" id="s_urgency" data-title="Market Urgency">
+  <div class="sc" style="gap:14px">
+
+    <div class="a1">
+      <div class="eyebrow" style="margin-bottom:5px">Slide 7 of 16 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Why this matters now</div>
+      <div class="headline"><span class="grad">Why DOCA Drives NVIDIA Revenue</span></div>
+    </div>
+
+    <!-- 3 big stats -->
+    <div class="urg-stats a2">
+      <div class="urg-stat">
+        <div class="urg-val urg-val-red">65%</div>
+        <div class="urg-lbl">Average GPU utilization in AI clusters without offload</div>
+      </div>
+      <div class="urg-stat">
+        <div class="urg-val urg-val-orange">$350M</div>
+        <div class="urg-lbl">Idle value in a $1B GPU cluster running at 65% util</div>
+      </div>
+      <div class="urg-stat">
+        <div class="urg-val urg-val-blue">2-3&times;</div>
+        <div class="urg-lbl">Faster cluster expansion when GPUs run at full utilization</div>
+      </div>
+    </div>
+
+    <!-- Bottleneck reminder -->
+    <div class="urg-context a3">
+      <div class="urg-ctx-bad">
+        <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="rgba(224,80,80,.6)" stroke-width="1" fill="rgba(224,80,80,.06)"/><line x1="7" y1="4" x2="7" y2="8" stroke="rgba(224,80,80,.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="rgba(224,80,80,.9)"/></svg>
+        <strong style="color:rgba(224,80,80,.85)">The Bottleneck:</strong>
+        Every network packet in an AI cluster is processed by the host CPU. At 400Gb/s, the CPU is overwhelmed &mdash; GPUs sit idle at 65% utilization. Left unsolved, customers will solve it themselves.
+      </div>
+      <div class="urg-ctx-arrow">
+        <svg width="18" height="10" viewBox="0 0 18 10"><path d="M0 5h14M10 1l4 4-4 4" stroke="rgba(118,185,0,.5)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        DOCA's answer
+      </div>
+    </div>
+
+    <!-- Two columns: Sales logic + Competitive moat -->
+    <div class="urg-two-col a4">
+
+      <!-- LEFT: Sales flywheel -->
+      <div class="urg-col">
+        <div class="urg-col-hd urg-col-hd-green">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6a4 4 0 1 1 8 0" stroke="rgba(118,185,0,.7)" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M10 6a4 4 0 0 1-8 0" stroke="rgba(118,185,0,.4)" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M9.5 4l.5 2-2-.5" stroke="rgba(118,185,0,.7)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          How DOCA Grows GPU Sales
+        </div>
+        <div class="urg-fw">
+          <div class="urg-fw-step ufw-teal">
+            <div class="ufw-n">1</div>
+            <div class="ufw-body">
+              <div class="ufw-title">DOCA offloads the CPU bottleneck</div>
+              <div class="ufw-sub">GPU utilization: 65% &rarr; 90%+</div>
+            </div>
+          </div>
+          <div class="ufw-arr">&rarr;</div>
+          <div class="urg-fw-step ufw-green">
+            <div class="ufw-n">2</div>
+            <div class="ufw-body">
+              <div class="ufw-title">AI teams run more experiments</div>
+              <div class="ufw-sub">More capacity available = more models, faster iteration, more value created</div>
+            </div>
+          </div>
+          <div class="ufw-arr">&rarr;</div>
+          <div class="urg-fw-step ufw-blue">
+            <div class="ufw-n">3</div>
+            <div class="ufw-body">
+              <div class="ufw-title">Organization invests more in AI</div>
+              <div class="ufw-sub">ROI is proven &rarr; budget grows &rarr; cluster expansion approved faster</div>
+            </div>
+          </div>
+          <div class="ufw-arr">&rarr;</div>
+          <div class="urg-fw-step ufw-gold">
+            <div class="ufw-n">4</div>
+            <div class="ufw-body">
+              <div class="ufw-title">NVIDIA sells bigger clusters, sooner</div>
+              <div class="ufw-sub">Each new rack: H100 + ConnectX SuperNIC + BlueField DPU + DOCA license</div>
+            </div>
+          </div>
+        </div>
+        <div class="urg-note">
+          AI demand is elastic: better efficiency creates more demand, not less.
+          Like faster internet creating more usage, not less.
+        </div>
+      </div>
+
+      <!-- RIGHT: Custom ASIC threat -->
+      <div class="urg-col">
+        <div class="urg-col-hd urg-col-hd-red">
+          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 2v4M6 8.5v.5" stroke="rgba(224,80,80,.8)" stroke-width="1.4" stroke-linecap="round"/><circle cx="6" cy="6" r="5" stroke="rgba(224,80,80,.5)" stroke-width="1" fill="none"/></svg>
+          The Threat DOCA Must Prevent
+        </div>
+        <div class="threat-box">
+          <div class="threat-item">
+            <div class="threat-name">AWS Nitro</div>
+            <div class="threat-why">Built because AWS could not easily program NVIDIA hardware for their cloud architecture. $B investment to build their own DPU stack.</div>
+          </div>
+          <div class="threat-item">
+            <div class="threat-name">Azure MAIA</div>
+            <div class="threat-why">Microsoft's custom AI accelerator. Designed to reduce dependence on NVIDIA. Driven in part by programmability and cost concerns.</div>
+          </div>
+          <div class="threat-item">
+            <div class="threat-name">Google TPU</div>
+            <div class="threat-why">Custom silicon built because Google needed programmability that off-the-shelf hardware did not offer. Validates the category, but outside NVIDIA's ecosystem.</div>
+          </div>
+        </div>
+        <div class="threat-moat">
+          <div class="threat-moat-hd">DOCA is the moat</div>
+          Every hyperscaler that builds custom silicon is a customer that no longer buys ConnectX and BlueField.
+          DOCA makes NVIDIA hardware easy enough to program that the "build your own" option loses its ROI justification.
+          <strong style="color:var(--text)">The question is not just how to sell more GPUs. It is how to remain the platform they build on.</strong>
+        </div>
+      </div>
+
+    </div>
+
+  </div><!-- /sc -->
+  </div><!-- /s_urgency -->
+
+
+  <!-- ----------------------------------
+       SLIDE 06 &middot; COMPETITIVE LANDSCAPE
   ---------------------------------- -->
   <div class="slide" id="s_market" data-title="Market Landscape">
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 7 of 16 &nbsp;&middot;&nbsp; Understanding the market</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 16 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Understanding the market</div>
       <div class="headline"><span class="grad">Competitive Landscape</span></div>
       <div class="subline a2" style="margin-top:4px">
         AI SmartNIC &amp; DPU hardware market share &mdash; the layer DOCA runs on.
@@ -2280,7 +2402,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
       <div style="display:inline-flex;align-items:center;gap:5px;font-size:9px;font-weight:700;color:rgba(118,185,0,.7);padding:3px 10px;background:rgba(118,185,0,.07);border:1px solid rgba(118,185,0,.18);border-radius:10px;letter-spacing:.05em;text-transform:uppercase">
         <svg width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M4 .5L5 3h2.5L5.5 4.7l.8 2.5L4 5.8l-2.3 1.4.8-2.5L.5 3H3z" stroke="rgba(118,185,0,.75)" stroke-width=".8" stroke-linejoin="round"/></svg>
-        הנחת יסוד · Foundational assumption
+        Foundational Assumption
       </div>
     </div>
 
@@ -2361,7 +2483,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             </div>
           </div>
           <div style="margin-top:8px;font-size:10.5px;color:var(--text3);padding:5px 10px;background:rgba(118,185,0,.03);border-left:2px solid rgba(118,185,0,.2);border-radius:0 4px 4px 0">
-            <strong style="color:rgba(118,185,0,.65)">הנחת יסוד:</strong> This 55% market share lead is defensible only as long as DOCA creates a switching cost that hardware alone cannot. The moment DOCA becomes commodity, this lead erodes.
+            <strong style="color:rgba(118,185,0,.65)">Foundational Assumption:</strong> This 55% market share lead is defensible only as long as DOCA creates a switching cost that hardware alone cannot. The moment DOCA becomes commodity, this lead erodes.
           </div>
         </div>
       </div>
@@ -2405,13 +2527,13 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 06 &middot; KEY CUSTOMERS
+       SLIDE 07 &middot; KEY CUSTOMERS
   ---------------------------------- -->
   <div class="slide" id="s_customers" data-title="Key Customers">
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 16 &nbsp;&middot;&nbsp; Who is buying and why</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 16 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Who is buying and why</div>
       <div class="headline"><span class="grad">Key Customers</span></div>
     </div>
 
@@ -2559,126 +2681,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   </div><!-- /s_customers -->
 
 
-  <!-- ----------------------------------
-       SLIDE 07 &middot; MARKET URGENCY
-  ---------------------------------- -->
-  <div class="slide" id="s_urgency" data-title="Market Urgency">
-  <div class="sc" style="gap:14px">
-
-    <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 16 &nbsp;&middot;&nbsp; Why this matters now</div>
-      <div class="headline"><span class="grad">Why DOCA Drives NVIDIA Revenue</span></div>
-    </div>
-
-    <!-- 3 big stats -->
-    <div class="urg-stats a2">
-      <div class="urg-stat">
-        <div class="urg-val urg-val-red">65%</div>
-        <div class="urg-lbl">Average GPU utilization in AI clusters without offload</div>
-      </div>
-      <div class="urg-stat">
-        <div class="urg-val urg-val-orange">$350M</div>
-        <div class="urg-lbl">Idle value in a $1B GPU cluster running at 65% util</div>
-      </div>
-      <div class="urg-stat">
-        <div class="urg-val urg-val-blue">2-3&times;</div>
-        <div class="urg-lbl">Faster cluster expansion when GPUs run at full utilization</div>
-      </div>
-    </div>
-
-    <!-- Bottleneck reminder -->
-    <div class="urg-context a3">
-      <div class="urg-ctx-bad">
-        <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="rgba(224,80,80,.6)" stroke-width="1" fill="rgba(224,80,80,.06)"/><line x1="7" y1="4" x2="7" y2="8" stroke="rgba(224,80,80,.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="rgba(224,80,80,.9)"/></svg>
-        <strong style="color:rgba(224,80,80,.85)">The Bottleneck:</strong>
-        Every network packet in an AI cluster is processed by the host CPU. At 400Gb/s, the CPU is overwhelmed &mdash; GPUs sit idle at 65% utilization. Left unsolved, customers will solve it themselves.
-      </div>
-      <div class="urg-ctx-arrow">
-        <svg width="18" height="10" viewBox="0 0 18 10"><path d="M0 5h14M10 1l4 4-4 4" stroke="rgba(118,185,0,.5)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        DOCA's answer
-      </div>
-    </div>
-
-    <!-- Two columns: Sales logic + Competitive moat -->
-    <div class="urg-two-col a4">
-
-      <!-- LEFT: Sales flywheel with contradiction resolved -->
-      <div class="urg-col">
-        <div class="urg-col-hd urg-col-hd-green">
-          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6a4 4 0 1 1 8 0" stroke="rgba(118,185,0,.7)" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M10 6a4 4 0 0 1-8 0" stroke="rgba(118,185,0,.4)" stroke-width="1.2" fill="none" stroke-linecap="round"/><path d="M9.5 4l.5 2-2-.5" stroke="rgba(118,185,0,.7)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          How DOCA Grows GPU Sales
-        </div>
-        <div class="urg-fw">
-          <div class="urg-fw-step ufw-teal">
-            <div class="ufw-n">1</div>
-            <div class="ufw-body">
-              <div class="ufw-title">DOCA offloads the CPU bottleneck</div>
-              <div class="ufw-sub">GPU utilization: 65% &rarr; 90%+</div>
-            </div>
-          </div>
-          <div class="ufw-arr">&rarr;</div>
-          <div class="urg-fw-step ufw-green">
-            <div class="ufw-n">2</div>
-            <div class="ufw-body">
-              <div class="ufw-title">AI teams run more experiments</div>
-              <div class="ufw-sub">More capacity available = more models, faster iteration, more value created</div>
-            </div>
-          </div>
-          <div class="ufw-arr">&rarr;</div>
-          <div class="urg-fw-step ufw-blue">
-            <div class="ufw-n">3</div>
-            <div class="ufw-body">
-              <div class="ufw-title">Organization invests more in AI</div>
-              <div class="ufw-sub">ROI is proven &rarr; budget grows &rarr; cluster expansion approved faster</div>
-            </div>
-          </div>
-          <div class="ufw-arr">&rarr;</div>
-          <div class="urg-fw-step ufw-gold">
-            <div class="ufw-n">4</div>
-            <div class="ufw-body">
-              <div class="ufw-title">NVIDIA sells bigger clusters, sooner</div>
-              <div class="ufw-sub">Each new rack: H100 + ConnectX SuperNIC + BlueField DPU + DOCA license</div>
-            </div>
-          </div>
-        </div>
-        <div class="urg-note">
-          AI demand is elastic: better efficiency creates more demand, not less.
-          Like faster internet creating more usage, not less.
-        </div>
-      </div>
-
-      <!-- RIGHT: Custom ASIC threat -->
-      <div class="urg-col">
-        <div class="urg-col-hd urg-col-hd-red">
-          <svg width="12" height="12" viewBox="0 0 12 12"><path d="M6 2v4M6 8.5v.5" stroke="rgba(224,80,80,.8)" stroke-width="1.4" stroke-linecap="round"/><circle cx="6" cy="6" r="5" stroke="rgba(224,80,80,.5)" stroke-width="1" fill="none"/></svg>
-          The Threat DOCA Must Prevent
-        </div>
-        <div class="threat-box">
-          <div class="threat-item">
-            <div class="threat-name">AWS Nitro</div>
-            <div class="threat-why">Built because AWS could not easily program NVIDIA hardware for their cloud architecture. $B investment to build their own DPU stack.</div>
-          </div>
-          <div class="threat-item">
-            <div class="threat-name">Azure MAIA</div>
-            <div class="threat-why">Microsoft's custom AI accelerator. Designed to reduce dependence on NVIDIA. Driven in part by programmability and cost concerns.</div>
-          </div>
-          <div class="threat-item">
-            <div class="threat-name">Google TPU</div>
-            <div class="threat-why">Custom silicon built because Google needed programmability that off-the-shelf hardware did not offer. Validates the category, but outside NVIDIA's ecosystem.</div>
-          </div>
-        </div>
-        <div class="threat-moat">
-          <div class="threat-moat-hd">DOCA is the moat</div>
-          Every hyperscaler that builds custom silicon is a customer that no longer buys ConnectX and BlueField.
-          DOCA makes NVIDIA hardware easy enough to program that the "build your own" option loses its ROI justification.
-          <strong style="color:var(--text)">The question is not just how to sell more GPUs. It is how to remain the platform they build on.</strong>
-        </div>
-      </div>
-
-    </div>
-
-  </div><!-- /sc -->
-  </div><!-- /s_urgency -->
 
 
   <!-- ----------------------------------
