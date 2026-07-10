@@ -7,14 +7,21 @@ alwaysApply: true
 
 After completing **any** file edit or set of edits in this project, always run the following steps automatically without waiting to be asked:
 
-1. `git add` the changed files
-2. `git commit -m` with a short descriptive message (feat/fix/chore prefix)
-3. `git push`
+1. **If `doca-v2.html` was edited** → copy it to `index.html` first: `Copy-Item doca-v2.html index.html`
+2. `git add` **both** `doca-v2.html` and `index.html` (always add both together)
+3. `git commit -m` with a short descriptive message (feat/fix/chore prefix)
+4. `git push`
+
+## Critical Rule: index.html = doca-v2.html
+
+> `index.html` is what Vercel serves. `doca-v2.html` is the working file.
+> **They must always be identical.** Every edit to `doca-v2.html` must be copied to `index.html` before committing.
+> NEVER commit `doca-v2.html` without also updating `index.html`.
 
 ## Rules
 
 - Use PowerShell syntax (semicolons, not `&&`)
-- Run all three commands in a single Shell call: `git add <files>; git commit -m "..."; git push`
+- Run all commands in a single Shell call
 - Commit message format: `type(scope): short description` (e.g. `feat(slide-14): add soft skills`)
 - Do this at the end of every task, even small edits
 - Never skip the push step
@@ -22,5 +29,5 @@ After completing **any** file edit or set of edits in this project, always run t
 ## Example
 
 ```powershell
-cd "c:\CursorProjects\DOCA BLueField"; git add index.html doca-v2.html; git commit -m "feat(slide-14): add soft skills section"; git push
+cd "c:\CursorProjects\DOCA BLueField"; Copy-Item doca-v2.html index.html; git add doca-v2.html index.html; git commit -m "feat(slide-14): add soft skills section"; git push
 ```
