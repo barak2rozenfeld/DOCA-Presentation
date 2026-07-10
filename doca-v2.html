@@ -1175,16 +1175,69 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .why-foot-role{font-size:11px;color:var(--text2);margin-left:8px}
 .why-foot-link{font-size:11px;color:rgba(118,185,0,.75);font-weight:600}
 
+/* --- WHY SLIDE: photo + sales-pitch hero --- */
+.why-hero{text-align:left!important;padding:4px 0 2px!important}
+.why-hero-top{margin-bottom:10px}
+.why-hero-split{display:grid;grid-template-columns:124px 1fr;gap:20px;align-items:center}
+.why-photo-col{display:flex;flex-direction:column;align-items:center;gap:6px}
+.why-photo-frame{
+  width:108px;height:108px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  border:2px solid rgba(118,185,0,.45);
+  box-shadow:0 0 0 5px rgba(118,185,0,.07),0 0 30px rgba(118,185,0,.2);
+  background:radial-gradient(circle at 50% 32%,rgba(118,185,0,.18) 0%,rgba(11,18,32,1) 70%);
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.why-photo-initials{
+  font-size:30px;font-weight:800;color:rgba(118,185,0,.5);letter-spacing:.04em;
+  position:absolute;pointer-events:none;user-select:none;
+}
+.why-photo-frame img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  position:relative;z-index:1;display:block;
+}
+.why-photo-lbl{font-size:11px;font-weight:700;color:var(--text);text-align:center}
+.why-photo-sub{font-size:9.5px;color:var(--text2);text-align:center;letter-spacing:.02em}
+.why-pitch-col{display:flex;flex-direction:column;gap:9px}
+.why-pitch-headline{font-size:clamp(16px,2.5vw,24px);font-weight:800;letter-spacing:-.025em;line-height:1.28}
+.why-pitch-tagline{font-size:12px;color:var(--text2);line-height:1.62}
+.why-pitch-pills{display:flex;gap:7px;flex-wrap:wrap}
+.why-pitch-pill{
+  font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 11px;border-radius:20px;
+  background:rgba(118,185,0,.07);border:1px solid rgba(118,185,0,.22);color:rgba(118,185,0,.85);
+}
+.why-pitch-pill.pp-blue{background:rgba(42,128,200,.07);border-color:rgba(42,128,200,.22);color:rgba(82,168,255,.82)}
+.why-pitch-pill.pp-teal{background:rgba(0,185,155,.07);border-color:rgba(0,185,155,.22);color:rgba(0,205,170,.82)}
+
+/* --- INTRO SLIDE: photo ring --- */
+.intro-photo-wrap{display:flex;align-items:center;gap:14px;justify-content:center}
+.intro-photo-ring{
+  width:54px;height:54px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  border:1.5px solid rgba(118,185,0,.4);
+  box-shadow:0 0 0 3px rgba(118,185,0,.07),0 0 18px rgba(118,185,0,.16);
+  background:radial-gradient(circle at 50% 32%,rgba(118,185,0,.15) 0%,rgba(11,18,32,1) 70%);
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.intro-photo-initials{font-size:18px;font-weight:800;color:rgba(118,185,0,.5);position:absolute;pointer-events:none;user-select:none}
+.intro-photo-ring img{width:100%;height:100%;object-fit:cover;object-position:center top;position:relative;z-index:1;display:block}
+.intro-pres-text{text-align:left}
+.intro-tagline{font-size:10px;color:rgba(118,185,0,.72);font-weight:700;margin-top:3px;letter-spacing:.07em;text-transform:uppercase}
+
 @media(max-width:700px){
   .why-sc{gap:12px!important;padding:16px 18px 24px!important}
+  .why-hero-split{grid-template-columns:1fr;justify-items:center}
+  .why-pitch-col{text-align:center}
+  .why-pitch-pills{justify-content:center}
   .why-pillars,.why-layout,.why-extras{grid-template-columns:1fr}
   .why-pillar:hover{transform:none}
   .why-bring-grid{grid-template-columns:1fr}
-  .why-hero-title{font-size:24px}
+  .why-pitch-headline{font-size:20px}
   .why-finale{font-size:12px;padding:14px 16px}
   .why-foot{flex-direction:column;align-items:flex-start;gap:4px}
   .why-jd-fit{text-align:left;font-size:10px}
   .why-jd-row{flex-wrap:wrap}
+  .intro-photo-wrap{flex-direction:column;gap:8px}
+  .intro-pres-text{text-align:center}
 }
 @media(max-width:400px){
   .why-tag{font-size:9px;padding:3px 9px}
@@ -1355,8 +1408,17 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
       <!-- Presenter -->
       <div class="intro-presenter a5">
-        <div class="intro-name">Barak Rozenfeld</div>
-        <div class="intro-role">Candidate · VP Product / Senior PM · DOCA Platform</div>
+        <div class="intro-photo-wrap">
+          <div class="intro-photo-ring">
+            <span class="intro-photo-initials">BR</span>
+            <img src="barak.jpg" alt="Barak Rozenfeld" onerror="this.style.opacity=0">
+          </div>
+          <div class="intro-pres-text">
+            <div class="intro-name">Barak Rozenfeld</div>
+            <div class="intro-role">Candidate &middot; VP Product / Senior PM &middot; DOCA Platform</div>
+            <div class="intro-tagline">Infrastructure PM who ships at scale</div>
+          </div>
+        </div>
       </div>
 
       <!-- Scroll hint -->
@@ -3237,9 +3299,30 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc why-sc">
 
     <div class="why-hero a1">
-      <div class="why-hero-badge">Slide 14 of 14 &nbsp;&middot;&nbsp; The fit</div>
-      <div class="why-hero-title"><span class="grad why-grad-shine">Why Barak Rozenfeld</span></div>
-      <div class="why-hero-sub">Deep infrastructure &middot; product execution &middot; repeatable customer value</div>
+      <div class="why-hero-top">
+        <div class="why-hero-badge">Slide 14 of 14 &nbsp;&middot;&nbsp; The Pitch</div>
+      </div>
+      <div class="why-hero-split">
+        <!-- Photo card -->
+        <div class="why-photo-col">
+          <div class="why-photo-frame">
+            <span class="why-photo-initials">BR</span>
+            <img src="barak.jpg" alt="Barak Rozenfeld" onerror="this.style.opacity=0">
+          </div>
+          <div class="why-photo-lbl">Barak Rozenfeld</div>
+          <div class="why-photo-sub">VP Product &middot; Senior PM</div>
+        </div>
+        <!-- Sales pitch -->
+        <div class="why-pitch-col">
+          <div class="why-pitch-headline"><span class="grad why-grad-shine">I don&rsquo;t just understand DOCA&rsquo;s potential.<br>I build the strategy that makes&nbsp;it&nbsp;land.</span></div>
+          <div class="why-pitch-tagline">This deck is my product thinking in action &mdash; from market urgency to a 90-day execution plan. You&rsquo;re not reading a slide deck. You&rsquo;re watching how I work.</div>
+          <div class="why-pitch-pills">
+            <span class="why-pitch-pill">15+ yrs infra &amp; systems</span>
+            <span class="why-pitch-pill pp-blue">Full HW/SW lifecycle</span>
+            <span class="why-pitch-pill pp-teal">POC &rarr; production at scale</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- 3 pillars -->
@@ -3370,7 +3453,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <div class="why-finale a5">
       <span class="why-finale-mark">&ldquo;</span>
-      My strongest contribution is the bridge between <strong style="color:var(--text)">deep infrastructure technology</strong>, <strong style="color:var(--text)">product execution</strong>, and <strong style="color:rgba(118,185,0,.9)">repeatable customer value</strong>. I do not just understand DOCA's potential. I know how to build the strategy that makes it land.
+      You need a PM who can talk to silicon engineers in the morning and hyperscaler CTOs in the afternoon &mdash; and <strong style="color:rgba(118,185,0,.9)">ship product between those two calls</strong>. I&rsquo;ve been that person my entire career. The only question is whether we do it at NVIDIA.
     </div>
 
     <div class="why-foot a6">
@@ -3378,7 +3461,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <span class="why-foot-name">Barak Rozenfeld</span>
         <span class="why-foot-role">Product Strategy &middot; ConnectX &amp; BlueField &middot; DOCA</span>
       </div>
-      <div class="why-foot-link">LinkedIn: Barak Rozenfeld</div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="why-foot-link">&#8599; LinkedIn: Barak Rozenfeld</div>
+        <div style="font-size:10px;font-weight:700;padding:4px 14px;border-radius:20px;background:rgba(118,185,0,.1);border:1px solid rgba(118,185,0,.3);color:rgba(118,185,0,.9);letter-spacing:.04em;white-space:nowrap">Ready to start &rarr;</div>
+      </div>
     </div>
 
   </div><!-- /sc -->
