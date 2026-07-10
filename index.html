@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+Ôªø<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>DOCA Solution Blueprints ù Barak Rozenfeld</title>
+<title>DOCA Solution Blueprints &middot; Barak Rozenfeld</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -43,26 +43,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 #n-title{font-size:11px;color:var(--text3);letter-spacing:.06em;text-transform:uppercase}
 .n-right{display:flex;align-items:center;gap:7px}
 .nb{background:transparent;border:1px solid var(--border2);color:var(--text2);
-    padding:5px 18px;border-radius:6px;cursor:pointer;font-size:18px;font-family:var(--font);
-    line-height:1;transition:all .2s;min-width:44px}
+    padding:3px 12px;border-radius:4px;cursor:pointer;font-size:11px;font-family:var(--font);
+    transition:all .15s}
 .nb:hover:not(:disabled){border-color:var(--green);color:var(--green);background:var(--green-faint)}
 .nb:disabled{opacity:.18;cursor:default}
-
-/* --- SIDE NAV ARROWS (desktop only) --- */
-.nav-side{
-  position:fixed;top:50%;transform:translateY(-50%);
-  z-index:20;background:rgba(11,18,32,.72);backdrop-filter:blur(14px);
-  border:1px solid var(--border2);border-radius:12px;
-  width:52px;height:88px;cursor:pointer;color:var(--text2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:26px;transition:all .22s var(--ease);
-  font-family:var(--font);padding:0;
-}
-.nav-side:hover:not(:disabled){border-color:var(--green);color:var(--green);background:rgba(11,18,32,.92);box-shadow:0 0 18px rgba(118,185,0,.12)}
-.nav-side:disabled{opacity:.1;cursor:default;pointer-events:none}
-#ns-prev{left:10px}
-#ns-next{right:10px}
-@media(max-width:900px){.nav-side{display:none}}
 #sn{font-size:11px;color:var(--text3);min-width:30px;text-align:center}
 
 #prog{height:1px;background:rgba(255,255,255,.04);flex-shrink:0}
@@ -82,7 +66,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .slide::-webkit-scrollbar{width:3px}
 .slide::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
-/* Content column ù presentation width */
+/* Content column ‚Äî presentation width */
 .sc{
   width:100%;max-width:900px;
   padding:22px 32px 14px;
@@ -131,7 +115,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
 /* ----------------------------------
-   SLIDE 01 ù TITLE + EXAMPLE
+   SLIDE 01 ¬∑ TITLE + EXAMPLE
 ---------------------------------- */
 
 /* Thesis */
@@ -189,8 +173,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .ex-col.good .ex-col-hd{color:var(--green)}
 .ex-col ul{list-style:none;display:flex;flex-direction:column;gap:4px}
 .ex-col ul li{font-size:12.5px;color:var(--text2);padding-left:14px;position:relative;line-height:1.5}
-.ex-col.bad ul li::before{content:'?';position:absolute;left:0;color:var(--red);font-size:10px;top:1px}
-.ex-col.good ul li::before{content:'?';position:absolute;left:0;color:var(--green);font-size:10px;top:1px}
+.ex-col.bad ul li::before{content:'‚Üì';position:absolute;left:0;color:var(--red);font-size:10px;top:1px}
+.ex-col.good ul li::before{content:'‚Üì';position:absolute;left:0;color:var(--green);font-size:10px;top:1px}
 .ex-result{
   background:rgba(118,185,0,.06);border-left:2px solid var(--green);
   padding:8px 12px;border-radius:0 5px 5px 0;
@@ -353,19 +337,14 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 }
 
 @media(max-width:700px){
-  .flow-diagram{flex-direction:column;align-items:stretch;gap:6px;padding:10px}
-  .fn-node{width:100%;min-width:auto;padding:9px 14px}
-  .fn-seg{width:100%;height:18px;min-width:auto}
-  .fn-line{top:50%;left:35%;right:35%;height:1px;width:auto}
+  .flow-diagram{flex-direction:column;align-items:stretch;gap:8px;padding:12px}
+  .fn-seg{width:100%;height:20px;min-width:auto}
+  .fn-line{top:50%;left:25%;right:25%;height:1px;width:auto}
   .fn-pkt{display:none}
-  .fn-arrow,.fn-arrow-g,.fn-arrow-dim{
-    position:absolute;right:auto;left:50%;top:auto;bottom:2px;
-    transform:translateX(-50%) rotate(90deg);
-  }
-  .fn-load-bar,.fn-util-bar{width:80px}
+  .fn-arrow{right:25%;top:50%}
 }
 
-/* -- Market Landscape ù Donut -- */
+/* -- Market Landscape ‚Äî Donut -- */
 .donut-wrap{display:flex;align-items:center;gap:24px}
 .donut-chart-box{flex-shrink:0}
 .donut-seg{transition:stroke-dasharray .9s cubic-bezier(0.16,1,0.3,1)}
@@ -555,18 +534,41 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .psa-dep{font-size:10.5px;color:var(--text2);border-top:1px solid var(--border);padding-top:8px;line-height:1.4}
 .psa-dep-label{font-weight:700;color:var(--text)}
 
-/* === PRO GANTT v3 (index.html mirror) ======================== */
-.gantt3{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 6px 32px rgba(0,0,0,.45),0 1px 0 rgba(255,255,255,.04) inset}
-.gantt3-topbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:11px 16px;border-bottom:1px solid var(--border2);background:linear-gradient(90deg,rgba(255,255,255,.035) 0%,rgba(255,255,255,.01) 100%);flex-wrap:wrap;row-gap:6px}
+/* === PRO GANTT v3 ? MS-Project Style ======================== */
+.gantt3{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;
+  box-shadow:0 6px 32px rgba(0,0,0,.45),0 1px 0 rgba(255,255,255,.04) inset;
+}
+/* Top bar */
+.gantt3-topbar{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:11px 16px;border-bottom:1px solid var(--border2);
+  background:linear-gradient(90deg,rgba(255,255,255,.035) 0%,rgba(255,255,255,.01) 100%);
+  flex-wrap:wrap;row-gap:6px;
+}
 .gantt3-title{font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--text2)}
 .gantt3-legend{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .gantt3-leg{display:flex;align-items:center;gap:4px;font-size:8px;color:var(--text3)}
 .gantt3-leg-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
 .gantt3-leg-dia{width:8px;height:8px;flex-shrink:0;border-radius:1px;transform:rotate(45deg);background:rgba(118,185,0,.88)}
+/* Header row (col labels + time phases) */
 .gantt3-hdr-row{display:flex;border-bottom:2px solid var(--border2)}
-.gantt3-col-hdr{width:208px;flex-shrink:0;padding:6px 10px;font-size:7.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);border-right:1px solid var(--border2);display:flex;align-items:flex-end}
-.gantt3-phases{flex:1;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden}
-.gantt3-phase{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 8px;gap:2px;text-align:center;border-right:1px solid rgba(255,255,255,.055);position:relative}
+.gantt3-col-hdr{
+  width:208px;flex-shrink:0;
+  padding:6px 10px;
+  font-size:7.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--text3);
+  border-right:1px solid var(--border2);display:flex;align-items:flex-end;
+}
+.gantt3-phases{
+  flex:1;display:grid;grid-template-columns:repeat(4,1fr);
+  overflow:hidden;
+}
+.gantt3-phase{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:6px 8px;gap:2px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.055);position:relative;
+}
 .gantt3-phase:last-child{border-right:none}
 .gantt3-phase-lbl{font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
 .gantt3-phase-per{font-size:7.5px;font-weight:500;color:var(--text3)}
@@ -578,41 +580,104 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .gp-near .gantt3-phase-lbl{color:rgba(222,160,40,.9)}
 .gp-mid .gantt3-phase-lbl{color:rgba(82,168,255,.9)}
 .gp-scale .gantt3-phase-lbl{color:rgba(118,185,0,.9)}
+/* Today badge */
 .g3-today-badge{display:flex;align-items:center;gap:3px;margin-top:3px}
-.g3-today-dot{width:5px;height:5px;border-radius:50%;background:rgba(224,80,80,.9);flex-shrink:0;animation:g3pulse 1.8s ease-in-out infinite}
-@keyframes g3pulse{0%,100%{box-shadow:0 0 0 0 rgba(224,80,80,.55)}50%{box-shadow:0 0 0 4px rgba(224,80,80,.0)}}
+.g3-today-dot{
+  width:5px;height:5px;border-radius:50%;background:rgba(224,80,80,.9);flex-shrink:0;
+  animation:g3pulse 1.8s ease-in-out infinite;
+}
+@keyframes g3pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(224,80,80,.55)}
+  50%{box-shadow:0 0 0 4px rgba(224,80,80,.0)}
+}
 .g3-today-lbl{font-size:6.5px;font-weight:800;letter-spacing:.08em;color:rgba(255,100,100,.85);text-transform:uppercase}
+/* Today vertical line running through all bar areas */
 .gantt3-bars-wrap{position:relative}
-.gantt3-today-vline{position:absolute;top:0;bottom:0;left:calc(208px + 2%);width:1.5px;pointer-events:none;z-index:6;background:linear-gradient(180deg,rgba(255,80,80,.75),rgba(255,80,80,.08))}
-.gantt3-track-sep{display:flex;align-items:center;gap:8px;padding:5px 10px 5px 14px;background:rgba(255,255,255,.025);border-top:1px solid var(--border2);border-bottom:1px solid var(--border);position:relative}
-.gantt3-track-sep::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px}
+.gantt3-today-vline{
+  position:absolute;top:0;bottom:0;left:calc(208px + 2%);
+  width:1.5px;pointer-events:none;z-index:6;
+  background:linear-gradient(180deg,rgba(255,80,80,.75),rgba(255,80,80,.08));
+}
+/* Track group separator */
+.gantt3-track-sep{
+  display:flex;align-items:center;gap:8px;
+  padding:5px 10px 5px 14px;
+  background:rgba(255,255,255,.025);
+  border-top:1px solid var(--border2);
+  border-bottom:1px solid var(--border);
+  position:relative;
+}
+.gantt3-track-sep::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
+}
 .g3t-hw::before{background:rgba(82,168,255,.8)}
 .g3t-sw::before{background:rgba(118,185,0,.8)}
 .g3t-bp::before{background:rgba(0,185,155,.8)}
 .g3t-gtm::before{background:rgba(212,130,10,.8)}
 .gantt3-track-sep-name{font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--text)}
 .gantt3-track-sep-count{font-size:8px;color:var(--text3);margin-left:auto;padding-right:6px}
+/* Task row */
 .gantt3-row{display:flex;cursor:pointer;transition:background .15s;position:relative}
 .gantt3-row:hover{background:rgba(255,255,255,.022)}
 .gantt3-row.g3-open{background:rgba(255,255,255,.03)}
-.gantt3-info{width:208px;flex-shrink:0;padding:8px 10px 8px 14px;display:flex;flex-direction:column;gap:3px;border-right:1px solid var(--border2);border-bottom:1px solid rgba(255,255,255,.038);position:relative}
+.gantt3-info{
+  width:208px;flex-shrink:0;padding:8px 10px 8px 14px;
+  display:flex;flex-direction:column;gap:3px;
+  border-right:1px solid var(--border2);
+  border-bottom:1px solid rgba(255,255,255,.038);
+  position:relative;
+}
 .g3-info-id{font-size:7px;font-weight:700;letter-spacing:.06em;color:var(--text3)}
 .g3-info-name{font-size:9.5px;font-weight:700;color:#fff;line-height:1.25}
 .g3-info-sub{font-size:8px;color:rgba(200,220,255,.42);line-height:1.3}
 .g3-info-meta{display:flex;align-items:center;gap:5px;margin-top:3px;flex-wrap:wrap}
-.g3-pill{display:inline-flex;align-items:center;gap:3px;font-size:7px;font-weight:700;letter-spacing:.055em;text-transform:uppercase;padding:2px 6px;border-radius:20px;line-height:1.4}
+/* Status pills */
+.g3-pill{
+  display:inline-flex;align-items:center;gap:3px;
+  font-size:7px;font-weight:700;letter-spacing:.055em;text-transform:uppercase;
+  padding:2px 6px;border-radius:20px;line-height:1.4;
+}
 .g3-pill-dot{width:4px;height:4px;border-radius:50%;background:currentColor;flex-shrink:0}
 .g3-pill-active{background:rgba(118,185,0,.15);color:rgba(118,185,0,.92);border:1px solid rgba(118,185,0,.28)}
 .g3-pill-planned{background:rgba(42,128,200,.14);color:rgba(82,168,255,.88);border:1px solid rgba(42,128,200,.28)}
 .g3-pill-future{background:rgba(255,255,255,.05);color:var(--text3);border:1px solid var(--border)}
-.gantt3-info::after{content:'+';position:absolute;right:8px;top:8px;font-size:11px;color:rgba(255,255,255,.16);transition:transform .2s,color .15s;line-height:1}
+/* Expand toggle */
+.gantt3-info::after{
+  content:'+';position:absolute;right:8px;top:8px;
+  font-size:11px;color:rgba(255,255,255,.16);transition:transform .2s,color .15s;
+  line-height:1;
+}
 .gantt3-row:hover .gantt3-info::after{color:rgba(255,255,255,.38)}
 .gantt3-row.g3-open .gantt3-info::after{transform:rotate(45deg);color:rgba(255,255,255,.5)}
-.gantt3-bars{flex:1;position:relative;border-bottom:1px solid rgba(255,255,255,.038);min-height:64px;display:flex;align-items:center}
-.gantt3-bars::before{content:'';pointer-events:none;position:absolute;inset:0;background:linear-gradient(90deg,transparent 24.95%,rgba(255,255,255,.05) 25%,transparent 25.05%,transparent 49.95%,rgba(255,255,255,.05) 50%,transparent 50.05%,transparent 74.95%,rgba(255,255,255,.05) 75%,transparent 75.05%)}
-.gantt3-bar{position:absolute;height:26px;top:50%;transform:translateY(-50%);border-radius:5px;overflow:hidden;display:flex;align-items:center;border:1px solid transparent;transition:height .18s,box-shadow .15s;z-index:1}
+/* Bar area */
+.gantt3-bars{
+  flex:1;position:relative;
+  border-bottom:1px solid rgba(255,255,255,.038);
+  min-height:64px;display:flex;align-items:center;
+}
+/* Quarter grid lines */
+.gantt3-bars::before{
+  content:'';pointer-events:none;position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,
+      transparent 24.95%,rgba(255,255,255,.05) 25%,transparent 25.05%,
+      transparent 49.95%,rgba(255,255,255,.05) 50%,transparent 50.05%,
+      transparent 74.95%,rgba(255,255,255,.05) 75%,transparent 75.05%
+    );
+}
+/* The Gantt bar */
+.gantt3-bar{
+  position:absolute;height:26px;
+  top:50%;transform:translateY(-50%);
+  border-radius:5px;overflow:hidden;
+  display:flex;align-items:center;
+  border:1px solid transparent;
+  transition:height .18s,box-shadow .15s;z-index:1;
+}
 .gantt3-bar:hover{height:30px;box-shadow:0 4px 20px rgba(0,0,0,.6)}
+/* Left accent stripe */
 .gantt3-bar::before{content:'';width:3px;height:100%;flex-shrink:0}
+/* Color variants */
 .g3b-hw{background:rgba(42,128,200,.23);border-color:rgba(82,168,255,.34)}
 .g3b-hw::before{background:rgba(82,168,255,.85)}
 .g3b-sw{background:rgba(118,185,0,.2);border-color:rgba(118,185,0,.32)}
@@ -622,37 +687,108 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .g3b-gtm{background:rgba(212,130,10,.2);border-color:rgba(212,130,10,.32)}
 .g3b-gtm::before{background:rgba(212,130,10,.8)}
 .g3b-future{opacity:.32}
-.gantt3-prog{position:absolute;left:3px;top:0;bottom:0;width:0;border-radius:0 3px 3px 0;pointer-events:none;transition:width 1.1s cubic-bezier(.25,.8,.25,1) .65s}
+/* Progress fill */
+.gantt3-prog{
+  position:absolute;left:3px;top:0;bottom:0;width:0;
+  border-radius:0 3px 3px 0;pointer-events:none;
+  transition:width 1.1s cubic-bezier(.25,.8,.25,1) .65s;
+}
 .slide.active .gantt3-prog{width:var(--pct,0%)}
 .g3b-hw .gantt3-prog{background:rgba(82,168,255,.35)}
 .g3b-sw .gantt3-prog{background:rgba(118,185,0,.33)}
 .g3b-bp .gantt3-prog{background:rgba(0,185,155,.32)}
 .g3b-gtm .gantt3-prog{background:rgba(212,130,10,.33)}
-.gantt3-bar-lbl{position:relative;z-index:2;flex:1;min-width:0;display:flex;flex-direction:column;gap:1px;padding:0 6px 0 5px}
-.gantt3-bar-lbl b{font-size:8.5px;font-weight:700;color:rgba(255,255,255,.92);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
-.gantt3-bar-lbl i{font-size:7px;font-style:normal;color:rgba(200,220,255,.44);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
-.gantt3-bar-pct{position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:7.5px;font-weight:800;color:rgba(255,255,255,.58);z-index:2}
-.gantt3-detail{display:none;border-bottom:1px solid rgba(255,255,255,.065);background:rgba(0,0,0,.28)}
+/* Bar label */
+.gantt3-bar-lbl{
+  position:relative;z-index:2;flex:1;min-width:0;
+  display:flex;flex-direction:column;gap:1px;
+  padding:0 6px 0 5px;
+}
+.gantt3-bar-lbl b{
+  font-size:8.5px;font-weight:700;color:rgba(255,255,255,.92);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;
+}
+.gantt3-bar-lbl i{
+  font-size:7px;font-style:normal;color:rgba(200,220,255,.44);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;
+}
+.gantt3-bar-pct{
+  position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  font-size:7.5px;font-weight:800;color:rgba(255,255,255,.58);z-index:2;
+}
+/* Detail expand panel */
+.gantt3-detail{
+  display:none;border-bottom:1px solid rgba(255,255,255,.065);
+  background:rgba(0,0,0,.28);
+}
 .gantt3-row.g3-open + .gantt3-detail{display:flex}
-.gantt3-detail-pad{width:208px;flex-shrink:0;border-right:1px solid var(--border2)}
-.gantt3-detail-body{flex:1;padding:10px 14px 11px;font-size:9px;color:rgba(190,215,255,.68);line-height:1.72;display:flex;flex-direction:column;gap:5px}
+.gantt3-detail-pad{
+  width:208px;flex-shrink:0;border-right:1px solid var(--border2);
+}
+.gantt3-detail-body{
+  flex:1;padding:10px 14px 11px;
+  font-size:9px;color:rgba(190,215,255,.68);line-height:1.72;
+  display:flex;flex-direction:column;gap:5px;
+}
 .gantt3-detail-row{display:flex;gap:10px;align-items:baseline}
-.gantt3-detail-key{font-size:7.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:rgba(118,185,0,.68);white-space:nowrap;min-width:52px}
+.gantt3-detail-key{
+  font-size:7.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(118,185,0,.68);white-space:nowrap;min-width:52px;
+}
+/* Milestone rows */
 .gantt3-ms{display:flex;border-bottom:1px solid rgba(118,185,0,.1)}
-.gantt3-ms-left{width:208px;flex-shrink:0;padding:4px 10px 4px 14px;border-right:1px solid var(--border2);display:flex;align-items:center;gap:6px}
-.gantt3-ms-icon{width:8px;height:8px;flex-shrink:0;border-radius:1px;background:rgba(118,185,0,.88);transform:rotate(45deg);box-shadow:0 0 6px rgba(118,185,0,.55)}
+.gantt3-ms-left{
+  width:208px;flex-shrink:0;padding:4px 10px 4px 14px;
+  border-right:1px solid var(--border2);
+  display:flex;align-items:center;gap:6px;
+}
+.gantt3-ms-icon{
+  width:8px;height:8px;flex-shrink:0;border-radius:1px;
+  background:rgba(118,185,0,.88);transform:rotate(45deg);
+  box-shadow:0 0 6px rgba(118,185,0,.55);
+}
 .gantt3-ms-lbl{font-size:8px;font-weight:700;color:rgba(118,185,0,.76);letter-spacing:.01em}
 .gantt3-ms-right{flex:1;position:relative;height:22px;overflow:hidden}
-.gantt3-ms-right::before{content:'';pointer-events:none;position:absolute;inset:0;background:linear-gradient(90deg,transparent 24.95%,rgba(255,255,255,.04) 25%,transparent 25.05%,transparent 49.95%,rgba(255,255,255,.04) 50%,transparent 50.05%,transparent 74.95%,rgba(255,255,255,.04) 75%,transparent 75.05%)}
-.gantt3-ms-line{position:absolute;top:0;bottom:0;left:var(--msp);width:1px;background:linear-gradient(180deg,rgba(118,185,0,.55),rgba(118,185,0,.04))}
-.gantt3-ms-dia{position:absolute;top:50%;left:var(--msp);width:9px;height:9px;border-radius:1px;background:rgba(118,185,0,.9);transform:translateX(-50%) translateY(-50%) rotate(45deg);box-shadow:0 0 8px rgba(118,185,0,.65),0 0 22px rgba(118,185,0,.18);z-index:2}
-.gantt3-ms-txt{position:absolute;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:rgba(118,185,0,.72);white-space:nowrap;z-index:2}
+.gantt3-ms-right::before{
+  content:'';pointer-events:none;position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,
+      transparent 24.95%,rgba(255,255,255,.04) 25%,transparent 25.05%,
+      transparent 49.95%,rgba(255,255,255,.04) 50%,transparent 50.05%,
+      transparent 74.95%,rgba(255,255,255,.04) 75%,transparent 75.05%
+    );
+}
+.gantt3-ms-line{
+  position:absolute;top:0;bottom:0;left:var(--msp);width:1px;
+  background:linear-gradient(180deg,rgba(118,185,0,.55),rgba(118,185,0,.04));
+}
+.gantt3-ms-dia{
+  position:absolute;top:50%;left:var(--msp);
+  width:9px;height:9px;border-radius:1px;
+  background:rgba(118,185,0,.9);
+  transform:translateX(-50%) translateY(-50%) rotate(45deg);
+  box-shadow:0 0 8px rgba(118,185,0,.65),0 0 22px rgba(118,185,0,.18);z-index:2;
+}
+.gantt3-ms-txt{
+  position:absolute;top:50%;transform:translateY(-50%);
+  font-size:8px;font-weight:700;color:rgba(118,185,0,.72);white-space:nowrap;z-index:2;
+}
 .g3-ms-r{left:calc(var(--msp) + 13px)}
 .g3-ms-l{right:calc(100% - var(--msp) + 13px);text-align:right}
-.gantt3-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;row-gap:5px;padding:9px 16px;border-top:1px solid var(--border2);background:rgba(255,255,255,.012)}
+/* Footer */
+.gantt3-footer{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;row-gap:5px;
+  padding:9px 16px;border-top:1px solid var(--border2);
+  background:rgba(255,255,255,.012);
+}
 .gantt3-footer-note{font-size:9px;color:var(--text3);font-style:italic;flex:1;min-width:0}
-.gantt3-kpi{display:flex;align-items:center;gap:5px;padding:3px 10px;border:1px solid var(--border);border-radius:20px;font-size:8px;color:var(--text2);background:rgba(255,255,255,.03);font-weight:600}
+.gantt3-kpi{
+  display:flex;align-items:center;gap:5px;
+  padding:3px 10px;border:1px solid var(--border);border-radius:20px;
+  font-size:8px;color:var(--text2);background:rgba(255,255,255,.03);font-weight:600;
+}
 .gantt3-kpi span{color:rgba(118,185,0,.9);font-weight:800}
+/* Mobile */
 @media(max-width:700px){
   .psa-grid{grid-template-columns:1fr}
   .gantt3-col-hdr,.gantt3-info,.gantt3-ms-left,.gantt3-detail-pad{width:130px}
@@ -957,6 +1093,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .slide.active .why-jd-row:nth-child(5){animation-delay:.26s}
 .slide.active .why-jd-row:nth-child(6){animation-delay:.32s}
 .slide:not(.active) .why-jd-row{opacity:0;transform:translateX(-8px);animation:none!important}
+.slide:not(.active) .why-tag{opacity:0;transform:scale(.9);animation:none!important}
 
 .why-bring-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .why-bring-card{
@@ -1005,7 +1142,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .slide.active .why-tags .why-tag:nth-child(7){animation-delay:.29s}
 .slide.active .why-tags .why-tag:nth-child(8){animation-delay:.33s}
 .slide.active .why-tags .why-tag:nth-child(9){animation-delay:.37s}
-.slide:not(.active) .why-tag{opacity:0;transform:scale(.9);animation:none!important}
 .why-tag-soft{background:rgba(42,128,200,.12);color:rgba(130,195,255,.92);border:1px solid rgba(42,128,200,.28)}
 .why-tag-soft:hover{box-shadow:0 4px 14px rgba(42,128,200,.15)}
 .why-tag-tech{background:rgba(0,185,155,.1);color:rgba(0,220,185,.92);border:1px solid rgba(0,185,155,.28)}
@@ -1039,16 +1175,69 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .why-foot-role{font-size:11px;color:var(--text2);margin-left:8px}
 .why-foot-link{font-size:11px;color:rgba(118,185,0,.75);font-weight:600}
 
+/* --- WHY SLIDE: photo + sales-pitch hero --- */
+.why-hero{text-align:left!important;padding:4px 0 2px!important}
+.why-hero-top{margin-bottom:10px}
+.why-hero-split{display:grid;grid-template-columns:124px 1fr;gap:20px;align-items:center}
+.why-photo-col{display:flex;flex-direction:column;align-items:center;gap:6px}
+.why-photo-frame{
+  width:108px;height:108px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  border:2px solid rgba(118,185,0,.45);
+  box-shadow:0 0 0 5px rgba(118,185,0,.07),0 0 30px rgba(118,185,0,.2);
+  background:radial-gradient(circle at 50% 32%,rgba(118,185,0,.18) 0%,rgba(11,18,32,1) 70%);
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.why-photo-initials{
+  font-size:30px;font-weight:800;color:rgba(118,185,0,.5);letter-spacing:.04em;
+  position:absolute;pointer-events:none;user-select:none;
+}
+.why-photo-frame img{
+  width:100%;height:100%;object-fit:cover;object-position:center top;
+  position:relative;z-index:1;display:block;
+}
+.why-photo-lbl{font-size:11px;font-weight:700;color:var(--text);text-align:center}
+.why-photo-sub{font-size:9.5px;color:var(--text2);text-align:center;letter-spacing:.02em}
+.why-pitch-col{display:flex;flex-direction:column;gap:9px}
+.why-pitch-headline{font-size:clamp(16px,2.5vw,24px);font-weight:800;letter-spacing:-.025em;line-height:1.28}
+.why-pitch-tagline{font-size:12px;color:var(--text2);line-height:1.62}
+.why-pitch-pills{display:flex;gap:7px;flex-wrap:wrap}
+.why-pitch-pill{
+  font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 11px;border-radius:20px;
+  background:rgba(118,185,0,.07);border:1px solid rgba(118,185,0,.22);color:rgba(118,185,0,.85);
+}
+.why-pitch-pill.pp-blue{background:rgba(42,128,200,.07);border-color:rgba(42,128,200,.22);color:rgba(82,168,255,.82)}
+.why-pitch-pill.pp-teal{background:rgba(0,185,155,.07);border-color:rgba(0,185,155,.22);color:rgba(0,205,170,.82)}
+
+/* --- INTRO SLIDE: photo ring --- */
+.intro-photo-wrap{display:flex;align-items:center;gap:14px;justify-content:center}
+.intro-photo-ring{
+  width:54px;height:54px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  border:1.5px solid rgba(118,185,0,.4);
+  box-shadow:0 0 0 3px rgba(118,185,0,.07),0 0 18px rgba(118,185,0,.16);
+  background:radial-gradient(circle at 50% 32%,rgba(118,185,0,.15) 0%,rgba(11,18,32,1) 70%);
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.intro-photo-initials{font-size:18px;font-weight:800;color:rgba(118,185,0,.5);position:absolute;pointer-events:none;user-select:none}
+.intro-photo-ring img{width:100%;height:100%;object-fit:cover;object-position:center top;position:relative;z-index:1;display:block}
+.intro-pres-text{text-align:left}
+.intro-tagline{font-size:10px;color:rgba(118,185,0,.72);font-weight:700;margin-top:3px;letter-spacing:.07em;text-transform:uppercase}
+
 @media(max-width:700px){
   .why-sc{gap:12px!important;padding:16px 18px 24px!important}
+  .why-hero-split{grid-template-columns:1fr;justify-items:center}
+  .why-pitch-col{text-align:center}
+  .why-pitch-pills{justify-content:center}
   .why-pillars,.why-layout,.why-extras{grid-template-columns:1fr}
   .why-pillar:hover{transform:none}
   .why-bring-grid{grid-template-columns:1fr}
-  .why-hero-title{font-size:24px}
+  .why-pitch-headline{font-size:20px}
   .why-finale{font-size:12px;padding:14px 16px}
   .why-foot{flex-direction:column;align-items:flex-start;gap:4px}
   .why-jd-fit{text-align:left;font-size:10px}
   .why-jd-row{flex-wrap:wrap}
+  .intro-photo-wrap{flex-direction:column;gap:8px}
+  .intro-pres-text{text-align:center}
 }
 @media(max-width:400px){
   .why-tag{font-size:9px;padding:3px 9px}
@@ -1056,7 +1245,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
 /* ----------------------------------
-   SLIDE 02 ù WHAT IS DOCA (LAYERS)
+   SLIDE 02 ¬∑ WHAT IS DOCA (LAYERS)
 ---------------------------------- */
 /* s2 uses .sc flex column */
 .s2-stack{display:flex;flex-direction:column;gap:0;width:100%;margin-bottom:14px}
@@ -1078,7 +1267,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr.hi,.lyr.hi-teal,.lyr.hi-blue{
   transition:border-color .2s,background .2s,box-shadow .2s;
 }
-/* DOCA ù green */
+/* DOCA ‚Äî green */
 .lyr.hi{background:rgba(118,185,0,.04);border-color:rgba(118,185,0,.38)}
 .lyr.hi::before{content:'';position:absolute;left:-3px;top:0;bottom:0;width:3px;
   background:var(--green);box-shadow:0 0 14px var(--green-glow);border-radius:3px 0 0 3px;}
@@ -1087,7 +1276,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr.hi .lyr-icon svg{color:var(--green)}
 .lyr.hi .lyr-title{color:var(--green);font-size:15px}
 .lyr.hi .lyr-sub{color:var(--text2)}
-/* BlueField ù teal */
+/* BlueField ‚Äî teal */
 .lyr.hi-teal{background:rgba(24,168,120,.03);border-color:rgba(24,168,120,.35)}
 .lyr.hi-teal::before{content:'';position:absolute;left:-3px;top:0;bottom:0;width:3px;
   background:#18a878;box-shadow:0 0 12px rgba(24,168,120,.2);border-radius:3px 0 0 3px;}
@@ -1096,7 +1285,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr.hi-teal .lyr-icon svg{color:#18a878}
 .lyr.hi-teal .lyr-title{color:#18a878}
 .lyr.hi-teal .lyr-sub{color:var(--text2)}
-/* ConnectX ù blue */
+/* ConnectX ‚Äî blue */
 .lyr.hi-blue{background:rgba(52,144,224,.03);border-color:rgba(52,144,224,.35)}
 .lyr.hi-blue::before{content:'';position:absolute;left:-3px;top:0;bottom:0;width:3px;
   background:var(--blue);box-shadow:0 0 12px rgba(52,144,224,.2);border-radius:3px 0 0 3px;}
@@ -1123,7 +1312,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lyr-arrow{
   text-align:center;padding:2px 0;color:var(--text3);font-size:12px;line-height:1;
 }
-.lyr-arrow::before{content:'?';opacity:.35}
+.lyr-arrow::before{content:'‚Üì';opacity:.35}
 
 /* Insight callout */
 .insight{
@@ -1138,47 +1327,23 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 /* --- MOBILE --- */
 @media(max-width:700px){
-  /* Layout */
-  .sc{padding:12px 14px 10px;gap:10px!important}
-  .headline{font-size:20px}
-  .subline{font-size:13px}
-  .eyebrow{font-size:10px}
-
-  /* Navbar */
-  #navbar{height:38px}
-  .n-brand{font-size:10px}
-  #n-title{display:none}
-  .nb{padding:4px 12px;font-size:15px;min-width:36px}
-  #sn{font-size:10px;min-width:24px}
-
-  /* Slide 01 intro */
-  .intro-title{font-size:24px}
-  .intro-sub{font-size:13px}
-  .intro-hint{display:none}
-
-  /* Slide 03 problem/solution */
-  .s1-hook .hook-q{font-size:13px}
-  .s1-foot{flex-direction:column;gap:4px;align-items:flex-start;font-size:10px}
-
-  /* Product cards */
+  .sc{padding:14px 18px 12px}
+  .headline{font-size:22px}
   .p-cards{grid-template-columns:1fr}
-  .p-name{font-size:13px}
-  .p-desc{font-size:11.5px}
-
-  /* Example box */
   .ex-cols{grid-template-columns:1fr}
-
-  /* Layers slide */
-  .lyr-chips{gap:4px}
-  .lyr{padding:8px 12px;gap:8px}
-
-  /* Dots nav */
-  #dots{padding:5px;gap:4px}
-  .dot.active{width:16px}
-
-  /* Misc */
-  .thesis{padding:8px 12px;font-size:12px}
-  .ex-box{padding:10px 12px}
+  /* Slide 2 layer stack */
+  .s2-stack{margin-bottom:10px}
+  .lyr{padding:10px 14px;gap:11px}
+  .lyr.hi,.lyr.hi-teal,.lyr.hi-blue{padding:12px 14px 12px 12px}
+  .lyr-icon{width:28px;height:28px;border-radius:6px}
+  .lyr-icon svg{width:15px;height:15px}
+  .lyr-title{font-size:12.5px}
+  .lyr-sub{font-size:11px;line-height:1.4}
+  .lyr.hi .lyr-title{font-size:13px}
+  .lyr-chips{gap:4px;margin-top:6px}
+  .lyr-chip{font-size:9px;padding:2px 7px}
+  .lyr-arrow{padding:1px 0}
+  .insight{font-size:11px;padding:9px 12px}
 }
 </style>
 </head>
@@ -1186,8 +1351,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 <canvas id="bg-canvas"></canvas>
 
 <div id="app">
-  <button class="nav-side" id="ns-prev" aria-label="Previous slide">&#8592;</button>
-  <button class="nav-side" id="ns-next" aria-label="Next slide">&#8594;</button>
   <div id="navbar">
     <div id="navbar-inner">
       <div class="n-logo">
@@ -1212,7 +1375,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div id="vp">
 
   <!-- ----------------------------------
-       SLIDE 01 ù INTRO
+       SLIDE 01 &middot; INTRO
   ---------------------------------- -->
   <div class="slide" id="s0" data-title="Intro">
   <div class="sc" style="gap:0;justify-content:center;align-items:center;text-align:center;min-height:100%">
@@ -1232,7 +1395,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       </div>
 
       <!-- Eyebrow -->
-      <div class="eyebrow a2" style="margin-bottom:0">NVIDIA ù DOCA Product Group ù 2026</div>
+      <div class="eyebrow a2" style="margin-bottom:0">NVIDIA &middot; DOCA Product Group &middot; 2026</div>
 
       <!-- Title -->
       <div class="intro-title a3"><span class="grad">DOCA Solution Blueprints</span></div>
@@ -1245,12 +1408,21 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
       <!-- Presenter -->
       <div class="intro-presenter a5">
-        <div class="intro-name">Barak Rozenfeld</div>
-        <div class="intro-role">Candidate ù VP Product / Senior PM ù DOCA Platform</div>
+        <div class="intro-photo-wrap">
+          <div class="intro-photo-ring">
+            <span class="intro-photo-initials">BR</span>
+            <img src="images/LindinnProfile.jfif" alt="Barak Rozenfeld" onerror="this.style.opacity=0">
+          </div>
+          <div class="intro-pres-text">
+            <div class="intro-name">Barak Rozenfeld</div>
+            <div class="intro-role">Candidate &middot; VP Product / Senior PM &middot; DOCA Platform</div>
+            <div class="intro-tagline">Infrastructure PM who ships at scale</div>
+          </div>
+        </div>
       </div>
 
       <!-- Scroll hint -->
-      <div class="intro-hint a6">Press <kbd>?</kbd> to begin</div>
+      <div class="intro-hint a6">Press <kbd>&rarr;</kbd> to begin</div>
 
     </div>
   </div><!-- /sc -->
@@ -1258,7 +1430,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 02 ù AGENDA
+       SLIDE 02 &middot; AGENDA
   ---------------------------------- -->
   <div class="slide" id="s_agenda" data-title="Agenda">
   <div class="sc" style="gap:16px">
@@ -1287,7 +1459,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <span class="ag-num">03</span>
         <div class="ag-body">
           <div class="ag-title">Market Landscape</div>
-          <div class="ag-sub">Competitors ù segments ù ecosystem</div>
+          <div class="ag-sub">Competitors &middot; segments &middot; ecosystem</div>
         </div>
       </div>
       <div class="ag-item">
@@ -1315,14 +1487,14 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <span class="ag-num">07</span>
         <div class="ag-body">
           <div class="ag-title ag-green">Chosen Strategy</div>
-          <div class="ag-sub">Blueprint model ù 5 use cases</div>
+          <div class="ag-sub">Blueprint model &middot; 5 use cases</div>
         </div>
       </div>
       <div class="ag-item">
         <span class="ag-num">08</span>
         <div class="ag-body">
           <div class="ag-title">Execution Plan</div>
-          <div class="ag-sub">ConnectX ù BlueField ù DOCA in parallel</div>
+          <div class="ag-sub">ConnectX &middot; BlueField &middot; DOCA in parallel</div>
         </div>
       </div>
       <div class="ag-item">
@@ -1336,21 +1508,21 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <span class="ag-num">10</span>
         <div class="ag-body">
           <div class="ag-title">ROI &amp; KPIs</div>
-          <div class="ag-sub">Technical ù operational ù business</div>
+          <div class="ag-sub">Technical &middot; operational &middot; business</div>
         </div>
       </div>
       <div class="ag-item">
         <span class="ag-num">11</span>
         <div class="ag-body">
           <div class="ag-title">How I Built This</div>
-          <div class="ag-sub">Sources ù methodology ù tools used</div>
+          <div class="ag-sub">Sources &middot; methodology &middot; tools used</div>
         </div>
       </div>
       <div class="ag-item">
         <span class="ag-num">12</span>
         <div class="ag-body">
           <div class="ag-title">Why Barak Rozenfeld</div>
-          <div class="ag-sub">3 fit pillars ù direct JD match</div>
+          <div class="ag-sub">3 fit pillars &middot; direct JD match</div>
         </div>
       </div>
     </div>
@@ -1360,7 +1532,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 03 ù PROBLEM & SOLUTION
+       SLIDE 03 &middot; PROBLEM & SOLUTION
   ---------------------------------- -->
   <div class="slide" id="s1" data-title="Problem &amp; Solution">
   <div class="sc" style="gap:14px">
@@ -1519,9 +1691,9 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="s1-foot s1-ph" id="s1p5">
       <div>
         <span style="font-weight:700;color:var(--text)">Barak Rozenfeld</span>
-        <span style="color:var(--text2);margin-left:8px">Product Strategy ù VP Product / Senior PM Candidate</span>
+        <span style="color:var(--text2);margin-left:8px">Product Strategy &middot; VP Product / Senior PM Candidate</span>
       </div>
-      <div style="color:var(--text2)">Prepared for NVIDIA ù DOCA Product Group ù 2026</div>
+      <div style="color:var(--text2)">Prepared for NVIDIA &middot; DOCA Product Group &middot; 2026</div>
     </div>
 
   </div><!-- /sc -->
@@ -1529,7 +1701,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 02 ù WHAT IS DOCA (LAYERS)
+       SLIDE 02 &middot; WHAT IS DOCA (LAYERS)
   ---------------------------------- -->
   <div class="slide" id="s2" data-title="What is DOCA">
   <div class="sc" style="gap:12px">
@@ -1561,7 +1733,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
       <div class="lyr-arrow la2"></div>
 
-      <!-- Layer 2: DOCA ù HIGHLIGHTED -->
+      <!-- Layer 2: DOCA &mdash; HIGHLIGHTED -->
       <div class="lyr hi la3">
         <div class="lyr-icon">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -1587,7 +1759,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
       <div class="lyr-arrow la4"></div>
 
-      <!-- Layer 3: BlueField DPU ù teal -->
+      <!-- Layer 3: BlueField DPU &mdash; teal -->
       <div class="lyr hi-teal la5">
         <div class="lyr-icon">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -1607,7 +1779,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
       <div class="lyr-arrow la6"></div>
 
-      <!-- Layer 4: ConnectX SuperNIC ù blue -->
+      <!-- Layer 4: ConnectX SuperNIC &mdash; blue -->
       <div class="lyr hi-blue la7">
         <div class="lyr-icon">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -1659,7 +1831,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 05 ù MARKET LANDSCAPE
+       SLIDE 05 &middot; MARKET LANDSCAPE
   ---------------------------------- -->
   <div class="slide" id="s_market" data-title="Market Landscape">
   <div class="sc" style="gap:14px">
@@ -1691,33 +1863,33 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="dl-dot" style="background:#76b900"></div>
           <div class="dl-name" style="color:var(--green)">NVIDIA</div>
           <div class="dl-pct" style="color:var(--green)">55%</div>
-          <div class="dl-note">ConnectX SuperNIC ù BlueField ù DOCA ù Full AI moat</div>
+          <div class="dl-note">ConnectX SuperNIC &middot; BlueField &middot; DOCA &middot; Full AI moat</div>
         </div>
         <div class="dl-row">
           <div class="dl-dot" style="background:rgba(130,145,165,.75)"></div>
           <div class="dl-name">Broadcom</div>
           <div class="dl-pct">22%</div>
-          <div class="dl-note">Stingray DPU ù No SW platform equivalent</div>
+          <div class="dl-note">Stingray DPU &mdash; No SW platform equivalent</div>
         </div>
         <div class="dl-row">
           <div class="dl-dot" style="background:rgba(110,125,145,.55)"></div>
           <div class="dl-name">Intel / Marvell</div>
           <div class="dl-pct">15%</div>
-          <div class="dl-note">Mount Evans IPU ù Weaker AI factory positioning</div>
+          <div class="dl-note">Mount Evans IPU &mdash; Weaker AI factory positioning</div>
         </div>
         <div class="dl-row">
           <div class="dl-dot" style="background:rgba(90,105,125,.4)"></div>
           <div class="dl-name">AMD / Pensando</div>
           <div class="dl-pct">5%</div>
-          <div class="dl-note">Narrower ecosystem ù Limited GPU integration</div>
+          <div class="dl-note">Narrower ecosystem &mdash; Limited GPU integration</div>
         </div>
         <div class="dl-row">
           <div class="dl-dot" style="background:rgba(70,85,105,.3)"></div>
           <div class="dl-name" style="color:var(--text3)">Custom ASICs</div>
           <div class="dl-pct" style="color:var(--text3)">3%+</div>
-          <div class="dl-note" style="color:rgba(100,115,135,.65)">AWS Nitro ù Azure MAIA ù Validates the category</div>
+          <div class="dl-note" style="color:rgba(100,115,135,.65)">AWS Nitro &middot; Azure MAIA &middot; Validates the category</div>
         </div>
-        <div style="font-size:9.5px;color:var(--text3);margin-top:4px;padding-left:18px">IDC ù Forrester ù Dell'Oro 2025. Excludes captive deployments.</div>
+        <div style="font-size:9.5px;color:var(--text3);margin-top:4px;padding-left:18px">IDC &middot; Forrester &middot; Dell'Oro 2025. Excludes captive deployments.</div>
       </div>
     </div>
 
@@ -1735,11 +1907,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="mkt-col">
         <div class="mkt-col-hd">Ecosystem DOCA Must Integrate With</div>
         <div class="eco-list">
-          <div class="eco-item"><span class="eco-cat">Orchestration</span><span class="eco-val">Kubernetes ù OpenShift ù VMware</span></div>
-          <div class="eco-item"><span class="eco-cat">Storage</span><span class="eco-val">Ceph ù VAST ù WekaIO ù Pure</span></div>
-          <div class="eco-item"><span class="eco-cat">Security</span><span class="eco-val">Zero-trust ù micro-segmentation ù line-rate crypto</span></div>
-          <div class="eco-item"><span class="eco-cat">Observability</span><span class="eco-val">Prometheus ù Grafana ù OpenTelemetry</span></div>
-          <div class="eco-item"><span class="eco-cat">Cloud</span><span class="eco-val">AWS ù Azure ù GCP coexistence</span></div>
+          <div class="eco-item"><span class="eco-cat">Orchestration</span><span class="eco-val">Kubernetes &middot; OpenShift &middot; VMware</span></div>
+          <div class="eco-item"><span class="eco-cat">Storage</span><span class="eco-val">Ceph &middot; VAST &middot; WekaIO &middot; Pure</span></div>
+          <div class="eco-item"><span class="eco-cat">Security</span><span class="eco-val">Zero-trust &middot; micro-segmentation &middot; line-rate crypto</span></div>
+          <div class="eco-item"><span class="eco-cat">Observability</span><span class="eco-val">Prometheus &middot; Grafana &middot; OpenTelemetry</span></div>
+          <div class="eco-item"><span class="eco-cat">Cloud</span><span class="eco-val">AWS &middot; Azure &middot; GCP coexistence</span></div>
         </div>
       </div>
     </div>
@@ -1759,7 +1931,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 06 ù KEY CUSTOMERS
+       SLIDE 06 &middot; KEY CUSTOMERS
   ---------------------------------- -->
   <div class="slide" id="s_customers" data-title="Key Customers">
   <div class="sc" style="gap:14px">
@@ -1776,19 +1948,19 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="cust-donut-panel">
         <svg viewBox="0 0 160 160" width="150" height="150">
           <circle cx="80" cy="80" r="62" fill="none" stroke="rgba(255,255,255,.04)" stroke-width="18"/>
-          <!-- Hyperscalers 40% ù blue, starts at -90 -->
+          <!-- Hyperscalers 40% &mdash; blue, starts at -90 -->
           <circle class="cust-seg" id="cs-hyper" cx="80" cy="80" r="62" fill="none"
             stroke="rgba(42,128,200,.75)" stroke-width="18"
             transform="rotate(-90 80 80)" stroke-dasharray="0 389.56"/>
-          <!-- GPU Cloud 28% ù green, starts at -90+144=54 -->
+          <!-- GPU Cloud 28% &mdash; green, starts at -90+144=54 -->
           <circle class="cust-seg" id="cs-gpu" cx="80" cy="80" r="62" fill="none"
             stroke="rgba(118,185,0,.75)" stroke-width="18"
             transform="rotate(54 80 80)" stroke-dasharray="0 389.56"/>
-          <!-- Enterprise 20% ù orange, starts at -90+144+100.8=154.8 -->
+          <!-- Enterprise 20% &mdash; orange, starts at -90+144+100.8=154.8 -->
           <circle class="cust-seg" id="cs-ent" cx="80" cy="80" r="62" fill="none"
             stroke="rgba(212,130,10,.7)" stroke-width="18"
             transform="rotate(154.8 80 80)" stroke-dasharray="0 389.56"/>
-          <!-- Telco 12% ù teal, starts at -90+144+100.8+72=226.8 -->
+          <!-- Telco 12% &mdash; teal, starts at -90+144+100.8+72=226.8 -->
           <circle class="cust-seg" id="cs-telco" cx="80" cy="80" r="62" fill="none"
             stroke="rgba(0,185,155,.6)" stroke-width="18"
             transform="rotate(226.8 80 80)" stroke-dasharray="0 389.56"/>
@@ -1798,7 +1970,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </svg>
         <div class="cust-donut-legend">
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(42,128,200,.75)"></span><span class="cdl-seg">Hyperscalers</span><span class="cdl-pct">40%</span></div>
-          <div class="cdl-row"><span class="cdl-dot" style="background:rgba(118,185,0,.75)"></span><span class="cdl-seg">GPU Cloud</span><span class="cdl-pct cdl-pct-grow">28% ??</span></div>
+          <div class="cdl-row"><span class="cdl-dot" style="background:rgba(118,185,0,.75)"></span><span class="cdl-seg">GPU Cloud</span><span class="cdl-pct cdl-pct-grow">28% üìà</span></div>
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(212,130,10,.7)"></span><span class="cdl-seg">Enterprise</span><span class="cdl-pct">20%</span></div>
           <div class="cdl-row"><span class="cdl-dot" style="background:rgba(0,185,155,.6)"></span><span class="cdl-seg">Telco / Edge</span><span class="cdl-pct">12%</span></div>
         </div>
@@ -1816,10 +1988,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Microsoft Azure</div>
-                <div class="cgr-product">BlueField DPU ù Azure Boost</div>
+                <div class="cgr-product">BlueField DPU &middot; Azure Boost</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Millions of servers offloaded</span>
-                  <span class="cgr-impact cgi-crit">?????? Critical</span>
+                  <span class="cgr-impact cgi-crit">üî•üî•üî• Critical</span>
                 </div>
               </div>
               <div class="cgr-detail">CPU fully freed per server. Every Azure upgrade = new BlueField + ConnectX. DOCA is why Azure stays NVIDIA over custom silicon.</div>
@@ -1827,10 +1999,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Meta</div>
-                <div class="cgr-product">ConnectX-7 400Gb ù AI Training Fabric</div>
+                <div class="cgr-product">ConnectX-7 400Gb &middot; AI Training Fabric</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">100k+ GPUs on ConnectX</span>
-                  <span class="cgr-impact cgi-crit">?????? Critical</span>
+                  <span class="cgr-impact cgi-crit">üî•üî•üî• Critical</span>
                 </div>
               </div>
               <div class="cgr-detail">Llama 2 and Llama 3 trained on ConnectX-7 RDMA fabric. Every new model generation = larger cluster = more ConnectX per rack.</div>
@@ -1838,10 +2010,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Google Cloud</div>
-                <div class="cgr-product">ConnectX ù GKE &amp; TPU Networking</div>
+                <div class="cgr-product">ConnectX &middot; GKE &amp; TPU Networking</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat cgr-stat-watch">Evaluating BlueField DPU</span>
-                  <span class="cgr-impact cgi-strat">???? Strategic</span>
+                  <span class="cgr-impact cgi-strat">üéØüéØ Strategic</span>
                 </div>
               </div>
               <div class="cgr-detail">Converting Google from ConnectX-only to ConnectX + BlueField + DOCA doubles revenue per socket. DPU adoption here is a landmark win.</div>
@@ -1858,10 +2030,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">CoreWeave</div>
-                <div class="cgr-product">ConnectX-7 400Gb ù GPU Cloud Fabric</div>
+                <div class="cgr-product">ConnectX-7 400Gb &middot; GPU Cloud Fabric</div>
                 <div class="cgr-badges">
-                  <span class="cgr-stat">$23B IPO ù 10ù growth 2023-25</span>
-                  <span class="cgr-impact cgi-high">??? High</span>
+                  <span class="cgr-stat">$23B IPO &middot; 10&times; growth 2023-25</span>
+                  <span class="cgr-impact cgi-high">‚ö°‚ö°‚ö° High</span>
                 </div>
               </div>
               <div class="cgr-detail">Entire business depends on ConnectX. Higher GPU util via DOCA = more capacity sold = more H100s ordered. CoreWeave's revenue is NVIDIA's revenue.</div>
@@ -1869,10 +2041,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Lambda / Together AI</div>
-                <div class="cgr-product">ConnectX-7 ù AI Training-as-a-Service</div>
+                <div class="cgr-product">ConnectX-7 &middot; AI Training-as-a-Service</div>
                 <div class="cgr-badges">
-                  <span class="cgr-stat">2-3ù YoY GPU cluster growth</span>
-                  <span class="cgr-impact cgi-emerg">?? Emerging</span>
+                  <span class="cgr-stat">2-3&times; YoY GPU cluster growth</span>
+                  <span class="cgr-impact cgi-emerg">üå± Emerging</span>
                 </div>
               </div>
               <div class="cgr-detail">Next wave of GPU cloud buyers. DOCA blueprints that cut deployment time = faster cluster expansion = more ConnectX orders sooner.</div>
@@ -1889,10 +2061,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="cgr" onclick="toggleCgr(this)">
               <div class="cgr-main">
                 <div class="cgr-name">Oracle Cloud</div>
-                <div class="cgr-product">BlueField DPU ù RDMA &amp; Tenant Isolation</div>
+                <div class="cgr-product">BlueField DPU &middot; RDMA &amp; Tenant Isolation</div>
                 <div class="cgr-badges">
                   <span class="cgr-stat">Bare metal perf + full isolation</span>
-                  <span class="cgr-impact cgi-strat">???? Strategic</span>
+                  <span class="cgr-impact cgi-strat">üéØüéØ Strategic</span>
                 </div>
               </div>
               <div class="cgr-detail">OCI's bare metal differentiation is built on BlueField. A reference architecture that enterprise clouds copy. DOCA adoption drives repeatable blueprints across the segment.</div>
@@ -1906,7 +2078,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="insight a4">
       <div class="insight-hd">The Key Insight</div>
       Every major AI infrastructure buyer needs <strong style="color:rgba(42,128,200,.9)">ConnectX for speed</strong> and <strong style="color:rgba(0,185,155,.9)">BlueField for programmability</strong>.
-      DOCA is the layer that determines how fast they deploy, scale, and stay current ù and how fast NVIDIA sells the next cluster.
+      DOCA is the layer that determines how fast they deploy, scale, and stay current &mdash; and how fast NVIDIA sells the next cluster.
     </div>
 
   </div><!-- /sc -->
@@ -1914,7 +2086,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 07 ù MARKET URGENCY
+       SLIDE 07 &middot; MARKET URGENCY
   ---------------------------------- -->
   <div class="slide" id="s_urgency" data-title="Market Urgency">
   <div class="sc" style="gap:14px">
@@ -1935,7 +2107,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <div class="urg-lbl">Idle value in a $1B GPU cluster running at 65% util</div>
       </div>
       <div class="urg-stat">
-        <div class="urg-val urg-val-blue">2-3ù</div>
+        <div class="urg-val urg-val-blue">2-3&times;</div>
         <div class="urg-lbl">Faster cluster expansion when GPUs run at full utilization</div>
       </div>
     </div>
@@ -1945,7 +2117,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="urg-ctx-bad">
         <svg width="14" height="14" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="rgba(224,80,80,.6)" stroke-width="1" fill="rgba(224,80,80,.06)"/><line x1="7" y1="4" x2="7" y2="8" stroke="rgba(224,80,80,.9)" stroke-width="1.4" stroke-linecap="round"/><circle cx="7" cy="10" r=".7" fill="rgba(224,80,80,.9)"/></svg>
         <strong style="color:rgba(224,80,80,.85)">The Bottleneck:</strong>
-        Every network packet in an AI cluster is processed by the host CPU. At 400Gb/s, the CPU is overwhelmed ù GPUs sit idle at 65% utilization. Left unsolved, customers will solve it themselves.
+        Every network packet in an AI cluster is processed by the host CPU. At 400Gb/s, the CPU is overwhelmed &mdash; GPUs sit idle at 65% utilization. Left unsolved, customers will solve it themselves.
       </div>
       <div class="urg-ctx-arrow">
         <svg width="18" height="10" viewBox="0 0 18 10"><path d="M0 5h14M10 1l4 4-4 4" stroke="rgba(118,185,0,.5)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1967,10 +2139,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
             <div class="ufw-n">1</div>
             <div class="ufw-body">
               <div class="ufw-title">DOCA offloads the CPU bottleneck</div>
-              <div class="ufw-sub">GPU utilization: 65% ? 90%+</div>
+              <div class="ufw-sub">GPU utilization: 65% &rarr; 90%+</div>
             </div>
           </div>
-          <div class="ufw-arr">?</div>
+          <div class="ufw-arr">&rarr;</div>
           <div class="urg-fw-step ufw-green">
             <div class="ufw-n">2</div>
             <div class="ufw-body">
@@ -1978,15 +2150,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
               <div class="ufw-sub">More capacity available = more models, faster iteration, more value created</div>
             </div>
           </div>
-          <div class="ufw-arr">?</div>
+          <div class="ufw-arr">&rarr;</div>
           <div class="urg-fw-step ufw-blue">
             <div class="ufw-n">3</div>
             <div class="ufw-body">
               <div class="ufw-title">Organization invests more in AI</div>
-              <div class="ufw-sub">ROI is proven ? budget grows ? cluster expansion approved faster</div>
+              <div class="ufw-sub">ROI is proven &rarr; budget grows &rarr; cluster expansion approved faster</div>
             </div>
           </div>
-          <div class="ufw-arr">?</div>
+          <div class="ufw-arr">&rarr;</div>
           <div class="urg-fw-step ufw-gold">
             <div class="ufw-n">4</div>
             <div class="ufw-body">
@@ -2036,7 +2208,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 10 ù PRODUCT STRATEGY ALIGNMENT
+       SLIDE 10 &middot; PRODUCT STRATEGY ALIGNMENT
   ---------------------------------- -->
   <div class="slide" id="s_strategy_align" data-title="Product Strategy">
   <div class="sc" style="gap:14px">
@@ -2044,21 +2216,21 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="a1">
       <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 14 &nbsp;&middot;&nbsp; The execution plan</div>
       <div class="headline"><span class="grad">Product Strategy Alignment</span></div>
-      <div class="subline a2" style="margin-top:5px">ConnectX, BlueField, and DOCA each have a distinct role ù and all three must advance in parallel, not in sequence.</div>
+      <div class="subline a2" style="margin-top:5px">ConnectX, BlueField, and DOCA each have a distinct role &mdash; and all three must advance in parallel, not in sequence.</div>
     </div>
 
-    <!-- Strategy options ù tracks mapping bridge -->
+    <!-- Strategy options &mdash; tracks mapping bridge -->
     <div class="psa-bridge a2" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:8px 12px;background:rgba(118,185,0,.06);border:1px solid rgba(118,185,0,.18);border-radius:9px;font-size:11px">
-      <span style="font-weight:700;color:var(--green);letter-spacing:.04em;margin-right:4px">OPTIONS ù TRACKS</span>
-      <span style="color:var(--text2)">A (APIs)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">ù</span>
-      <span style="color:var(--text2)">B (Blueprints)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">Blueprint track</span>
-      <span style="color:var(--text3);margin:0 4px">ù</span>
-      <span style="color:var(--text2)">C (Kubernetes)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">ù</span>
-      <span style="color:var(--text2)">D (Observability)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">SW track</span>
-      <span style="color:var(--text3);margin:0 4px">ù</span>
-      <span style="color:var(--text2)">E (Partners)</span><span style="color:var(--text3)">?</span><span style="color:#76b900">GTM track</span>
+      <span style="font-weight:700;color:var(--green);letter-spacing:.04em;margin-right:4px">OPTIONS &middot; TRACKS</span>
+      <span style="color:var(--text2)">A (APIs)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">SW track</span>
+      <span style="color:var(--text3);margin:0 4px">&middot;</span>
+      <span style="color:var(--text2)">B (Blueprints)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">Blueprint track</span>
+      <span style="color:var(--text3);margin:0 4px">&middot;</span>
+      <span style="color:var(--text2)">C (Kubernetes)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">SW track</span>
+      <span style="color:var(--text3);margin:0 4px">&middot;</span>
+      <span style="color:var(--text2)">D (Observability)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">SW track</span>
+      <span style="color:var(--text3);margin:0 4px">&middot;</span>
+      <span style="color:var(--text2)">E (Partners)</span><span style="color:var(--text3)">&rarr;</span><span style="color:#76b900">GTM track</span>
       <span style="flex:1;text-align:right;color:var(--text3);font-style:italic">All five strategies are embedded in this plan</span>
     </div>
 
@@ -2084,15 +2256,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="psa-track-label">Parallel Work Tracks</div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-hw">HW</span>
-            <span>400Gb ù 800Gb roadmap ù InfiniBand + Ethernet convergence</span>
+            <span>400Gb &middot; 800Gb roadmap &middot; InfiniBand + Ethernet convergence</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-sw">SW</span>
-            <span>DOCA Flow APIs ù RDMA optimization ù telemetry hooks</span>
+            <span>DOCA Flow APIs &middot; RDMA optimization &middot; telemetry hooks</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-go">GTM</span>
-            <span>AI fabric reference architecture ù benchmark publications</span>
+            <span>AI fabric reference architecture &middot; benchmark publications</span>
           </div>
         </div>
         <div class="psa-dep">
@@ -2119,19 +2291,19 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="psa-track-label">Parallel Work Tracks</div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-hw">HW</span>
-            <span>ARM core count ù memory bandwidth ù next-gen DPU silicon</span>
+            <span>ARM core count &middot; memory bandwidth &middot; next-gen DPU silicon</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-sw">SW</span>
-            <span>DOCA microservices ù OVS offload ù storage NVMe-oF ù zero-trust</span>
+            <span>DOCA microservices &middot; OVS offload &middot; storage NVMe-oF &middot; zero-trust</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-go">GTM</span>
-            <span>Expand beyond Azure Boost ù enterprise isolation blueprints</span>
+            <span>Expand beyond Azure Boost &middot; enterprise isolation blueprints</span>
           </div>
         </div>
         <div class="psa-dep">
-          <span class="psa-dep-label">Ships with:</span> ConnectX ù programmed by DOCA
+          <span class="psa-dep-label">Ships with:</span> ConnectX &middot; programmed by DOCA
         </div>
       </div>
 
@@ -2154,15 +2326,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="psa-track-label">Parallel Work Tracks</div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-bp">BP</span>
-            <span>Solution Blueprints ù 5 priority use cases ù reference apps</span>
+            <span>Solution Blueprints &middot; 5 priority use cases &middot; reference apps</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-sw">SW</span>
-            <span>APIs ù Kubernetes-native deployment ù observability layer</span>
+            <span>APIs &middot; Kubernetes-native deployment &middot; observability layer</span>
           </div>
           <div class="psa-track">
             <span class="psa-t-tag psa-t-go">GTM</span>
-            <span>Developer portal ù ISV partnerships ù customer success programs</span>
+            <span>Developer portal &middot; ISV partnerships &middot; customer success programs</span>
           </div>
         </div>
         <div class="psa-dep">
@@ -2172,8 +2344,11 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     </div><!-- /psa-grid -->
 
-    <!-- PRO Gantt v3 ù MS-Project Style Execution Roadmap -->
+
+    <!-- PRO Gantt v3 &mdash; MS-Project Style Execution Roadmap -->
     <div class="gantt3 a4">
+
+      <!-- Top bar -->
       <div class="gantt3-topbar">
         <div class="gantt3-title">Execution Roadmap &mdash; 4 tracks &middot; Q3 2026 &rarr; 2027+</div>
         <div class="gantt3-legend">
@@ -2184,72 +2359,519 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="gantt3-leg"><div class="gantt3-leg-dia"></div>Milestone</div>
         </div>
       </div>
+
+      <!-- Column header: task info label + time phases -->
       <div class="gantt3-hdr-row">
         <div class="gantt3-col-hdr">Task &middot; Status</div>
         <div class="gantt3-phases">
-          <div class="gantt3-phase gp-now"><span class="gantt3-phase-lbl">Now</span><span class="gantt3-phase-per">Q3 2026</span><div class="g3-today-badge"><span class="g3-today-dot"></span><span class="g3-today-lbl">Today</span></div></div>
-          <div class="gantt3-phase gp-near"><span class="gantt3-phase-lbl">Near</span><span class="gantt3-phase-per">Q4 2026</span></div>
-          <div class="gantt3-phase gp-mid"><span class="gantt3-phase-lbl">Mid</span><span class="gantt3-phase-per">H1 2027</span></div>
-          <div class="gantt3-phase gp-scale"><span class="gantt3-phase-lbl">Scale</span><span class="gantt3-phase-per">2027+</span></div>
+          <div class="gantt3-phase gp-now">
+            <span class="gantt3-phase-lbl">Now</span>
+            <span class="gantt3-phase-per">Q3 2026</span>
+            <div class="g3-today-badge"><span class="g3-today-dot"></span><span class="g3-today-lbl">Today</span></div>
+          </div>
+          <div class="gantt3-phase gp-near">
+            <span class="gantt3-phase-lbl">Near</span>
+            <span class="gantt3-phase-per">Q4 2026</span>
+          </div>
+          <div class="gantt3-phase gp-mid">
+            <span class="gantt3-phase-lbl">Mid</span>
+            <span class="gantt3-phase-per">H1 2027</span>
+          </div>
+          <div class="gantt3-phase gp-scale">
+            <span class="gantt3-phase-lbl">Scale</span>
+            <span class="gantt3-phase-per">2027+</span>
+          </div>
         </div>
       </div>
+
+      <!-- Bars wrap (today line + all rows) -->
       <div class="gantt3-bars-wrap">
         <div class="gantt3-today-vline"></div>
-        <div class="gantt3-track-sep g3t-hw"><span class="psa-t-tag psa-t-hw">HW</span><span class="gantt3-track-sep-name">Hardware Track</span><span class="gantt3-track-sep-count">4 deliverables</span></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 1.1</div><div class="g3-info-name">ConnectX-8 Spec Freeze</div><div class="g3-info-sub">800Gb readiness &middot; Q3 2026</div><div class="g3-info-meta"><span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span><span class="g3-pill g3-pill-planned" style="background:rgba(82,168,255,.1);color:rgba(82,168,255,.75);border-color:rgba(42,128,200,.22)">64%</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-hw" style="left:1%;width:27%"><div class="gantt3-prog" style="--pct:64%"></div><div class="gantt3-bar-lbl"><b>ConnectX-8 Spec Freeze</b><i>800Gb &middot; PCIe &middot; power envelope</i></div><span class="gantt3-bar-pct">64%</span></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Finalize ConnectX-8 architecture for 800Gb throughput. PCIe requirements, power envelope, BF4 co-placement spec.</span></div><div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>Architecture freeze doc &middot; power/thermal sign-off &middot; BF4 co-placement spec</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 1.2</div><div class="g3-info-name">BlueField-4 Sampling</div><div class="g3-info-sub">Partner reference boards &middot; Q3ùQ4 2026</div><div class="g3-info-meta"><span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-hw" style="left:13%;width:34%"><div class="gantt3-prog" style="--pct:10%"></div><div class="gantt3-bar-lbl"><b>BlueField-4 Sampling</b><i>3 design partners &middot; bring-up kit</i></div><span class="gantt3-bar-pct">10%</span></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Engineering samples to 3 design partners with reference PCB layout, bring-up guide, and DOCA firmware build.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 1.3</div><div class="g3-info-name">800Gb Tape-Out</div><div class="g3-info-sub">DPU gen-next silicon &middot; Q4 2026</div><div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-hw" style="left:27%;width:32%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>800Gb Tape-Out</b><i>Silicon &middot; 18-month path to volume</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Silicon tape-out for next-gen DPU. 18-month path to volume with simultaneous bring-up and parallel SW preparation.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 1.4</div><div class="g3-info-name">Volume Ramp</div><div class="g3-info-sub">Supply scale-out &middot; 2027+</div><div class="g3-info-meta"><span class="g3-pill g3-pill-future"><span class="g3-pill-dot"></span>Future</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-hw g3b-future" style="left:70%;width:29%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>Volume Ramp</b><i>ODM &middot; hyperscale logistics</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>NPI to volume manufacturing. Supply chain, ODM relationships, logistics for hyperscale worldwide.</span></div></div></div>
-        <div class="gantt3-ms"><div class="gantt3-ms-left"><div class="gantt3-ms-icon"></div><span class="gantt3-ms-lbl">M1 &mdash; First Blueprint Live in Production</span></div><div class="gantt3-ms-right" style="--msp:37%"><div class="gantt3-ms-line"></div><div class="gantt3-ms-dia"></div><span class="gantt3-ms-txt g3-ms-r">End Q4 2026</span></div></div>
-        <div class="gantt3-track-sep g3t-sw"><span class="psa-t-tag psa-t-sw">SW</span><span class="gantt3-track-sep-name">DOCA Platform Track</span><span class="gantt3-track-sep-count">4 deliverables</span></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 2.1</div><div class="g3-info-name">DOCA APIs v2 &mdash; GA</div><div class="g3-info-sub">Flow &middot; GPUNetIO &middot; Telemetry</div><div class="g3-info-meta"><span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span><span class="g3-pill g3-pill-planned" style="background:rgba(118,185,0,.1);color:rgba(118,185,0,.8);border-color:rgba(118,185,0,.22)">20%</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-sw" style="left:1%;width:39%"><div class="gantt3-prog" style="--pct:20%"></div><div class="gantt3-bar-lbl"><b>DOCA APIs v2</b><i>Flow &middot; GPUNetIO &middot; Telemetry</i></div><span class="gantt3-bar-pct">20%</span></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>DOCA 2.0 with stable APIs. Flow, GPUNetIO, Telemetry as production microservices with versioned contracts.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 2.2</div><div class="g3-info-name">Kubernetes Operator</div><div class="g3-info-sub">Helm &middot; OpenShift &middot; Q4 2026</div><div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-sw" style="left:25%;width:25%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>Kubernetes Operator</b><i>Helm &middot; EKS &middot; GKE</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>DOCA K8s Operator + Helm charts. One-command BlueField fleet provisioning on OpenShift, EKS, GKE.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 2.3</div><div class="g3-info-name">Observability Suite</div><div class="g3-info-sub">Telemetry &middot; health CLI &middot; Q4ùH1</div><div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-sw" style="left:35%;width:27%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>Observability Suite</b><i>Grafana &middot; health CLI</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>DOCA Health Check CLI + Grafana. Real-time DPU metrics, firmware status in single pane of glass.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 2.4</div><div class="g3-info-name">Self-Service Portal</div><div class="g3-info-sub">Auto-tuning &middot; 2027+</div><div class="g3-info-meta"><span class="g3-pill g3-pill-future"><span class="g3-pill-dot"></span>Future</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-sw g3b-future" style="left:72%;width:27%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>Self-Service Portal</b><i>1-click deploy &middot; auto-tuning</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Developer portal with auto-tuning, blueprint wizard, one-click deploy to any BlueField fleet.</span></div></div></div>
-        <div class="gantt3-ms"><div class="gantt3-ms-left"><div class="gantt3-ms-icon"></div><span class="gantt3-ms-lbl">M2 &mdash; 5 Use Cases Validated with Customers</span></div><div class="gantt3-ms-right" style="--msp:62%"><div class="gantt3-ms-line"></div><div class="gantt3-ms-dia"></div><span class="gantt3-ms-txt g3-ms-r">Mid H1 2027</span></div></div>
-        <div class="gantt3-track-sep g3t-bp"><span class="psa-t-tag psa-t-bp">BP</span><span class="gantt3-track-sep-name">Blueprints Track</span><span class="gantt3-track-sep-count">4 deliverables</span></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 3.1</div><div class="g3-info-name">AI Cluster Offload Blueprint</div><div class="g3-info-sub">First reference app &middot; Q3 2026</div><div class="g3-info-meta"><span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span><span class="g3-pill g3-pill-planned" style="background:rgba(0,185,155,.1);color:rgba(0,185,155,.8);border-color:rgba(0,185,155,.22)">15%</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-bp" style="left:4%;width:26%"><div class="gantt3-prog" style="--pct:15%"></div><div class="gantt3-bar-lbl"><b>AI Cluster Offload BP</b><i>GPU util 65%?90%+</i></div><span class="gantt3-bar-pct">15%</span></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>NVMe-oF offload via BlueField raises GPU utilization 65%?90%+. Deploy YAML, Grafana, ROI calculator.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 3.2</div><div class="g3-info-name">Storage + Security BPs</div><div class="g3-info-sub">Benchmark dashboards &middot; Q4 2026</div><div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-bp" style="left:24%;width:26%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>Storage + Security BPs</b><i>Zero-trust &middot; NVMe isolation</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Storage Isolation and Zero-Trust Network blueprints with benchmark suites and validated deploy scripts.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 3.3</div><div class="g3-info-name">5 Validated Use Cases</div><div class="g3-info-sub">ROI calculators &middot; H1 2027</div><div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-bp" style="left:50%;width:24%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>5 Validated Use Cases</b><i>POC: 2 wks vs 3 months</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>5 production blueprints with 3+ enterprise design partners each. POC: 2 weeks vs previous 3 months.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 3.4</div><div class="g3-info-name">Blueprint Marketplace</div><div class="g3-info-sub">ISV community BPs &middot; 2027+</div><div class="g3-info-meta"><span class="g3-pill g3-pill-future"><span class="g3-pill-dot"></span>Future</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-bp g3b-future" style="left:75%;width:24%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>Blueprint Marketplace</b><i>ISV certification &middot; co-marketing</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Open marketplace for ISVs. Certification program + NVIDIA curated catalog for co-marketing.</span></div></div></div>
-        <div class="gantt3-ms"><div class="gantt3-ms-left"><div class="gantt3-ms-icon"></div><span class="gantt3-ms-lbl">M3 &mdash; DOCA Platform GA + Full Observability</span></div><div class="gantt3-ms-right" style="--msp:75%"><div class="gantt3-ms-line"></div><div class="gantt3-ms-dia"></div><span class="gantt3-ms-txt g3-ms-l">H1 2027 close</span></div></div>
-        <div class="gantt3-track-sep g3t-gtm"><span class="psa-t-tag psa-t-go">GTM</span><span class="gantt3-track-sep-name">Go-to-Market Track</span><span class="gantt3-track-sep-count">4 deliverables</span></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 4.1</div><div class="g3-info-name">3 Tier-1 Pilot Partners</div><div class="g3-info-sub">Design partner MOUs &middot; Q3 2026</div><div class="g3-info-meta"><span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span><span class="g3-pill g3-pill-planned" style="background:rgba(212,130,10,.1);color:rgba(222,160,40,.8);border-color:rgba(212,130,10,.22)">12%</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-gtm" style="left:1%;width:29%"><div class="gantt3-prog" style="--pct:12%"></div><div class="gantt3-bar-lbl"><b>3 Tier-1 Pilot Partners</b><i>MOUs &middot; joint reference arch</i></div><span class="gantt3-bar-pct">12%</span></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>MOUs with 3 Tier-1 hyperscalers. Co-develop blueprint, co-author reference architecture, share benchmarks publicly.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 4.2</div><div class="g3-info-name">Reference Program + Sales</div><div class="g3-info-sub">SE training &middot; Q4 2026</div><div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-gtm" style="left:29%;width:23%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>Reference Program</b><i>50+ SEs trained &middot; POC kits</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Sales playbook + demo environment. Train 50+ SEs. Each blueprint ? sales motion ? POC kit ? business case.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 4.3</div><div class="g3-info-name">ISV Partner Program</div><div class="g3-info-sub">Co-sell &middot; 10 integrations &middot; H1 2027</div><div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-gtm" style="left:50%;width:24%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>ISV Partner Program</b><i>Pure &middot; VMware &middot; Red Hat</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>10 certified ISV integrations. Joint GTM with Pure Storage, VMware, Red Hat. Partners create HW pull-through.</span></div></div></div>
-        <div class="gantt3-row" onclick="g3Toggle(this)"><div class="gantt3-info"><div class="g3-info-id">T 4.4</div><div class="g3-info-name">Self-Serve Adoption</div><div class="g3-info-sub">Global rollout &middot; 2027+</div><div class="g3-info-meta"><span class="g3-pill g3-pill-future"><span class="g3-pill-dot"></span>Future</span></div></div><div class="gantt3-bars"><div class="gantt3-bar g3b-gtm g3b-future" style="left:75%;width:24%"><div class="gantt3-prog" style="--pct:0%"></div><div class="gantt3-bar-lbl"><b>Self-Serve Adoption</b><i>Global partner network</i></div></div></div></div>
-        <div class="gantt3-detail"><div class="gantt3-detail-pad"></div><div class="gantt3-detail-body"><div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Self-service portal + global partner network for local deployment support in every region.</span></div></div></div>
-        <div class="gantt3-ms"><div class="gantt3-ms-left"><div class="gantt3-ms-icon"></div><span class="gantt3-ms-lbl">M4 &mdash; Self-Serve Marketplace &amp; Global Rollout</span></div><div class="gantt3-ms-right" style="--msp:96%"><div class="gantt3-ms-line"></div><div class="gantt3-ms-dia"></div><span class="gantt3-ms-txt g3-ms-l">Late 2027+</span></div></div>
+
+        <!-- &#9552;&#9552;&#9552; HW TRACK &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+        <div class="gantt3-track-sep g3t-hw">
+          <span class="psa-t-tag psa-t-hw">HW</span>
+          <span class="gantt3-track-sep-name">Hardware Track</span>
+          <span class="gantt3-track-sep-count">4 deliverables</span>
+        </div>
+
+        <!-- T1.1 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 1.1</div>
+            <div class="g3-info-name">ConnectX-8 Spec Freeze</div>
+            <div class="g3-info-sub">800Gb readiness &middot; Q3 2026</div>
+            <div class="g3-info-meta">
+              <span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span>
+              <span class="g3-pill g3-pill-planned" style="background:rgba(82,168,255,.1);color:rgba(82,168,255,.75);border-color:rgba(42,128,200,.22)">64%</span>
+            </div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-hw" style="left:1%;width:27%">
+              <div class="gantt3-prog" style="--pct:64%"></div>
+              <div class="gantt3-bar-lbl"><b>ConnectX-8 Spec Freeze</b><i>800Gb &middot; PCIe spec &middot; power envelope</i></div>
+              <span class="gantt3-bar-pct">64%</span>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Finalize ConnectX-8 architecture for 800Gb throughput. Define PCIe requirements, power envelope, and co-placement integration spec with BlueField-4.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>Architecture freeze doc &middot; power/thermal sign-off &middot; BlueField-4 co-placement spec</span></div>
+          </div>
+        </div>
+
+        <!-- T1.2 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 1.2</div>
+            <div class="g3-info-name">BlueField-4 Sampling</div>
+            <div class="g3-info-sub">Partner reference boards &middot; Q3&ndash;Q4 2026</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-hw" style="left:13%;width:34%">
+              <div class="gantt3-prog" style="--pct:10%"></div>
+              <div class="gantt3-bar-lbl"><b>BlueField-4 Sampling</b><i>3 design partners &middot; bring-up kit</i></div>
+              <span class="gantt3-bar-pct">10%</span>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Distribute engineering samples to 3 design partners. Deliver reference PCB layout, bring-up guide, and first-pass DOCA firmware build for partner validation.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>3 partner sample kits &middot; bring-up guide v1 &middot; DOCA firmware pre-release</span></div>
+          </div>
+        </div>
+
+        <!-- T1.3 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 1.3</div>
+            <div class="g3-info-name">800Gb Tape-Out</div>
+            <div class="g3-info-sub">DPU gen-next silicon &middot; Q4 2026</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-hw" style="left:27%;width:32%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>800Gb Tape-Out</b><i>Silicon &middot; 18-month path to volume</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Silicon tape-out for next-gen DPU. Begin 18-month path to volume with simultaneous bring-up of subsystems and parallel software preparation.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>Tape-out sign-off &middot; bring-up environment &middot; SW readiness plan</span></div>
+          </div>
+        </div>
+
+        <!-- T1.4 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 1.4</div>
+            <div class="g3-info-name">Volume Ramp</div>
+            <div class="g3-info-sub">Supply scale-out &middot; 2027+</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-future"><span class="g3-pill-dot"></span>Future</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-hw g3b-future" style="left:70%;width:29%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>Volume Ramp</b><i>ODM &middot; hyperscale logistics</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Transition from NPI to volume manufacturing. Coordinate supply chain, ODM relationships, and logistics for hyperscale deployments worldwide.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>Production ramp plan &middot; ODM contracts &middot; global logistics framework</span></div>
+          </div>
+        </div>
+
+        <!-- Milestone M1 -->
+        <div class="gantt3-ms">
+          <div class="gantt3-ms-left">
+            <div class="gantt3-ms-icon"></div>
+            <span class="gantt3-ms-lbl">M1 &mdash; First Blueprint Live in Production</span>
+          </div>
+          <div class="gantt3-ms-right" style="--msp:37%">
+            <div class="gantt3-ms-line"></div>
+            <div class="gantt3-ms-dia"></div>
+            <span class="gantt3-ms-txt g3-ms-r">End Q4 2026</span>
+          </div>
+        </div>
+
+        <!-- &#9552;&#9552;&#9552; SW TRACK &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+        <div class="gantt3-track-sep g3t-sw">
+          <span class="psa-t-tag psa-t-sw">SW</span>
+          <span class="gantt3-track-sep-name">DOCA Platform Track</span>
+          <span class="gantt3-track-sep-count">4 deliverables</span>
+        </div>
+
+        <!-- T2.1 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 2.1</div>
+            <div class="g3-info-name">DOCA APIs v2 &mdash; Microservices GA</div>
+            <div class="g3-info-sub">Flow &middot; GPUNetIO &middot; Telemetry &middot; Q3&ndash;Q4 2026</div>
+            <div class="g3-info-meta">
+              <span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span>
+              <span class="g3-pill g3-pill-planned" style="background:rgba(118,185,0,.1);color:rgba(118,185,0,.8);border-color:rgba(118,185,0,.22)">20%</span>
+            </div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-sw" style="left:1%;width:39%">
+              <div class="gantt3-prog" style="--pct:20%"></div>
+              <div class="gantt3-bar-lbl"><b>DOCA APIs v2 &mdash; Microservices GA</b><i>Flow &middot; GPUNetIO &middot; Telemetry contracts</i></div>
+              <span class="gantt3-bar-pct">20%</span>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Ship DOCA 2.0 with stable APIs across all service domains. DOCA Flow, GPUNetIO, and Telemetry as production-grade microservices with versioned contracts.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>DOCA 2.0 GA release &middot; versioned API contracts &middot; migration guide from 1.x</span></div>
+          </div>
+        </div>
+
+        <!-- T2.2 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 2.2</div>
+            <div class="g3-info-name">Kubernetes Operator</div>
+            <div class="g3-info-sub">Helm charts &middot; OpenShift &middot; Q4 2026</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-sw" style="left:25%;width:25%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>Kubernetes Operator</b><i>Helm &middot; EKS &middot; GKE &middot; OpenShift</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Publish DOCA K8s Operator and Helm charts. One-command BlueField fleet provisioning on OpenShift, EKS, and GKE. Removes all manual config steps.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>DOCA K8s Operator v1 &middot; Helm chart catalog &middot; OpenShift certification</span></div>
+          </div>
+        </div>
+
+        <!-- T2.3 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 2.3</div>
+            <div class="g3-info-name">Observability Suite</div>
+            <div class="g3-info-sub">Telemetry &middot; health CLI &middot; Q4 2026&ndash;H1 2027</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-sw" style="left:35%;width:27%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>Observability Suite</b><i>Grafana &middot; health CLI &middot; metrics</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>DOCA Health Check CLI + Grafana dashboard. Real-time DPU metrics, firmware status, and performance baselines visible from a single pane of glass.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>DOCA Health CLI &middot; Grafana dashboard templates &middot; alerting rules library</span></div>
+          </div>
+        </div>
+
+        <!-- T2.4 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 2.4</div>
+            <div class="g3-info-name">Self-Service Portal</div>
+            <div class="g3-info-sub">Auto-tuning &middot; blueprint wizard &middot; 2027+</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-future"><span class="g3-pill-dot"></span>Future</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-sw g3b-future" style="left:72%;width:27%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>Self-Service Portal</b><i>1-click deploy &middot; auto-tuning</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Developer portal with auto-tuning recommendations, blueprint wizard, and one-click deployment to any registered BlueField fleet via API or web UI.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>Self-service portal v1 &middot; blueprint wizard &middot; auto-tune engine</span></div>
+          </div>
+        </div>
+
+        <!-- Milestone M2 -->
+        <div class="gantt3-ms">
+          <div class="gantt3-ms-left">
+            <div class="gantt3-ms-icon"></div>
+            <span class="gantt3-ms-lbl">M2 &mdash; 5 Use Cases Validated with Customers</span>
+          </div>
+          <div class="gantt3-ms-right" style="--msp:62%">
+            <div class="gantt3-ms-line"></div>
+            <div class="gantt3-ms-dia"></div>
+            <span class="gantt3-ms-txt g3-ms-r">Mid H1 2027</span>
+          </div>
+        </div>
+
+        <!-- &#9552;&#9552;&#9552; BP TRACK &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+        <div class="gantt3-track-sep g3t-bp">
+          <span class="psa-t-tag psa-t-bp">BP</span>
+          <span class="gantt3-track-sep-name">Blueprints Track</span>
+          <span class="gantt3-track-sep-count">4 deliverables</span>
+        </div>
+
+        <!-- T3.1 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 3.1</div>
+            <div class="g3-info-name">AI Cluster Offload Blueprint</div>
+            <div class="g3-info-sub">First reference app &middot; Q3 2026</div>
+            <div class="g3-info-meta">
+              <span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span>
+              <span class="g3-pill g3-pill-planned" style="background:rgba(0,185,155,.1);color:rgba(0,185,155,.8);border-color:rgba(0,185,155,.22)">15%</span>
+            </div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-bp" style="left:4%;width:26%">
+              <div class="gantt3-prog" style="--pct:15%"></div>
+              <div class="gantt3-bar-lbl"><b>AI Cluster Offload BP</b><i>NVMe-oF &middot; GPU util 65%&rarr;90%</i></div>
+              <span class="gantt3-bar-pct">15%</span>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>AI Storage Blueprint: NVMe-oF offload via BlueField raises GPU utilization 65% &rarr; 90%+. Includes deploy YAML, Grafana dashboard, and ROI calculator.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>BP v1 with deploy YAML &middot; Grafana template &middot; ROI calculator &middot; benchmark data</span></div>
+          </div>
+        </div>
+
+        <!-- T3.2 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 3.2</div>
+            <div class="g3-info-name">Storage + Security BPs</div>
+            <div class="g3-info-sub">Benchmark dashboards &middot; Q4 2026</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-bp" style="left:24%;width:26%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>Storage + Security BPs</b><i>Zero-trust &middot; NVMe isolation</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Storage Isolation and Zero-Trust Network blueprints. Each includes benchmark suite, before/after dashboards, and validated deploy scripts for partner stacks.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>2 production BPs &middot; benchmark dashboards &middot; partner-validated deploy scripts</span></div>
+          </div>
+        </div>
+
+        <!-- T3.3 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 3.3</div>
+            <div class="g3-info-name">5 Validated Use Cases</div>
+            <div class="g3-info-sub">ROI calculators &middot; H1 2027</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-bp" style="left:50%;width:24%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>5 Validated Use Cases</b><i>POC: 2 wks vs 3 months prior</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>5 production-validated blueprints live with 3+ enterprise design partners each. Average POC time: 2 weeks vs. previous 3 months. ROI calculators embedded.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>5 GA blueprints &middot; 15+ design partner validations &middot; embedded ROI calculators</span></div>
+          </div>
+        </div>
+
+        <!-- T3.4 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 3.4</div>
+            <div class="g3-info-name">Blueprint Marketplace</div>
+            <div class="g3-info-sub">ISV community BPs &middot; 2027+</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-future"><span class="g3-pill-dot"></span>Future</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-bp g3b-future" style="left:75%;width:24%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>Blueprint Marketplace</b><i>ISV certification &middot; co-marketing</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Open marketplace for ISVs to publish and consume blueprints. Certification program ensures quality. NVIDIA curates top-tier blueprints for co-marketing.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>Marketplace launch &middot; ISV certification program &middot; NVIDIA curated catalog</span></div>
+          </div>
+        </div>
+
+        <!-- Milestone M3 -->
+        <div class="gantt3-ms">
+          <div class="gantt3-ms-left">
+            <div class="gantt3-ms-icon"></div>
+            <span class="gantt3-ms-lbl">M3 &mdash; DOCA Platform GA + Full Observability</span>
+          </div>
+          <div class="gantt3-ms-right" style="--msp:75%">
+            <div class="gantt3-ms-line"></div>
+            <div class="gantt3-ms-dia"></div>
+            <span class="gantt3-ms-txt g3-ms-l">H1 2027 close</span>
+          </div>
+        </div>
+
+        <!-- &#9552;&#9552;&#9552; GTM TRACK &#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552;&#9552; -->
+        <div class="gantt3-track-sep g3t-gtm">
+          <span class="psa-t-tag psa-t-go">GTM</span>
+          <span class="gantt3-track-sep-name">Go-to-Market Track</span>
+          <span class="gantt3-track-sep-count">4 deliverables</span>
+        </div>
+
+        <!-- T4.1 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 4.1</div>
+            <div class="g3-info-name">3 Tier-1 Pilot Partners</div>
+            <div class="g3-info-sub">Design partner MOUs &middot; Q3 2026</div>
+            <div class="g3-info-meta">
+              <span class="g3-pill g3-pill-active"><span class="g3-pill-dot"></span>Active</span>
+              <span class="g3-pill g3-pill-planned" style="background:rgba(212,130,10,.1);color:rgba(222,160,40,.8);border-color:rgba(212,130,10,.22)">12%</span>
+            </div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-gtm" style="left:1%;width:29%">
+              <div class="gantt3-prog" style="--pct:12%"></div>
+              <div class="gantt3-bar-lbl"><b>3 Tier-1 Pilot Partners</b><i>MOUs &middot; joint reference arch</i></div>
+              <span class="gantt3-bar-pct">12%</span>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Sign MOUs with 3 Tier-1 hyperscaler or enterprise design partners. Co-develop first blueprint, co-author reference architecture, share benchmark data publicly.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>3 signed MOUs &middot; co-authored reference architecture &middot; public benchmark report</span></div>
+          </div>
+        </div>
+
+        <!-- T4.2 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 4.2</div>
+            <div class="g3-info-name">Reference Program + Sales Enablement</div>
+            <div class="g3-info-sub">SE training &middot; demo env &middot; Q4 2026</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-gtm" style="left:29%;width:23%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>Reference Program</b><i>50+ SEs trained &middot; POC kits</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Sales playbook with blueprint demo environment. Train 50+ SEs. Each blueprint becomes a sales motion: technical demo &rarr; POC kit &rarr; business case template.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>Sales playbook &middot; 50+ SE certifications &middot; POC kit per blueprint</span></div>
+          </div>
+        </div>
+
+        <!-- T4.3 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 4.3</div>
+            <div class="g3-info-name">ISV Partner Program</div>
+            <div class="g3-info-sub">Co-sell &middot; 10 integrations &middot; H1 2027</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-planned"><span class="g3-pill-dot"></span>Planned</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-gtm" style="left:50%;width:24%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>ISV Partner Program</b><i>Pure &middot; VMware &middot; Red Hat</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>ISV partner program with 10 certified integrations. Joint go-to-market with Pure Storage, VMware, Red Hat. Partners create pull-through hardware demand at scale.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>10 certified ISV integrations &middot; joint GTM playbooks &middot; co-sell pipeline</span></div>
+          </div>
+        </div>
+
+        <!-- T4.4 -->
+        <div class="gantt3-row" onclick="g3Toggle(this)">
+          <div class="gantt3-info">
+            <div class="g3-info-id">T 4.4</div>
+            <div class="g3-info-name">Self-Serve Adoption</div>
+            <div class="g3-info-sub">Global rollout &middot; 2027+</div>
+            <div class="g3-info-meta"><span class="g3-pill g3-pill-future"><span class="g3-pill-dot"></span>Future</span></div>
+          </div>
+          <div class="gantt3-bars">
+            <div class="gantt3-bar g3b-gtm g3b-future" style="left:75%;width:24%">
+              <div class="gantt3-prog" style="--pct:0%"></div>
+              <div class="gantt3-bar-lbl"><b>Self-Serve Adoption</b><i>Global partner network</i></div>
+            </div>
+          </div>
+        </div>
+        <div class="gantt3-detail">
+          <div class="gantt3-detail-pad"></div>
+          <div class="gantt3-detail-body">
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Scope</span><span>Developer self-service portal drives adoption without NVIDIA involvement. Global partner network ensures local deployment support in every region.</span></div>
+            <div class="gantt3-detail-row"><span class="gantt3-detail-key">Output</span><span>Self-serve portal GA &middot; regional partner network &middot; 24/7 support coverage</span></div>
+          </div>
+        </div>
+
+        <!-- Milestone M4 -->
+        <div class="gantt3-ms">
+          <div class="gantt3-ms-left">
+            <div class="gantt3-ms-icon"></div>
+            <span class="gantt3-ms-lbl">M4 &mdash; Self-Serve Marketplace &amp; Global Rollout</span>
+          </div>
+          <div class="gantt3-ms-right" style="--msp:96%">
+            <div class="gantt3-ms-line"></div>
+            <div class="gantt3-ms-dia"></div>
+            <span class="gantt3-ms-txt g3-ms-l">Late 2027+</span>
+          </div>
+        </div>
+
       </div><!-- /gantt3-bars-wrap -->
+
+      <!-- Footer -->
       <div class="gantt3-footer">
-        <span class="gantt3-footer-note">All 4 tracks run in parallel &mdash; a delay in any track creates an adoption gap. Click any row for details.</span>
+        <span class="gantt3-footer-note">All 4 tracks run in parallel &mdash; a delay in any track creates an adoption gap that stalls the others. Click any row for details.</span>
         <div class="gantt3-kpi"><span>16</span> deliverables</div>
         <div class="gantt3-kpi"><span>4</span> milestones</div>
         <div class="gantt3-kpi"><span>3</span> active now</div>
       </div>
+
     </div><!-- /gantt3 -->
+
 
   </div><!-- /sc -->
   </div><!-- /s_strategy_align -->
 
 
   <!-- ----------------------------------
-       SLIDE 08 ù STRATEGIC ALTERNATIVES
+       SLIDE 08 &middot; STRATEGIC ALTERNATIVES
   ---------------------------------- -->
   <div class="slide" id="s_alternatives" data-title="Strategic Alternatives">
   <div class="sc" style="gap:12px">
@@ -2322,7 +2944,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <div class="alt9-forcing a4">
       <strong style="color:rgba(118,185,0,.9)">Why B, and why it does not compete with the plan:</strong>
-      Blueprints are the forcing function. A good blueprint <strong style="color:var(--text)">requires</strong> solid APIs (A), deploys via Kubernetes (C), ships with observability (D), and gets co-marketed with partners (E). Choosing B pulls all five into one roadmap ù see the full execution plan on the next slide.
+      Blueprints are the forcing function. A good blueprint <strong style="color:var(--text)">requires</strong> solid APIs (A), deploys via Kubernetes (C), ships with observability (D), and gets co-marketed with partners (E). Choosing B pulls all five into one roadmap &middot; see the full execution plan on the next slide.
     </div>
 
   </div><!-- /sc -->
@@ -2330,7 +2952,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 09 ù CHOSEN STRATEGY
+       SLIDE 09 &middot; CHOSEN STRATEGY
   ---------------------------------- -->
   <div class="slide" id="s_chosen" data-title="Chosen Strategy">
   <div class="sc" style="gap:14px">
@@ -2347,15 +2969,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="cs-flow">
         <div class="cs-flow-hd">The Adoption Flow</div>
         <div class="cs-step">Customer Pain</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">&rarr;</div>
         <div class="cs-step">Use Case Definition</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">&rarr;</div>
         <div class="cs-step cs-step-focal">DOCA Solution Blueprint</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">&rarr;</div>
         <div class="cs-step">Customer POC</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">&rarr;</div>
         <div class="cs-step">Production Deployment</div>
-        <div class="cs-arrow">?</div>
+        <div class="cs-arrow">&rarr;</div>
         <div class="cs-step cs-step-win">Account Expansion</div>
       </div>
 
@@ -2399,7 +3021,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 11 ù EXAMPLE BLUEPRINT
+       SLIDE 11 &middot; EXAMPLE BLUEPRINT
   ---------------------------------- -->
   <div class="slide" id="s_blueprint" data-title="Example Blueprint">
   <div class="sc" style="gap:13px">
@@ -2420,7 +3042,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="bp-spec">
         <div class="bp-spec-row"><span class="bp-k">Target customer</span><span class="bp-v">AI platform team, cloud architect, hyperscaler infra eng</span></div>
         <div class="bp-spec-row"><span class="bp-k">Hardware</span><span class="bp-v">ConnectX SuperNIC + BlueField DPU</span></div>
-        <div class="bp-spec-row"><span class="bp-k">DOCA services</span><span class="bp-v">Flow ù GPUNetIO ù Telemetry ù Firefly</span></div>
+        <div class="bp-spec-row"><span class="bp-k">DOCA services</span><span class="bp-v">Flow &middot; GPUNetIO &middot; Telemetry &middot; Firefly</span></div>
         <div class="bp-spec-row"><span class="bp-k">Deliverables</span><span class="bp-v">Reference arch + app + deploy guide + checklist</span></div>
         <div class="bp-spec-row"><span class="bp-k">Key KPIs</span><span class="bp-v">CPU offload %, latency, throughput, GPU util, time-to-deploy</span></div>
         <div class="bp-spec-row"><span class="bp-k">Success</span><span class="bp-v">POC to production in defined window, documented ROI</span></div>
@@ -2430,15 +3052,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
       <div class="bp-results">
         <div class="bp-res-hd">Measured impact</div>
         <div class="bp-metric">
-          <div class="bp-metric-top"><span class="bp-metric-name">GPU Utilization</span><span class="bp-metric-val bpm-good" id="bp-gpu-v">65% ù 92%</span></div>
+          <div class="bp-metric-top"><span class="bp-metric-name">GPU Utilization</span><span class="bp-metric-val bpm-good" id="bp-gpu-v">65% &middot; 92%</span></div>
           <div class="bp-track"><div class="bp-fill-bad" style="width:65%"></div><div class="bp-fill-good" id="bp-gpu-f"></div></div>
         </div>
         <div class="bp-metric">
-          <div class="bp-metric-top"><span class="bp-metric-name">Host CPU load from I/O</span><span class="bp-metric-val bpm-good" id="bp-cpu-v">94% ù 20%</span></div>
+          <div class="bp-metric-top"><span class="bp-metric-name">Host CPU load from I/O</span><span class="bp-metric-val bpm-good" id="bp-cpu-v">94% &middot; 20%</span></div>
           <div class="bp-track"><div class="bp-fill-good2" id="bp-cpu-f"></div></div>
         </div>
         <div class="bp-metric">
-          <div class="bp-metric-top"><span class="bp-metric-name">Time to deploy</span><span class="bp-metric-val bpm-good">Weeks ù 1 day</span></div>
+          <div class="bp-metric-top"><span class="bp-metric-name">Time to deploy</span><span class="bp-metric-val bpm-good">Weeks &middot; 1 day</span></div>
           <div class="bp-track"><div class="bp-fill-good3" id="bp-dep-f"></div></div>
         </div>
         <div class="bp-principle">
@@ -2452,7 +3074,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 12 ù ROI & KPIs
+       SLIDE 12 &middot; ROI & KPIs
   ---------------------------------- -->
   <div class="slide" id="s_roi" data-title="ROI & KPIs">
   <div class="sc" style="gap:13px">
@@ -2537,7 +3159,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 13 ù HOW I BUILT THIS
+       SLIDE 13 &middot; HOW I BUILT THIS
   ---------------------------------- -->
   <div class="slide" id="s_method" data-title="How I Built This">
   <div class="sc method-sc">
@@ -2545,7 +3167,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="a1">
       <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 14 &nbsp;&middot;&nbsp; Behind the work</div>
       <div class="headline"><span class="grad">How I Built This</span></div>
-      <div class="subline a2" style="margin-top:5px">Research, strategy, build, and video ù full transparency on sources, process, and AI-native production.</div>
+      <div class="subline a2" style="margin-top:5px">Research, strategy, build, and video &middot; full transparency on sources, process, and AI-native production.</div>
     </div>
 
     <div class="method-hero a2">
@@ -2601,8 +3223,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="method-card-items">
           <div class="method-card-item"><span class="method-card-dot"></span>Started from the JD: what does this role actually need to deliver to NVIDIA?</div>
-          <div class="method-card-item"><span class="method-card-dot"></span>Mapped the customer pain chain: hardware capability ? adoption friction ? missing software layer</div>
-          <div class="method-card-item"><span class="method-card-dot"></span>Evaluated 5 strategic paths against 4 criteria: pain severity ù revenue potential ù differentiation ù repeatability</div>
+          <div class="method-card-item"><span class="method-card-dot"></span>Mapped the customer pain chain: hardware capability &rarr; adoption friction &rarr; missing software layer</div>
+          <div class="method-card-item"><span class="method-card-dot"></span>Evaluated 5 strategic paths against 4 criteria: pain severity &middot; revenue potential &middot; differentiation &middot; repeatability</div>
           <div class="method-card-item"><span class="method-card-dot"></span>Chose Blueprints because it acts as a forcing function that pulls every other strategy into one motion</div>
         </div>
         <div class="method-tool-row">
@@ -2620,8 +3242,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="method-card-title">Tools used to build this deck</div>
         </div>
         <div class="method-card-items">
-          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">Cursor AI (Agent mode)</strong> ù built the interactive HTML presentation: layout, animations, navigation</div>
-          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">The strategic thinking is mine</strong> ù the research, framework, choice of Blueprint model, and every argument</div>
+          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">Cursor AI (Agent mode)</strong> &middot; built the interactive HTML presentation: layout, animations, navigation</div>
+          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">The strategic thinking is mine</strong> &middot; the research, framework, choice of Blueprint model, and every argument</div>
           <div class="method-card-item"><span class="method-card-dot"></span>AI was the production tool. The product thinking was the actual work.</div>
         </div>
         <div class="method-tool-row">
@@ -2639,30 +3261,30 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="method-card-title">Training video with Synthesia</div>
         </div>
         <div class="method-card-items">
-          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">Synthesia</strong> ù AI presenter video to walk through this strategy for async review and training</div>
-          <div class="method-card-item"><span class="method-card-dot"></span>Same narrative as the deck: problem ? strategy ? blueprint ? ROI, in a 5ù7 min executive format</div>
-          <div class="method-card-item"><span class="method-card-dot"></span>Deck + video = two artifacts from one thinking process ù live presentation and scalable enablement</div>
+          <div class="method-card-item"><span class="method-card-dot"></span><strong style="color:var(--text)">Synthesia</strong> &middot; AI presenter video to walk through this strategy for async review and training</div>
+          <div class="method-card-item"><span class="method-card-dot"></span>Same narrative as the deck: problem &rarr; strategy &rarr; blueprint &rarr; ROI, in a 5&ndash;7 min executive format</div>
+          <div class="method-card-item"><span class="method-card-dot"></span>Deck + video = two artifacts from one thinking process &middot; live presentation and scalable enablement</div>
         </div>
         <div class="method-vid-preview">
           <div class="method-vid-play">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 2.5l8 4.5-8 4.5V2.5Z" fill="currentColor"/></svg>
           </div>
           <div class="method-vid-meta">
-            <div class="method-vid-title">DOCA Blueprints ù Strategy Walkthrough</div>
-            <div class="method-vid-sub">Synthesia training video ù coming soon ù link placeholder ready</div>
+            <div class="method-vid-title">DOCA Blueprints &middot; Strategy Walkthrough</div>
+            <div class="method-vid-sub">Synthesia training video &middot; coming soon &middot; link placeholder ready</div>
           </div>
         </div>
         <div class="method-tool-row">
           <span class="method-tool-tag method-tool-vid">Synthesia</span>
           <span class="method-tool-tag method-tool-vid">AI Presenter</span>
-          <span class="method-tool-tag method-tool-vid">5ù7 min</span>
+          <span class="method-tool-tag method-tool-vid">5&ndash;7 min</span>
         </div>
       </div>
 
     </div><!-- /method-grid -->
 
     <div class="method-statement a5">
-      A product manager who knows how to leverage AI tools to produce high-quality artifacts faster is not cutting corners ù it is the job.<br>
+      A product manager who knows how to leverage AI tools to produce high-quality artifacts faster is not cutting corners &mdash; it is the job.<br>
       <span style="color:rgba(118,185,0,.85);font-weight:600">Built in one day. Researched over weeks. Ready as a deck, a video, and a conversation.</span>
     </div>
 
@@ -2671,15 +3293,36 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 
   <!-- ----------------------------------
-       SLIDE 14 ù WHY BARAK
+       SLIDE 14 &middot; WHY BARAK
   ---------------------------------- -->
   <div class="slide" id="s_why" data-title="Why Barak Rozenfeld">
   <div class="sc why-sc">
 
     <div class="why-hero a1">
-      <div class="why-hero-badge">Slide 14 of 14 &nbsp;&middot;&nbsp; The fit</div>
-      <div class="why-hero-title"><span class="grad why-grad-shine">Why Barak Rozenfeld</span></div>
-      <div class="why-hero-sub">Deep infrastructure &middot; product execution &middot; repeatable customer value</div>
+      <div class="why-hero-top">
+        <div class="why-hero-badge">Slide 14 of 14 &nbsp;&middot;&nbsp; The Pitch</div>
+      </div>
+      <div class="why-hero-split">
+        <!-- Photo card -->
+        <div class="why-photo-col">
+          <div class="why-photo-frame">
+            <span class="why-photo-initials">BR</span>
+            <img src="images/LindinnProfile.jfif" alt="Barak Rozenfeld" onerror="this.style.opacity=0">
+          </div>
+          <div class="why-photo-lbl">Barak Rozenfeld</div>
+          <div class="why-photo-sub">VP Product &middot; Senior PM</div>
+        </div>
+        <!-- Sales pitch -->
+        <div class="why-pitch-col">
+          <div class="why-pitch-headline"><span class="grad why-grad-shine">I don&rsquo;t just understand DOCA&rsquo;s potential.<br>I build the strategy that makes&nbsp;it&nbsp;land.</span></div>
+          <div class="why-pitch-tagline">This deck is my product thinking in action &mdash; from market urgency to a 90-day execution plan. You&rsquo;re not reading a slide deck. You&rsquo;re watching how I work.</div>
+          <div class="why-pitch-pills">
+            <span class="why-pitch-pill">15+ yrs infra &amp; systems</span>
+            <span class="why-pitch-pill pp-blue">Full HW/SW lifecycle</span>
+            <span class="why-pitch-pill pp-teal">POC &rarr; production at scale</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- 3 pillars -->
@@ -2810,7 +3453,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <div class="why-finale a5">
       <span class="why-finale-mark">&ldquo;</span>
-      My strongest contribution is the bridge between <strong style="color:var(--text)">deep infrastructure technology</strong>, <strong style="color:var(--text)">product execution</strong>, and <strong style="color:rgba(118,185,0,.9)">repeatable customer value</strong>. I do not just understand DOCA's potential. I know how to build the strategy that makes it land.
+      You need a PM who can talk to silicon engineers in the morning and hyperscaler CTOs in the afternoon &mdash; and <strong style="color:rgba(118,185,0,.9)">ship product between those two calls</strong>. I&rsquo;ve been that person my entire career. The only question is whether we do it at NVIDIA.
     </div>
 
     <div class="why-foot a6">
@@ -2818,7 +3461,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         <span class="why-foot-name">Barak Rozenfeld</span>
         <span class="why-foot-role">Product Strategy &middot; ConnectX &amp; BlueField &middot; DOCA</span>
       </div>
-      <div class="why-foot-link">LinkedIn: Barak Rozenfeld</div>
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <div class="why-foot-link">&#8599; LinkedIn: Barak Rozenfeld</div>
+        <div style="font-size:10px;font-weight:700;padding:4px 14px;border-radius:20px;background:rgba(118,185,0,.1);border:1px solid rgba(118,185,0,.3);color:rgba(118,185,0,.9);letter-spacing:.04em;white-space:nowrap">Ready to start &rarr;</div>
+      </div>
     </div>
 
   </div><!-- /sc -->
@@ -2848,7 +3494,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   window.addEventListener('resize',()=>{resize();init()});resize();init();draw();
 })();
 
-// --- SLIDE ORDER FIX: s_alternatives ? s_chosen ? s_strategy_align ---
+// --- SLIDE ORDER FIX: s_alternatives ‚Üí s_chosen ‚Üí s_strategy_align ---
 (function reorderSlides(){
   const vp=document.getElementById('vp');
   const sa=document.getElementById('s_strategy_align');
@@ -2875,12 +3521,9 @@ function goTo(i){
   if(slides[cur].id==='s_blueprint') setTimeout(animBlueprint,200);
   if(slides[cur].id==='s_roi') setTimeout(animROI,200);
 }
-function upd(){const s=slides[cur];nTitle.textContent=s.dataset.title||'';snEl.textContent=(cur+1)+' / '+TOTAL;pfEl.style.width=((cur+1)/TOTAL*100)+'%';bpEl.disabled=cur===0;bnEl.disabled=cur===TOTAL-1;if(nsPrev)nsPrev.disabled=cur===0;if(nsNext)nsNext.disabled=cur===TOTAL-1;dotsEl.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur))}
+function upd(){const s=slides[cur];nTitle.textContent=s.dataset.title||'';snEl.textContent=(cur+1)+' / '+TOTAL;pfEl.style.width=((cur+1)/TOTAL*100)+'%';bpEl.disabled=cur===0;bnEl.disabled=cur===TOTAL-1;dotsEl.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur))}
 bpEl.addEventListener('click',()=>goTo(cur-1));
 bnEl.addEventListener('click',()=>goTo(cur+1));
-const nsPrev=document.getElementById('ns-prev'),nsNext=document.getElementById('ns-next');
-if(nsPrev) nsPrev.addEventListener('click',()=>goTo(cur-1));
-if(nsNext) nsNext.addEventListener('click',()=>goTo(cur+1));
 document.addEventListener('keydown',e=>{if(['ArrowRight','ArrowDown','PageDown'].includes(e.key))goTo(cur+1);if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key))goTo(cur-1)});
 let tx=0,ty=0;
 document.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
@@ -2954,14 +3597,6 @@ function animCustomers(){
   });
 }
 
-// --- PRO Gantt v3: row expand/collapse ---
-function g3Toggle(row){
-  const wrap = row.closest('.gantt3-bars-wrap');
-  const isOpen = row.classList.contains('g3-open');
-  if(wrap) wrap.querySelectorAll('.gantt3-row.g3-open').forEach(r => r.classList.remove('g3-open'));
-  if(!isOpen) row.classList.add('g3-open');
-}
-
 // --- CUSTOMER ROW TOGGLE ---
 function toggleCgr(el){
   const isOpen = el.classList.contains('open');
@@ -2976,7 +3611,7 @@ const ALT_DATA={
      value:'Grows the developer ecosystem and widens the software moat over time.',
      risk:'More APIs do not equal more deployments. A developer with 50 libraries but no deployment guide still ships nothing.',
      c:[50,55,45,80]},
-  B:{name:'Solution Blueprints',overall:87,verdict:'Recommended starting point ?',
+  B:{name:'Solution Blueprints',overall:87,verdict:'Recommended starting point ‚úì',
      example:'"DOCA AI Storage Blueprint": a repo where one script deploys NVMe-oF offload and GPU utilization rises from 65% to 90%, with deploy YAML, dashboard, and ROI calculator.',
      value:'Connects DOCA to business outcomes. POC drops from weeks to days. Sales gets a demo-able artifact. Every blueprint is measurable.',
      risk:'Requires sharp prioritization. Cannot build 20 at once, must pick the 3 to 5 highest-impact use cases.',
@@ -3029,7 +3664,7 @@ function animROI(){
   const kpis=[
     ['kpi-1', 0, 20, '', '+'],
     ['kpi-2', 0, 92, '', '%'],
-    ['kpi-3', 0, 10, '', 'ù'],
+    ['kpi-3', 0, 10, '', '√ó'],
     ['kpi-4', 0, 30, '+', '%'],
   ];
   kpis.forEach(([id,from,to,pre,suf])=>{
@@ -3043,6 +3678,14 @@ function animROI(){
     };
     requestAnimationFrame(step);
   });
+}
+
+// --- PRO Gantt v3: row expand/collapse ---
+function g3Toggle(row){
+  const wrap = row.closest('.gantt3-bars-wrap');
+  const isOpen = row.classList.contains('g3-open');
+  if(wrap) wrap.querySelectorAll('.gantt3-row.g3-open').forEach(r => r.classList.remove('g3-open'));
+  if(!isOpen) row.classList.add('g3-open');
 }
 
 // Run on first load
