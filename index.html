@@ -1742,6 +1742,32 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .slide.active .assump-card:nth-child(5){animation:assump-in .45s var(--ease) .5s both}
 .slide:not(.active) .assump-card{opacity:0;transform:translateX(-22px);animation:none!important}
 .assump-note{font-size:11px;color:var(--text3);padding:8px 14px;background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:7px;line-height:1.5;text-align:center}
+
+/* ── Tooltip system ─────────────────────────────────────────────── */
+.tip{cursor:help;text-decoration:underline dotted rgba(118,185,0,.45);text-underline-offset:2px;position:relative;display:inline}
+.tip::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);background:rgba(5,10,18,.97);border:1px solid rgba(118,185,0,.3);border-radius:7px;color:#cdd9e5;font-size:10.5px;font-weight:400;line-height:1.55;padding:7px 11px;min-width:170px;max-width:260px;width:max-content;white-space:normal;pointer-events:none;opacity:0;z-index:9999;transition:opacity .18s ease;text-decoration:none;font-style:normal;box-shadow:0 4px 18px rgba(0,0,0,.5)}
+.tip:hover::after{opacity:1}
+
+/* ── Key Concepts slide ──────────────────────────────────────────── */
+#s_concepts.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+.kc-stack{display:flex;flex-direction:column;gap:0}
+.kc-layer{display:grid;grid-template-columns:56px 1fr auto;align-items:start;gap:4px 12px;padding:10px 16px;border:1px solid var(--border);border-bottom:none}
+.kc-stack>.kc-layer:first-child{border-radius:10px 10px 0 0}
+.kc-stack>.kc-layer:last-child{border-bottom:1px solid var(--border);border-radius:0 0 10px 10px}
+.kc-arrow{text-align:center;font-size:12px;color:var(--text3);padding:1px 0;opacity:.55;letter-spacing:.1em}
+.kc-split{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kc-cmp{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:11px 14px}
+.kc-cmp-hd{font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px}
+.kc-cmp-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.kc-item{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:7px;padding:9px 11px}
+.kc-item-cat{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px}
+.kc-item-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px}
+.kc-item-desc{font-size:10.5px;color:var(--text3);line-height:1.45}
+.kc-glossary{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.kc-term{background:var(--card);border:1px solid var(--border);border-radius:7px;padding:8px 10px}
+.kc-term-name{font-size:11.5px;font-weight:700;color:var(--text);margin-bottom:1px}
+.kc-term-full{font-size:9px;color:var(--text3);margin-bottom:4px;font-style:italic}
+.kc-term-def{font-size:10px;color:var(--text2);line-height:1.42}
 </style>
 </head>
 <body>
@@ -1889,7 +1915,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="s0-bottom a6">
       <div class="s0-hint">Press <kbd>&rarr;</kbd> to explore the strategy</div>
       <div class="s0-stat-row">
-        <div class="s0-stat"><div class="s0-stat-n">17</div><div class="s0-stat-l">Slides</div></div>
+        <div class="s0-stat"><div class="s0-stat-n">18</div><div class="s0-stat-l">Slides</div></div>
         <div class="s0-stat"><div class="s0-stat-n">5</div><div class="s0-stat-l">Paths evaluated</div></div>
         <div class="s0-stat"><div class="s0-stat-n">1</div><div class="s0-stat-l">Recommendation</div></div>
         <div class="s0-stat"><div class="s0-stat-n">60%</div><div class="s0-stat-l">Target adoption</div></div>
@@ -1907,7 +1933,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:16px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 2 of 17 &nbsp;&middot;&nbsp; What we will cover</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 2 of 18 &nbsp;&middot;&nbsp; What we will cover</div>
       <div class="headline"><span class="grad">The Agenda</span></div>
     </div>
 
@@ -1931,106 +1957,113 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     </div>
 
     <div class="agenda-grid a3">
-      <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">03</span>
+      <div class="ag-item" style="border-left:2px solid rgba(255,255,255,.12)">
+        <span class="ag-num" style="color:var(--text3)">03</span>
         <div class="ag-body">
-          <div class="ag-title ag-red">Problem & What DOCA Solved</div>
-          <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; Why GPU utilization fails at scale</div>
+          <div class="ag-title">Key Concepts</div>
+          <div class="ag-sub">The 4-layer stack &middot; ConnectX &middot; BlueField &middot; DOCA &middot; Blueprint</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
         <span class="ag-num" style="color:rgba(0,185,155,.75)">04</span>
+        <div class="ag-body">
+          <div class="ag-title ag-red">Problem &amp; What DOCA Solved</div>
+          <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; Why GPU utilization fails at scale</div>
+        </div>
+      </div>
+      <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">05</span>
         <div class="ag-body">
           <div class="ag-title ag-red">Why Existing Solutions Fall Short</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; 4 partial solutions &middot; the common gap</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">05</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">06</span>
         <div class="ag-body">
           <div class="ag-title ag-green">Why DOCA Is the Most Significant Answer</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; 6&times; faster &middot; 55% hardware lead &rarr; software moat</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(42,128,200,.3)">
-        <span class="ag-num" style="color:rgba(82,168,255,.75)">06</span>
+        <span class="ag-num" style="color:rgba(82,168,255,.75)">07</span>
         <div class="ag-body">
           <div class="ag-title">What is DOCA</div>
           <div class="ag-sub" style="color:rgba(82,168,255,.55)">&#9670; Technical &nbsp;&middot;&nbsp; The programmability layer</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(212,130,10,.3)">
-        <span class="ag-num" style="color:rgba(212,130,10,.7)">07</span>
+        <span class="ag-num" style="color:rgba(212,130,10,.7)">08</span>
         <div class="ag-body">
           <div class="ag-title">Market Urgency</div>
           <div class="ag-sub" style="color:rgba(212,130,10,.55)">&#9670; Market context &nbsp;&middot;&nbsp; Why DOCA drives NVIDIA revenue</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(212,130,10,.3)">
-        <span class="ag-num" style="color:rgba(212,130,10,.7)">08</span>
+        <span class="ag-num" style="color:rgba(212,130,10,.7)">09</span>
         <div class="ag-body">
           <div class="ag-title">Market Landscape</div>
           <div class="ag-sub" style="color:rgba(212,130,10,.55)">&#9670; Market context &nbsp;&middot;&nbsp; Competitors &middot; segments &middot; ecosystem</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(212,130,10,.3)">
-        <span class="ag-num" style="color:rgba(212,130,10,.7)">09</span>
+        <span class="ag-num" style="color:rgba(212,130,10,.7)">10</span>
         <div class="ag-body">
           <div class="ag-title">Key Customers</div>
           <div class="ag-sub" style="color:rgba(212,130,10,.55)">&#9670; Market context &nbsp;&middot;&nbsp; Who buys, and the NVIDIA angle</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">10</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">11</span>
         <div class="ag-body">
           <div class="ag-title">Strategic Alternatives</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; 5 paths evaluated, 1 chosen</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">11</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">12</span>
         <div class="ag-body">
           <div class="ag-title ag-green">Chosen Strategy</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; Blueprint model &middot; 5 use cases</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">12</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">13</span>
         <div class="ag-body">
           <div class="ag-title">Product Strategy</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; ConnectX &middot; BlueField &middot; DOCA in parallel</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">13</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">14</span>
         <div class="ag-body">
           <div class="ag-title">Priorities, Risk &amp; Developer UX</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; MoSCoW &middot; Risk assessment &middot; Blueprint UX journey</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(0,185,155,.3)">
-        <span class="ag-num" style="color:rgba(0,185,155,.75)">14</span>
+        <span class="ag-num" style="color:rgba(0,185,155,.75)">15</span>
         <div class="ag-body">
           <div class="ag-title">DOCA Success Metrics</div>
           <div class="ag-sub" style="color:rgba(0,185,155,.55)">&#9670; Business &nbsp;&middot;&nbsp; Baseline &rarr; target &rarr; derivation</div>
         </div>
       </div>
       <div class="ag-item" style="border-left:2px solid rgba(42,128,200,.3)">
-        <span class="ag-num" style="color:rgba(82,168,255,.75)">15</span>
+        <span class="ag-num" style="color:rgba(82,168,255,.75)">16</span>
         <div class="ag-body">
           <div class="ag-title">Example Blueprint</div>
           <div class="ag-sub" style="color:rgba(82,168,255,.55)">&#9670; Technical &nbsp;&middot;&nbsp; AI cluster offload, end to end</div>
         </div>
       </div>
       <div class="ag-item">
-        <span class="ag-num">16</span>
+        <span class="ag-num">17</span>
         <div class="ag-body">
           <div class="ag-title">How I Built This</div>
           <div class="ag-sub">Sources &middot; methodology &middot; tools used</div>
         </div>
       </div>
       <div class="ag-item">
-        <span class="ag-num">17</span>
+        <span class="ag-num">18</span>
         <div class="ag-body">
           <div class="ag-title">Why Barak Rozenfeld</div>
           <div class="ag-sub">3 fit pillars &middot; direct JD match</div>
@@ -2042,6 +2075,153 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   </div><!-- /s_agenda -->
 
 
+  <!-- ────────────────────────────────── SLIDE 03 · KEY CONCEPTS ────────────────────────────────── -->
+  <div class="slide" id="s_concepts" data-title="Key Concepts">
+  <div class="sc" style="gap:13px;padding-bottom:24px">
+
+    <div class="a1">
+      <div class="eyebrow" style="margin-bottom:5px">Slide 3 of 18 &nbsp;&middot;&nbsp; Read this before anything else</div>
+      <div class="headline"><span class="grad">Key Concepts</span></div>
+      <div class="subline a2" style="margin-top:5px">NVIDIA's AI infrastructure stack has 4 distinct layers &ndash; each with a different role. Confusing them is the #1 reason the rest of this deck is misread.</div>
+    </div>
+
+    <!-- 4-layer stack -->
+    <div class="kc-stack a2">
+
+      <div class="kc-layer" style="background:rgba(0,185,155,.06);border-color:rgba(0,185,155,.22);border-radius:10px 10px 0 0">
+        <div style="font-size:10px;font-weight:800;color:rgba(0,185,155,.7);letter-spacing:.08em;padding-top:2px">LAYER 4</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">Solution Blueprint &nbsp;<span style="font-size:9px;font-weight:700;letter-spacing:.08em;padding:2px 7px;border-radius:4px;background:rgba(0,185,155,.12);color:rgba(0,185,155,.85)">THE STRATEGY</span></div>
+          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">A complete, validated, production-ready deployment recipe for a specific use case (e.g. AI cluster offload). Think of it as a "Docker image" for DPU workloads &ndash; pull, configure, deploy. Removes the 9-month integration burden customers face today.</div>
+        </div>
+        <div style="font-size:22px;opacity:.45;padding-top:2px">📋</div>
+      </div>
+
+      <div class="kc-arrow">↑ runs on top of</div>
+
+      <div class="kc-layer" style="background:rgba(118,185,0,.05);border-color:rgba(118,185,0,.2)">
+        <div style="font-size:10px;font-weight:800;color:rgba(118,185,0,.7);letter-spacing:.08em;padding-top:2px">LAYER 3</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">DOCA &nbsp;<span style="font-size:9px;font-weight:700;letter-spacing:.08em;padding:2px 7px;border-radius:4px;background:rgba(118,185,0,.1);color:rgba(118,185,0,.85)">SOFTWARE PLATFORM</span></div>
+          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">NVIDIA's SDK and runtime for programming BlueField and ConnectX. Provides APIs for networking, storage, security, and GPU-direct data paths (GPUNetIO). Like Linux &ndash; powerful, but you need to know how to use it.</div>
+        </div>
+        <div style="font-size:22px;opacity:.45;padding-top:2px">⚙️</div>
+      </div>
+
+      <div class="kc-arrow">↑ programs the hardware</div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:none">
+        <div class="kc-layer" style="background:rgba(82,168,255,.06);border-color:rgba(82,168,255,.22);border-right:none">
+          <div style="font-size:10px;font-weight:800;color:rgba(82,168,255,.75);letter-spacing:.08em;padding-top:2px">LAYER 2</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">BlueField &nbsp;<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(82,168,255,.1);color:rgba(82,168,255,.85)">DPU</span></div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">ConnectX + ARM server-grade cores + memory. Runs a full OS inside the PCIe card. Offloads networking, storage, and security work entirely from the host CPU. Programmed with DOCA.</div>
+          </div>
+        </div>
+        <div class="kc-layer" style="background:rgba(82,168,255,.03);border-color:rgba(82,168,255,.14)">
+          <div style="font-size:10px;font-weight:800;color:rgba(82,168,255,.5);letter-spacing:.08em;padding-top:2px">LAYER 2</div>
+          <div>
+            <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px">ConnectX &nbsp;<span style="font-size:9px;font-weight:700;padding:2px 7px;border-radius:4px;background:rgba(82,168,255,.07);color:rgba(82,168,255,.65)">NIC / SuperNIC</span></div>
+            <div style="font-size:10.5px;color:var(--text3);line-height:1.5">Network Interface Card. Moves data between GPU and the network at line rate (400Gb &rarr; 800Gb). Every AI cluster server needs one. BlueField is built on top of ConnectX silicon.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="kc-arrow">↑ runs on physical infrastructure</div>
+
+      <div class="kc-layer" style="background:rgba(255,255,255,.02);border-color:var(--border);border-bottom:1px solid var(--border);border-radius:0 0 10px 10px">
+        <div style="font-size:10px;font-weight:800;color:var(--text3);letter-spacing:.08em;padding-top:2px">LAYER 1</div>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--text2);margin-bottom:3px">Physical AI Infrastructure</div>
+          <div style="font-size:10.5px;color:var(--text3);line-height:1.5">GPU clusters, AI factories, data center servers. The hardware environment where everything ultimately runs.</div>
+        </div>
+        <div style="font-size:22px;opacity:.25;padding-top:2px">🖥️</div>
+      </div>
+
+    </div><!-- /kc-stack -->
+
+    <!-- Two key distinctions -->
+    <div class="kc-split a3">
+      <div class="kc-cmp">
+        <div class="kc-cmp-hd" style="color:rgba(82,168,255,.75)">ConnectX vs. BlueField &ndash; the key difference</div>
+        <div class="kc-cmp-row">
+          <div class="kc-item">
+            <div class="kc-item-cat" style="color:rgba(82,168,255,.6)">ConnectX</div>
+            <div class="kc-item-name">The NIC</div>
+            <div class="kc-item-desc">Moves data. No onboard CPU. Programmable for packet steering and RDMA via DOCA. Ships in every AI server.</div>
+          </div>
+          <div class="kc-item" style="border-color:rgba(82,168,255,.2);background:rgba(82,168,255,.04)">
+            <div class="kc-item-cat" style="color:rgba(82,168,255,.85)">BlueField</div>
+            <div class="kc-item-name">The DPU</div>
+            <div class="kc-item-desc">ConnectX + ARM cores. Runs its own OS. Offloads full workloads from the host. More capable, requires DOCA to program.</div>
+          </div>
+        </div>
+      </div>
+      <div class="kc-cmp">
+        <div class="kc-cmp-hd" style="color:rgba(118,185,0,.75)">DOCA vs. Blueprint &ndash; the key difference</div>
+        <div class="kc-cmp-row">
+          <div class="kc-item">
+            <div class="kc-item-cat" style="color:rgba(118,185,0,.65)">DOCA</div>
+            <div class="kc-item-name">The Platform</div>
+            <div class="kc-item-desc">APIs and runtime. Raw capability. You build solutions with it &ndash; but requires deep expertise.</div>
+          </div>
+          <div class="kc-item" style="border-color:rgba(0,185,155,.22);background:rgba(0,185,155,.04)">
+            <div class="kc-item-cat" style="color:rgba(0,185,155,.8)">Blueprint</div>
+            <div class="kc-item-name">The Recipe</div>
+            <div class="kc-item-desc">Pre-built solution on DOCA for one use case. Pull, configure, deploy. No deep expertise needed.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Glossary row -->
+    <div class="kc-glossary a4" style="padding-bottom:8px">
+      <div class="kc-term">
+        <div class="kc-term-name">DPU</div>
+        <div class="kc-term-full">Data Processing Unit</div>
+        <div class="kc-term-def">NIC + server-grade CPU cores + OS. Offloads networking, storage, security from the host CPU.</div>
+      </div>
+      <div class="kc-term">
+        <div class="kc-term-name">SmartNIC</div>
+        <div class="kc-term-full">Intelligent NIC</div>
+        <div class="kc-term-def">NIC with basic programmability. Lighter than a DPU &ndash; no full OS, limited offload capability.</div>
+      </div>
+      <div class="kc-term">
+        <div class="kc-term-name">RDMA</div>
+        <div class="kc-term-full">Remote Direct Memory Access</div>
+        <div class="kc-term-def">Transfers data between server memory over the network, bypassing the CPU entirely. Critical for AI training.</div>
+      </div>
+      <div class="kc-term">
+        <div class="kc-term-name">GPUNetIO</div>
+        <div class="kc-term-full">DOCA GPU Networking I/O</div>
+        <div class="kc-term-def">DOCA service routing data GPU-to-GPU with zero CPU involvement &ndash; eliminates the AI training bottleneck.</div>
+      </div>
+      <div class="kc-term">
+        <div class="kc-term-name">POC</div>
+        <div class="kc-term-full">Proof of Concept</div>
+        <div class="kc-term-def">A pilot deployment to validate a solution before committing to full production rollout.</div>
+      </div>
+      <div class="kc-term">
+        <div class="kc-term-name">ISV</div>
+        <div class="kc-term-full">Independent Software Vendor</div>
+        <div class="kc-term-def">Third-party companies (e.g. VMware, Splunk) that build products on top of NVIDIA's platform.</div>
+      </div>
+      <div class="kc-term">
+        <div class="kc-term-name">GTM</div>
+        <div class="kc-term-full">Go-to-Market</div>
+        <div class="kc-term-def">Commercial strategy for reaching and converting customers &ndash; pricing, channels, partnerships.</div>
+      </div>
+      <div class="kc-term">
+        <div class="kc-term-name">OVS</div>
+        <div class="kc-term-full">Open vSwitch</div>
+        <div class="kc-term-def">Virtual networking layer in cloud environments. Can be offloaded from host CPU to run on BlueField.</div>
+      </div>
+    </div>
+
+  </div><!-- /sc -->
+  </div><!-- /s_concepts -->
+
+
   <!-- ----------------------------------
        SLIDE 03 &middot; PROBLEM & SOLUTION
   ---------------------------------- -->
@@ -2050,7 +2230,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Header -->
     <div class="s1-ph" id="s1p0">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 3 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem &amp; what DOCA solved</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 4 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem &amp; what DOCA solved</div>
       <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
     </div>
 
@@ -2129,8 +2309,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="fn-node fn-connectx">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="3" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.2"/><line x1="5.5" y1="3" x2="5.5" y2="15" stroke="currentColor" stroke-width=".7" opacity=".45"/><line x1="9" y1="3" x2="9" y2="15" stroke="currentColor" stroke-width=".7" opacity=".45"/><line x1="12.5" y1="3" x2="12.5" y2="15" stroke="currentColor" stroke-width=".7" opacity=".45"/><line x1="2" y1="7" x2="0" y2="7" stroke="currentColor" stroke-width="1.1"/><line x1="2" y1="11" x2="0" y2="11" stroke="currentColor" stroke-width="1.1"/><line x1="16" y1="7" x2="18" y2="7" stroke="currentColor" stroke-width="1.1"/><line x1="16" y1="11" x2="18" y2="11" stroke="currentColor" stroke-width="1.1"/></svg>
-          <div class="fn-lbl fn-lbl-blue">ConnectX</div>
-          <div class="fn-sub">RDMA, zero-copy</div>
+          <div class="fn-lbl fn-lbl-blue"><span class="tip" data-tip="NVIDIA NIC/SuperNIC — moves data between GPU and the network at line rate (400Gb+). Every AI cluster server needs one.">ConnectX</span></div>
+          <div class="fn-sub"><span class="tip" data-tip="RDMA = Remote Direct Memory Access. Transfers data between servers' memory over the network, bypassing the CPU entirely.">RDMA</span>, zero-copy</div>
         </div>
         <div class="fn-seg">
           <div class="fn-line fn-line-g"></div>
@@ -2142,7 +2322,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="fn-node fn-bluefield">
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="16" height="16" rx="3.5" stroke="currentColor" stroke-width="1.2"/><rect x="4" y="4" width="4" height="4" rx="1.2" fill="currentColor" opacity=".5"/><rect x="10" y="4" width="4" height="4" rx="1.2" fill="currentColor" opacity=".5"/><rect x="4" y="10" width="4" height="4" rx="1.2" fill="currentColor" opacity=".5"/><rect x="10" y="10" width="4" height="4" rx="1.2" fill="currentColor" opacity=".5"/></svg>
-          <div class="fn-lbl fn-lbl-teal">BlueField + DOCA</div>
+          <div class="fn-lbl fn-lbl-teal"><span class="tip" data-tip="BlueField = NVIDIA DPU (ConnectX + ARM cores). DOCA = the software framework that programs it. Together they offload work from the host CPU.">BlueField + DOCA</span></div>
           <div class="fn-sub">CPU bypassed</div>
           <div class="fn-bypass-tag">CPU freed</div>
         </div>
@@ -2172,7 +2352,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="p-body">
           <div class="p-tag">NIC / SuperNIC</div>
-          <div class="p-name">ConnectX</div>
+          <div class="p-name"><span class="tip" data-tip="NVIDIA NIC/SuperNIC. Moves data between GPU and the network at line rate. Ships in every AI server.">ConnectX</span></div>
           <div class="p-desc">Wire-speed AI networking. Ultra-low latency, RDMA/RoCE, hardware offload at 400Gb.</div>
         </div>
       </div>
@@ -2181,8 +2361,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="1" y="1" width="16" height="16" rx="3.5" stroke="currentColor" stroke-width="1.2"/><rect x="4" y="4" width="4" height="4" rx="1.2" fill="currentColor" opacity=".5"/><rect x="10" y="4" width="4" height="4" rx="1.2" fill="currentColor" opacity=".5"/><rect x="4" y="10" width="4" height="4" rx="1.2" fill="currentColor" opacity=".5"/><rect x="10" y="10" width="4" height="4" rx="1.2" fill="currentColor" opacity=".5"/></svg>
         </div>
         <div class="p-body">
-          <div class="p-tag">DPU</div>
-          <div class="p-name">BlueField</div>
+          <div class="p-tag"><span class="tip" data-tip="Data Processing Unit — a NIC with server-grade ARM CPU cores and full OS. Offloads work from the host CPU.">DPU</span></div>
+          <div class="p-name"><span class="tip" data-tip="NVIDIA DPU. ConnectX + ARM cores running a full OS. Programmed with DOCA to offload networking, storage, security.">BlueField</span></div>
           <div class="p-desc">Programmable ARM cores. Offloads all networking, storage, and security from the host CPU.</div>
         </div>
       </div>
@@ -2192,7 +2372,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
         </div>
         <div class="p-body">
           <div class="p-tag">Software Platform</div>
-          <div class="p-name">DOCA</div>
+          <div class="p-name"><span class="tip" data-tip="NVIDIA's SDK and runtime for programming BlueField & ConnectX. Provides APIs for networking, storage, security, GPU-direct data paths. The developer interface to the hardware.">DOCA</span></div>
           <div class="p-desc">The adoption layer: APIs, microservices, orchestration, that makes hardware power deployable at scale.</div>
         </div>
       </div>
@@ -2219,7 +2399,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Header -->
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 4 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem and why it persists</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 5 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The problem and why it persists</div>
       <div class="headline"><span class="pain-grad">Why Existing Solutions Fall Short</span></div>
       <div class="subline a2" style="margin-top:4px">Every approach below has real merit &ndash; and real limits. The problem persists not because the market ignored it, but because each solution addresses one dimension while leaving the root cause untouched.</div>
     </div>
@@ -2228,7 +2408,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <div class="pain-metrics-row a2" style="grid-template-columns:repeat(3,1fr)">
       <div class="pain-metric">
         <div class="pain-metric-val">87%</div>
-        <div class="pain-metric-label">DPU POC-to-production failure rate</div>
+        <div class="pain-metric-label"><span class="tip" data-tip="Data Processing Unit — BlueField is NVIDIA's DPU. A NIC with ARM cores that offloads networking, storage, and security.">DPU</span> <span class="tip" data-tip="Proof of Concept — a pilot deployment to validate a solution before committing to full production.">POC</span>-to-production failure rate</div>
         <div class="pain-metric-sub">Integration complexity is the #1 blocker &middot; NVIDIA field data</div>
       </div>
       <div class="pain-metric">
@@ -2347,7 +2527,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <!-- Header -->
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 5 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Why this solution is the most significant</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 6 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Why this solution is the most significant</div>
       <div class="headline"><span class="grad">Why DOCA is the Most Significant Answer</span></div>
       <div class="subline a2" style="margin-top:4px">The four approaches on the previous slide each address one dimension. DOCA is the only answer that operates at the platform level &ndash; addressing all five simultaneously, at scale, and with an unfair advantage no competitor can replicate.</div>
     </div>
@@ -2450,7 +2630,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:12px">
 
     <div>
-      <div class="eyebrow a1" style="margin-bottom:6px">Slide 6 of 17 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; What is DOCA</div>
+      <div class="eyebrow a1" style="margin-bottom:6px">Slide 7 of 18 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; What is DOCA</div>
       <div class="headline a2"><span class="grad">DOCA: The Programmability Layer</span></div>
       <div class="subline a2" style="margin-top:5px">Not just an SDK. The adoption layer between hardware capability and production deployment.</div>
     </div>
@@ -2490,7 +2670,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <div class="lyr-sub">Microservices &nbsp;&middot;&nbsp; APIs &nbsp;&middot;&nbsp; Libraries &nbsp;&middot;&nbsp; Drivers &nbsp;&middot;&nbsp; Orchestration</div>
           <div class="lyr-chips">
             <span class="lyr-chip">Firefly</span>
-            <span class="lyr-chip">GPUNetIO</span>
+            <span class="lyr-chip tip" data-tip="DOCA GPU Networking I/O — routes data GPU-to-GPU with zero CPU involvement, eliminating the AI training bottleneck.">GPUNetIO</span>
             <span class="lyr-chip">DOCA Flow</span>
             <span class="lyr-chip">Argus</span>
             <span class="lyr-chip">SNAP</span>
@@ -2515,7 +2695,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           </svg>
         </div>
         <div class="lyr-main">
-          <div class="lyr-title">BlueField DPU</div>
+          <div class="lyr-title"><span class="tip" data-tip="NVIDIA's DPU. ConnectX + ARM server-grade cores + full OS. Offloads networking, storage & security from the host CPU. Programmed via DOCA.">BlueField DPU</span></div>
           <div class="lyr-sub">Programmable ARM cores &nbsp;&middot;&nbsp; Infrastructure offload &nbsp;&middot;&nbsp; Security &nbsp;&middot;&nbsp; Isolation</div>
         </div>
       </div>
@@ -2537,8 +2717,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           </svg>
         </div>
         <div class="lyr-main">
-          <div class="lyr-title">ConnectX SuperNIC</div>
-          <div class="lyr-sub">400Gb wire-speed &nbsp;&middot;&nbsp; RDMA/RoCE &nbsp;&middot;&nbsp; Hardware offload engines &nbsp;&middot;&nbsp; GPUNetIO</div>
+          <div class="lyr-title"><span class="tip" data-tip="NVIDIA NIC/SuperNIC. Moves data between GPU and the network at line rate. The physical fabric of every AI cluster.">ConnectX SuperNIC</span></div>
+          <div class="lyr-sub">400Gb wire-speed &nbsp;&middot;&nbsp; <span class="tip" data-tip="Remote Direct Memory Access — transfers data between servers bypassing the CPU entirely. Critical for AI training throughput.">RDMA</span>/RoCE &nbsp;&middot;&nbsp; Hardware offload engines &nbsp;&middot;&nbsp; GPUNetIO</div>
         </div>
       </div>
 
@@ -2580,7 +2760,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 7 of 17 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Why this matters now</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 18 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Why this matters now</div>
       <div class="headline"><span class="grad">Why DOCA Drives NVIDIA Revenue</span></div>
     </div>
 
@@ -2702,7 +2882,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 8 of 17 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Understanding the market</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 18 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Understanding the market</div>
       <div class="headline"><span class="grad">Competitive Landscape</span></div>
       <div class="subline a2" style="margin-top:4px">
         AI SmartNIC &amp; DPU hardware market share &ndash; the layer DOCA runs on.
@@ -2849,7 +3029,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 9 of 17 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Who is buying and why</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 18 &nbsp;&middot;&nbsp; <span style="color:rgba(212,130,10,.85);font-weight:700">Market Context</span> &nbsp;&middot;&nbsp; Who is buying and why</div>
       <div class="headline"><span class="grad">Key Customers</span></div>
     </div>
 
@@ -3006,7 +3186,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The execution plan</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The execution plan</div>
       <div class="headline"><span class="grad">Product Strategy Alignment</span></div>
       <div class="subline a2" style="margin-top:5px">ConnectX, BlueField, and DOCA each have a distinct role &ndash; and all three must advance in parallel, not in sequence.</div>
     </div>
@@ -3743,7 +3923,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:12px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 10 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The reasoning behind the plan</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The reasoning behind the plan</div>
       <div class="headline"><span class="grad">Why Blueprints, Not the Alternatives</span></div>
       <div class="subline a2" style="margin-top:5px">Every other path solves one piece of the problem. Only Blueprints address the root cause and pull everything else into a single roadmap.</div>
     </div>
@@ -3826,7 +4006,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:14px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 11 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The chosen path</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 12 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; The chosen path</div>
       <div class="headline"><span class="grad">DOCA Solution Blueprints</span></div>
       <div class="subline a2" style="margin-top:5px">Customers do not adopt platforms. They adopt solutions to painful problems.</div>
     </div>
@@ -3895,7 +4075,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:11px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 13 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Execution discipline</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 14 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Execution discipline</div>
       <div class="headline"><span class="grad">Priorities, Risk &amp; Developer UX</span></div>
       <div class="subline a2" style="margin-top:4px">Three questions every CEO asks: <em>What are we doing first?</em> &nbsp;&middot;&nbsp; <em>What can go wrong?</em> &nbsp;&middot;&nbsp; <em>What does the product feel like to use?</em></div>
     </div>
@@ -4071,7 +4251,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:11px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 14 of 17 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Measuring what matters</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 15 of 18 &nbsp;&middot;&nbsp; <span class="lbl-biz">Business</span> &nbsp;&middot;&nbsp; Measuring what matters</div>
       <div class="headline"><span class="grad">DOCA Success Metrics</span></div>
       <div class="subline a2" style="margin-top:4px">Every number traces back to data already in this deck ? baseline, target, delta, and why.</div>
     </div>
@@ -4226,7 +4406,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc" style="gap:13px">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 15 of 17 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; Strategy made concrete</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 16 of 18 &nbsp;&middot;&nbsp; <span class="lbl-tech">Technical</span> &nbsp;&middot;&nbsp; Strategy made concrete</div>
       <div class="headline"><span class="grad">Blueprint #1: AI Cluster Networking Offload</span></div>
       <div class="subline a2" style="margin-top:4px">
         A Blueprint is not documentation &ndash; it is a <strong style="color:var(--text)">repeatable, tested, production path</strong>.
@@ -4301,7 +4481,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="sc method-sc">
 
     <div class="a1">
-      <div class="eyebrow" style="margin-bottom:5px">Slide 16 of 17 &nbsp;&middot;&nbsp; Behind the work</div>
+      <div class="eyebrow" style="margin-bottom:5px">Slide 17 of 18 &nbsp;&middot;&nbsp; Behind the work</div>
       <div class="headline"><span class="grad">My PM Manifesto</span></div>
       <div class="subline a2" style="margin-top:5px">How I think about product &ndash; not just what I deliver.</div>
     </div>
@@ -4430,7 +4610,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
     <div class="why-hero a1">
       <div class="why-hero-top">
-        <div class="why-hero-badge">Slide 17 of 17 &nbsp;&middot;&nbsp; The Pitch</div>
+        <div class="why-hero-badge">Slide 18 of 18 &nbsp;&middot;&nbsp; The Pitch</div>
       </div>
       <div class="why-hero-split">
         <!-- Photo card -->
