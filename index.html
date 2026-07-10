@@ -186,21 +186,53 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .s1-foot{display:flex;justify-content:space-between;align-items:center;
           border-top:1px solid var(--border);padding-top:10px;font-size:11px}
 
-/* -- Intro slide -- */
-.intro-mark{display:flex;flex-direction:column;align-items:center;gap:8px}
-.intro-mark-label{font-size:11px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:rgba(118,185,0,.7)}
-.intro-title{font-size:clamp(30px,4.5vw,54px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
-.intro-sub{font-size:15px;color:var(--text2);letter-spacing:-.01em;max-width:480px}
-.intro-divider{width:48px;height:2px;background:linear-gradient(90deg,transparent,rgba(118,185,0,.5),transparent)}
-.intro-presenter{display:flex;flex-direction:column;gap:4px}
-.intro-name{font-size:16px;font-weight:700;color:var(--text)}
-.intro-role{font-size:12px;color:var(--text3);letter-spacing:.02em}
-.intro-hint{font-size:11px;color:var(--text3);margin-top:8px}
-.intro-hint kbd{
-  display:inline-block;padding:1px 6px;border:1px solid var(--border2);
-  border-radius:4px;font-size:10px;font-family:var(--mono);
-  background:var(--card2);color:var(--text2);
-}
+/* -- Intro slide redesign -- */
+#s0.slide{overflow:hidden}
+.s0-wrap{display:grid;grid-template-rows:auto 1fr auto;height:100%;padding:28px 32px 20px;gap:0;box-sizing:border-box}
+.s0-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
+.s0-eyebrow{display:flex;align-items:center;gap:10px}
+.s0-logo{width:34px;height:34px;border-radius:8px;background:rgba(118,185,0,.08);border:1px solid rgba(118,185,0,.3);display:flex;align-items:center;justify-content:center;animation:s0-glow 3s ease-in-out infinite}
+@keyframes s0-glow{0%,100%{box-shadow:0 0 8px rgba(118,185,0,.15)}50%{box-shadow:0 0 20px rgba(118,185,0,.35),0 0 40px rgba(118,185,0,.1)}}
+.s0-doca-label{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:rgba(118,185,0,.7)}
+.s0-meta{font-size:10.5px;color:var(--text3)}
+/* Main split */
+.s0-body{display:grid;grid-template-columns:1fr 340px;gap:28px;align-items:stretch}
+/* Left */
+.s0-left{display:flex;flex-direction:column;gap:18px;justify-content:center}
+.s0-title{font-size:clamp(32px,3.8vw,50px);font-weight:800;letter-spacing:-.04em;line-height:1.1}
+.s0-subtitle{font-size:14px;color:var(--text2);line-height:1.6;max-width:520px}
+.s0-hooks{display:flex;flex-direction:column;gap:9px}
+.s0-hook{display:flex;align-items:flex-start;gap:11px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:9px;transition:border-color .2s}
+.s0-hook:hover{border-color:rgba(118,185,0,.3)}
+.s0-hook-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.s0-hook-hd{font-size:12px;font-weight:700;color:var(--text);margin-bottom:2px}
+.s0-hook-sub{font-size:10.5px;color:var(--text3);line-height:1.4}
+.s0-flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.s0-flow-step{font-size:10.5px;font-weight:700;padding:4px 10px;border-radius:5px}
+.s0-flow-arrow{font-size:11px;color:var(--text3);opacity:.5}
+/* Right: personal card */
+.s0-right{display:flex;flex-direction:column;background:var(--card);border-radius:14px;overflow:hidden;position:relative;border:1px solid var(--border)}
+.s0-right::before{content:'';position:absolute;inset:0;border-radius:14px;background:linear-gradient(135deg,rgba(118,185,0,.04) 0%,rgba(42,128,200,.03) 60%,transparent 100%);pointer-events:none}
+.s0-card-top{background:linear-gradient(135deg,rgba(118,185,0,.08),rgba(42,128,200,.05));padding:22px 22px 16px;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;border-bottom:1px solid var(--border)}
+.s0-avatar{width:70px;height:70px;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(118,185,0,.3),rgba(42,128,200,.15));border:2.5px solid rgba(118,185,0,.4);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:rgba(118,185,0,.95);position:relative;box-shadow:0 0 0 6px rgba(118,185,0,.06),0 0 24px rgba(118,185,0,.15);overflow:hidden}
+.s0-avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:50%}
+.s0-name{font-size:18px;font-weight:800;color:var(--text);letter-spacing:-.02em}
+.s0-role{font-size:10.5px;color:rgba(118,185,0,.8);font-weight:600;letter-spacing:.04em}
+.s0-card-body{padding:16px 20px;display:flex;flex-direction:column;gap:12px;flex:1}
+.s0-pitch{font-size:11.5px;color:var(--text2);line-height:1.65}
+.s0-creds{display:flex;flex-direction:column;gap:6px}
+.s0-cred{display:flex;align-items:flex-start;gap:8px;font-size:10.5px;color:var(--text2);line-height:1.4}
+.s0-cred-dot{width:5px;height:5px;border-radius:50%;background:rgba(118,185,0,.6);flex-shrink:0;margin-top:4px}
+.s0-why-built{font-size:10.5px;font-style:italic;color:rgba(118,185,0,.7);padding:8px 12px;background:rgba(118,185,0,.04);border:1px solid rgba(118,185,0,.15);border-radius:7px;line-height:1.5}
+/* Bottom */
+.s0-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border)}
+.s0-hint{font-size:11px;color:var(--text3)}
+.s0-hint kbd{display:inline-block;padding:1px 7px;border:1px solid var(--border2);border-radius:4px;font-size:10px;font-family:var(--mono);background:var(--card2);color:var(--text2)}
+.s0-stat-row{display:flex;gap:18px}
+.s0-stat{text-align:center}
+.s0-stat-n{font-size:18px;font-weight:800;color:rgba(118,185,0,.9);letter-spacing:-.02em;line-height:1}
+.s0-stat-l{font-size:9px;font-weight:700;color:var(--text3);letter-spacing:.07em;text-transform:uppercase;margin-top:2px}
+.intro-hint kbd{display:inline-block;padding:1px 6px;border:1px solid var(--border2);border-radius:4px;font-size:10px;font-family:var(--mono);background:var(--card2);color:var(--text2)}
 
 /* -- Agenda slide -- */
 .agenda-grid{
@@ -1743,54 +1775,128 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
        SLIDE 01 &middot; INTRO
   ---------------------------------- -->
   <div class="slide" id="s0" data-title="Intro">
-  <div class="sc" style="gap:0;justify-content:center;align-items:center;text-align:center;min-height:100%">
+  <div class="s0-wrap">
 
-    <!-- Center lock -->
-    <div style="display:flex;flex-direction:column;align-items:center;gap:20px;padding:20px 0">
-
-      <!-- NVIDIA / DOCA logo mark -->
-      <div class="intro-mark a1">
-        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
-          <rect width="52" height="52" rx="13" fill="rgba(118,185,0,.08)" stroke="rgba(118,185,0,.35)" stroke-width="1.2"/>
-          <path d="M10 40V20l16-9 16 9v20l-16 9-16-9Z" stroke="#76b900" stroke-width="1.4" fill="none"/>
-          <circle cx="26" cy="27" r="5" fill="rgba(118,185,0,.2)" stroke="#76b900" stroke-width="1.2"/>
-          <circle cx="26" cy="27" r="2" fill="#76b900"/>
-        </svg>
-        <span class="intro-mark-label">DOCA</span>
+    <!-- Top bar -->
+    <div class="s0-top a1">
+      <div class="s0-eyebrow">
+        <div class="s0-logo">
+          <svg width="20" height="20" viewBox="0 0 52 52" fill="none">
+            <path d="M10 40V20l16-9 16 9v20l-16 9-16-9Z" stroke="#76b900" stroke-width="2" fill="none"/>
+            <circle cx="26" cy="27" r="4" fill="rgba(118,185,0,.35)" stroke="#76b900" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="s0-doca-label">DOCA &nbsp;&middot;&nbsp; NVIDIA</span>
       </div>
+      <span class="s0-meta">Product Strategy &nbsp;&middot;&nbsp; 2026</span>
+    </div>
 
-      <!-- Eyebrow -->
-      <div class="eyebrow a2" style="margin-bottom:0">NVIDIA &middot; DOCA Product Group &middot; 2026</div>
+    <!-- Split body -->
+    <div class="s0-body">
 
-      <!-- Title -->
-      <div class="intro-title a3"><span class="grad">DOCA Solution Blueprints</span></div>
+      <!-- LEFT: The Work -->
+      <div class="s0-left">
 
-      <!-- Subtitle -->
-      <div class="intro-sub a4">A Unified Product Strategy for AI Infrastructure</div>
-
-      <!-- Divider -->
-      <div class="intro-divider a5"></div>
-
-      <!-- Presenter -->
-      <div class="intro-presenter a5">
-        <div class="intro-photo-wrap">
-          <div class="intro-photo-ring">
-            <span class="intro-photo-initials">BR</span>
-            <img src="images/LindinnProfile.jfif" alt="Barak Rozenfeld" onerror="this.style.opacity=0">
-          </div>
-          <div class="intro-pres-text">
-            <div class="intro-name">Barak Rozenfeld</div>
-            <div class="intro-role">Candidate &middot; VP Product / Senior PM &middot; DOCA Platform</div>
-            <div class="intro-tagline">Infrastructure PM who ships at scale</div>
+        <div>
+          <div class="s0-title a2"><span class="grad">DOCA Solution Blueprints</span></div>
+          <div class="s0-subtitle a3" style="margin-top:10px">
+            A product strategy for turning NVIDIA&rsquo;s most advanced infrastructure platform into production deployments &mdash;
+            built from first principles, not from the feature list.
           </div>
         </div>
+
+        <div class="s0-hooks a4">
+
+          <div class="s0-hook">
+            <div class="s0-hook-dot" style="background:rgba(224,80,80,.7)"></div>
+            <div>
+              <div class="s0-hook-hd">The problem is real and quantified</div>
+              <div class="s0-hook-sub">87% of DOCA POCs fail before production. $350M idle in a $1B cluster. This deck starts there.</div>
+            </div>
+          </div>
+
+          <div class="s0-hook">
+            <div class="s0-hook-dot" style="background:rgba(118,185,0,.8)"></div>
+            <div>
+              <div class="s0-hook-hd">One strategic recommendation — fully derived</div>
+              <div class="s0-hook-sub">5 paths evaluated, 1 chosen. Every metric traces back to a baseline and a causal mechanism.</div>
+            </div>
+          </div>
+
+          <div class="s0-hook">
+            <div class="s0-hook-dot" style="background:rgba(82,168,255,.8)"></div>
+            <div>
+              <div class="s0-hook-hd">Execution discipline built in</div>
+              <div class="s0-hook-sub">MoSCoW priorities, risk matrix with before/after mitigation, and a developer UX journey — all in one deck.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="s0-flow a5">
+          <span class="s0-flow-step" style="background:rgba(224,80,80,.1);border:1px solid rgba(224,80,80,.25);color:rgba(224,80,80,.85)">Problem</span>
+          <span class="s0-flow-arrow">&rarr;</span>
+          <span class="s0-flow-step" style="background:rgba(212,130,10,.08);border:1px solid rgba(212,130,10,.22);color:rgba(212,130,10,.85)">Market</span>
+          <span class="s0-flow-arrow">&rarr;</span>
+          <span class="s0-flow-step" style="background:rgba(118,185,0,.07);border:1px solid rgba(118,185,0,.22);color:rgba(118,185,0,.85)">Strategy</span>
+          <span class="s0-flow-arrow">&rarr;</span>
+          <span class="s0-flow-step" style="background:rgba(138,92,246,.07);border:1px solid rgba(138,92,246,.22);color:rgba(168,130,255,.85)">Risk</span>
+          <span class="s0-flow-arrow">&rarr;</span>
+          <span class="s0-flow-step" style="background:rgba(82,168,255,.07);border:1px solid rgba(82,168,255,.22);color:rgba(82,168,255,.85)">Metrics</span>
+          <span class="s0-flow-arrow">&rarr;</span>
+          <span class="s0-flow-step" style="background:rgba(0,185,155,.07);border:1px solid rgba(0,185,155,.22);color:rgba(0,185,155,.85)">60% Adoption</span>
+        </div>
+
       </div>
 
-      <!-- Scroll hint -->
-      <div class="intro-hint a6">Press <kbd>&rarr;</kbd> to begin</div>
+      <!-- RIGHT: The Person -->
+      <div class="s0-right a3">
+
+        <div class="s0-card-top">
+          <div class="s0-avatar">
+            <span style="position:relative;z-index:1">BR</span>
+            <img src="images/LindinnProfile.jfif" alt="Barak Rozenfeld" onerror="this.style.display='none'">
+          </div>
+          <div>
+            <div class="s0-name">Barak Rozenfeld</div>
+            <div class="s0-role">Candidate &nbsp;&middot;&nbsp; VP Product / Senior PM</div>
+            <div class="s0-role" style="color:var(--text3);font-weight:500;margin-top:2px">DOCA Platform &nbsp;&middot;&nbsp; NVIDIA</div>
+          </div>
+        </div>
+
+        <div class="s0-card-body">
+          <div class="s0-pitch">
+            Infrastructure PM with deep domain knowledge in networking, DPU platforms, and AI infrastructure. I built this deck to give you a direct window into how I think &mdash; problem-first, strategy-driven, and number-accountable.
+          </div>
+
+          <div class="s0-creds">
+            <div class="s0-cred"><div class="s0-cred-dot"></div>Networking &middot; DPU &middot; AI infrastructure platforms</div>
+            <div class="s0-cred"><div class="s0-cred-dot"></div>System Engineering &middot; API/SDK strategy &middot; CI/CD</div>
+            <div class="s0-cred"><div class="s0-cred-dot"></div>Python &middot; C &middot; C# &middot; Systems Thinking</div>
+            <div class="s0-cred"><div class="s0-cred-dot"></div>Cursor AI &middot; Claude &middot; ChatGPT &middot; Synthesia</div>
+          </div>
+
+          <div class="s0-why-built">
+            &ldquo;This deck is not what I know about DOCA. It is how I think about product.&rdquo;
+          </div>
+        </div>
+
+      </div>
 
     </div>
-  </div><!-- /sc -->
+
+    <!-- Bottom bar -->
+    <div class="s0-bottom a6">
+      <div class="s0-hint">Press <kbd>&rarr;</kbd> to explore the strategy</div>
+      <div class="s0-stat-row">
+        <div class="s0-stat"><div class="s0-stat-n">17</div><div class="s0-stat-l">Slides</div></div>
+        <div class="s0-stat"><div class="s0-stat-n">5</div><div class="s0-stat-l">Paths evaluated</div></div>
+        <div class="s0-stat"><div class="s0-stat-n">1</div><div class="s0-stat-l">Recommendation</div></div>
+        <div class="s0-stat"><div class="s0-stat-n">60%</div><div class="s0-stat-l">Target adoption</div></div>
+      </div>
+    </div>
+
+  </div><!-- /s0-wrap -->
   </div><!-- /s0 -->
 
 
