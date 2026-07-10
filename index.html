@@ -905,7 +905,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 @media(max-width:700px){.sm-grid,.sm-star-inner{grid-template-columns:1fr}}
 
 /* -- How I Built This -- */
-#s_method.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
+#s_method.slide,#s_exec.slide{overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-y:contain}
 .method-sc{flex:none!important;min-height:100%;padding-bottom:40px!important;gap:16px!important}
 .method-hero{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
@@ -1058,17 +1058,40 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .moscow-should .moscow-dot{background:rgba(82,168,255,.7)}
 .moscow-could .moscow-dot{background:rgba(168,130,255,.7)}
 .moscow-wont .moscow-dot{background:rgba(130,130,150,.4)}
-/* Risk grid */
-.risk-list{display:flex;flex-direction:column;gap:8px}
-.risk-item{display:grid;grid-template-columns:auto 1fr auto;gap:8px 10px;align-items:start;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:10px 12px}
-.risk-prob{grid-column:1;grid-row:1/3;display:flex;flex-direction:column;gap:3px;align-items:center;min-width:42px}
-.risk-badge{font-size:8.5px;font-weight:800;letter-spacing:.08em;padding:2px 6px;border-radius:4px;text-transform:uppercase;text-align:center;white-space:nowrap}
-.rb-crit{color:rgba(224,80,80,.9);background:rgba(224,80,80,.12);border:1px solid rgba(224,80,80,.25)}
-.rb-high{color:rgba(212,130,10,.9);background:rgba(212,130,10,.1);border:1px solid rgba(212,130,10,.2)}
-.rb-med{color:rgba(168,130,255,.85);background:rgba(138,92,246,.08);border:1px solid rgba(138,92,246,.2)}
-.risk-name{font-size:11.5px;font-weight:700;color:var(--text)}
-.risk-mitigate{grid-column:2;font-size:10.5px;color:var(--text3);line-height:1.45}
-.risk-impact{grid-column:3;grid-row:1/3;font-size:9px;font-weight:700;text-align:right;color:var(--text3)}
+/* Risk Matrix */
+.rm-wrap{display:flex;flex-direction:column;gap:8px}
+.rm-grid{display:grid;grid-template-columns:62px repeat(4,1fr);gap:2px}
+.rm-corner{background:rgba(255,255,255,.02);border:1px solid var(--border);border-radius:5px 0 0 0;padding:4px;font-size:7.5px;color:var(--text3);display:flex;align-items:flex-end;justify-content:center;text-align:center;line-height:1.3}
+.rm-th{font-size:8.5px;font-weight:700;color:var(--text2);text-align:center;padding:5px 3px;background:rgba(255,255,255,.03);border:1px solid var(--border);line-height:1.3}
+.rm-label{font-size:8.5px;font-weight:600;color:var(--text2);padding:3px 5px;background:rgba(255,255,255,.02);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.3;min-height:38px}
+.rm-cell{border:1px solid rgba(255,255,255,.05);min-height:38px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:3px;padding:3px}
+.rm-c-red{background:rgba(224,80,80,.22)}
+.rm-c-orange{background:rgba(212,130,10,.18)}
+.rm-c-yellow{background:rgba(212,190,10,.1)}
+.rm-c-green{background:rgba(118,185,0,.08)}
+.rm-c-dim{background:rgba(255,255,255,.015)}
+.rm-badge{width:21px;height:21px;border-radius:50%;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;cursor:default}
+.rm-bd-red{background:rgba(224,80,80,.2);border:1.5px solid rgba(224,80,80,.6);color:rgba(255,120,120,.95)}
+.rm-bd-orange{background:rgba(212,130,10,.18);border:1.5px solid rgba(212,130,10,.6);color:rgba(230,160,30,.95)}
+.rm-bd-yellow{background:rgba(212,190,10,.15);border:1.5px solid rgba(212,190,10,.5);color:rgba(220,200,30,.95)}
+/* Zone labels */
+.rm-zone-row{display:grid;grid-template-columns:62px repeat(4,1fr);gap:2px}
+.rm-zone-lbl{font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:center;padding:2px 3px;border-radius:3px}
+.rm-zone-high{color:rgba(224,80,80,.8);background:rgba(224,80,80,.07)}
+.rm-zone-serious{color:rgba(212,130,10,.8);background:rgba(212,130,10,.07)}
+.rm-zone-med{color:rgba(212,190,10,.8);background:rgba(212,190,10,.06)}
+.rm-zone-low{color:rgba(118,185,0,.8);background:rgba(118,185,0,.06)}
+/* Risk register */
+.rm-register{display:flex;flex-direction:column;gap:4px;margin-top:2px}
+.rm-reg-item{display:grid;grid-template-columns:22px 1fr;grid-template-rows:auto auto;gap:2px 8px;padding:6px 9px;background:var(--card);border:1px solid var(--border);border-radius:7px;align-items:start}
+.rm-reg-n{width:22px;height:22px;border-radius:50%;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;grid-row:1/3}
+.rm-reg-top{display:flex;align-items:center;gap:7px}
+.rm-reg-name{font-size:11px;font-weight:700;color:var(--text);flex:1}
+.rm-reg-lv{font-size:8px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;padding:1px 6px;border-radius:3px;white-space:nowrap}
+.rm-lv-high{color:rgba(224,80,80,.9);background:rgba(224,80,80,.1);border:1px solid rgba(224,80,80,.25)}
+.rm-lv-serious{color:rgba(212,130,10,.9);background:rgba(212,130,10,.1);border:1px solid rgba(212,130,10,.2)}
+.rm-lv-med{color:rgba(212,190,10,.85);background:rgba(212,190,10,.08);border:1px solid rgba(212,190,10,.2)}
+.rm-reg-mit{grid-column:2;font-size:10px;color:var(--text3);line-height:1.4}
 /* UX journey */
 .ux-journey{display:flex;flex-direction:column;gap:6px}
 .ux-steps{display:flex;gap:0;align-items:stretch;border-radius:10px;overflow:hidden;border:1px solid var(--border)}
@@ -3695,29 +3718,97 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     <!-- Risk + UX (2 columns) -->
     <div class="exec-grid a3">
 
-      <!-- Risk Assessment -->
+      <!-- Risk Assessment Matrix -->
       <div>
-        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:6px">Risk Assessment</div>
-        <div class="risk-list">
-          <div class="risk-item">
-            <div class="risk-prob"><span class="risk-badge rb-crit">Critical</span><span style="font-size:9px;color:var(--text3);margin-top:2px">Prob: High</span></div>
-            <div class="risk-name">Adoption Stall &ndash; last-mile integration still fails</div>
-            <div class="risk-impact">Impact<br>Critical</div>
-            <div class="risk-mitigate"><strong style="color:rgba(118,185,0,.8)">Mitigation:</strong> Customer Success program + 90-day deployment SLA. Blueprint pre-flight checklist catches 80% of integration failures before they happen.</div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:7px">Risk Assessment Matrix &nbsp;&middot;&nbsp; Probability &times; Impact</div>
+        <div class="rm-wrap">
+
+          <!-- Matrix grid -->
+          <div class="rm-grid">
+            <!-- Header row -->
+            <div class="rm-corner">PROB &darr;&nbsp;/&nbsp;IMPACT &rarr;</div>
+            <div class="rm-th">Catastrophic</div>
+            <div class="rm-th">Critical</div>
+            <div class="rm-th">Marginal</div>
+            <div class="rm-th">Negligible</div>
+            <!-- High probability row -->
+            <div class="rm-label">High</div>
+            <div class="rm-cell rm-c-red"></div>
+            <div class="rm-cell rm-c-red"><div class="rm-badge rm-bd-red" title="Adoption Stall">1</div></div>
+            <div class="rm-cell rm-c-orange"><div class="rm-badge rm-bd-orange" title="Blueprint Mis-prioritization">3</div></div>
+            <div class="rm-cell rm-c-yellow"></div>
+            <!-- Medium probability row -->
+            <div class="rm-label">Medium</div>
+            <div class="rm-cell rm-c-red"><div class="rm-badge rm-bd-red" title="Hyperscaler In-house">2</div></div>
+            <div class="rm-cell rm-c-orange"><div class="rm-badge rm-bd-orange" title="API Fragmentation">4</div></div>
+            <div class="rm-cell rm-c-yellow"></div>
+            <div class="rm-cell rm-c-dim"></div>
+            <!-- Low probability row -->
+            <div class="rm-label">Low</div>
+            <div class="rm-cell rm-c-orange"></div>
+            <div class="rm-cell rm-c-yellow"><div class="rm-badge rm-bd-yellow" title="Partner Execution">5</div></div>
+            <div class="rm-cell rm-c-green"></div>
+            <div class="rm-cell rm-c-dim"></div>
           </div>
-          <div class="risk-item">
-            <div class="risk-prob"><span class="risk-badge rb-high">High</span><span style="font-size:9px;color:var(--text3);margin-top:2px">Prob: Med</span></div>
-            <div class="risk-name">Hyperscaler In-house &ndash; AWS/Azure/GCP solve it themselves</div>
-            <div class="risk-impact">Impact<br>High</div>
-            <div class="risk-mitigate"><strong style="color:rgba(118,185,0,.8)">Mitigation:</strong> Own the open standard before they do. Partner ecosystem + SI certification creates switching cost. Blueprint catalog breadth beats a captive solution.</div>
+
+          <!-- Zone legend -->
+          <div class="rm-zone-row">
+            <div></div>
+            <div class="rm-zone-lbl rm-zone-high" style="grid-column:2/4">High Risk</div>
+            <div class="rm-zone-lbl rm-zone-serious">Serious</div>
+            <div class="rm-zone-lbl rm-zone-med">Medium</div>
           </div>
-          <div class="risk-item">
-            <div class="risk-prob"><span class="risk-badge rb-med">Medium</span><span style="font-size:9px;color:var(--text3);margin-top:2px">Prob: Med</span></div>
-            <div class="risk-name">API Fragmentation &ndash; DOCA SDK changes break Blueprints</div>
-            <div class="risk-impact">Impact<br>Med</div>
-            <div class="risk-mitigate"><strong style="color:rgba(118,185,0,.8)">Mitigation:</strong> Blueprint versioning system + backward compatibility SLA. SDK breaking changes require Blueprint-team sign-off before release.</div>
-          </div>
-        </div>
+
+          <!-- Risk register -->
+          <div class="rm-register">
+
+            <div class="rm-reg-item">
+              <div class="rm-reg-n rm-bd-red">1</div>
+              <div class="rm-reg-top">
+                <div class="rm-reg-name">Adoption Stall &ndash; last-mile integration fails</div>
+                <span class="rm-reg-lv rm-lv-high">High</span>
+              </div>
+              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Customer Success + 90-day deployment SLA. Blueprint pre-flight checklist catches 80% of failures before they happen.</div>
+            </div>
+
+            <div class="rm-reg-item">
+              <div class="rm-reg-n rm-bd-red">2</div>
+              <div class="rm-reg-top">
+                <div class="rm-reg-name">Hyperscaler In-house &ndash; AWS / Azure / GCP ship their own</div>
+                <span class="rm-reg-lv rm-lv-high">High</span>
+              </div>
+              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Own the open standard first. Partner ecosystem + SI certification creates switching cost that a captive solution can't replicate.</div>
+            </div>
+
+            <div class="rm-reg-item">
+              <div class="rm-reg-n rm-bd-orange">3</div>
+              <div class="rm-reg-top">
+                <div class="rm-reg-name">Blueprint Mis-prioritization &ndash; wrong use case chosen first</div>
+                <span class="rm-reg-lv rm-lv-serious">Serious</span>
+              </div>
+              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Quarterly customer advisory board validates priority ranking. Year 1 Blueprint tied to #1 customer pain (AI cluster networking) with measurable TAM.</div>
+            </div>
+
+            <div class="rm-reg-item">
+              <div class="rm-reg-n rm-bd-orange">4</div>
+              <div class="rm-reg-top">
+                <div class="rm-reg-name">API Fragmentation &ndash; DOCA SDK breaks Blueprint versions</div>
+                <span class="rm-reg-lv rm-lv-serious">Serious</span>
+              </div>
+              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Blueprint versioning system + backward compatibility SLA. SDK breaking changes require Blueprint-team sign-off before release.</div>
+            </div>
+
+            <div class="rm-reg-item">
+              <div class="rm-reg-n rm-bd-yellow">5</div>
+              <div class="rm-reg-top">
+                <div class="rm-reg-name">Partner Execution &ndash; SI quality varies in the field</div>
+                <span class="rm-reg-lv rm-lv-med">Medium</span>
+              </div>
+              <div class="rm-reg-mit"><strong style="color:rgba(118,185,0,.75)">Mitigation:</strong> Partner certification program with mandatory Blueprint validation. Certified SIs get co-marketing access; non-certified don't.</div>
+            </div>
+
+          </div><!-- /rm-register -->
+        </div><!-- /rm-wrap -->
       </div>
 
       <!-- Developer UX Journey -->
